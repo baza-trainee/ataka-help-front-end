@@ -1,0 +1,1 @@
+export type {IFeedbackForm} from './IFeedbackForm'
