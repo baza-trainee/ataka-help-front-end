@@ -1,9 +1,18 @@
-import { FC } from "react";
+import { FC } from 'react';
 
-const Header : FC = () => {
-    return (
-        <header></header>
-    )
-}
+import { MainHeader } from './Header.styled';
+import Navigation from '../Navigation/Navigation';
+import PaymentButton from '../PaymentButton/PaymentButton';
+import Logo from '../Logo/Logo';
+
+const Header: FC = () => {
+  return (
+    <MainHeader>
+      <Logo/>
+      <Navigation />
+      <PaymentButton />
+    </MainHeader>
+  );
+};
 
 export default Header;
