@@ -20,10 +20,6 @@ export const StyledFooter = styled.footer`
   line-height: 150%;
   color: rgb(255, 255, 255);
 
-  & li {
-    list-style: none;
-  }
-
   /* ----- top block ----- */
   & .topBlock {
     display: flex;
