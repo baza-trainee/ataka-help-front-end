@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 
 import { Section, TitleH1, TitleH2, StyledText, StyledDiv, StyledDivImg, StyledLink, StyledDivWrap } from "./Page404.styles";
 import image from "../../assets/rectangle.png";
@@ -16,6 +15,6 @@ export default function Page404 () {
           <Image src={image} alt="Image" width={466} height={466}/>
         </StyledDivImg>
       </StyledDiv>
-      <Link href="/" legacyBehavior><StyledLink>На головну</StyledLink></Link>
+      <StyledLink href="/">На головну</StyledLink>
     </Section>
 }
