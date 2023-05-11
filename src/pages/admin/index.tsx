@@ -1,5 +1,4 @@
 import Head from "next/head";
-import CardForm from "@/components/AdminPanel/CardForm/CardForm";
 
 export default function Admin() {
   return (
@@ -12,7 +11,6 @@ export default function Admin() {
       </Head>
       <main>
         <h1>Сторінка адміну</h1>
-        <CardForm />
       </main>
     </>
   );

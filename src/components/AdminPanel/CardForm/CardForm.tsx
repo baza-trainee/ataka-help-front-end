@@ -18,7 +18,7 @@ const CardForm: FC = () => {
       thumb: [],
       alt: "",
       title: "",
-      description: [""],
+      description: [{ item: "" }],
     },
   });
 
@@ -32,7 +32,10 @@ const CardForm: FC = () => {
     formData.append("thumb", data.thumb[0]);
     formData.append("alt", data.alt);
     formData.append("title", data.title);
-    formData.append("description", data.description);
+    formData.append(
+      "description",
+      JSON.stringify(data.description.map(({ item }) => item))
+    );
     console.log(data);
   };
 
@@ -40,7 +43,7 @@ const CardForm: FC = () => {
     <form onSubmit={handleSubmit(onSubmitHandler)}>
       <input
         type="file"
-        accept="image/*,.png,.jpg,.webP"
+        accept="image/*,.png,.jpg,.webp"
         {...register("thumb")}
       />
       {errors.thumb && <p>{errors.thumb.message}</p>}
@@ -53,15 +56,21 @@ const CardForm: FC = () => {
 
       {fields.map((field, index) => (
         <div key={field.id}>
-          <input type="text" {...register(`description.${index}`)} />
-          {errors.description && <p>{errors?.description[index]?.message}</p>}
-          <button onClick={() => remove(index)} type="button">
-            Delete field
-          </button>
+          <input type="text" {...register(`description.${index}.item`)} />
+          {errors.description && (
+            <p>
+              {index === 0 ? "Обов'язкове поле" : "Заповніть поле або видаліть"}
+            </p>
+          )}
+          {index > 0 && (
+            <button onClick={() => remove(index)} type="button">
+              Delete field
+            </button>
+          )}
         </div>
       ))}
 
-      <button onClick={() => append("")} type="button">
+      <button onClick={() => append({ item: "" })} type="button">
         Add field
       </button>
 
