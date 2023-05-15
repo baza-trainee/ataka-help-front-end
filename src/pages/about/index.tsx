@@ -10,7 +10,7 @@ export default function Cases() {
           <link rel="icon" href="/favicon.ico" />
         </Head>
        <main>
-        <h1>Сторінка випадків</h1>
+        <h1>Про проєкт</h1>
        </main>
        
       </>
