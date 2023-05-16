@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-export const Box = styled("div")`
+export const Box = styled.div`
   position: fixed;
   left: 0;
   bottom: 0;
@@ -27,7 +27,7 @@ export const Box = styled("div")`
   }
 `;
 
-export const BtnStyled = styled("button")`
+export const BtnStyled = styled.button`
   width: 64px;
   height: 64px;
   background-color: ${(p) => p.theme.colors.blue[100]};
