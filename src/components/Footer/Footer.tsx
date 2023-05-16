@@ -16,6 +16,7 @@ const Footer: FC = () => {
         <div className="topBlock-info">
           <Image src={logoFooter} width={150} height={58} alt="logo" />
         </div>
+
         <ul className="topBlock-nav">
           <li>
             <Link href="/"> Про проект</Link>
