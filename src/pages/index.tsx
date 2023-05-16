@@ -6,6 +6,7 @@ import About from "@/components/About";
 import PartnersGallery from "@/components/PartnersGallery";
 import Donate from "@/components/Donate";
 import Footer from "@/components/Footer";
+import CookieConsentBanner from "@/components/CookieConsentBanner/CookieConsentBanner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,6 +28,7 @@ export default function Home() {
         <Donate />
       </main>
       <Footer />
+      <CookieConsentBanner />
     </>
   );
 }
