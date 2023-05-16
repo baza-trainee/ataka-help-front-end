@@ -1,6 +1,7 @@
 import { FC } from "react";
 
-import NavLink from "../NavLink/NavLink";
+import NavLink from "../NavLink";
+import FileOpenLink from "../FileOpenLink";
 
 import logo from "../../assets/logo.png";
 import phoneIcon from "../../assets/icons/phone.svg";
@@ -17,7 +18,6 @@ import {
   IconList,
   Copyright,
   ContactsText,
-  ContactItem,
   IconLink,
   ContactsList,
   LinkList,
@@ -33,35 +33,53 @@ const Footer: FC = () => {
           </div>
           <LinkList>
             <li>
-              <NavLink href="/" name={"Інциденти"} />
+              <NavLink href="/" name="Інциденти" fs="20px" lh="150%" />
             </li>
             <li>
-              <NavLink href="/about" name={"Про проєкт"} />
+              <NavLink href="/about" name="Про проєкт" fs="20px" lh="150%" />
             </li>
             <li>
-              <p>Звітність</p>
+              <FileOpenLink text="Звітність" path="/example.pdf" td="none" />
             </li>
             <li>
-              <p>Політика конфіденційності</p>
+              <FileOpenLink
+                text="Політика конфіденційності"
+                path="/example.pdf"
+                td="underline"
+              />
             </li>
             <li>
-              <p>Правила користування сайтом</p>
+              <FileOpenLink
+                text="Правила користування сайтом"
+                path="/example.pdf"
+                td="underline"
+              />
             </li>
           </LinkList>
           <ContactsWrapper>
             <ContactsList>
-              <ContactItem>
-                <Image src={phoneIcon} alt="phoneIcon" width={24} height={24} />
+              <li>
                 <ContactsText href="tel:380932830000">
+                  <Image
+                    src={phoneIcon}
+                    alt="phoneIcon"
+                    width={24}
+                    height={24}
+                  />
                   +38 063 628 6630
                 </ContactsText>
-              </ContactItem>
-              <ContactItem>
-                <Image src={emailIcon} alt="emailIcon" width={24} height={24} />
+              </li>
+              <li>
                 <ContactsText href="mailto:example@gmail.com">
+                  <Image
+                    src={emailIcon}
+                    alt="emailIcon"
+                    width={24}
+                    height={24}
+                  />
                   info@ataka-help.com.ua
                 </ContactsText>
-              </ContactItem>
+              </li>
             </ContactsList>
 
             <IconList>

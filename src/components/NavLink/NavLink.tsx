@@ -2,10 +2,10 @@ import { FC } from 'react';
 import Link from 'next/link';
 import { StyledLink } from "./NavLink.styled";
 
-const NavLink: FC<{href:string, name:string}> = ({href, name}) => {
+const NavLink: FC<{href:string, name:string, fs:string, lh:string}> = ({href, name, fs, lh}) => {
     return (
         <Link href={href} passHref legacyBehavior>
-            <StyledLink>{name}</StyledLink>
+            <StyledLink style={{fontSize: fs, lineHeight: lh}}>{name}</StyledLink>
         </Link>
     )
 }

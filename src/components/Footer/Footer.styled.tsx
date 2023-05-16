@@ -49,6 +49,9 @@ export const Copyright = styled.p`
 `;
 
 export const ContactsText = styled.a`
+ display: flex;
+  align-items: center;
+  gap: 16px;
   font-family: "Montserrat";
   font-style: normal;
   font-weight: 500;
@@ -61,12 +64,6 @@ export const ContactsList = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 15px;
-`;
-
-export const ContactItem = styled.li`
-  display: flex;
-  align-items: center;
-  gap: 16px;
 `;
 
 export const IconLink = styled(Link)`

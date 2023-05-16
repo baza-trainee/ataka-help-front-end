@@ -11,7 +11,6 @@ import FileOpenLink from "@/components/FileOpenLink";
 
 import CookieConsentBanner from "@/components/CookieConsentBanner/CookieConsentBanner";
 
-
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
@@ -30,10 +29,9 @@ export default function Home() {
         <About />
         <PartnersGallery />
         <Donate />
-        <FileOpenLink path="/M8 FAQ_Russian.pdf" text="text" />
       </main>
       <Footer />
-      <CookieConsentBanner />
+      {/* <CookieConsentBanner /> */}
     </>
   );
 }

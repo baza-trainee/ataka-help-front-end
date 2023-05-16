@@ -1,9 +1,9 @@
 import { FC, useState } from "react";
 import { IFileOpenLink } from "@/types";
 import Modal from "../Modal/Modal";
-import { Iframe } from "./FileOpenLink.styled";
+import { Iframe, Link } from "./FileOpenLink.styled";
 
-const FileOpenLink: FC<IFileOpenLink> = ({ text, path }) => {
+const FileOpenLink: FC<IFileOpenLink> = ({ text, path, td }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const clickTextHandler = () => setIsModalOpen(true);
@@ -15,7 +15,7 @@ const FileOpenLink: FC<IFileOpenLink> = ({ text, path }) => {
           <Iframe src={`${path}#view=fitH`}></Iframe>
         </Modal>
       )}
-      <span onClick={clickTextHandler}>{text}</span>
+      <Link onClick={clickTextHandler} style={{textDecoration: td}}>{text}</Link>
     </>
   );
 };
