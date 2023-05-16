@@ -1,72 +1,81 @@
 import styled from "@emotion/styled";
+import Link from "next/link";
 
 export const StyledFooter = styled.footer`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  position: relative;
+  padding-top: 52px;
+  padding-bottom: 32px;
+  background-color: ${({ theme }) => theme.colors.blue[100]};
+`;
 
-  padding-top: 90px;
-  padding-bottom: 46px;
+export const Container = styled.div`
   margin-left: auto;
   margin-right: auto;
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
+    padding-left: 80px;
+    padding-right: 80px;
+    width: 1440px;
+  }
+`;
 
-  height: 460px;
+export const Wrapper = styled.div`
+  display: flex;
+  margin-bottom: 26px;
+  justify-content: space-between;
+  border-bottom: 1px solid #b2bfce;
+`;
 
-  background-color: #848282;
+export const ContactsWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 93px;
+  margin-bottom: 44px;
+`;
 
-  font-family: "Inter";
-  font-weight: 400;
-  font-size: 14px;
+export const IconList = styled.ul`
+  display: flex;
+  align-self: flex-end;
+  justify-content: center;
+  gap: 20px;
+`;
+
+export const Copyright = styled.p`
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
   line-height: 150%;
-  color: rgb(255, 255, 255);
+  color: ${({ theme }) => theme.colors.white[100]};
+`;
 
-  /* ----- top block ----- */
-  & .topBlock {
-    display: flex;
+export const ContactsText = styled.a`
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 150%;
+  color: ${({ theme }) => theme.colors.white[100]};
+`;
 
-    margin-bottom: 26px;
-    padding-bottom: 78px;
+export const ContactsList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+`;
 
-    width: 1075px;
+export const ContactItem = styled.li`
+  display: flex;
+  align-items: center;
+  gap: 16px;
+`;
 
-    border-bottom: solid 1px rgba(255, 255, 255, 0.25);
-  }
+export const IconLink = styled(Link)`
+  display: flex;
+  align-items: center;
+`;
 
-  & .topBlock-nav {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    margin-left: 219px;
-    color: rgba(255, 255, 255, 0.7);
-  }
-
-  & .topBlock-contacts {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-
-    margin-left: 158px;
-
-    & li {
-      display: flex;
-      gap: 12px;
-    }
-  }
-  /* ----- bottom block ----- */
-  & .bottomBlock {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    width: 1075px;
-
-    & .bottomBlock-social {
-      display: flex;
-      gap: 27px;
-    }
-
-    & p {
-      margin-left: auto;
-    }
-  }
+export const LinkList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 `;
