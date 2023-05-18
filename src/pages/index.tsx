@@ -6,7 +6,11 @@ import About from "@/components/About";
 import PartnersGallery from "@/components/PartnersGallery";
 import Donate from "@/components/Donate";
 import Footer from "@/components/Footer";
+
 import FileOpenLink from "@/components/FileOpenLink";
+
+import CookieConsentBanner from "@/components/CookieConsentBanner/CookieConsentBanner";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,6 +33,7 @@ export default function Home() {
         <FileOpenLink path="/M8 FAQ_Russian.pdf" text="text" />
       </main>
       <Footer />
+      <CookieConsentBanner />
     </>
   );
 }
