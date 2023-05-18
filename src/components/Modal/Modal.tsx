@@ -10,17 +10,33 @@ const Modal: FC<IModal> = ({ children, setIsModalOpen }) => {
   const modalRootRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
+    const pressEscCloseModalHandler = (event: any) => {
+      if (event.code === "Escape") {
+        setIsModalOpen(false);
+      }
+    };
+
     modalRootRef.current = document.getElementById("modal-root");
     setMounted(true);
-  }, []);
+    document.addEventListener("keydown", pressEscCloseModalHandler);
+
+    return () =>
+      document.removeEventListener("keydown", pressEscCloseModalHandler);
+  }, [setIsModalOpen]);
 
   const closeModalHendler = () => {
     setIsModalOpen(false);
   };
 
+  const onBackdropClickHankler = (event: any) => {
+    if (event.currentTarget === event.target) {
+      setIsModalOpen(false);
+    }
+  };
+
   return mounted && modalRootRef.current
     ? createPortal(
-        <Backdrop>
+        <Backdrop onClick={onBackdropClickHankler}>
           <Wrapper>
             <CloseIcon
               src={closeIcon}
