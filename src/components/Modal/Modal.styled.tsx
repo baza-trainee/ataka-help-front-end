@@ -1,3 +1,4 @@
+import { theme } from "@/theme";
 import styled from "@emotion/styled";
 import Image from "next/image";
 
@@ -15,10 +16,12 @@ export const Wrapper = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
+  border-top: solid ${theme.colors.white[100]} 16px;
   transform: translate(-50%, -50%);
 `;
 
 export const CloseIcon = styled(Image)`
-  display: block;
-  margin-left: auto;
+  position: absolute;
+  right: 0;
+  top: -16px;
 `;
