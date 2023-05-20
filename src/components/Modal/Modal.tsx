@@ -1,4 +1,4 @@
-import { FC, useEffect, useRef, useState } from "react";
+import { FC, MouseEvent, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { IModal } from "@/types";
 import { Global } from "@emotion/react";
@@ -10,7 +10,7 @@ const Modal: FC<IModal> = ({ children, setIsModalOpen }) => {
   const modalRootRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
-    const pressEscCloseModalHandler = (event: any) => {
+    const pressEscCloseModalHandler = (event: KeyboardEvent) => {
       if (event.code === "Escape") {
         setIsModalOpen(false);
       }
@@ -28,7 +28,7 @@ const Modal: FC<IModal> = ({ children, setIsModalOpen }) => {
     setIsModalOpen(false);
   };
 
-  const onBackdropClickHankler = (event: any) => {
+  const onBackdropClickHankler = (event: MouseEvent) => {
     if (event.currentTarget === event.target) {
       setIsModalOpen(false);
     }
