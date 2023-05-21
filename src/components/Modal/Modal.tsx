@@ -40,6 +40,8 @@ const Modal: FC<IModal> = ({ children, setIsModalOpen }) => {
           <Wrapper>
             <CloseIcon
               src={closeIcon}
+              width={20}
+              height={20}
               alt="close icon"
               onClick={closeModalHendler}
             />
