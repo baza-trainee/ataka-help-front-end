@@ -2,7 +2,6 @@ import { FC } from "react";
 
 import NavLink from "../NavLink/NavLink";
 
-import logo from "../../assets/logo.png";
 import phoneIcon from "../../assets/icons/phone.svg";
 import linkedinIcon from "../../assets/icons/linkedin.svg";
 import facebookIcon from "../../assets/icons/facebook.svg";
@@ -29,7 +28,7 @@ const Footer: FC = () => {
       <Container>
         <Wrapper>
           <div>
-            <Image src={logo} width={354} height={181} alt="logo" />
+            <Image src="/images/logo-footer.png" width={338} height={115} alt="logo" />
           </div>
           <LinkList>
             <li>
