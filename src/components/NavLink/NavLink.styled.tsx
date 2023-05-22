@@ -1,25 +1,12 @@
 import styled from "@emotion/styled";
-import { Theme } from "@emotion/react";
 import { css } from "@emotion/react";
-
-interface LinkProps {
-  isUnderlined?: boolean;
-  isFooter?: boolean;
-  isButton?: boolean;
-  children: string;
-}
-
-interface StyledProps {
-  isUnderlined?: boolean;
-  isFooter?: boolean;
-  theme: Theme;
-}
+import { ILinkProps, IStyledLinkProps } from "@/types";
 
 const linkStyles = ({
   theme,
   isUnderlined = false,
   isFooter = false,
-}: StyledProps) => css`
+}: IStyledLinkProps) => css`
   font-size: ${isFooter ? "22px" : "20px"};
   text-decoration: ${isUnderlined ? "underline" : "none"};
   color: ${theme.colors.white[100]};
@@ -35,6 +22,6 @@ const buttonStyles = () => css`
   cursor: pointer;
 `;
 
-export const StyledLink = styled.a<LinkProps>`
+export const StyledLink = styled.a<ILinkProps>`
   ${({ isButton = false }) => (isButton ? buttonStyles : linkStyles)};
 `;
