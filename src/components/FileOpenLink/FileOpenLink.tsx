@@ -42,7 +42,7 @@ const FileOpenLink: FC<IFileOpenLink> = ({ text, path, isTextUnderline }) => {
 
   const createContextForCanvas = async (
     pdf: PDFJS.PDFDocumentProxy,
-    pageNo: number
+    pageNo: number,
   ) => {
     const page: PDFJS.PDFPageProxy = await pdf.getPage(pageNo);
     const container = pageRenderRef.current as HTMLUListElement;
