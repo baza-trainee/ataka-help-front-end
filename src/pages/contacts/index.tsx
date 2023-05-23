@@ -5,7 +5,7 @@ import FeedbackForm from "@/components/FeedbackForm";
 
 const Contacts: NextPage = () => {
   return (
-    <UserLayout title={"Contacts"}>
+    <UserLayout title="Contacts">
       <FeedbackForm />
     </UserLayout>
   );
