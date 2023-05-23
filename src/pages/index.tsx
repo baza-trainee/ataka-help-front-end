@@ -27,7 +27,6 @@ export default function Home() {
         <About />
         <PartnersGallery />
         <Donate />
-        <FileOpenLink path="/M8 FAQ_Russian.pdf" text="text" />
       </main>
       <Footer />
       <CookieConsentBanner />

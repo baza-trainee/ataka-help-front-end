@@ -1,11 +1,11 @@
-import { FC, useEffect, useRef, useState } from "react";
+import { FC, useRef, useState } from "react";
 import * as PDFJS from "pdfjs-dist";
 PDFJS.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${PDFJS.version}/pdf.worker.min.js`;
 import { IFileOpenLink } from "@/types";
 import Modal from "../Modal/Modal";
-import { FileWrapper } from "./FileOpenLink.styled";
+import { FileWrapper, OpenLink } from "./FileOpenLink.styled";
 
-const FileOpenLink: FC<IFileOpenLink> = ({ text, path }) => {
+const FileOpenLink: FC<IFileOpenLink> = ({ text, path, isTextUnderline }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const pageRenderRef = useRef<HTMLUListElement>(null);
 
@@ -78,7 +78,9 @@ const FileOpenLink: FC<IFileOpenLink> = ({ text, path }) => {
           <FileWrapper ref={pageRenderRef}></FileWrapper>
         </Modal>
       )}
-      <span onClick={clickTextHandler}>{text}</span>
+      <OpenLink onClick={clickTextHandler} isTextUnderline={isTextUnderline}>
+        {text}
+      </OpenLink>
     </>
   );
 };
