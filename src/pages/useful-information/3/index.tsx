@@ -5,7 +5,7 @@ import UserLayout from "@/components/UserLayout/UserLayout";
 const TwoFactorAuthentication: NextPage = () => {
   return (
     <UserLayout title="TwoFactorAuthentication">
- 
+      <div></div>
     </UserLayout>
   );
 };

@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import styled from "@emotion/styled";
 import Link from "next/link";
 
 export const Section = styled.section`
@@ -34,9 +34,9 @@ export const StyledDivWrap = styled.div`
 `;
 
 export const StyledDivImg = styled.div`
-   overflow: hidden;
-   display: flex;
-   border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  border-radius: 50%;
 `;
 
 export const StyledLink = styled(Link)`
@@ -46,7 +46,6 @@ export const StyledLink = styled(Link)`
   display: block;
   max-width: 255px;
   border-radius: 5px;
-  background-color: #ACA9A9;
+  background-color: #aca9a9;
   text-align: center;
 `;
-

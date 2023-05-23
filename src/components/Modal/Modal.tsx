@@ -55,7 +55,7 @@ const Modal: FC<IModal> = ({ children, setIsModalOpen }) => {
             }}
           />
         </Backdrop>,
-        modalRootRef.current
+        modalRootRef.current,
       )
     : null;
 };

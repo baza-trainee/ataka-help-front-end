@@ -10,7 +10,7 @@ export const Box = styled.div`
   gap: 65px;
   padding: 38px 80px;
   background-color: #656fb4;
-  color: ${(p) => p.theme.colors.white[100]};
+  color: ${p => p.theme.colors.white[100]};
   & h3 {
     font-weight: 500;
     font-size: 20px;
@@ -30,7 +30,7 @@ export const Box = styled.div`
 export const BtnStyled = styled.button`
   width: 64px;
   height: 64px;
-  background-color: ${(p) => p.theme.colors.blue[100]};
-  color: ${(p) => p.theme.colors.white[100]};
+  background-color: ${p => p.theme.colors.blue[100]};
+  color: ${p => p.theme.colors.white[100]};
   border: none;
 `;

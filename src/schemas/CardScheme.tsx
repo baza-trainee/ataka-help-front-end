@@ -14,7 +14,7 @@ export const CardScheme = yup
         return (
           value?.length &&
           ["image/jpeg", "image/png", "image/jpg", "image/webp"].includes(
-            value[0].type
+            value[0].type,
           )
         );
       }),
@@ -33,7 +33,7 @@ export const CardScheme = yup
       .of(
         yup.object().shape({
           item: yup.string().required(),
-        })
+        }),
       )
       .required(),
   })

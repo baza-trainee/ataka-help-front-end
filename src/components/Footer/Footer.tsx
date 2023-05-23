@@ -28,15 +28,16 @@ const Footer: FC = () => {
       <Container>
         <Wrapper>
           <div>
-            <Image src="/images/logo-footer.png" width={338} height={115} alt="logo" />
+            <Image
+              src="/images/logo-footer.png"
+              width={338}
+              height={115}
+              alt="logo"
+            />
           </div>
           <LinkList>
-            <li>
-              {/* <NavLink href="/" name={"Інциденти"} /> */}
-            </li>
-            <li>
-              {/* <NavLink href="/about" name={"Про проєкт"} /> */}
-            </li>
+            <li>{/* <NavLink href="/" name={"Інциденти"} /> */}</li>
+            <li>{/* <NavLink href="/about" name={"Про проєкт"} /> */}</li>
             <li>
               <p>Звітність</p>
             </li>

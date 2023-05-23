@@ -18,7 +18,7 @@ const ReportForm: FC = () => {
     },
   });
   console.log(errors);
-  const onSubmitHandler: SubmitHandler<IReportForm> = async (data) => {
+  const onSubmitHandler: SubmitHandler<IReportForm> = async data => {
     const formData = new FormData();
     formData.append("thumb", data.thumb[0]);
 

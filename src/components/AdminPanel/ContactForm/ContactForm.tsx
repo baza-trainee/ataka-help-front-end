@@ -18,7 +18,7 @@ const ContactForm: FC = () => {
     },
   });
 
-  const onSubmitHandler: SubmitHandler<IContactForm> = async (data) => {
+  const onSubmitHandler: SubmitHandler<IContactForm> = async data => {
     console.log(data);
   };
 

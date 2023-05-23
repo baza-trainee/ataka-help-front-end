@@ -5,7 +5,7 @@ import UserLayout from "@/components/UserLayout/UserLayout";
 const HowToChangePassword: NextPage = () => {
   return (
     <UserLayout title="HowToChangePassword">
-      
+      <div></div>
     </UserLayout>
   );
 };

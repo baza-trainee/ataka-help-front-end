@@ -4,7 +4,6 @@ import PaymentButton from "../PaymentButton";
 
 import { Section, Title } from "./Donate.styled";
 
-
 const Donate: FC = () => {
   return (
     <Section>

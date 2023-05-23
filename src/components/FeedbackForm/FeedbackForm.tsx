@@ -16,7 +16,7 @@ import {
 } from "./FeedbackForm.styled";
 
 const FeedbackForm: FC = () => {
-  const captchaRef= useRef<ReCAPTCHA>(null);
+  const captchaRef = useRef<ReCAPTCHA>(null);
   const [isChecked, setIsChecked] = useState(false);
 
   const {
@@ -47,7 +47,7 @@ const FeedbackForm: FC = () => {
     const formData = { ...data, token: token };
     console.log(formData);
     captchaRef.current?.reset();
-    setIsChecked(false);    
+    setIsChecked(false);
   };
 
   const handleCaptcha = () => {

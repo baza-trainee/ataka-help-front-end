@@ -19,7 +19,7 @@ const FileForm: FC = () => {
     },
   });
 
-  const onSubmitHandler: SubmitHandler<IFileForm> = async (data) => {
+  const onSubmitHandler: SubmitHandler<IFileForm> = async data => {
     const formData = new FormData();
     formData.append("thumb", data.thumb[0]);
     formData.append("alt", data.alt);

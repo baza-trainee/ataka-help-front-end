@@ -9,7 +9,7 @@ const Slider: FC = () => {
   return (
     <section>
       <Carousel showStatus={false} showThumbs={false} showIndicators={false}>
-        {[1, 2, 3].map((path) => (
+        {[1, 2, 3].map(path => (
           <CarouselBox key={path}>
             <Image
               src={`/${path}.jpg`}

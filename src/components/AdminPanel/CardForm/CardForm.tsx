@@ -27,14 +27,14 @@ const CardForm: FC = () => {
     name: "description",
   });
 
-  const onSubmitHandler: SubmitHandler<ICardForm> = async (data) => {
+  const onSubmitHandler: SubmitHandler<ICardForm> = async data => {
     const formData = new FormData();
     formData.append("thumb", data.thumb[0]);
     formData.append("alt", data.alt);
     formData.append("title", data.title);
     formData.append(
       "description",
-      JSON.stringify(data.description.map(({ item }) => item))
+      JSON.stringify(data.description.map(({ item }) => item)),
     );
     console.log(data);
   };
