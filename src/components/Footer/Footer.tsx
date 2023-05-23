@@ -32,10 +32,10 @@ const Footer: FC = () => {
           </div>
           <LinkList>
             <li>
-              <NavLink href="/" name={"Інциденти"} />
+              {/* <NavLink href="/" name={"Інциденти"} /> */}
             </li>
             <li>
-              <NavLink href="/about" name={"Про проєкт"} />
+              {/* <NavLink href="/about" name={"Про проєкт"} /> */}
             </li>
             <li>
               <p>Звітність</p>

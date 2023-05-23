@@ -1,5 +1,3 @@
-import Head from "next/head";
-
 import UserLayout from "@/components/UserLayout/UserLayout";
 import Slider from "@/components/Slider";
 import CardsGallery from "@/components/CardsGallery/CardsGallery";
