@@ -1,5 +1,5 @@
-import styled from "@emotion/styled";
-import Link from "next/link";
+import styled from '@emotion/styled';
+import Link from 'next/link';
 
 export const StyledFooter = styled.footer`
   position: relative;
@@ -40,7 +40,7 @@ export const IconList = styled.ul`
 `;
 
 export const Copyright = styled.p`
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
@@ -49,7 +49,7 @@ export const Copyright = styled.p`
 `;
 
 export const ContactsText = styled.a`
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   font-style: normal;
   font-weight: 500;
   font-size: 22px;

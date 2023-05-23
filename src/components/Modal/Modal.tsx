@@ -1,16 +1,16 @@
-import { FC, useEffect, useRef, useState } from "react";
-import { createPortal } from "react-dom";
-import { IModal } from "@/types";
-import { Global } from "@emotion/react";
-import { Backdrop, CloseIcon, Wrapper } from "./Modal.styled";
-import closeIcon from "../../assets/x-lg.svg";
+import { FC, useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
+import { IModal } from '@/types';
+import { Global } from '@emotion/react';
+import { Backdrop, CloseIcon, Wrapper } from './Modal.styled';
+import closeIcon from '../../assets/x-lg.svg';
 
 const Modal: FC<IModal> = ({ children, setIsModalOpen }) => {
   const [mounted, setMounted] = useState(false);
   const modalRootRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
-    modalRootRef.current = document.getElementById("modal-root");
+    modalRootRef.current = document.getElementById('modal-root');
     setMounted(true);
   }, []);
 
@@ -32,12 +32,12 @@ const Modal: FC<IModal> = ({ children, setIsModalOpen }) => {
           <Global
             styles={{
               html: {
-                overflow: "hidden",
+                overflow: 'hidden',
               },
             }}
           />
         </Backdrop>,
-        modalRootRef.current
+        modalRootRef.current,
       )
     : null;
 };

@@ -1,8 +1,8 @@
-export type { IFeedbackForm } from "./IFeedbackForm";
-export type { IReportForm } from "./IReportForm";
-export type { IFileForm } from "./IFileForm";
-export type { ICardForm } from "./ICardForm";
-export type { IContactForm } from "./IContactForm";
-export type { LayoutPropsType } from "./LayoutPropsType";
-export type { IFileOpenLink } from "./IFileOpenLink";
-export type { IModal } from "./IModal";
+export type { IFeedbackForm } from './IFeedbackForm';
+export type { IReportForm } from './IReportForm';
+export type { IFileForm } from './IFileForm';
+export type { ICardForm } from './ICardForm';
+export type { IContactForm } from './IContactForm';
+export type { LayoutPropsType } from './LayoutPropsType';
+export type { IFileOpenLink } from './IFileOpenLink';
+export type { IModal } from './IModal';

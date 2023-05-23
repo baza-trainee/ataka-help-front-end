@@ -1,1 +1,1 @@
-export { default } from "./FileOpenLink";
+export { default } from './FileOpenLink';

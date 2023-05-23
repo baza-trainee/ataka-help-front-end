@@ -1,5 +1,5 @@
-import React, { FC, useState } from "react";
-import { Box, BtnStyled } from "./CookieConsentBanner.styled";
+import React, { FC, useState } from 'react';
+import { Box, BtnStyled } from './CookieConsentBanner.styled';
 
 const CookieConsentBanner: FC = () => {
   const [showCookieBanner, setShowCookieBanner] = useState(true);
@@ -11,7 +11,7 @@ const CookieConsentBanner: FC = () => {
             <h3>Файли Cookies</h3>
             <p>
               Цей сайт використовує файли cookies для роботи і покращення
-              сервісу. Дізнайтесь більше в{" "}
+              сервісу. Дізнайтесь більше в{' '}
               <a href="">Політика конфіденційності</a>
             </p>
           </div>

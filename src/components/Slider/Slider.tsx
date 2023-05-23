@@ -1,9 +1,9 @@
-import { FC } from "react";
-import Image from "next/image";
-import { Carousel } from "react-responsive-carousel";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { FC } from 'react';
+import Image from 'next/image';
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
-import { CarouselBox } from "./Slider.styled";
+import { CarouselBox } from './Slider.styled';
 
 const Slider: FC = () => {
   return (
@@ -15,7 +15,7 @@ const Slider: FC = () => {
               src={`/${path}.jpg`}
               alt="carusel-img"
               fill
-              style={{ objectFit: "cover" }}
+              style={{ objectFit: 'cover' }}
               priority={true}
             />
           </CarouselBox>

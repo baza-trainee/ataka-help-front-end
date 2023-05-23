@@ -1,5 +1,5 @@
-import styled from "@emotion/styled";
-import Image from "next/image";
+import styled from '@emotion/styled';
+import Image from 'next/image';
 
 export const Backdrop = styled.div`
   display: block;

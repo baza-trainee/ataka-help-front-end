@@ -7,13 +7,13 @@ const Navigation: FC = () => {
     <nav>
       <List>
         <li>
-          <Link href='/'>Головна</Link>
+          <Link href="/">Головна</Link>
         </li>
         <li>
-          <Link href='/cases'>Інциденти</Link>
+          <Link href="/cases">Інциденти</Link>
         </li>
         <li>
-          <Link href='/contacts'>Контакти</Link>
+          <Link href="/contacts">Контакти</Link>
         </li>
       </List>
     </nav>

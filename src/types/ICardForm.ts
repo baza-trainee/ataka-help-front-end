@@ -1,6 +1,6 @@
 export interface ICardForm {
   thumb: string[];
-  alt: "";
+  alt: '';
   title: string;
   description: { item: string }[];
 }

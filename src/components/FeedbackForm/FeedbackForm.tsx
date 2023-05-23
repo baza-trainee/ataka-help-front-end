@@ -1,9 +1,9 @@
-import { FC, useRef, useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import ReCAPTCHA from "react-google-recaptcha";
-import { IFeedbackForm } from "@/types";
-import { FeedbackSchema } from "@/schemas";
+import { FC, useRef, useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import ReCAPTCHA from 'react-google-recaptcha';
+import { IFeedbackForm } from '@/types';
+import { FeedbackSchema } from '@/schemas';
 
 import {
   Form,
@@ -13,10 +13,10 @@ import {
   CommentLabel,
   Wrapper,
   Button,
-} from "./FeedbackForm.styled";
+} from './FeedbackForm.styled';
 
 const FeedbackForm: FC = () => {
-  const captchaRef= useRef<ReCAPTCHA>(null);
+  const captchaRef = useRef<ReCAPTCHA>(null);
   const [isChecked, setIsChecked] = useState(false);
 
   const {
@@ -27,12 +27,12 @@ const FeedbackForm: FC = () => {
     formState: { errors },
   } = useForm<IFeedbackForm>({
     defaultValues: {
-      name: "",
-      email: "",
-      token: "",
-      comment: "",
+      name: '',
+      email: '',
+      token: '',
+      comment: '',
     },
-    mode: "onTouched",
+    mode: 'onTouched',
     resolver: yupResolver(FeedbackSchema),
   });
 
@@ -47,7 +47,7 @@ const FeedbackForm: FC = () => {
     const formData = { ...data, token: token };
     console.log(formData);
     captchaRef.current?.reset();
-    setIsChecked(false);    
+    setIsChecked(false);
   };
 
   const handleCaptcha = () => {
@@ -61,7 +61,7 @@ const FeedbackForm: FC = () => {
       <Wrapper>
         <InputLabel>
           Ім’я
-          <Input type="name" autoComplete="off" {...register("name")} />
+          <Input type="name" autoComplete="off" {...register('name')} />
           {errors.name && (
             <div>
               <p>{errors.name?.message}</p>
@@ -74,7 +74,7 @@ const FeedbackForm: FC = () => {
             type="email"
             autoComplete="off"
             placeholder="example@gmail.com"
-            {...register("email")}
+            {...register('email')}
           />
           {errors.name && (
             <div>
@@ -85,7 +85,7 @@ const FeedbackForm: FC = () => {
       </Wrapper>
       <CommentLabel>
         Коментар
-        <Comment autoComplete="off" {...register("comment")} />
+        <Comment autoComplete="off" {...register('comment')} />
         {errors.name && (
           <div>
             <p>{errors.comment?.message}</p>
@@ -94,7 +94,7 @@ const FeedbackForm: FC = () => {
       </CommentLabel>
       <ReCAPTCHA
         sitekey={process.env.NEXT_PUBLIC_SITE_KEY}
-        size={"normal"}
+        size={'normal'}
         ref={captchaRef}
         onChange={handleCaptcha}
       />

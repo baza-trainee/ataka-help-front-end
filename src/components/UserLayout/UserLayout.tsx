@@ -1,10 +1,10 @@
-import { FC } from "react";
+import { FC } from 'react';
 
-import { LayoutPropsType } from "@/types";
+import { LayoutPropsType } from '@/types';
 
-import Head from "next/head";
-import Header from "../Header";
-import Footer from "../Footer";
+import Head from 'next/head';
+import Header from '../Header';
+import Footer from '../Footer';
 
 const UserLayout: FC<LayoutPropsType> = ({ title, children }) => {
   return (

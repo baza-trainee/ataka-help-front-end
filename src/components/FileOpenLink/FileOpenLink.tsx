@@ -1,7 +1,7 @@
-import { FC, useState } from "react";
-import { IFileOpenLink } from "@/types";
-import Modal from "../Modal/Modal";
-import { Iframe } from "./FileOpenLink.styled";
+import { FC, useState } from 'react';
+import { IFileOpenLink } from '@/types';
+import Modal from '../Modal/Modal';
+import { Iframe } from './FileOpenLink.styled';
 
 const FileOpenLink: FC<IFileOpenLink> = ({ text, path }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
