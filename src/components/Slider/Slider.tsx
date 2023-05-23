@@ -1,34 +1,28 @@
 import { FC } from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
-const SimpleSlider: FC = () => {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };
+import { CarouselBox } from "./Slider.styled";
 
+const Slider: FC = () => {
   return (
     <section>
-      <Slider {...settings}>
+      <Carousel showStatus={false} showThumbs={false} showIndicators={false}>
         {[1, 2, 3].map((path) => (
-          <div key={path}>
+          <CarouselBox key={path}>
             <Image
               src={`/${path}.jpg`}
               alt="carusel-img"
-              width="500"
-              height="360"
+              fill
+              style={{ objectFit: "cover" }}
+              priority={true}
             />
-          </div>
+          </CarouselBox>
         ))}
-      </Slider>
+      </Carousel>
     </section>
   );
 };
 
-export default SimpleSlider;
+export default Slider;

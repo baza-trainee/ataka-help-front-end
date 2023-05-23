@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Inter } from "next/font/google";
+
 import Header from "@/components/Header";
 import Slider from "@/components/Slider";
 import About from "@/components/About";
@@ -10,9 +10,6 @@ import Footer from "@/components/Footer";
 import FileOpenLink from "@/components/FileOpenLink";
 
 import CookieConsentBanner from "@/components/CookieConsentBanner/CookieConsentBanner";
-
-
-const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
