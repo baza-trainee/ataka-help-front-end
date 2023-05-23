@@ -6,3 +6,5 @@ export type { IContactForm } from "./IContactForm";
 export type { LayoutPropsType } from "./LayoutPropsType";
 export type { IFileOpenLink } from "./IFileOpenLink";
 export type { IModal } from "./IModal";
+export type { ILinkProps } from "./ILinkProps";
+export type { IStyledLinkProps } from "./IStyledLinkProps";

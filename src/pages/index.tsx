@@ -1,5 +1,4 @@
 import Head from "next/head";
-import { Inter } from "next/font/google";
 
 import UserLayout from "@/components/UserLayout/UserLayout";
 import Slider from "@/components/Slider";
@@ -8,9 +7,6 @@ import Donate from "@/components/Donate";
 
 import FileOpenLink from "@/components/FileOpenLink";
 
-
-
-const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
