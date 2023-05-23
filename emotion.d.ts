@@ -4,8 +4,12 @@ declare module "@emotion/react" {
   export interface Theme {
     breakpoints: string[];
     fontSizes: string[];
-    fontWeights: object;
-    radii: object;
+    fontWeights: {
+      regular: number;
+      medium: number;
+      semibold: number;
+    };
+    radii: { sm: string };
 
     colors: {
       white: {

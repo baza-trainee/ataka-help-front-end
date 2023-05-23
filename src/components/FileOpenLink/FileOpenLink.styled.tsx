@@ -1,6 +1,32 @@
+import { Theme, css } from "@emotion/react";
 import styled from "@emotion/styled";
 
-export const Iframe = styled.iframe`
-  width: 90vw;
-  height: 80vh;
+interface IMainButtonStyles {
+  theme: Theme;
+}
+
+interface IOpenLink {
+  isTextUnderline: boolean | undefined;
+}
+
+export const FileWrapper = styled.ul`
+  height: 90vh;
+  width: 80vw;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+`;
+
+const MainButtonStyles = ({ theme }: IMainButtonStyles) => css`
+  height: 30px;
+  font-size: ${theme.fontSizes[4]};
+  color: ${theme.colors.white[100]};
+  background-color: transparent;
+  font-weight: ${theme.fontWeights.medium};
+  border: none;
+`;
+
+export const OpenLink = styled.button<IOpenLink>`
+  ${MainButtonStyles}
+  text-decoration-line: ${({ isTextUnderline }) =>
+    isTextUnderline ? "underline" : "none"};
 `;

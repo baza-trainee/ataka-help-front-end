@@ -1,6 +1,6 @@
 import { Dispatch, ReactNode, SetStateAction } from "react";
 
-export type IModal = {
+export interface IModal {
   children: ReactNode;
   setIsModalOpen: Dispatch<SetStateAction<boolean>>;
-};
+}
