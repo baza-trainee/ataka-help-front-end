@@ -3,8 +3,9 @@ import { FC } from "react";
 import { LayoutPropsType } from "@/types";
 
 import Head from "next/head";
-import Header from "../Header";
-import Footer from "../Footer";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import CookieConsentBanner from "@/components/CookieConsentBanner";
 
 const UserLayout: FC<LayoutPropsType> = ({ title, children }) => {
   return (
@@ -18,6 +19,7 @@ const UserLayout: FC<LayoutPropsType> = ({ title, children }) => {
       <Header />
       <main>{children}</main>
       <Footer />
+      <CookieConsentBanner />
     </>
   );
 };
