@@ -1,10 +1,13 @@
-import { FC, useState } from "react";
+import { FC, useRef, useState } from "react";
+import * as PDFJS from "pdfjs-dist";
+PDFJS.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${PDFJS.version}/pdf.worker.min.js`;
 import { IFileOpenLink } from "@/types";
 import Modal from "../Modal/Modal";
-import { Iframe } from "./FileOpenLink.styled";
+import { FileWrapper, OpenLink } from "./FileOpenLink.styled";
 
-const FileOpenLink: FC<IFileOpenLink> = ({ text, path }) => {
+const FileOpenLink: FC<IFileOpenLink> = ({ text, path, isTextUnderline }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const pageRenderRef = useRef<HTMLUListElement>(null);
 
   const clickTextHandler = () => {
     getPDFData();
@@ -39,7 +42,7 @@ const FileOpenLink: FC<IFileOpenLink> = ({ text, path }) => {
 
   const createContextForCanvas = async (
     pdf: PDFJS.PDFDocumentProxy,
-    pageNo: number,
+    pageNo: number
   ) => {
     const page: PDFJS.PDFPageProxy = await pdf.getPage(pageNo);
     const container = pageRenderRef.current as HTMLUListElement;
@@ -72,10 +75,12 @@ const FileOpenLink: FC<IFileOpenLink> = ({ text, path }) => {
     <>
       {isModalOpen && (
         <Modal setIsModalOpen={setIsModalOpen}>
-          <Iframe src={`${path}#view=fitH`}></Iframe>
+          <FileWrapper ref={pageRenderRef}></FileWrapper>
         </Modal>
       )}
-      <span onClick={clickTextHandler}>{text}</span>
+      <OpenLink onClick={clickTextHandler} isTextUnderline={isTextUnderline}>
+        {text}
+      </OpenLink>
     </>
   );
 };

@@ -1,3 +1,4 @@
+import { theme } from "@/theme";
 import styled from "@emotion/styled";
 import Image from "next/image";
 
@@ -15,6 +16,7 @@ export const Wrapper = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
+  background-color: ${({ theme }) => theme.colors.white[100]};
   transform: translate(-50%, -50%);
 `;
 

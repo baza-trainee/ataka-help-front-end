@@ -1,6 +1,7 @@
 import Head from "next/head";
+import type { NextPage } from "next";
 
-export default function Admin() {
+const Admin: NextPage = () => {
   return (
     <>
       <Head>
@@ -14,4 +15,6 @@ export default function Admin() {
       </main>
     </>
   );
-}
+};
+
+export default Admin;

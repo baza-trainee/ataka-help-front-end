@@ -2,7 +2,6 @@ import { FC } from "react";
 
 import NavLink from "../NavLink/NavLink";
 
-import logo from "../../assets/logo.png";
 import phoneIcon from "../../assets/icons/phone.svg";
 import linkedinIcon from "../../assets/icons/linkedin.svg";
 import facebookIcon from "../../assets/icons/facebook.svg";
