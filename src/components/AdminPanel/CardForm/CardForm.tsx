@@ -1,9 +1,9 @@
-import { FC } from 'react';
-import { useForm, useFieldArray, SubmitHandler } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
+import { FC } from "react";
+import { useForm, useFieldArray, SubmitHandler } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
 
-import { ICardForm } from '@/types';
-import { CardScheme } from '@/schemas';
+import { ICardForm } from "@/types";
+import { CardScheme } from "@/schemas";
 
 const CardForm: FC = () => {
   const {
@@ -12,28 +12,28 @@ const CardForm: FC = () => {
     control,
     formState: { errors },
   } = useForm<ICardForm>({
-    mode: 'all',
+    mode: "all",
     resolver: yupResolver(CardScheme),
     defaultValues: {
       thumb: [],
-      alt: '',
-      title: '',
-      description: [{ item: '' }],
+      alt: "",
+      title: "",
+      description: [{ item: "" }],
     },
   });
 
   const { fields, append, remove } = useFieldArray({
     control,
-    name: 'description',
+    name: "description",
   });
 
-  const onSubmitHandler: SubmitHandler<ICardForm> = async (data) => {
+  const onSubmitHandler: SubmitHandler<ICardForm> = async data => {
     const formData = new FormData();
-    formData.append('thumb', data.thumb[0]);
-    formData.append('alt', data.alt);
-    formData.append('title', data.title);
+    formData.append("thumb", data.thumb[0]);
+    formData.append("alt", data.alt);
+    formData.append("title", data.title);
     formData.append(
-      'description',
+      "description",
       JSON.stringify(data.description.map(({ item }) => item)),
     );
     console.log(data);
@@ -44,14 +44,14 @@ const CardForm: FC = () => {
       <input
         type="file"
         accept="image/*,.png,.jpg,.webp"
-        {...register('thumb')}
+        {...register("thumb")}
       />
       {errors.thumb && <p>{errors.thumb.message}</p>}
 
-      <input type="text" {...register('alt')} />
+      <input type="text" {...register("alt")} />
       {errors.alt && <p>{errors.alt.message}</p>}
 
-      <input type="text" {...register('title')} />
+      <input type="text" {...register("title")} />
       {errors.title && <p>{errors.title.message}</p>}
 
       {fields.map((field, index) => (
@@ -59,7 +59,7 @@ const CardForm: FC = () => {
           <input type="text" {...register(`description.${index}.item`)} />
           {errors.description && (
             <p>
-              {index === 0 ? "Обов'язкове поле" : 'Заповніть поле або видаліть'}
+              {index === 0 ? "Обов'язкове поле" : "Заповніть поле або видаліть"}
             </p>
           )}
           {index > 0 && (
@@ -70,7 +70,7 @@ const CardForm: FC = () => {
         </div>
       ))}
 
-      <button onClick={() => append({ item: '' })} type="button">
+      <button onClick={() => append({ item: "" })} type="button">
         Add field
       </button>
 

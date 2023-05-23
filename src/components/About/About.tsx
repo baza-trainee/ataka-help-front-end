@@ -1,8 +1,8 @@
-import { FC } from 'react';
-import Image from 'next/image';
+import { FC } from "react";
+import Image from "next/image";
 
-import image from '../../assets/rectangle.png';
-import { Title, Text, StyledDiv, StyledDivWrap } from './About.styled';
+import image from "../../assets/rectangle.png";
+import { Title, Text, StyledDiv, StyledDivWrap } from "./About.styled";
 
 const About: FC = () => {
   return (

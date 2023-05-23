@@ -1,9 +1,9 @@
-import { FC } from 'react';
-import { useForm, SubmitHandler } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
+import { FC } from "react";
+import { useForm, SubmitHandler } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
 
-import { IFileForm } from '@/types';
-import { FileScheme } from '@/schemas';
+import { IFileForm } from "@/types";
+import { FileScheme } from "@/schemas";
 
 const FileForm: FC = () => {
   const {
@@ -11,18 +11,18 @@ const FileForm: FC = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<IFileForm>({
-    mode: 'all',
+    mode: "all",
     resolver: yupResolver(FileScheme),
     defaultValues: {
       thumb: [],
-      alt: '',
+      alt: "",
     },
   });
 
-  const onSubmitHandler: SubmitHandler<IFileForm> = async (data) => {
+  const onSubmitHandler: SubmitHandler<IFileForm> = async data => {
     const formData = new FormData();
-    formData.append('thumb', data.thumb[0]);
-    formData.append('alt', data.alt);
+    formData.append("thumb", data.thumb[0]);
+    formData.append("alt", data.alt);
     console.log(data);
   };
 
@@ -31,11 +31,11 @@ const FileForm: FC = () => {
       <input
         type="file"
         accept="image/*,.png,.jpg,.webp,.svg"
-        {...register('thumb')}
+        {...register("thumb")}
       />
       {errors.thumb && <p>{errors.thumb.message}</p>}
 
-      <input type="text" {...register('alt')} />
+      <input type="text" {...register("alt")} />
       {errors.alt && <p>{errors.alt.message}</p>}
 
       <button>Submit</button>

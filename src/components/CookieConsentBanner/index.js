@@ -1,1 +1,1 @@
-export { default } from './CookieConsentBanner';
+export { default } from "./CookieConsentBanner";

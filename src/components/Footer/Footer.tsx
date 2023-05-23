@@ -1,14 +1,14 @@
-import { FC } from 'react';
+import { FC } from "react";
 
-import NavLink from '../NavLink/NavLink';
+import NavLink from "../NavLink/NavLink";
 
-import logo from '../../assets/logo.png';
-import phoneIcon from '../../assets/icons/phone.svg';
-import linkedinIcon from '../../assets/icons/linkedin.svg';
-import facebookIcon from '../../assets/icons/facebook.svg';
-import emailIcon from '../../assets/icons/email.svg';
+import logo from "../../assets/logo.png";
+import phoneIcon from "../../assets/icons/phone.svg";
+import linkedinIcon from "../../assets/icons/linkedin.svg";
+import facebookIcon from "../../assets/icons/facebook.svg";
+import emailIcon from "../../assets/icons/email.svg";
 
-import Image from 'next/image';
+import Image from "next/image";
 import {
   StyledFooter,
   Container,
@@ -21,7 +21,7 @@ import {
   IconLink,
   ContactsList,
   LinkList,
-} from './Footer.styled';
+} from "./Footer.styled";
 
 const Footer: FC = () => {
   return (
@@ -29,15 +29,16 @@ const Footer: FC = () => {
       <Container>
         <Wrapper>
           <div>
-            <Image src={logo} width={354} height={181} alt="logo" />
+            <Image
+              src="/images/logo-footer.png"
+              width={338}
+              height={115}
+              alt="logo"
+            />
           </div>
           <LinkList>
-            <li>
-              <NavLink href="/" name={'Інциденти'} />
-            </li>
-            <li>
-              <NavLink href="/about" name={'Про проєкт'} />
-            </li>
+            <li>{/* <NavLink href="/" name={"Інциденти"} /> */}</li>
+            <li>{/* <NavLink href="/about" name={"Про проєкт"} /> */}</li>
             <li>
               <p>Звітність</p>
             </li>

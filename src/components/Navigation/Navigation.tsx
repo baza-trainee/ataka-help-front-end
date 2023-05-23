@@ -1,6 +1,6 @@
-import { FC } from 'react';
-import Link from 'next/link';
-import { List } from './Navigation.styled';
+import { FC } from "react";
+import Link from "next/link";
+import { List } from "./Navigation.styled";
 
 const Navigation: FC = () => {
   return (

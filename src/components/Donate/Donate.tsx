@@ -1,8 +1,8 @@
-import { FC } from 'react';
+import { FC } from "react";
 
-import PaymentButton from '../PaymentButton';
+import PaymentButton from "../PaymentButton";
 
-import { Section, Title } from './Donate.styled';
+import { Section, Title } from "./Donate.styled";
 
 const Donate: FC = () => {
   return (

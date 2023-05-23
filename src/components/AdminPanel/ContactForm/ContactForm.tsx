@@ -1,9 +1,9 @@
-import { FC } from 'react';
-import { useForm, SubmitHandler } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
+import { FC } from "react";
+import { useForm, SubmitHandler } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
 
-import { IContactForm } from '@/types';
-import { ContactScheme } from '@/schemas';
+import { IContactForm } from "@/types";
+import { ContactScheme } from "@/schemas";
 
 const ContactForm: FC = () => {
   const {
@@ -11,20 +11,20 @@ const ContactForm: FC = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<IContactForm>({
-    mode: 'all',
+    mode: "all",
     resolver: yupResolver(ContactScheme),
     defaultValues: {
-      number: '',
+      number: "",
     },
   });
 
-  const onSubmitHandler: SubmitHandler<IContactForm> = async (data) => {
+  const onSubmitHandler: SubmitHandler<IContactForm> = async data => {
     console.log(data);
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmitHandler)}>
-      <input type="text" {...register('number')} />
+      <input type="text" {...register("number")} />
       {errors.number && <p>{errors.number.message}</p>}
       <button>Submit</button>
     </form>

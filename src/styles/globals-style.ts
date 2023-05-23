@@ -1,10 +1,10 @@
-import 'normalize.css';
-import { Montserrat } from 'next/font/google';
-import { css } from '@emotion/react';
+import "normalize.css";
+import { Montserrat } from "next/font/google";
+import { css } from "@emotion/react";
 
 const montserrat = Montserrat({
-  weight: ['400', '500', '600'],
-  subsets: ['latin'],
+  weight: ["400", "500", "600"],
+  subsets: ["latin"],
 });
 
 export const global = css`
