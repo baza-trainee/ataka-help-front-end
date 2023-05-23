@@ -1,11 +1,12 @@
 import Image from "next/image";
+import type { NextPage } from "next";
 
 import UserLayout from "@/components/UserLayout";
 
 import { Section, TitleH1, TitleH2, StyledText, StyledDiv, StyledDivImg, StyledLink, StyledDivWrap } from "./Page404.styles";
 import image from "../../assets/rectangle.png";
 
-export default function Page404 () {
+const Page404 : NextPage = () => {
     return (<UserLayout title="page 404">
     <Section>
       <StyledDiv>
@@ -23,3 +24,5 @@ export default function Page404 () {
     </UserLayout>)
     
 }
+
+export default Page404;

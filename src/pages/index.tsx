@@ -1,3 +1,5 @@
+import type { NextPage } from "next";
+
 import UserLayout from "@/components/UserLayout/UserLayout";
 import Slider from "@/components/Slider";
 import CardsGallery from "@/components/CardsGallery/CardsGallery";
@@ -5,8 +7,7 @@ import Donate from "@/components/Donate";
 
 import FileOpenLink from "@/components/FileOpenLink";
 
-
-export default function Home() {
+const Home: NextPage = () => {
   return (
     <UserLayout title="Cases">
       <Slider />
@@ -15,4 +16,6 @@ export default function Home() {
       <FileOpenLink path="/M8 FAQ_Russian.pdf" text="text" />
     </UserLayout>
   );
-}
+};
+
+export default Home;

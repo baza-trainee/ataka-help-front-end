@@ -1,9 +1,11 @@
+import type { NextPage } from "next";
+
 import UserLayout from "@/components/UserLayout";
 import Slider from "@/components/Slider";
 import About from "@/components/About";
 import PartnersGallery from "@/components/PartnersGallery";
 
-export default function Cases() {
+const Cases: NextPage = () => {
   return (
     <UserLayout title="About">
       <Slider />
@@ -11,4 +13,6 @@ export default function Cases() {
       <PartnersGallery />
     </UserLayout>
   );
-}
+};
+
+export default Cases;
