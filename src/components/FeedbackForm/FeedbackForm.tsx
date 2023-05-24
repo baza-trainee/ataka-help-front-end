@@ -1,4 +1,4 @@
-import { FC, useRef, useEffect, useState } from "react";
+import { FC, useRef, useEffect, useState, createRef } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import ReCAPTCHA from "react-google-recaptcha";
@@ -16,7 +16,7 @@ import {
 } from "./FeedbackForm.styled";
 
 const FeedbackForm: FC = () => {
-  const captchaRef = useRef<ReCAPTCHA>(null);
+  const captchaRef = createRef<ReCAPTCHA>();
   const [isChecked, setIsChecked] = useState(false);
 
   const {
