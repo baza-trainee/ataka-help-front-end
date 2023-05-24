@@ -4,6 +4,7 @@ import UserLayout from "@/components/UserLayout/UserLayout";
 import Slider from "@/components/Slider";
 import CardsGallery from "@/components/CardsGallery/CardsGallery";
 import Donate from "@/components/Donate";
+import LoginForm from "@/components/LoginForm";
 
 import FileOpenLink from "@/components/FileOpenLink";
 
