@@ -8,3 +8,6 @@ export type { IFileOpenLink } from "./IFileOpenLink";
 export type { IModal } from "./IModal";
 export type { ILinkProps } from "./ILinkProps";
 export type { IStyledLinkProps } from "./IStyledLinkProps";
+export type { SectionPropsType } from "./SectionPropsType";
+export type { TitlePropsType } from "./TitlePropsType";
+export type { HiddenTitleProps } from "./HiddenTitleProps";
