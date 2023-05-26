@@ -1,21 +1,46 @@
-import React, { FC, useState } from "react";
-import { Box, BtnStyled } from "./CookieConsentBanner.styled";
+import React, { FC, useEffect, useState } from "react";
+import {
+  Box,
+  BtnStyled,
+  TextStyled,
+  TitleStyled,
+} from "./CookieConsentBanner.styled";
+
+import FileOpenLink from "../FileOpenLink/FileOpenLink";
 
 const CookieConsentBanner: FC = () => {
   const [showCookieBanner, setShowCookieBanner] = useState(true);
+
+  useEffect(() => {
+    if (localStorage.getItem("consent-google")) {
+      setShowCookieBanner(false);
+    }
+  }, []);
+
+  const acceptGoogle = (): void => {
+    setShowCookieBanner(false);
+    localStorage.setItem("consent-google", "true");
+  };
+
   return (
     <>
       {showCookieBanner && (
         <Box>
           <div>
-            <h3>Файли Cookies</h3>
-            <p>
+            <TitleStyled>Файли Cookies</TitleStyled>
+            <TextStyled>
               Цей сайт використовує файли cookies для роботи і покращення
               сервісу. Дізнайтесь більше в{" "}
-              <a href="">Політика конфіденційності</a>
-            </p>
+              <FileOpenLink
+                isTextUnderline={true}
+                text={"Політика конфіденційності"}
+                path={"/files/politics.pdf"}
+              />
+            </TextStyled>
           </div>
-          <BtnStyled type="button">ОК</BtnStyled>
+          <BtnStyled onClick={acceptGoogle} type="button">
+            ОК
+          </BtnStyled>
         </Box>
       )}
     </>
