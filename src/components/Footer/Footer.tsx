@@ -47,6 +47,7 @@ const Footer: FC = () => {
                 text="Політика конфіденційності"
                 path="/Private policy.pdf"
                 isTextUnderline
+                isFooterButtonStyles
               />
             </li>
             <li>

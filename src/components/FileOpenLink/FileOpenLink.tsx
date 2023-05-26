@@ -5,7 +5,13 @@ import { IFileOpenLink } from "@/types";
 import Modal from "../Modal/Modal";
 import { PagesList, OpenLink } from "./FileOpenLink.styled";
 
-const FileOpenLink: FC<IFileOpenLink> = ({ text, path, isTextUnderline }) => {
+const FileOpenLink: FC<IFileOpenLink> = ({
+  text,
+  path,
+  isTextUnderline,
+  isCookiesButtonStyles,
+  isFooterButtonStyles,
+}) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const pageRenderRef = useRef<HTMLUListElement>(null);
 
@@ -78,7 +84,12 @@ const FileOpenLink: FC<IFileOpenLink> = ({ text, path, isTextUnderline }) => {
           <PagesList ref={pageRenderRef} />
         </Modal>
       )}
-      <OpenLink onClick={clickTextHandler} isTextUnderline={isTextUnderline}>
+      <OpenLink
+        onClick={clickTextHandler}
+        isTextUnderline={isTextUnderline}
+        isCookiesButtonStyles={isCookiesButtonStyles}
+        isFooterButtonStyles={isFooterButtonStyles}
+      >
         {text}
       </OpenLink>
     </>

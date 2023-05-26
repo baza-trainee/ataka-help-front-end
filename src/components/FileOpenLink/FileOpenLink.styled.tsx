@@ -6,7 +6,9 @@ interface IMainButtonStyles {
 }
 
 interface IOpenLink {
-  isTextUnderline: boolean | undefined;
+  isTextUnderline?: boolean;
+  isCookiesButtonStyles?: boolean;
+  isFooterButtonStyles?: boolean;
 }
 
 export const PagesList = styled.ul`
@@ -16,17 +18,42 @@ export const PagesList = styled.ul`
   background-color: #000000;
 `;
 
-const MainButtonStyles = ({ theme }: IMainButtonStyles) => css`
-  height: 30px;
-  font-size: ${theme.fontSizes[4]};
-  color: ${theme.colors.white[100]};
-  background-color: transparent;
-  font-weight: ${theme.fontWeights.medium};
-  border: none;
+const FooterButtonStyles = ({ theme }: IMainButtonStyles) => css`
+  @media screen and (min-width: ${theme.breakpoints[0]}) {
+    font-size: ${theme.fontSizes[4]};
+  }
+  @media screen and (min-width: ${theme.breakpoints[1]}) {
+    font-size: ${theme.fontSizes[1]};
+  }
+  @media screen and (min-width: ${theme.breakpoints[2]}) {
+    font-size: ${theme.fontSizes[4]};
+  }
+`;
+
+const CookiesButtonStyles = ({ theme }: IMainButtonStyles) => css`
+  @media screen and (min-width: ${theme.breakpoints[0]}) {
+    font-size: 13px;
+  }
+  @media screen and (min-width: ${theme.breakpoints[1]}) {
+    font-size: ${theme.fontSizes[2]};
+  }
+  @media screen and (min-width: ${theme.breakpoints[2]}) {
+    font-size: ${theme.fontSizes[3]};
+  }
 `;
 
 export const OpenLink = styled.button<IOpenLink>`
-  ${MainButtonStyles}
+  color: ${({ theme }) => theme.colors.white[100]};
+  background-color: transparent;
+  font-weight: ${({ theme }) => theme.fontWeights.medium};
+  line-height: 150%;
+  font-style: normal;
+  border: none;
+
+  ${({ isFooterButtonStyles, isCookiesButtonStyles }) =>
+    (isFooterButtonStyles && FooterButtonStyles) ||
+    (isCookiesButtonStyles && CookiesButtonStyles)}
+
   text-decoration-line: ${({ isTextUnderline }) =>
     isTextUnderline ? "underline" : "none"};
 `;
