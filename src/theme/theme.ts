@@ -2,24 +2,25 @@ export const theme = {
   breakpoints: ["393px", "834px", "1440px"],
 
   fontSizes: [
-    "12px",
-    "14px",
-    "16px",
-    "18px",
-    "20px",
-    "22px",
-    "24px",
-    "32px",
-    "40px",
-    "64px",
-    "96px",
-    "120px",
+    "12px", //0
+    "14px", //1
+    "16px", //2
+    "18px", //3
+    "20px", //4
+    "22px", //5
+    "24px", //6
+    "32px", //7
+    "40px", //8
+    "64px", //9
+    "96px", //10
+    "120px", //11
   ],
 
   fontWeights: {
     regular: 400,
     medium: 500,
     semibold: 600,
+    bold: 700,
   },
 
   radii: {

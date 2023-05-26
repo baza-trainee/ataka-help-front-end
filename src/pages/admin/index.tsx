@@ -1,6 +1,8 @@
 import Head from "next/head";
 import type { NextPage } from "next";
+
 import { useSession, signOut } from "next-auth/react";
+import CardForm from "@/components/AdminPanel/CardForm/CardForm";
 
 const Admin: NextPage = () => {
   const { data: session } = useSession();
@@ -19,10 +21,14 @@ const Admin: NextPage = () => {
       </Head>
       <main>
         <h1>Сторінка адміну</h1>
+
         <>
           Signed in as {session?.user?.name} <br />
           <button onClick={handleSignOut}>Sign out</button>
         </>
+
+        <CardForm />
+
       </main>
     </>
   );
