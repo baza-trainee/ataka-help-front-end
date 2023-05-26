@@ -1,7 +1,7 @@
 import Head from "next/head";
 import type { NextPage } from "next";
-import LoginForm from '@/components/LoginForm'
-import { useSession } from 'next-auth/react'
+import LoginForm from "@/components/LoginForm";
+import { useSession } from "next-auth/react";
 
 const Login: NextPage = () => {
   return (
@@ -13,7 +13,7 @@ const Login: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-         <LoginForm />
+        <LoginForm />
       </main>
     </>
   );

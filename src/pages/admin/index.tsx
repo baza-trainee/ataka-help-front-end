@@ -18,11 +18,11 @@ const Admin: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <h1>Сторінка адміну</h1>     
-          <>
-            Signed in as {session?.user?.name} <br />
-            <button onClick={handleSignOut}>Sign out</button>
-          </>       
+        <h1>Сторінка адміну</h1>
+        <>
+          Signed in as {session?.user?.name} <br />
+          <button onClick={handleSignOut}>Sign out</button>
+        </>
       </main>
     </>
   );
