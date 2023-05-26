@@ -8,6 +8,7 @@ declare module "@emotion/react" {
       regular: number;
       medium: number;
       semibold: number;
+      bold: number;
     };
     radii: { sm: string };
 

@@ -1,6 +1,6 @@
 import Head from "next/head";
 import type { NextPage } from "next";
-
+import CardForm from "@/components/AdminPanel/CardForm/CardForm";
 const Admin: NextPage = () => {
   return (
     <>
@@ -12,6 +12,7 @@ const Admin: NextPage = () => {
       </Head>
       <main>
         <h1>Сторінка адміну</h1>
+        <CardForm />
       </main>
     </>
   );
