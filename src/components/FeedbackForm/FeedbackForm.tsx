@@ -5,14 +5,18 @@ import ReCAPTCHA from "react-google-recaptcha";
 import { IFeedbackForm } from "@/types";
 import { FeedbackSchema } from "@/schemas";
 
+import { Section, Container, Title } from "../Common";
 import {
+  FormWrapper,
   Form,
   Input,
   Comment,
   InputLabel,
-  CommentLabel,
   Wrapper,
   Button,
+  ErrorMessage,
+  MessageWrapper,
+  CaptchaWrapper,
 } from "./FeedbackForm.styled";
 
 const FeedbackForm: FC = () => {
@@ -57,51 +61,55 @@ const FeedbackForm: FC = () => {
   };
 
   return (
-    <Form onSubmit={handleSubmit(sendFeedback)}>
-      <Wrapper>
-        <InputLabel>
-          Ім’я
-          <Input type="name" autoComplete="off" {...register("name")} />
-          {errors.name && (
-            <div>
-              <p>{errors.name?.message}</p>
-            </div>
-          )}
-        </InputLabel>
-        <InputLabel>
-          Email
-          <Input
-            type="email"
-            autoComplete="off"
-            placeholder="example@gmail.com"
-            {...register("email")}
-          />
-          {errors.name && (
-            <div>
-              <p>{errors.email?.message}</p>
-            </div>
-          )}
-        </InputLabel>
-      </Wrapper>
-      <CommentLabel>
-        Коментар
-        <Comment autoComplete="off" {...register("comment")} />
-        {errors.name && (
-          <div>
-            <p>{errors.comment?.message}</p>
-          </div>
-        )}
-      </CommentLabel>
-      <ReCAPTCHA
-        sitekey={`${process.env.NEXT_PUBLIC_SITE_KEY} `}
-        size={"normal"}
-        ref={captchaRef}
-        onChange={handleCaptcha}
-      />
-      <Button type="submit" disabled={!isChecked}>
-        Надіслати
-      </Button>
-    </Form>
+    <Section pbd="100">
+      <Container>
+        <FormWrapper>
+          <Title>Зворотній зв`язок</Title>
+          <Form onSubmit={handleSubmit(sendFeedback)}>
+            <Wrapper>
+              <InputLabel>
+                Ім`я*
+                <Input type="name" autoComplete="off" {...register("name")} />
+                {errors.name && (
+                  <MessageWrapper>
+                    <ErrorMessage>{errors.name?.message}</ErrorMessage>
+                  </MessageWrapper>
+                )}
+              </InputLabel>
+              <InputLabel>
+                Емейл*
+                <Input type="email" autoComplete="off" {...register("email")} />
+                {errors.name && (
+                  <MessageWrapper>
+                    <ErrorMessage>{errors.email?.message}</ErrorMessage>
+                  </MessageWrapper>
+                )}
+              </InputLabel>
+            </Wrapper>
+            <InputLabel>
+              Повідомлення*
+              <Comment autoComplete="off" {...register("comment")} />
+              {errors.name && (
+                <MessageWrapper>
+                  <ErrorMessage>{errors.comment?.message}</ErrorMessage>
+                </MessageWrapper>
+              )}
+            </InputLabel>
+            <CaptchaWrapper>
+            <ReCAPTCHA
+              sitekey={`${process.env.NEXT_PUBLIC_SITE_KEY} `}
+              size={"normal"}
+              ref={captchaRef}
+              onChange={handleCaptcha}
+            />
+            </CaptchaWrapper>
+            <Button type="submit" disabled={!isChecked}>
+              Надіслати
+            </Button>
+          </Form>
+        </FormWrapper>
+      </Container>
+    </Section>
   );
 };
 

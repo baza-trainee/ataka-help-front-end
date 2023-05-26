@@ -39,6 +39,7 @@ export const theme = {
       100: "#B2BFCE", //footer-line color
       200: "#727272", //feedback-form border color
       300: "#D0D2D6", //disabled button
+      400: "#A2A4A7", //disabled button text color
     },
 
     blue: {
@@ -51,5 +52,9 @@ export const theme = {
       700: "#B0BFED", //active button
       800: "#656FB4", //cookies-bg
     },
+
+    red: {
+      100: "#DC0C31", // error-message
+    }
   },
 };
