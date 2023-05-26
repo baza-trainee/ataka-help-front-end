@@ -21,6 +21,7 @@ import {
   ContactsList,
   LinkList,
 } from "./Footer.styled";
+import FileOpenLink from "../FileOpenLink/FileOpenLink";
 
 const Footer: FC = () => {
   return (
@@ -42,7 +43,11 @@ const Footer: FC = () => {
               <p>Звітність</p>
             </li>
             <li>
-              <p>Політика конфіденційності</p>
+              <FileOpenLink
+                text="Політика конфіденційності"
+                path="/Private policy.pdf"
+                isTextUnderline
+              />
             </li>
             <li>
               <p>Правила користування сайтом</p>

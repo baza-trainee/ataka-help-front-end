@@ -9,11 +9,11 @@ interface IOpenLink {
   isTextUnderline: boolean | undefined;
 }
 
-export const FileWrapper = styled.ul`
-  height: 90vh;
-  width: 80vw;
+export const PagesList = styled.ul`
+  height: 100%;
+  width: 100%;
   overflow: auto;
-  background-color: rgb(0, 0, 0);
+  background-color: #000000;
 `;
 
 const MainButtonStyles = ({ theme }: IMainButtonStyles) => css`
