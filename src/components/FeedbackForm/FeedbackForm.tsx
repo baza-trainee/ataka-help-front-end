@@ -18,7 +18,7 @@ import {
 const FeedbackForm: FC = () => {
   const captchaRef = useRef<ReCAPTCHA>(null);
   const [isChecked, setIsChecked] = useState(false);
-  
+
   const {
     register,
     handleSubmit,
