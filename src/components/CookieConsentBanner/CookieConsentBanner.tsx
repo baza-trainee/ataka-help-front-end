@@ -34,7 +34,7 @@ const CookieConsentBanner: FC = () => {
               <FileOpenLink
                 isTextUnderline={true}
                 text={"Політика конфіденційності"}
-                path={"/M8 FAQ_Russian.pdf"}
+                path={"/files/politics.pdf"}
               />
             </TextStyled>
           </div>
