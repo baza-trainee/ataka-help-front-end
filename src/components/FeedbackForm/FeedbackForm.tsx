@@ -1,7 +1,7 @@
 import { FC, useRef, useEffect, useState, createRef } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-// import ReCAPTCHA from "react-google-recaptcha";
+import ReCAPTCHA from "react-google-recaptcha";
 import { IFeedbackForm } from "@/types";
 import { FeedbackSchema } from "@/schemas";
 
@@ -16,7 +16,7 @@ import {
 } from "./FeedbackForm.styled";
 
 const FeedbackForm: FC = () => {
-  const captchaRef : any = createRef();
+  const captchaRef = useRef<ReCAPTCHA>(null);
   const [isChecked, setIsChecked] = useState(false);
 
   const {
@@ -92,12 +92,12 @@ const FeedbackForm: FC = () => {
           </div>
         )}
       </CommentLabel>
-      {/* <ReCAPTCHA
-        sitekey={process.env.NEXT_PUBLIC_SITE_KEY}
+      <ReCAPTCHA
+        sitekey={`${process.env.NEXT_PUBLIC_SITE_KEY} `}
         size={"normal"}
         ref={captchaRef}
         onChange={handleCaptcha}
-      /> */}
+      />
       <Button type="submit" disabled={!isChecked}>
         Надіслати
       </Button>

@@ -7,30 +7,55 @@ export const Box = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 65px;
-  padding: 38px 80px;
   background-color: #656fb4;
-  color: ${p => p.theme.colors.white[100]};
-  & h3 {
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 150%;
-    margin-bottom: 4px;
+  padding: 20px 16px;
+  color: ${({ theme }) => theme.colors.white[100]};
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
+    padding: 32px 40px;
   }
-  & p {
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 150%;
-    & a {
-      text-decoration: underline;
-    }
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
+    padding: 38px 80px;
+  }
+`;
+
+export const TitleStyled = styled.h3`
+  font-size: ${({ theme }) => theme.fontSizes[2]};
+  margin-bottom: 16px;
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
+    font-size: ${({ theme }) => theme.fontSizes[3]};
+    margin-bottom: 12px;
+  }
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
+    font-size: ${({ theme }) => theme.fontSizes[4]};
+    margin-bottom: 15px;
+  }
+`;
+
+export const TextStyled = styled.p`
+  font-size: ${({ theme }) => theme.fontSizes[1]};
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
+    font-size: ${({ theme }) => theme.fontSizes[2]};
+  }
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
+    font-size: ${({ theme }) => theme.fontSizes[3]};
   }
 `;
 
 export const BtnStyled = styled.button`
-  width: 64px;
-  height: 64px;
-  background-color: ${p => p.theme.colors.blue[100]};
-  color: ${p => p.theme.colors.white[100]};
+  background-color: ${({ theme }) => theme.colors.blue[100]};
+  color: ${({ theme }) => theme.colors.white[100]};
   border: none;
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[0]}) {
+    min-width: 40px;
+    min-height: 40px;
+  }
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
+    min-width: 60px;
+    min-height: 60px;
+  }
 `;
