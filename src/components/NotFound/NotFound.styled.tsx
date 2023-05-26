@@ -6,17 +6,14 @@ export const Section = styled.section`
 `;
 
 export const TitleH1 = styled.h1`
-  font-size: 200px;
-  line-height: 242px;
-  margin: 0 0 60px 0;
+  font-size: 120px;
+  font-weight: 600;
+  line-height: 1.1;
+  color: #141944;
+  margin: 0 0 92px 0;
 `;
 
-export const TitleH2 = styled.h2`
-  font-size: 32px;
-  line-height: 39px;
-`;
-
-export const StyledText = styled.h2`
+export const StyledText = styled.p`
   font-size: 24px;
   line-height: 36px;
   font-weight: 400;

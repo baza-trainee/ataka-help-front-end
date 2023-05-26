@@ -6,7 +6,6 @@ import { Container } from "../Common";
 import {
   Section,
   TitleH1,
-  TitleH2,
   StyledText,
   StyledDiv,
   StyledDivImg,
@@ -21,17 +20,14 @@ const NotFound: FC = () => {
         <StyledDiv>
           <StyledDivWrap>
             <TitleH1>404</TitleH1>
-            <TitleH2>Ця сторінка не знайдена</TitleH2>
-            <StyledText>
-              Ми не змогли знайти сторінку, яку Ви шукаєте, або, можливо,
-              сталася помилка
-            </StyledText>
+            <StyledText>Ми не знайшли сторінку, яку Ви шукаєте.</StyledText>
+            <StyledText>Можливо, сталася помилка.</StyledText>
+            <StyledLink href="/">На головну</StyledLink>
           </StyledDivWrap>
           <StyledDivImg>
             <Image src={image} alt="Image" width={466} height={466} />
           </StyledDivImg>
         </StyledDiv>
-        <StyledLink href="/">На головну</StyledLink>
       </Container>
     </Section>
   );
