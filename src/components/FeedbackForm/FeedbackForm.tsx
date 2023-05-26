@@ -1,4 +1,4 @@
-import { FC, useRef, useEffect, useState } from "react";
+import { FC, useRef, useEffect, useState, createRef } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import ReCAPTCHA from "react-google-recaptcha";
@@ -93,7 +93,7 @@ const FeedbackForm: FC = () => {
         )}
       </CommentLabel>
       <ReCAPTCHA
-        sitekey={process.env.NEXT_PUBLIC_SITE_KEY}
+        sitekey={`${process.env.NEXT_PUBLIC_SITE_KEY} `}
         size={"normal"}
         ref={captchaRef}
         onChange={handleCaptcha}

@@ -4,10 +4,11 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 import { CarouselBox } from "./Slider.styled";
+import { Section } from "../Common/Section.styled";
 
 const Slider: FC = () => {
   return (
-    <section>
+    <Section>
       <Carousel showStatus={false} showThumbs={false} showIndicators={false}>
         {[1, 2, 3].map(path => (
           <CarouselBox key={path}>
@@ -21,7 +22,7 @@ const Slider: FC = () => {
           </CarouselBox>
         ))}
       </Carousel>
-    </section>
+    </Section>
   );
 };
 
