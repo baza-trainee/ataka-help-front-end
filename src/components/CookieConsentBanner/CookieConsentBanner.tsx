@@ -1,5 +1,12 @@
 import React, { FC, useEffect, useState } from "react";
-import { Box, BtnStyled } from "./CookieConsentBanner.styled";
+import {
+  Box,
+  BtnStyled,
+  TextStyled,
+  TitleStyled,
+} from "./CookieConsentBanner.styled";
+
+import FileOpenLink from "../FileOpenLink/FileOpenLink";
 
 const CookieConsentBanner: FC = () => {
   const [showCookieBanner, setShowCookieBanner] = useState(true);
@@ -20,12 +27,16 @@ const CookieConsentBanner: FC = () => {
       {showCookieBanner && (
         <Box>
           <div>
-            <h3>Файли Cookies</h3>
-            <p>
+            <TitleStyled>Файли Cookies</TitleStyled>
+            <TextStyled>
               Цей сайт використовує файли cookies для роботи і покращення
               сервісу. Дізнайтесь більше в{" "}
-              <a href="">Політика конфіденційності</a>
-            </p>
+              <FileOpenLink
+                isTextUnderline={true}
+                text={"Політика конфіденційності"}
+                path={"/M8 FAQ_Russian.pdf"}
+              />
+            </TextStyled>
           </div>
           <BtnStyled onClick={acceptGoogle} type="button">
             ОК
