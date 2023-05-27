@@ -51,6 +51,7 @@ export const theme = {
       600: "#B8C7F5", //button-hover-focus-color
       700: "#B0BFED", //active button
       800: "#656FB4", //cookies-bg
+      900: "rgba(160, 194, 231, 0.05)", //button-bg
     },
 
     red: {

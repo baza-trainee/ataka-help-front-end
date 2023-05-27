@@ -3,6 +3,6 @@ export type SectionPropsType = {
   pbm?: string; //padding-bottom-mobile default:72px
   ptt?: string; //padding-top-tablet default:0
   pbt?: string; //padding-bottom-tablet default:100px
-  ptd?: string; //padding-top-desctop default:0
-  pbd?: string; //padding-bottom-desctop default:120px
+  ptd?: string; //padding-top-desktop default:0
+  pbd?: string; //padding-bottom-desktop default:120px
 };

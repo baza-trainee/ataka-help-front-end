@@ -9,7 +9,7 @@ import { CardScheme } from "@/schemas";
 import axios from "axios";
 
 const test = async (data: any) => {
-  const response = await axios.post("http://foradmin.fun/", data, {
+  const response = await axios.post("https://foradmin.fun/", data, {
     headers: { "Content-Type": "multipart/form-data" },
   });
   return response;
