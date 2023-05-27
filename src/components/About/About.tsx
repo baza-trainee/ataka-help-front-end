@@ -34,8 +34,7 @@ const About: FC = () => {
               Imperdiet non tincidunt eu massa lacus vitae rutrum eu sodales.
               Phasellus placerat donec sed praesent. Imperdiet orci pellentesque
               duis lorem egestas phasellus. Commodo nunc eu non amet imperdiet
-              nec volutpat massa. Quisque faucibus vehicula egestas neque ac. Ac
-              donec mauris ipsum a faucibus commodo.
+              nec volutpat massa.
             </Text>
           </TextContainer>
         </FlexContainer>
