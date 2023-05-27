@@ -28,7 +28,6 @@ const Admin: NextPage = () => {
         </>
 
         <CardForm />
-
       </main>
     </>
   );

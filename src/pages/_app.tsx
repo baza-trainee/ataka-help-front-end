@@ -2,11 +2,12 @@ import type { AppProps } from "next/app";
 import type { Session } from "next-auth";
 
 import { Global, ThemeProvider } from "@emotion/react";
-import { global } from "@/styles/globals-style";
-import { theme } from "@/theme";
+import { global } from "../styles/globals-style";
+import { theme } from "../theme";
 import Script from "next/script";
 import { useEffect, useState } from "react";
 import { SessionProvider } from "next-auth/react";
+import React from "react";
 
 export default function App({
   Component,
