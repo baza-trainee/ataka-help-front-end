@@ -11,3 +11,4 @@ export type { IStyledLinkProps } from "./IStyledLinkProps";
 export type { SectionPropsType } from "./SectionPropsType";
 export type { TitlePropsType } from "./TitlePropsType";
 export type { HiddenTitleProps } from "./HiddenTitleProps";
+export type { IStyles, IOpenLink } from "./IFileOpenLink";

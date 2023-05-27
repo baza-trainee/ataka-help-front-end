@@ -1,15 +1,6 @@
-import { Theme, css } from "@emotion/react";
+import { IOpenLink, IStyles } from "@/types";
+import { css } from "@emotion/react";
 import styled from "@emotion/styled";
-
-interface IStyles {
-  theme: Theme;
-}
-
-interface IOpenLink {
-  isTextUnderline?: boolean;
-  isCookiesButtonStyles?: boolean;
-  isFooterButtonStyles?: boolean;
-}
 
 export const PagesList = styled.ul`
   height: 100%;
