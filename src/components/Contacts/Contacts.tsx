@@ -26,6 +26,7 @@ const ContactsSection: FC = () => {
               alt="Universe"
               fill
               style={{ objectFit: "cover" }}
+              sizes="(min-width: 320px) 302px, (min-width: 834px) 329px, (min-width: 1440px) 464px"
             />
           </ImageContainer>
           <DesktopContainer>
