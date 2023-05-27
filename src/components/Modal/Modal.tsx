@@ -54,7 +54,7 @@ const Modal: FC<IModal> = ({ children, setIsModalOpen }) => {
                   fill
                   src={logo}
                   alt="logo"
-                  sizes="(min-width: 393px) 117px, (min-width: 834px) 97px, 241px"
+                  sizes="(min-width: 1440px) 241px, (min-width: 834px) 97px, 117px"
                 />
               </LogoWrapper>
               <CloseIconWrapper>

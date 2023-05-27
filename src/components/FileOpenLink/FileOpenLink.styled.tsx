@@ -1,7 +1,7 @@
 import { Theme, css } from "@emotion/react";
 import styled from "@emotion/styled";
 
-interface IMainButtonStyles {
+interface IStyles {
   theme: Theme;
 }
 
@@ -18,7 +18,7 @@ export const PagesList = styled.ul`
   background-color: #000000;
 `;
 
-const FooterButtonStyles = ({ theme }: IMainButtonStyles) => css`
+const FooterButtonStyles = ({ theme }: IStyles) => css`
   @media screen and (min-width: ${theme.breakpoints[0]}) {
     font-size: ${theme.fontSizes[4]};
   }
@@ -30,7 +30,7 @@ const FooterButtonStyles = ({ theme }: IMainButtonStyles) => css`
   }
 `;
 
-const CookiesButtonStyles = ({ theme }: IMainButtonStyles) => css`
+const CookiesButtonStyles = ({ theme }: IStyles) => css`
   @media screen and (min-width: ${theme.breakpoints[0]}) {
     font-size: 13px;
   }
