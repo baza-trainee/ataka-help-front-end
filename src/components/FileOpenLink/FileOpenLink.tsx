@@ -4,10 +4,40 @@ PDFJS.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 import { IFileOpenLink } from "@/types";
 import Modal from "../Modal/Modal";
 import { PagesList, OpenLink } from "./FileOpenLink.styled";
+import { theme } from "@/theme";
+
+const getPdfPath = (
+  pathForDesktop: string,
+  pathForTablet: string,
+  pathForMobile: string,
+): string => {
+  const screenSizes: string[] = theme.breakpoints;
+  let media: MediaQueryList | null = null;
+
+  for (let i = screenSizes.length - 1; i >= 0; i--) {
+    const queryMinWidth: string = `(min-width: ${screenSizes[i]})`;
+    media = window.matchMedia(queryMinWidth);
+
+    if (i === 0) {
+      return pathForMobile;
+    }
+    if (media.matches) {
+      switch (screenSizes[i]) {
+        case screenSizes[1]:
+          return pathForTablet;
+        case screenSizes[2]:
+          return pathForDesktop;
+      }
+    }
+  }
+  return "";
+};
 
 const FileOpenLink: FC<IFileOpenLink> = ({
   text,
-  path,
+  pathForDesktop,
+  pathForTablet,
+  pathForMobile,
   isTextUnderline,
   isCookiesButtonStyles,
   isFooterButtonStyles,
@@ -22,8 +52,12 @@ const FileOpenLink: FC<IFileOpenLink> = ({
 
   const DEFAULT_SCALE = 1;
 
-  const getPDFData = async () => {
-    // can be web URL
+  const getPDFData = () => {
+    const path: string = getPdfPath(
+      pathForDesktop,
+      pathForTablet,
+      pathForMobile,
+    );
     showPDFInCanvas(path);
   };
 
@@ -63,9 +97,11 @@ const FileOpenLink: FC<IFileOpenLink> = ({
 
     canvas.height = viewport.height;
     canvas.width = viewport.width;
-    li.setAttribute("id", "page-" + (page._pageIndex + 1));
-    canvas.setAttribute("style", "width: 100%");
     container.appendChild(li);
+
+    li.setAttribute("id", "page-" + (page._pageIndex + 1));
+    li.setAttribute("style", "width: 100%");
+    canvas.setAttribute("style", "width: 100%");
 
     const renderContext = {
       canvasContext: ctx,

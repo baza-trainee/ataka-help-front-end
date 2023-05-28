@@ -45,9 +45,11 @@ const Footer: FC = () => {
             <li>
               <FileOpenLink
                 text="Політика конфіденційності"
-                path="/Private policy.pdf"
+                pathForDesktop="/Private-policy-desktop.pdf"
+                pathForTablet="/Private-policy-tablet.pdf"
+                pathForMobile="/Private-policy-mobile.pdf"
                 isTextUnderline
-                isFooterButtonStyles
+                // isFooterButtonStyles
               />
             </li>
             <li>

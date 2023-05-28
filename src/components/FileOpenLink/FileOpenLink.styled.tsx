@@ -5,8 +5,6 @@ import styled from "@emotion/styled";
 export const PagesList = styled.ul`
   height: 100%;
   width: 100%;
-  overflow: auto;
-  background-color: #000000;
 `;
 
 const FooterButtonStyles = ({ theme }: IStyles) => css`
@@ -43,7 +41,8 @@ export const OpenLink = styled.button<IOpenLink>`
 
   ${({ isFooterButtonStyles, isCookiesButtonStyles }) =>
     (isFooterButtonStyles && FooterButtonStyles) ||
-    (isCookiesButtonStyles && CookiesButtonStyles)}
+    (isCookiesButtonStyles && CookiesButtonStyles) ||
+    FooterButtonStyles}
 
   text-decoration-line: ${({ isTextUnderline }) =>
     isTextUnderline ? "underline" : "none"};

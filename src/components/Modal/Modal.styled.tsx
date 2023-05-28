@@ -25,12 +25,10 @@ export const ModalHeader = styled(Container)`
   display: flex;
   justify-content: space-between;
   min-height: auto;
-  /* @media screen and (min-width: ${({ theme }) => theme.breakpoints[0]}) { */
   width: 100vw;
   padding-top: 20px;
   padding-bottom: 20px;
   align-items: center;
-  /* } */
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
     padding-top: 33px;
     padding-bottom: 34px;
@@ -47,9 +45,7 @@ export const ModalHeader = styled(Container)`
 export const ModalFooter = styled(Container)`
   min-height: auto;
   background: ${({ theme }) => theme.colors.blue[100]};
-  /* @media screen and (min-width: ${({ theme }) => theme.breakpoints[0]}) { */
   height: 40px;
-  /* } */
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
     height: 48px;
   }
@@ -60,9 +56,8 @@ export const ModalFooter = styled(Container)`
 
 export const ModalBody = styled(Container)`
   min-height: auto;
-  /* @media screen and (min-width: ${({ theme }) => theme.breakpoints[0]}) { */
   height: calc(100% - 80px - 40px);
-  /* } */
+  overflow: auto;
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
     height: calc(100% - 100px - 48px);
   }
@@ -73,10 +68,8 @@ export const ModalBody = styled(Container)`
 
 export const LogoWrapper = styled.div`
   position: relative;
-  /* @media screen and (min-width: ${({ theme }) => theme.breakpoints[0]}) { */
   width: 117px;
   height: 40px;
-  /* } */
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
     width: 97px;
     height: 33px;
@@ -89,10 +82,8 @@ export const LogoWrapper = styled.div`
 
 export const CloseIconWrapper = styled.div`
   position: relative;
-  /* @media screen and (min-width: ${({ theme }) => theme.breakpoints[0]}) { */
   width: 24px;
   height: 24px;
-  /* } */
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
     width: 40px;
     height: 40px;
