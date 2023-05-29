@@ -15,7 +15,7 @@ import {
 
 const NotFound: FC = () => {
   return (
-    <Section ptm="32px" ptt="60px" ptd="60px">
+    <Section ptm="32px" ptt="48px" ptd="60px">
       <Container>
         <StyledDiv>
           <TitleH1>404</TitleH1>
