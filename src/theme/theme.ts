@@ -34,6 +34,7 @@ export const theme = {
     black: {
       100: "#000000", //black-text color
       200: "#010413", //main-text-color
+      300: "#242635", //input-focus
     },
     grey: {
       100: "#B2BFCE", //footer-line color

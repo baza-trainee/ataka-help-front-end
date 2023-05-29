@@ -23,6 +23,10 @@ export const Input = styled.input`
   padding: 10px 23px 10px 10px;
   height: 48px;
   width: 90%;
+  color: ${({ theme }) => theme.colors.black[100]};
+  font-size: ${({ theme }) => theme.fontSizes[2]};
+  font-weight: ${({ theme }) => theme.fontWeights.regular};
+  line-height: 1.5;
   border: 1px solid ${({ theme }) => theme.colors.grey[200]};
   border-radius: ${({ theme }) => theme.radii.sm};
 
@@ -35,6 +39,18 @@ export const Input = styled.input`
   }
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
     width: 410px;
+    font-size: ${({ theme }) => theme.fontSizes[5]};
+  }
+
+  &:focus,
+  &:active {
+    outline: none;
+    border: 1px solid ${({ theme }) => theme.colors.black[300]};
+  }
+
+  &.invalid {
+    outline: none;
+    border: 1px solid ${({ theme }) => theme.colors.red[100]};
   }
 `;
 
@@ -44,6 +60,9 @@ export const Comment = styled.textarea`
   height: 148px;
   width: 90%;
   resize: none;
+  font-size: ${({ theme }) => theme.fontSizes[2]};
+  font-weight: ${({ theme }) => theme.fontWeights.regular};
+  line-height: 1.5;
   border: 1px solid ${({ theme }) => theme.colors.grey[200]};
   border-radius: ${({ theme }) => theme.radii.sm};
 
@@ -56,6 +75,17 @@ export const Comment = styled.textarea`
   }
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
     width: 846px;
+    font-size: ${({ theme }) => theme.fontSizes[5]};
+  }
+  &:focus,
+  &:active {
+    outline: none;
+    border: 1px solid ${({ theme }) => theme.colors.black[300]};
+  }
+
+  &.invalid {
+    outline: none;
+    border: 1px solid ${({ theme }) => theme.colors.red[100]};
   }
 `;
 
@@ -90,7 +120,7 @@ export const Button = styled.button`
   color: ${({ theme }) => theme.colors.blue[300]};
   font-weight: ${({ theme }) => theme.fontWeights.semibold};
   font-variant: small-caps;
-  font-size: 22px;
+  font-size: ${({ theme }) => theme.fontSizes[5]};
   background-color: transparent;
   border: 2px solid ${({ theme }) => theme.colors.blue[300]};
   border-radius: ${({ theme }) => theme.radii.sm};
@@ -131,6 +161,10 @@ export const ErrorMessage = styled.p`
   font-weight: ${({ theme }) => theme.fontWeights.regular};
   font-size: ${({ theme }) => theme.fontSizes[0]};
   font-variant: small-caps;
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
+    font-size: ${({ theme }) => theme.fontSizes[1]};
+  }
 `;
 
 export const MessageWrapper = styled.div`

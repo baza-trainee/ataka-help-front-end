@@ -69,7 +69,7 @@ const FeedbackForm: FC = () => {
             <Wrapper>
               <InputLabel>
                 Ім`я*
-                <Input type="name" autoComplete="off" {...register("name")} />
+                <Input type="name" autoComplete="off" {...register("name")} className={errors.name && "invalid"}/>
                 {errors.name && (
                   <MessageWrapper>
                     <ErrorMessage>{errors.name?.message}</ErrorMessage>
@@ -78,7 +78,7 @@ const FeedbackForm: FC = () => {
               </InputLabel>
               <InputLabel>
                 Емейл*
-                <Input type="email" autoComplete="off" {...register("email")} />
+                <Input type="email" autoComplete="off" {...register("email")} className={errors.email && "invalid"}/>
                 {errors.name && (
                   <MessageWrapper>
                     <ErrorMessage>{errors.email?.message}</ErrorMessage>
@@ -88,7 +88,7 @@ const FeedbackForm: FC = () => {
             </Wrapper>
             <InputLabel>
               Повідомлення*
-              <Comment autoComplete="off" {...register("comment")} />
+              <Comment autoComplete="off" {...register("comment")} className={errors.comment && "invalid"}/>
               {errors.name && (
                 <MessageWrapper>
                   <ErrorMessage>{errors.comment?.message}</ErrorMessage>
