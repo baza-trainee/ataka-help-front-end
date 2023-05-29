@@ -5,6 +5,17 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { ICardForm } from "@/types";
 import { CardScheme } from "@/schemas";
 
+//test
+import axios from "axios";
+
+const test = async (data: any) => {
+  const response = await axios.post("https://foradmin.fun/", data, {
+    headers: { "Content-Type": "multipart/form-data" },
+  });
+  return response;
+};
+//test
+
 const CardForm: FC = () => {
   const {
     register,
@@ -36,7 +47,13 @@ const CardForm: FC = () => {
       "description",
       JSON.stringify(data.description.map(({ item }) => item)),
     );
-    console.log(data);
+    // console.log(JSON.stringify(data.description.map(({ item }) => item)));
+    // try {
+    //   const response = await test(formData);
+    //   console.log(response);
+    // } catch (e) {
+    //   console.log(e);
+    // }
   };
 
   return (
