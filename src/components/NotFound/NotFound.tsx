@@ -2,6 +2,7 @@ import { FC } from "react";
 import Image from "next/image";
 
 import { Container } from "../Common";
+import errorImg from "../../../public/images/404-img.png";
 import NavLink from "../NavLink/NavLink";
 import {
   Section,
@@ -28,7 +29,9 @@ const NotFound: FC = () => {
               Повернутися на головну
             </NavLink>
           </StyledLink>
-          <StyledDivImg>{/* <Image alt="Image" fill /> */}</StyledDivImg>
+          <StyledDivImg>
+            <Image src={errorImg} alt="Digital art" fill />
+          </StyledDivImg>
         </StyledDiv>
       </Container>
     </Section>

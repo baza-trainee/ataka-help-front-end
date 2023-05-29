@@ -64,15 +64,10 @@ export const StyledTextWrap = styled.div`
 
 export const StyledDivImg = styled.div`
   grid-area: picture;
-  overflow: hidden;
-  display: flex;
-  border-radius: 50%;
-  transform: rotate(-30deg);
-
-  @media screen and (min-width: ${({ theme }) => theme.breakpoints[0]}) {
-    width: 302px;
-    height: 302px;
-  }
+  position: relative;
+  margin: 0 auto;
+  height: 302px;
+  width: 302px;
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
     width: 329px;
