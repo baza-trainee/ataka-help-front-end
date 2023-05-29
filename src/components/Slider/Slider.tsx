@@ -5,16 +5,18 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 import { CarouselBox } from "./Slider.styled";
 import { Section } from "../Common/Section.styled";
+import { Container } from "../Common";
 
 const Slider: FC = () => {
   return (
     <Section>
       {/* <div style={{ position: "relative" }}> */}
+
       <Carousel showStatus={false} showThumbs={false} showIndicators={false}>
-        {["screen_0", "screen_1", "screen_2", "screen_3"].map(path => (
+        {[1, 2, 3].map(path => (
           <CarouselBox key={path}>
             <Image
-              src={`/${path}.png`}
+              src={`/${path}.jpg`}
               alt="carusel-img"
               fill
               style={{ objectFit: "cover" }}
