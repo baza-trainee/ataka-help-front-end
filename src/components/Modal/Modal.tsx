@@ -1,9 +1,19 @@
 import { FC, MouseEvent, useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { createPortal } from "react-dom";
 import { IModal } from "@/types";
 import { Global } from "@emotion/react";
-import { Backdrop, CloseIcon, Wrapper } from "./Modal.styled";
-import closeIcon from "../../assets/x-lg.svg";
+import {
+  Backdrop,
+  CloseIconWrapper,
+  LogoWrapper,
+  ModalBody,
+  ModalFooter,
+  ModalHeader,
+  ModalWrapper,
+} from "./Modal.styled";
+import closeIcon from "../../assets/icons/close.svg";
+import logo from "/public/images/logo.png";
 
 const Modal: FC<IModal> = ({ children, setIsModalOpen }) => {
   const [mounted, setMounted] = useState(false);
@@ -37,16 +47,28 @@ const Modal: FC<IModal> = ({ children, setIsModalOpen }) => {
   return mounted && modalRootRef.current
     ? createPortal(
         <Backdrop onClick={onBackdropClickHankler}>
-          <Wrapper>
-            <CloseIcon
-              src={closeIcon}
-              width={20}
-              height={20}
-              alt="close icon"
-              onClick={closeModalHendler}
-            />
-            {children}
-          </Wrapper>
+          <ModalWrapper>
+            <ModalHeader>
+              <LogoWrapper>
+                <Image
+                  fill
+                  src={logo}
+                  alt="logo"
+                  sizes="(min-width: 1440px) 241px, (min-width: 834px) 97px, 117px"
+                />
+              </LogoWrapper>
+              <CloseIconWrapper>
+                <Image
+                  fill
+                  src={closeIcon}
+                  alt="close icon"
+                  onClick={closeModalHendler}
+                />
+              </CloseIconWrapper>
+            </ModalHeader>
+            <ModalBody>{children}</ModalBody>
+            <ModalFooter />
+          </ModalWrapper>
           <Global
             styles={{
               html: {

@@ -3,9 +3,43 @@ import * as PDFJS from "pdfjs-dist";
 PDFJS.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${PDFJS.version}/pdf.worker.min.js`;
 import { IFileOpenLink } from "@/types";
 import Modal from "../Modal/Modal";
-import { FileWrapper, OpenLink } from "./FileOpenLink.styled";
+import { PagesList, OpenLink } from "./FileOpenLink.styled";
+import { theme } from "@/theme";
 
-const FileOpenLink: FC<IFileOpenLink> = ({ text, path, isTextUnderline }) => {
+const getPdfPath = (
+  pathForDesktop: string,
+  pathForTablet: string,
+  pathForMobile: string,
+): string => {
+  const screenSizes: string[] = theme.breakpoints;
+  let media: MediaQueryList | null = null;
+
+  for (let i = screenSizes.length - 1; i >= 0; i--) {
+    const queryMinWidth: string = `(min-width: ${screenSizes[i]})`;
+    media = window.matchMedia(queryMinWidth);
+
+    if (i === 0) {
+      return pathForMobile;
+    }
+    if (media.matches) {
+      switch (screenSizes[i]) {
+        case screenSizes[1]:
+          return pathForTablet;
+        case screenSizes[2]:
+          return pathForDesktop;
+      }
+    }
+  }
+  return "";
+};
+
+const FileOpenLink: FC<IFileOpenLink> = ({
+  text,
+  path,
+  isTextUnderline,
+  isCookiesButtonStyles,
+  isFooterButtonStyles,
+}) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const pageRenderRef = useRef<HTMLUListElement>(null);
 
@@ -16,8 +50,7 @@ const FileOpenLink: FC<IFileOpenLink> = ({ text, path, isTextUnderline }) => {
 
   const DEFAULT_SCALE = 1;
 
-  const getPDFData = async () => {
-    // can be web URL
+  const getPDFData = () => {
     showPDFInCanvas(path);
   };
 
@@ -57,9 +90,11 @@ const FileOpenLink: FC<IFileOpenLink> = ({ text, path, isTextUnderline }) => {
 
     canvas.height = viewport.height;
     canvas.width = viewport.width;
-    li.setAttribute("id", "page-" + (page._pageIndex + 1));
-    canvas.setAttribute("style", "width: 100%;");
     container.appendChild(li);
+
+    li.setAttribute("id", "page-" + (page._pageIndex + 1));
+    li.setAttribute("style", "width: 100%");
+    canvas.setAttribute("style", "width: 100%");
 
     const renderContext = {
       canvasContext: ctx,
@@ -75,10 +110,15 @@ const FileOpenLink: FC<IFileOpenLink> = ({ text, path, isTextUnderline }) => {
     <>
       {isModalOpen && (
         <Modal setIsModalOpen={setIsModalOpen}>
-          <FileWrapper ref={pageRenderRef}></FileWrapper>
+          <PagesList ref={pageRenderRef} />
         </Modal>
       )}
-      <OpenLink onClick={clickTextHandler} isTextUnderline={isTextUnderline}>
+      <OpenLink
+        onClick={clickTextHandler}
+        isTextUnderline={isTextUnderline}
+        isCookiesButtonStyles={isCookiesButtonStyles}
+        isFooterButtonStyles={isFooterButtonStyles}
+      >
         {text}
       </OpenLink>
     </>
