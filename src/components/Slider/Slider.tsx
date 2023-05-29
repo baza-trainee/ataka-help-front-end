@@ -9,19 +9,22 @@ import { Section } from "../Common/Section.styled";
 const Slider: FC = () => {
   return (
     <Section>
+      {/* <div style={{ position: "relative" }}> */}
       <Carousel showStatus={false} showThumbs={false} showIndicators={false}>
-        {[1, 2, 3].map(path => (
+        {["screen_0", "screen_1", "screen_2", "screen_3"].map(path => (
           <CarouselBox key={path}>
             <Image
-              src={`/${path}.jpg`}
+              src={`/${path}.png`}
               alt="carusel-img"
               fill
               style={{ objectFit: "cover" }}
               priority={true}
             />
+            {/* <h2 style={{ position: "absolute" }}>Знай, як захиститись</h2> */}
           </CarouselBox>
         ))}
       </Carousel>
+      {/* </div> */}
     </Section>
   );
 };
