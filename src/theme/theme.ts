@@ -14,6 +14,7 @@ export const theme = {
     "64px", //9
     "96px", //10
     "120px", //11
+    "48px", //12
   ],
 
   fontWeights: {
@@ -30,6 +31,7 @@ export const theme = {
   colors: {
     white: {
       100: "#FFFFFF", //text-color: footer, header
+      200: "#D9D9D9", //slider-title
     },
     black: {
       100: "#000000", //black-text color
