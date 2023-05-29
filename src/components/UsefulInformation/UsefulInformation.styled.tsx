@@ -25,14 +25,22 @@ export const TextContainer = styled.div`
 export const ImageContainer = styled.div`
   position: relative;
 
+  @media screen and (max-width: ${({ theme }) => theme.breakpoints[0]}) {
+    height: 184px;
+    width: 361px;
+    margin: 0 auto 24px;
+  }
+
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[0]}) {
     width: 361px;
+    height: 184px;
+    margin: 0 auto 24px;
   }
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
     width: 754px;
     height: 384px;
-    margin: 48px auto 24px;
+    margin: 0 auto 24px;
   }
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
@@ -46,5 +54,8 @@ export const FlexContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-top: 60px;
+
+  :nth-child(even) {
+    flex-direction: row-reverse;
+  }
 `;

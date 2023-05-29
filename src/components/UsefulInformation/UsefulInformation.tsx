@@ -18,7 +18,9 @@ const UsefulInformation: FC<UsefulInformationProps> = props => {
   return (
     <Section>
       <Container>
-        <Title textAlignM="center">{title}</Title>
+        <Title textAlignM="center" style={{ paddingBottom: "40px" }}>
+          {title}
+        </Title>
         <FlexContainer>
           <ImageContainer>
             <Image
@@ -41,7 +43,17 @@ const UsefulInformation: FC<UsefulInformationProps> = props => {
               nec volutpat massa.
             </Text>
           </TextContainer>
-
+        </FlexContainer>
+        <FlexContainer>
+          <ImageContainer>
+            <Image
+              src={image}
+              alt="Image"
+              fill
+              style={{ objectFit: "cover" }}
+              sizes="(min-width: 320px) 360px, (min-width: 834px) 754px, (min-width: 1440px) 628px"
+            />
+          </ImageContainer>
           <TextContainer>
             <Text>
               Lorem ipsum dolor sit amet consectetur. Vel pellentesque lacus
@@ -54,6 +66,8 @@ const UsefulInformation: FC<UsefulInformationProps> = props => {
               nec volutpat massa.
             </Text>
           </TextContainer>
+        </FlexContainer>
+        <FlexContainer>
           <ImageContainer>
             <Image
               src={image}
@@ -63,6 +77,18 @@ const UsefulInformation: FC<UsefulInformationProps> = props => {
               sizes="(min-width: 320px) 360px, (min-width: 834px) 754px, (min-width: 1440px) 628px"
             />
           </ImageContainer>
+          <TextContainer>
+            <Text>
+              Lorem ipsum dolor sit amet consectetur. Vel pellentesque lacus
+              vestibulum sed aliquet orci tristique convallis vulputate.
+              Imperdiet non rhoncus cursus mattis nec et vestibulum odio. Erat
+              hendrerit vitae auctor diam cursus adipiscing donec pharetra.
+              Imperdiet non tincidunt eu massa lacus vitae rutrum eu sodales.
+              Phasellus placerat donec sed praesent. Imperdiet orci pellentesque
+              duis lorem egestas phasellus. Commodo nunc eu non amet imperdiet
+              nec volutpat massa.
+            </Text>
+          </TextContainer>
         </FlexContainer>
       </Container>
     </Section>
