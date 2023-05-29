@@ -34,11 +34,13 @@ export const theme = {
     black: {
       100: "#000000", //black-text color
       200: "#010413", //main-text-color
+      300: "#242635", //input-focus
     },
     grey: {
       100: "#B2BFCE", //footer-line color
       200: "#727272", //feedback-form border color
       300: "#D0D2D6", //disabled button
+      400: "#A2A4A7", //disabled button text color
     },
 
     blue: {
@@ -52,5 +54,9 @@ export const theme = {
       800: "#656FB4", //cookies-bg
       900: "rgba(160, 194, 231, 0.05)", //button-bg
     },
+
+    red: {
+      100: "#DC0C31", // error-message
+    }
   },
 };
