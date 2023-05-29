@@ -49,7 +49,7 @@ const Footer: FC = () => {
                 pathForTablet="/Private-policy-tablet.pdf"
                 pathForMobile="/Private-policy-mobile.pdf"
                 isTextUnderline
-                // isFooterButtonStyles
+                isFooterButtonStyles
               />
             </li>
             <li>
