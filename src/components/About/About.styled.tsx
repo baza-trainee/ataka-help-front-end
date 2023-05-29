@@ -28,10 +28,6 @@ export const Text = styled.p`
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
     font-size: ${({ theme }) => theme.fontSizes[5]};
   }
-
-  @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
-    font-size: ${({ theme }) => theme.fontSizes[4]};
-  }
 `;
 
 export const TextContainer = styled.div`
