@@ -1,11 +1,10 @@
 import { FC } from "react";
 import Image from "next/image";
 
-import { Container } from "../Common";
+import { Container, Section } from "../Common";
 import errorImg from "../../../public/images/404-img.png";
 import NavLink from "../NavLink/NavLink";
 import {
-  Section,
   TitleH1,
   StyledText,
   StyledTextWrap,
@@ -16,7 +15,7 @@ import {
 
 const NotFound: FC = () => {
   return (
-    <Section>
+    <Section ptm="32px" ptt="60px" ptd="60px">
       <Container>
         <StyledDiv>
           <TitleH1>404</TitleH1>

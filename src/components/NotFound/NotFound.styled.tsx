@@ -1,9 +1,5 @@
 import styled from "@emotion/styled";
 
-export const Section = styled.section`
-  padding: 120px 0;
-`;
-
 export const TitleH1 = styled.h1`
   grid-area: title;
   margin: 0 0 10px 0;
