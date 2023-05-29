@@ -35,9 +35,7 @@ const CookieConsentBanner: FC = () => {
                 isTextUnderline
                 isCookiesButtonStyles
                 text={"Політика конфіденційності"}
-                pathForDesktop="/Private-policy-desktop.pdf"
-                pathForTablet="/Private-policy-tablet.pdf"
-                pathForMobile="/Private-policy-mobile.pdf"
+                path={"/files/politics.pdf"}
               />
             </TextStyled>
           </div>

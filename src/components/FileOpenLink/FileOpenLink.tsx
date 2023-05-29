@@ -35,9 +35,7 @@ const getPdfPath = (
 
 const FileOpenLink: FC<IFileOpenLink> = ({
   text,
-  pathForDesktop,
-  pathForTablet,
-  pathForMobile,
+  path,
   isTextUnderline,
   isCookiesButtonStyles,
   isFooterButtonStyles,
@@ -53,11 +51,6 @@ const FileOpenLink: FC<IFileOpenLink> = ({
   const DEFAULT_SCALE = 1;
 
   const getPDFData = () => {
-    const path: string = getPdfPath(
-      pathForDesktop,
-      pathForTablet,
-      pathForMobile,
-    );
     showPDFInCanvas(path);
   };
 

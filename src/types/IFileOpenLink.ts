@@ -2,9 +2,7 @@ import { Theme } from "@emotion/react";
 
 export interface IFileOpenLink {
   text: string;
-  pathForDesktop: string;
-  pathForTablet: string;
-  pathForMobile: string;
+  path: string;
   isTextUnderline?: boolean;
   isCookiesButtonStyles?: boolean;
   isFooterButtonStyles?: boolean;
