@@ -1,16 +1,16 @@
 import { FC } from "react";
 import Image from "next/image";
 
-import image from "../../assets/rectangle.png";
 import { Container } from "../Common";
+import NavLink from "../NavLink/NavLink";
 import {
   Section,
   TitleH1,
   StyledText,
+  StyledTextWrap,
   StyledDiv,
   StyledDivImg,
   StyledLink,
-  StyledDivWrap,
 } from "./NotFound.styled";
 
 const NotFound: FC = () => {
@@ -18,15 +18,17 @@ const NotFound: FC = () => {
     <Section>
       <Container>
         <StyledDiv>
-          <StyledDivWrap>
-            <TitleH1>404</TitleH1>
+          <TitleH1>404</TitleH1>
+          <StyledTextWrap>
             <StyledText>Ми не знайшли сторінку, яку Ви шукаєте.</StyledText>
             <StyledText>Можливо, сталася помилка.</StyledText>
-            <StyledLink href="/">На головну</StyledLink>
-          </StyledDivWrap>
-          <StyledDivImg>
-            <Image src={image} alt="Image" width={466} height={466} />
-          </StyledDivImg>
+          </StyledTextWrap>
+          <StyledLink>
+            <NavLink href="/" isButton>
+              Повернутися на головну
+            </NavLink>
+          </StyledLink>
+          <StyledDivImg>{/* <Image alt="Image" fill /> */}</StyledDivImg>
         </StyledDiv>
       </Container>
     </Section>
