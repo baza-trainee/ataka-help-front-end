@@ -32,7 +32,8 @@ const CookieConsentBanner: FC = () => {
               Цей сайт використовує файли cookies для роботи і покращення
               сервісу. Дізнайтесь більше в{" "}
               <FileOpenLink
-                isTextUnderline={true}
+                isTextUnderline
+                isCookiesButtonStyles
                 text={"Політика конфіденційності"}
                 path={"/files/politics.pdf"}
               />

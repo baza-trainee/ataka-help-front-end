@@ -5,6 +5,30 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { ICardForm } from "@/types";
 import { CardScheme } from "@/schemas";
 
+//test
+import axios from "axios";
+
+const test = async (data: any) => {
+  const response = await axios.post("https://foradmin.fun/", data, {
+    headers: { "Content-Type": "multipart/form-data" },
+  });
+  return response;
+};
+
+const testGet = async () => {
+  const response = await axios.get("https://foradmin.fun/");
+  console.log(response);
+};
+
+const getList = async () => {
+  try {
+    const response: any = await testGet();
+  } catch (error) {
+    console.log(error);
+  }
+};
+//test
+
 const CardForm: FC = () => {
   const {
     register,
@@ -36,46 +60,58 @@ const CardForm: FC = () => {
       "description",
       JSON.stringify(data.description.map(({ item }) => item)),
     );
-    console.log(data);
+
+    try {
+      const response = await test(formData);
+      console.log(response);
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmitHandler)}>
-      <input
-        type="file"
-        accept="image/*,.png,.jpg,.webp"
-        {...register("thumb")}
-      />
-      {errors.thumb && <p>{errors.thumb.message}</p>}
+    <>
+      <button onClick={getList}>Get cards</button>
 
-      <input type="text" {...register("alt")} />
-      {errors.alt && <p>{errors.alt.message}</p>}
+      <form onSubmit={handleSubmit(onSubmitHandler)}>
+        <input
+          type="file"
+          accept="image/*,.png,.jpg,.webp"
+          {...register("thumb")}
+        />
+        {errors.thumb && <p>{errors.thumb.message}</p>}
 
-      <input type="text" {...register("title")} />
-      {errors.title && <p>{errors.title.message}</p>}
+        <input type="text" {...register("alt")} />
+        {errors.alt && <p>{errors.alt.message}</p>}
 
-      {fields.map((field, index) => (
-        <div key={field.id}>
-          <input type="text" {...register(`description.${index}.item`)} />
-          {errors.description && (
-            <p>
-              {index === 0 ? "Обов'язкове поле" : "Заповніть поле або видаліть"}
-            </p>
-          )}
-          {index > 0 && (
-            <button onClick={() => remove(index)} type="button">
-              Delete field
-            </button>
-          )}
-        </div>
-      ))}
+        <input type="text" {...register("title")} />
+        {errors.title && <p>{errors.title.message}</p>}
 
-      <button onClick={() => append({ item: "" })} type="button">
-        Add field
-      </button>
+        {fields.map((field, index) => (
+          <div key={field.id}>
+            <input type="text" {...register(`description.${index}.item`)} />
+            {errors.description && (
+              <p>
+                {index === 0
+                  ? "Обов'язкове поле"
+                  : "Заповніть поле або видаліть"}
+              </p>
+            )}
+            {index > 0 && (
+              <button onClick={() => remove(index)} type="button">
+                Delete field
+              </button>
+            )}
+          </div>
+        ))}
 
-      <button>Submit</button>
-    </form>
+        <button onClick={() => append({ item: "" })} type="button">
+          Add field
+        </button>
+
+        <button>Submit</button>
+      </form>
+    </>
   );
 };
 

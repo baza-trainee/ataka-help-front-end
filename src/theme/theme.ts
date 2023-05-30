@@ -2,24 +2,26 @@ export const theme = {
   breakpoints: ["393px", "834px", "1440px"],
 
   fontSizes: [
-    "12px",
-    "14px",
-    "16px",
-    "18px",
-    "20px",
-    "22px",
-    "24px",
-    "32px",
-    "40px",
-    "64px",
-    "96px",
-    "120px",
+    "12px", //0
+    "14px", //1
+    "16px", //2
+    "18px", //3
+    "20px", //4
+    "22px", //5
+    "24px", //6
+    "32px", //7
+    "40px", //8
+    "64px", //9
+    "96px", //10
+    "120px", //11
+    "48px", //12
   ],
 
   fontWeights: {
     regular: 400,
     medium: 500,
     semibold: 600,
+    bold: 700,
   },
 
   radii: {
@@ -29,15 +31,18 @@ export const theme = {
   colors: {
     white: {
       100: "#FFFFFF", //text-color: footer, header
+      200: "#D9D9D9", //slider-title
     },
     black: {
       100: "#000000", //black-text color
       200: "#010413", //main-text-color
+      300: "#242635", //input-focus
     },
     grey: {
       100: "#B2BFCE", //footer-line color
       200: "#727272", //feedback-form border color
       300: "#D0D2D6", //disabled button
+      400: "#A2A4A7", //disabled button text color
     },
 
     blue: {
@@ -49,6 +54,11 @@ export const theme = {
       600: "#B8C7F5", //button-hover-focus-color
       700: "#B0BFED", //active button
       800: "#656FB4", //cookies-bg
+      900: "rgba(160, 194, 231, 0.05)", //button-bg
+    },
+
+    red: {
+      100: "#DC0C31", // error-message
     },
   },
 };

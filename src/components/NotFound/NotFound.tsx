@@ -1,35 +1,37 @@
 import { FC } from "react";
 import Image from "next/image";
 
-import image from "../../assets/rectangle.png";
+import { Container, Section } from "../Common";
+import NavLink from "../NavLink/NavLink";
 import {
-  Section,
   TitleH1,
-  TitleH2,
   StyledText,
+  StyledTextWrap,
   StyledDiv,
   StyledDivImg,
   StyledLink,
-  StyledDivWrap,
 } from "./NotFound.styled";
 
 const NotFound: FC = () => {
   return (
-    <Section>
-      <StyledDiv>
-        <StyledDivWrap>
+    <Section ptm="32px" ptt="48px" ptd="60px">
+      <Container>
+        <StyledDiv>
           <TitleH1>404</TitleH1>
-          <TitleH2>Ця сторінка не знайдена</TitleH2>
-          <StyledText>
-            Ми не змогли знайти сторінку, яку Ви шукаєте, або, можливо, сталася
-            помилка
-          </StyledText>
-        </StyledDivWrap>
-        <StyledDivImg>
-          <Image src={image} alt="Image" width={466} height={466} />
-        </StyledDivImg>
-      </StyledDiv>
-      <StyledLink href="/">На головну</StyledLink>
+          <StyledTextWrap>
+            <StyledText>Ми не знайшли сторінку, яку Ви шукаєте.</StyledText>
+            <StyledText>Можливо, сталася помилка.</StyledText>
+          </StyledTextWrap>
+          <StyledLink>
+            <NavLink href="/" isButton>
+              Повернутися на головну
+            </NavLink>
+          </StyledLink>
+          <StyledDivImg>
+            <Image src="/images/404-img.png" alt="Digital art" fill />
+          </StyledDivImg>
+        </StyledDiv>
+      </Container>
     </Section>
   );
 };

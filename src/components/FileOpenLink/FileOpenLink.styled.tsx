@@ -1,32 +1,49 @@
-import { Theme, css } from "@emotion/react";
+import { IOpenLink, IStyles } from "@/types";
+import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 
-interface IMainButtonStyles {
-  theme: Theme;
-}
-
-interface IOpenLink {
-  isTextUnderline: boolean | undefined;
-}
-
-export const FileWrapper = styled.ul`
-  height: 90vh;
-  width: 80vw;
-  overflow: auto;
-  background-color: rgb(0, 0, 0);
+export const PagesList = styled.ul`
+  height: 100%;
+  width: 100%;
 `;
 
-const MainButtonStyles = ({ theme }: IMainButtonStyles) => css`
-  height: 30px;
-  font-size: ${theme.fontSizes[4]};
-  color: ${theme.colors.white[100]};
-  background-color: transparent;
-  font-weight: ${theme.fontWeights.medium};
-  border: none;
+const FooterButtonStyles = ({ theme }: IStyles) => css`
+  @media screen and (min-width: ${theme.breakpoints[0]}) {
+    font-size: ${theme.fontSizes[4]};
+  }
+  @media screen and (min-width: ${theme.breakpoints[1]}) {
+    font-size: ${theme.fontSizes[1]};
+  }
+  @media screen and (min-width: ${theme.breakpoints[2]}) {
+    font-size: ${theme.fontSizes[4]};
+  }
+`;
+
+const CookiesButtonStyles = ({ theme }: IStyles) => css`
+  @media screen and (min-width: ${theme.breakpoints[0]}) {
+    font-size: 13px;
+  }
+  @media screen and (min-width: ${theme.breakpoints[1]}) {
+    font-size: ${theme.fontSizes[2]};
+  }
+  @media screen and (min-width: ${theme.breakpoints[2]}) {
+    font-size: ${theme.fontSizes[3]};
+  }
 `;
 
 export const OpenLink = styled.button<IOpenLink>`
-  ${MainButtonStyles}
+  color: ${({ theme }) => theme.colors.white[100]};
+  background-color: transparent;
+  font-weight: ${({ theme }) => theme.fontWeights.medium};
+  line-height: 150%;
+  font-style: normal;
+  border: none;
+
+  ${({ isFooterButtonStyles, isCookiesButtonStyles }) =>
+    (isFooterButtonStyles && FooterButtonStyles) ||
+    (isCookiesButtonStyles && CookiesButtonStyles) ||
+    FooterButtonStyles}
+
   text-decoration-line: ${({ isTextUnderline }) =>
     isTextUnderline ? "underline" : "none"};
 `;

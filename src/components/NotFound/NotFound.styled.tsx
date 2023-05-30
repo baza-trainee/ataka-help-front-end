@@ -1,51 +1,81 @@
 import styled from "@emotion/styled";
-import Link from "next/link";
-
-export const Section = styled.section`
-  padding: 120px 0;
-`;
 
 export const TitleH1 = styled.h1`
-  font-size: 200px;
-  line-height: 242px;
-  margin: 0 0 60px 0;
+  grid-area: title;
+  margin: 0 0 10px 0;
+  font-weight: ${({ theme }) => theme.fontWeights.semibold};
+  line-height: 1.1;
+  color: ${({ theme }) => theme.colors.blue[100]};
+  text-align: center;
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[0]}) {
+    font-size: ${({ theme }) => theme.fontSizes[9]};
+  }
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
+    font-size: ${({ theme }) => theme.fontSizes[10]};
+    margin: 0;
+    text-align: left;
+  }
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
+    font-size: ${({ theme }) => theme.fontSizes[11]};
+  }
 `;
 
-export const TitleH2 = styled.h2`
-  font-size: 32px;
-  line-height: 39px;
-`;
+export const StyledText = styled.p`
+  font-size: ${({ theme }) => theme.fontSizes[2]};
+  font-weight: ${({ theme }) => theme.fontWeights.medium};
+  margin-bottom: 16px;
 
-export const StyledText = styled.h2`
-  font-size: 24px;
-  line-height: 36px;
-  font-weight: 400;
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
+    font-size: ${({ theme }) => theme.fontSizes[4]};
+  }
 `;
 
 export const StyledDiv = styled.div`
-  display: flex;
+  display: grid;
   justify-content: space-between;
-  gap: 50px;
-  margin-bottom: 102px;
+  grid-template-areas:
+    "title"
+    "picture"
+    "text"
+    "button";
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
+    grid-template-areas:
+      "title picture"
+      "text picture"
+      "button picture";
+  }
 `;
 
-export const StyledDivWrap = styled.div`
-  max-width: 505px;
+export const StyledTextWrap = styled.div`
+  grid-area: text;
+  margin: 20px 0 36px 0;
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
+    margin: 0;
+  }
 `;
 
 export const StyledDivImg = styled.div`
-  overflow: hidden;
-  display: flex;
-  border-radius: 50%;
+  grid-area: picture;
+  position: relative;
+  margin: 0 auto;
+  height: 302px;
+  width: 302px;
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
+    width: 329px;
+    height: 329px;
+  }
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
+    width: 590px;
+    height: 590px;
+  }
 `;
 
-export const StyledLink = styled(Link)`
-  font-size: 21px;
-  line-height: 25px;
-  padding: 15px;
-  display: block;
-  max-width: 255px;
-  border-radius: 5px;
-  background-color: #aca9a9;
-  text-align: center;
+export const StyledLink = styled.div`
+  grid-area: button;
 `;
