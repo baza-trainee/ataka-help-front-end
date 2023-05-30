@@ -25,8 +25,12 @@ export const ImageContainer = styled.div`
 `;
 
 export const Text = styled.p`
+  text-align: center;
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
     font-size: ${({ theme }) => theme.fontSizes[5]};
+  }
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
+    font-size: ${({ theme }) => theme.fontSizes[4]};
   }
 `;
 
