@@ -4,12 +4,12 @@ export const FormWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0px;
+  gap: 37px;
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
-    gap: 27px;
+    gap: 58px;
   }
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
-    gap: 50px;
+    gap: 71px;
   }
 `;
 
@@ -91,17 +91,13 @@ export const InputLabel = styled.label`
   position: relative;
   display: flex;
   flex-direction: column;
-  margin-top: 29px;
-  margin-bottom: 3px;
   font-weight: ${({ theme }) => theme.fontWeights.semibold};
   font-size: ${({ theme }) => theme.fontSizes[2]};
 
-  @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
-    margin-top: 21px;
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {  
     font-size: ${({ theme }) => theme.fontSizes[4]};
   }
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
-    margin-top: 32px;
     font-size: ${({ theme }) => theme.fontSizes[5]};
   }
 `;
@@ -110,6 +106,10 @@ export const Wrapper = styled.div`
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
     display: flex;
     gap: 24px;
+    margin-bottom: 24px;
+  }
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
+    margin-bottom: 32px;
   }
 `;
 
