@@ -2,23 +2,30 @@ import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 import { ILinkProps, IStyledLinkProps } from "@/types";
 
-const linkStyles = ({
-  theme,
-  isUnderlined = false,
-  isFooter = false,
-}: IStyledLinkProps) => css`
-  font-size: ${isFooter ? "22px" : "20px"};
-  text-decoration: ${isUnderlined ? "underline" : "none"};
+const linkStyles = ({ theme }: IStyledLinkProps) => css`
+  font-weight: ${theme.fontWeights.medium};
   color: ${theme.colors.white[100]};
   cursor: pointer;
+
+  @media screen and (min-width: ${theme.breakpoints[1]}) {
+    font-size: ${theme.fontSizes[1]};
+    font-weight: ${theme.fontWeights.regular};
+  }
+
+  @media screen and (min-width: ${theme.breakpoints[2]}) {
+    font-size: ${theme.fontSizes[4]};
+  }
 `;
 
-const buttonStyles = () => css`
+const buttonStyles = ({ theme }: IStyledLinkProps) => css`
+  display: block;
+  max-width: 410px;
   padding: 16px;
-  border: 2px solid #618dfe;
+  border: 2px solid ${theme.colors.blue[300]};
   border-radius: 5px;
-  color: #618dfe;
+  color: ${theme.colors.blue[300]};
   text-transform: uppercase;
+  text-align: center;
   cursor: pointer;
 `;
 
