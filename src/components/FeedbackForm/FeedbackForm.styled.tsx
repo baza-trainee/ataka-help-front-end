@@ -94,7 +94,7 @@ export const InputLabel = styled.label`
   font-weight: ${({ theme }) => theme.fontWeights.semibold};
   font-size: ${({ theme }) => theme.fontSizes[2]};
 
-  @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {  
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
     font-size: ${({ theme }) => theme.fontSizes[4]};
   }
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
