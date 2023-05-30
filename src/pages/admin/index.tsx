@@ -21,11 +21,11 @@ const Admin: NextPage = () => {
       </Head>
       <main>
         <h1>Сторінка адміну</h1>
-
+        {/* 
         <>
           Signed in as {session?.user?.name} <br />
           <button onClick={handleSignOut}>Sign out</button>
-        </>
+        </> */}
 
         <CardForm />
       </main>
