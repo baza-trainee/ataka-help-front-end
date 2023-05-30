@@ -57,6 +57,6 @@ export const theme = {
 
     red: {
       100: "#DC0C31", // error-message
-    }
+    },
   },
 };

@@ -64,12 +64,17 @@ const FeedbackForm: FC = () => {
     <Section pbd="100">
       <Container>
         <FormWrapper>
-          <Title>Зворотній зв`язок</Title>
+          <Title>Зворотний зв`язок</Title>
           <Form onSubmit={handleSubmit(sendFeedback)}>
             <Wrapper>
               <InputLabel>
                 Ім`я*
-                <Input type="name" autoComplete="off" {...register("name")} className={errors.name && "invalid"}/>
+                <Input
+                  type="name"
+                  autoComplete="off"
+                  {...register("name")}
+                  className={errors.name && "invalid"}
+                />
                 {errors.name && (
                   <MessageWrapper>
                     <ErrorMessage>{errors.name?.message}</ErrorMessage>
@@ -78,7 +83,12 @@ const FeedbackForm: FC = () => {
               </InputLabel>
               <InputLabel>
                 Емейл*
-                <Input type="email" autoComplete="off" {...register("email")} className={errors.email && "invalid"}/>
+                <Input
+                  type="email"
+                  autoComplete="off"
+                  {...register("email")}
+                  className={errors.email && "invalid"}
+                />
                 {errors.name && (
                   <MessageWrapper>
                     <ErrorMessage>{errors.email?.message}</ErrorMessage>
@@ -88,7 +98,11 @@ const FeedbackForm: FC = () => {
             </Wrapper>
             <InputLabel>
               Повідомлення*
-              <Comment autoComplete="off" {...register("comment")} className={errors.comment && "invalid"}/>
+              <Comment
+                autoComplete="off"
+                {...register("comment")}
+                className={errors.comment && "invalid"}
+              />
               {errors.name && (
                 <MessageWrapper>
                   <ErrorMessage>{errors.comment?.message}</ErrorMessage>
@@ -96,12 +110,12 @@ const FeedbackForm: FC = () => {
               )}
             </InputLabel>
             <CaptchaWrapper>
-            <ReCAPTCHA
-              sitekey={`${process.env.NEXT_PUBLIC_SITE_KEY} `}
-              size={"normal"}
-              ref={captchaRef}
-              onChange={handleCaptcha}
-            />
+              <ReCAPTCHA
+                sitekey={`${process.env.NEXT_PUBLIC_SITE_KEY} `}
+                size={"normal"}
+                ref={captchaRef}
+                onChange={handleCaptcha}
+              />
             </CaptchaWrapper>
             <Button type="submit" disabled={!isChecked}>
               Надіслати

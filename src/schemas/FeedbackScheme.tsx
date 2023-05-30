@@ -4,19 +4,17 @@ import { EMAIL_REGEX } from "@/constants/regex";
 export const FeedbackSchema = yup.object().shape({
   name: yup
     .string()
+    .required("Введіть ім’я")
     .min(2, "Ім’я повинно бути не менше 2 знаків")
-    .max(50, "Ім’я повинно бути не більше 50 знаків")
-    .required("Введіть ім’я"),
+    .max(50, "Ім’я повинно бути не більше 50 знаків"),
+
   email: yup
     .string()
+    .required("Введіть email")
     .email("Введіть дійсний email")
-    .matches(
-      EMAIL_REGEX,
-      "Введіть email, який не належить до російських поштових сервісів",
-    )
-    .required("Введіть email"),
+    .matches(EMAIL_REGEX, "Email з доменом .ru не підтримується"),
   comment: yup
     .string()
-    .max(300, "Просимо скоротити ваше повідомлення до 300 знаків")
-    .required("Введіть повідомлення"),
+    .required("Введіть повідомлення")
+    .max(300, "Просимо скоротити ваше повідомлення до 300 знаків"),
 });
