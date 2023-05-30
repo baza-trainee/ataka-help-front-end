@@ -1,12 +1,15 @@
 import { FC } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { LogoImage } from "./Logo.styled";
 
 const Logo: FC = () => {
   return (
     <>
       <Link href="/">
-        <Image src="/images/logo.png" width={132} height={52} alt="logo" />
+        <LogoImage>
+          <Image src="/images/logo.png" fill alt="logo" />
+        </LogoImage>
       </Link>
     </>
   );

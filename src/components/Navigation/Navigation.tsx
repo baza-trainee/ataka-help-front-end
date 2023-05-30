@@ -1,21 +1,34 @@
 import { FC } from "react";
-import Link from "next/link";
-import { List } from "./Navigation.styled";
+import NavLink from "../NavLink/NavLink";
+import { List, OpenLinkButton } from "./Navigation.styled";
 
-const Navigation: FC = () => {
+const Navigation: FC<{
+  toggleNavbar: boolean;
+  setToggleNavbar: React.Dispatch<React.SetStateAction<boolean>>;
+}> = ({ toggleNavbar, setToggleNavbar }) => {
+  const handleToggleNavbar = (): void => {
+    setToggleNavbar((prev: boolean) => !prev);
+  };
+
   return (
     <nav>
       <List>
         <li>
-          <Link href="/">Головна</Link>
+          <NavLink href="/cases">Інциденти</NavLink>
         </li>
         <li>
-          <Link href="/cases">Інциденти</Link>
+          <NavLink href="/about">Про проєкт</NavLink>
         </li>
         <li>
-          <Link href="/contacts">Контакти</Link>
+          <NavLink href="/useful-information">Корисна інформація</NavLink>
+        </li>
+        <li>
+          <NavLink href="/contacts">Контакти</NavLink>
         </li>
       </List>
+      <OpenLinkButton onClick={handleToggleNavbar}>
+        {toggleNavbar ? <>&#10005;</> : <>&#8801;</>}
+      </OpenLinkButton>
     </nav>
   );
 };
