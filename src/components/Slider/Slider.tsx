@@ -26,7 +26,10 @@ const Slider: FC = () => {
             hasPrev: boolean,
             label: string,
           ) => (
-            <PrevArrowButton onClick={clickHandler}>
+            <PrevArrowButton
+              onClick={clickHandler}
+              style={{ display: hasPrev ? "block" : "none" }}
+            >
               <ArrowWrapper>
                 <Image
                   src={"/icons/prev-arrow.svg"}
@@ -42,7 +45,10 @@ const Slider: FC = () => {
             hasNext: boolean,
             label: string,
           ) => (
-            <NextArrowButton onClick={clickHandler}>
+            <NextArrowButton
+              onClick={clickHandler}
+              style={{ display: hasNext ? "block" : "none" }}
+            >
               <ArrowWrapper>
                 <Image
                   src={"/icons/next-arrow.svg"}
