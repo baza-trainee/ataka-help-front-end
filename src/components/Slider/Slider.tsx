@@ -3,24 +3,69 @@ import Image from "next/image";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
-import { CarouselBox, Title } from "./Slider.styled";
+import {
+  ArrowWrapper,
+  CarouselBox,
+  NextArrowButton,
+  PrevArrowButton,
+  Title,
+} from "./Slider.styled";
 import { Section } from "../Common/Section.styled";
+import { Container } from "../Common";
 
 const Slider: FC = () => {
   return (
     <Section>
       <div style={{ position: "relative" }}>
-        <Carousel showStatus={false} showThumbs={false} showIndicators={false}>
+        <Carousel
+          showStatus={false}
+          showThumbs={false}
+          showIndicators={false}
+          renderArrowPrev={(
+            clickHandler: () => void,
+            hasPrev: boolean,
+            label: string,
+          ) => (
+            <PrevArrowButton onClick={clickHandler}>
+              <ArrowWrapper>
+                <Image
+                  src={"/icons/prev-arrow.svg"}
+                  alt="arrow"
+                  fill
+                  style={{ objectFit: "cover" }}
+                />
+              </ArrowWrapper>
+            </PrevArrowButton>
+          )}
+          renderArrowNext={(
+            clickHandler: () => void,
+            hasNext: boolean,
+            label: string,
+          ) => (
+            <NextArrowButton onClick={clickHandler}>
+              <ArrowWrapper>
+                <Image
+                  src={"/icons/next-arrow.svg"}
+                  alt="arrow"
+                  fill
+                  style={{ objectFit: "cover" }}
+                />
+              </ArrowWrapper>
+            </NextArrowButton>
+          )}
+        >
           {[1, 2, 3].map(path => (
             <CarouselBox key={path}>
-              <Image
-                src={`/${path}.jpg`}
-                alt="carusel-img"
-                fill
-                style={{ objectFit: "cover" }}
-                priority={true}
-              />
-              <Title>Знай, як захиститись</Title>
+              <Container>
+                <Image
+                  src={`/${path}.jpg`}
+                  alt="carusel-img"
+                  fill
+                  style={{ objectFit: "cover" }}
+                  priority={true}
+                />
+                <Title>Знай, як захиститись</Title>
+              </Container>
             </CarouselBox>
           ))}
         </Carousel>
