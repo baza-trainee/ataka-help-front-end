@@ -4,11 +4,11 @@ export const FormWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 22px;
+  gap: 0px;
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
-    gap: 38px;
+    gap: 27px;
   }
-  @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
     gap: 50px;
   }
 `;
@@ -19,7 +19,6 @@ export const Form = styled.form`
 `;
 
 export const Input = styled.input`
-  margin-bottom: 4px;
   padding: 10px 23px 10px 10px;
   height: 48px;
   width: 90%;
@@ -55,7 +54,6 @@ export const Input = styled.input`
 `;
 
 export const Comment = styled.textarea`
-  margin-bottom: 4px;
   padding: 10px 23px 10px 10px;
   height: 148px;
   width: 90%;
@@ -90,16 +88,20 @@ export const Comment = styled.textarea`
 `;
 
 export const InputLabel = styled.label`
+  position: relative;
   display: flex;
   flex-direction: column;
-  margin-top: 10px;
+  margin-top: 29px;
+  margin-bottom: 3px;
   font-weight: ${({ theme }) => theme.fontWeights.semibold};
   font-size: ${({ theme }) => theme.fontSizes[2]};
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
+    margin-top: 21px;
     font-size: ${({ theme }) => theme.fontSizes[4]};
   }
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
+    margin-top: 32px;
     font-size: ${({ theme }) => theme.fontSizes[5]};
   }
 `;
@@ -168,9 +170,17 @@ export const ErrorMessage = styled.p`
 `;
 
 export const MessageWrapper = styled.div`
-  margin-bottom: 10px;
+  position: absolute;
+  bottom: -22px;
 `;
 
 export const CaptchaWrapper = styled.div`
-  margin-top: 10px;
+  margin-top: 32px;
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
+    margin-top: 24px;
+  }
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
+    margin-top: 32px;
+  }
 `;

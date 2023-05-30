@@ -64,7 +64,7 @@ const FeedbackForm: FC = () => {
     <Section pbd="100">
       <Container>
         <FormWrapper>
-          <Title>Зворотній зв`язок</Title>
+          <Title>Зворотний зв`язок</Title>
           <Form onSubmit={handleSubmit(sendFeedback)}>
             <Wrapper>
               <InputLabel>
