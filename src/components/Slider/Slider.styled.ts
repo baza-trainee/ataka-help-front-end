@@ -23,9 +23,9 @@ export const Title = styled.h2`
   font-size: ${({ theme }) => theme.fontSizes[4]};
   font-weight: ${({ theme }) => theme.fontWeights.semibold};
 
-  @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
     left: 99px;
-    font-size: ${({ theme }) => theme.fontSizes[12]};
+    font-size: ${({ theme }) => theme.fontSizes[8]};
   }
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {

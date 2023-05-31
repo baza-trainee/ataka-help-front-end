@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 
 export const Text = styled.p`
+  text-align: center;
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
     font-size: ${({ theme }) => theme.fontSizes[5]};
   }
@@ -30,7 +31,11 @@ export const FlexContainer = styled.div`
 `;
 export const ButtonContainer = styled.div`
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 628px;
+    height: 407px;
     background-color: ${({ theme }) => theme.colors.blue[900]};
   }
 `;
