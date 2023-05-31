@@ -1,16 +1,12 @@
 import { FC } from "react";
+import Image from "next/image";
 
 import NavLink from "../NavLink/NavLink";
+import FileOpenLink from "../FileOpenLink/FileOpenLink";
 
-import phoneIcon from "../../assets/icons/phone.svg";
-import linkedinIcon from "../../assets/icons/linkedin.svg";
-import facebookIcon from "../../assets/icons/facebook.svg";
-import emailIcon from "../../assets/icons/email.svg";
-
-import Image from "next/image";
+import { Container } from "../Common";
 import {
   StyledFooter,
-  Container,
   Wrapper,
   ContactsWrapper,
   IconList,
@@ -20,52 +16,87 @@ import {
   IconLink,
   ContactsList,
   LinkList,
+  ImageContainer,
+  ListItem,
 } from "./Footer.styled";
-import FileOpenLink from "../FileOpenLink/FileOpenLink";
 
 const Footer: FC = () => {
   return (
     <StyledFooter>
       <Container>
         <Wrapper>
-          <div>
+          <ImageContainer>
             <Image
-              src="/images/logo-footer.png"
-              width={338}
-              height={115}
+              src="/images/logo.png"
+              fill
+              sizes="(min-width: 320px) 173px, (min-width: 834px) 170px, (min-width: 1440px) 237px"
               alt="logo"
             />
-          </div>
+          </ImageContainer>
           <LinkList>
-            <li>{/* <NavLink href="/" name={"Інциденти"} /> */}</li>
-            <li>{/* <NavLink href="/about" name={"Про проєкт"} /> */}</li>
-            <li>
-              <p>Звітність</p>
-            </li>
-            <li>
+            <ListItem>
+              <NavLink href="/">Інциденти</NavLink>
+            </ListItem>
+            <ListItem>
+              <NavLink href="/about">Про проєкт</NavLink>{" "}
+            </ListItem>
+            <ListItem>
+              <FileOpenLink
+                text="Звітність"
+                path="/files/report.pdf"
+                isFooterButtonStyles={true}
+              />
+            </ListItem>
+            <ListItem>
               <FileOpenLink
                 text="Політика конфіденційності"
                 path="/files/politics.pdf"
                 isTextUnderline
-                isFooterButtonStyles
+                isFooterButtonStyles={true}
               />
-            </li>
-            <li>
-              <p>Правила користування сайтом</p>
-            </li>
+            </ListItem>
+            <ListItem>
+              <FileOpenLink
+                text="Правила користування сайтом"
+                path="/files/rules.pdf"
+                isTextUnderline
+                isFooterButtonStyles={true}
+              />
+            </ListItem>
           </LinkList>
           <ContactsWrapper>
             <ContactsList>
               <ContactItem>
-                <Image src={phoneIcon} alt="phoneIcon" width={24} height={24} />
+                <Image
+                  src={"icons/phone-footer.svg"}
+                  alt="phoneIcon"
+                  width={24}
+                  height={24}
+                />
+                <ContactsText href="tel:380932830000">
+                  +38 093 802 7214
+                </ContactsText>
+              </ContactItem>
+              <ContactItem>
+                <Image
+                  src={"icons/phone-footer.svg"}
+                  alt="phoneIcon"
+                  width={24}
+                  height={24}
+                />
                 <ContactsText href="tel:380932830000">
                   +38 063 628 6630
                 </ContactsText>
               </ContactItem>
               <ContactItem>
-                <Image src={emailIcon} alt="emailIcon" width={24} height={24} />
+                <Image
+                  src={"icons/email-footer.svg"}
+                  alt="emailIcon"
+                  width={24}
+                  height={24}
+                />
                 <ContactsText href="mailto:example@gmail.com">
-                  info@ataka-help.com.ua
+                  info@ataka-help.tech
                 </ContactsText>
               </ContactItem>
             </ContactsList>
@@ -74,7 +105,7 @@ const Footer: FC = () => {
               <li>
                 <IconLink href="#" target="_blank">
                   <Image
-                    src={facebookIcon}
+                    src={"/icons/facebook.svg"}
                     alt="facebookIcon"
                     width={34}
                     height={33}
@@ -84,7 +115,7 @@ const Footer: FC = () => {
               <li>
                 <IconLink href="#" target="_blank">
                   <Image
-                    src={linkedinIcon}
+                    src={"/icons/linkedin.svg"}
                     alt="linkedinIcon"
                     width={33}
                     height={33}
