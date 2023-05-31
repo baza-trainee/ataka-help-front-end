@@ -38,7 +38,7 @@ const Footer: FC = () => {
               <NavLink href="/">Інциденти</NavLink>
             </ListItem>
             <ListItem>
-              <NavLink href="/">Про проєкт</NavLink>{" "}
+              <NavLink href="/about">Про проєкт</NavLink>{" "}
             </ListItem>
             <ListItem>
               <FileOpenLink
