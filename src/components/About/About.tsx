@@ -27,14 +27,20 @@ const About: FC = () => {
           </ImageContainer>
           <TextContainer>
             <Text>
-              Lorem ipsum dolor sit amet consectetur. Vel pellentesque lacus
-              vestibulum sed aliquet orci tristique convallis vulputate.
-              Imperdiet non rhoncus cursus mattis nec et vestibulum odio. Erat
-              hendrerit vitae auctor diam cursus adipiscing donec pharetra.
-              Imperdiet non tincidunt eu massa lacus vitae rutrum eu sodales.
-              Phasellus placerat donec sed praesent. Imperdiet orci pellentesque
-              duis lorem egestas phasellus. Commodo nunc eu non amet imperdiet
-              nec volutpat massa.
+              Шахрайство в мережі існує стільки ж, скільки сама мережа. При
+              цьому жертвами шахраїв можуть стати як новачки, так і досвідчені
+              користувачі.
+            </Text>
+            <br />
+            <Text>
+              Боротися з дрібним шахрайством дуже важко, оскільки втрати як
+              правило відчутні, але некритичні для жертви. Разом з цим збитки
+              учасників ринку-користувачів платіжних карток в 2022 році склали
+              понад 480 млн.грн.
+            </Text>
+            <br />
+            <Text>
+              Середня сума однієї незаконної операції становила 2200 грн.
             </Text>
           </TextContainer>
         </FlexContainer>

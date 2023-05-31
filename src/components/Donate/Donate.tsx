@@ -2,7 +2,12 @@ import { FC } from "react";
 import { Container, Section } from "../Common";
 
 import PaymentButton from "../PaymentButton";
-import { FlexContainer, Text, TextContainer } from "./Donate.styled";
+import {
+  ButtonContainer,
+  FlexContainer,
+  Text,
+  TextContainer,
+} from "./Donate.styled";
 
 const Donate: FC = () => {
   return (
@@ -11,17 +16,20 @@ const Donate: FC = () => {
         <FlexContainer>
           <TextContainer>
             <Text>
-              Lorem ipsum dolor sit amet consectetur. Vel pellentesque lacus
-              vestibulum sed aliquet orci tristique convallis vulputate.
-              Imperdiet non rhoncus cursus mattis nec et vestibulum odio. Erat
-              hendrerit vitae auctor diam cursus adipiscing donec pharetra.
-              Imperdiet non tincidunt eu massa lacus vitae rutrum eu sodales.
-              Phasellus placerat donec sed praesent. Imperdiet orci pellentesque
-              duis lorem egestas phasellus. Commodo nunc eu non amet imperdiet
-              nec volutpat massa.
+              Проєкт Ataka Help створено для інформування про найбільш поширені
+              способи обману населення через інтернет. Ми зібрали для вас
+              інциденти, які найчастіше трапляються з українцями, а також прості
+              поради, як не стати легкою здобиччю аферистів.
+            </Text>
+            <br />
+            <Text>
+              Прості дієві способи захисту зроблять вас менш вразливими до атак
+              і допоможуть зберегти своє від нападу.
             </Text>
           </TextContainer>
-          <PaymentButton />
+          <ButtonContainer>
+            <PaymentButton />
+          </ButtonContainer>
         </FlexContainer>
       </Container>
     </Section>
