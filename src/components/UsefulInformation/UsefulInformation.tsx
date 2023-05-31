@@ -13,7 +13,7 @@ import { Container, Section, Title } from "../Common";
 import { UsefulInformationProps } from "@/types/UsefulInformationProps";
 
 const UsefulInformation: FC<UsefulInformationProps> = props => {
-  const { title } = props;
+  const { title, text1, text2 } = props;
 
   return (
     <Section>
@@ -31,18 +31,7 @@ const UsefulInformation: FC<UsefulInformationProps> = props => {
               sizes="(min-width: 320px) 360px, (min-width: 834px) 754px, (min-width: 1440px) 628px"
             />
           </ImageContainer>
-          <TextContainer>
-            <Text>
-              Lorem ipsum dolor sit amet consectetur. Vel pellentesque lacus
-              vestibulum sed aliquet orci tristique convallis vulputate.
-              Imperdiet non rhoncus cursus mattis nec et vestibulum odio. Erat
-              hendrerit vitae auctor diam cursus adipiscing donec pharetra.
-              Imperdiet non tincidunt eu massa lacus vitae rutrum eu sodales.
-              Phasellus placerat donec sed praesent. Imperdiet orci pellentesque
-              duis lorem egestas phasellus. Commodo nunc eu non amet imperdiet
-              nec volutpat massa.
-            </Text>
-          </TextContainer>
+          <TextContainer>{text1}</TextContainer>
         </FlexContainer>
         <FlexContainer>
           <ImageContainer>
@@ -55,39 +44,7 @@ const UsefulInformation: FC<UsefulInformationProps> = props => {
             />
           </ImageContainer>
           <TextContainer>
-            <Text>
-              Lorem ipsum dolor sit amet consectetur. Vel pellentesque lacus
-              vestibulum sed aliquet orci tristique convallis vulputate.
-              Imperdiet non rhoncus cursus mattis nec et vestibulum odio. Erat
-              hendrerit vitae auctor diam cursus adipiscing donec pharetra.
-              Imperdiet non tincidunt eu massa lacus vitae rutrum eu sodales.
-              Phasellus placerat donec sed praesent. Imperdiet orci pellentesque
-              duis lorem egestas phasellus. Commodo nunc eu non amet imperdiet
-              nec volutpat massa.
-            </Text>
-          </TextContainer>
-        </FlexContainer>
-        <FlexContainer>
-          <ImageContainer>
-            <Image
-              src={image}
-              alt="Image"
-              fill
-              style={{ objectFit: "cover" }}
-              sizes="(min-width: 320px) 360px, (min-width: 834px) 754px, (min-width: 1440px) 628px"
-            />
-          </ImageContainer>
-          <TextContainer>
-            <Text>
-              Lorem ipsum dolor sit amet consectetur. Vel pellentesque lacus
-              vestibulum sed aliquet orci tristique convallis vulputate.
-              Imperdiet non rhoncus cursus mattis nec et vestibulum odio. Erat
-              hendrerit vitae auctor diam cursus adipiscing donec pharetra.
-              Imperdiet non tincidunt eu massa lacus vitae rutrum eu sodales.
-              Phasellus placerat donec sed praesent. Imperdiet orci pellentesque
-              duis lorem egestas phasellus. Commodo nunc eu non amet imperdiet
-              nec volutpat massa.
-            </Text>
+            <Text>{text2}</Text>
           </TextContainer>
         </FlexContainer>
       </Container>
