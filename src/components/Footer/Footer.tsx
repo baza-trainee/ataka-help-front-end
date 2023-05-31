@@ -29,7 +29,6 @@ const Footer: FC = () => {
             <Image
               src="/images/logo.png"
               fill
-              // style={{ objectFit: "cover" }}
               sizes="(min-width: 320px) 173px, (min-width: 834px) 170px, (min-width: 1440px) 237px"
               alt="logo"
             />
@@ -114,10 +113,7 @@ const Footer: FC = () => {
                 </IconLink>
               </li>
               <li>
-                <IconLink
-                  href="#"
-                  target="_blank"
-                >
+                <IconLink href="#" target="_blank">
                   <Image
                     src={"/icons/linkedin.svg"}
                     alt="linkedinIcon"
