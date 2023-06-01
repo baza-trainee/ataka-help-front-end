@@ -4,7 +4,6 @@ import { createPortal } from "react-dom";
 import { IModal } from "@/types";
 import { Global } from "@emotion/react";
 import {
-  Backdrop,
   CloseIconWrapper,
   LogoWrapper,
   ModalBody,
@@ -46,7 +45,7 @@ const Modal: FC<IModal> = ({ children, setIsModalOpen }) => {
 
   return mounted && modalRootRef.current
     ? createPortal(
-        <Backdrop onClick={onBackdropClickHankler}>
+        <>
           <ModalWrapper>
             <ModalHeader>
               <LogoWrapper>
@@ -76,7 +75,7 @@ const Modal: FC<IModal> = ({ children, setIsModalOpen }) => {
               },
             }}
           />
-        </Backdrop>,
+        </>,
         modalRootRef.current,
       )
     : null;
