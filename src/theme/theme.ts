@@ -15,6 +15,7 @@ export const theme = {
     "96px", //10
     "120px", //11
     "48px", //12
+    "36px", //13
   ],
 
   fontWeights: {
