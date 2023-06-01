@@ -4,7 +4,6 @@ import { createPortal } from "react-dom";
 import { IModal } from "@/types";
 import { Global } from "@emotion/react";
 import {
-  Backdrop,
   CloseIconWrapper,
   LogoWrapper,
   ModalBody,
@@ -38,15 +37,9 @@ const Modal: FC<IModal> = ({ children, setIsModalOpen }) => {
     setIsModalOpen(false);
   };
 
-  const onBackdropClickHankler = (event: MouseEvent) => {
-    if (event.currentTarget === event.target) {
-      setIsModalOpen(false);
-    }
-  };
-
   return mounted && modalRootRef.current
     ? createPortal(
-        <Backdrop onClick={onBackdropClickHankler}>
+        <>
           <ModalWrapper>
             <ModalHeader>
               <LogoWrapper>
@@ -76,7 +69,7 @@ const Modal: FC<IModal> = ({ children, setIsModalOpen }) => {
               },
             }}
           />
-        </Backdrop>,
+        </>,
         modalRootRef.current,
       )
     : null;
