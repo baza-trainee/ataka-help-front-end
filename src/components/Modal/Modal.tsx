@@ -37,12 +37,6 @@ const Modal: FC<IModal> = ({ children, setIsModalOpen }) => {
     setIsModalOpen(false);
   };
 
-  const onBackdropClickHankler = (event: MouseEvent) => {
-    if (event.currentTarget === event.target) {
-      setIsModalOpen(false);
-    }
-  };
-
   return mounted && modalRootRef.current
     ? createPortal(
         <>
