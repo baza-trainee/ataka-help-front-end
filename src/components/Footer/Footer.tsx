@@ -35,10 +35,10 @@ const Footer: FC = () => {
           </ImageContainer>
           <LinkList>
             <ListItem>
-              <NavLink href="/">Інциденти</NavLink>
+              <NavLink href="/" isFooter={true}>Інциденти</NavLink>
             </ListItem>
             <ListItem>
-              <NavLink href="/about">Про проєкт</NavLink>{" "}
+              <NavLink href="/about" isFooter={true}>Про проєкт</NavLink>
             </ListItem>
             <ListItem>
               <FileOpenLink
@@ -107,7 +107,7 @@ const Footer: FC = () => {
                   <Image
                     src={"/icons/facebook.svg"}
                     alt="facebookIcon"
-                    width={34}
+                    width={33}
                     height={33}
                   />
                 </IconLink>
