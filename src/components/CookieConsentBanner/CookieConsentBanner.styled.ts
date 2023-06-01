@@ -10,7 +10,7 @@ export const Box = styled.div`
   justify-content: space-between;
   width: 100%;
   padding: 16px 8px;
-  background-color: #656fb4;
+  background-color: ${({ theme }) => theme.colors.blue[800]};
   color: ${({ theme }) => theme.colors.white[100]};
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[0]}) {
@@ -73,7 +73,7 @@ export const BtnStyled = styled.button`
   color: ${({ theme }) => theme.colors.white[100]};
   border: none;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  border-radius: 5px;
+  border-radius: ${({ theme }) => theme.radii.sm};
   width: 40px;
   height: 40px;
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[0]}) {
