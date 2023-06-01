@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import Image from "next/image";
 
 export const ItemCardStyled = styled.li`
   display: flex;
@@ -8,8 +7,9 @@ export const ItemCardStyled = styled.li`
   justify-content: space-between;
   width: 100%;
   height: 600px;
-  padding: 20px 28px 0px 28px;
+  padding: 20px 20px 0px 20px;
   background-color: ${({ theme }) => theme.colors.blue[400]};
+  transition: scale 250ms ease-in-out;
   box-shadow: 0px 33px 13px rgba(0, 0, 0, 0.01),
     0px 19px 11px rgba(0, 0, 0, 0.05), 0px 8px 8px rgba(0, 0, 0, 0.09),
     0px 2px 5px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
@@ -19,26 +19,35 @@ export const ItemCardStyled = styled.li`
   }
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
-    width: calc((100% - 48px) / 2);
+    width: 365px;
+    /* width: calc((100% - 48px) / 2); */
     height: 639px;
   }
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
-    width: calc((100% - 48px) / 3);
+    width: 410px;
+    /* width: calc((100% - 48px) / 3); */
     height: 712px;
+  }
+  &:hover {
+    scale: 1.03;
   }
 `;
 
-export const ImageStyled = styled(Image)`
+export const ImageBoxStyled = styled.div`
+  position: relative;
   width: 100%;
+  height: 141px;
   margin-bottom: 24px;
-
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[0]}) {
+    width: 321px;
     margin-bottom: 32px;
   }
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
+    width: 325px;
     margin-bottom: 36px;
   }
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
+    width: 371px;
     margin-bottom: 60px;
   }
 `;
