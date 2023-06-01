@@ -1,9 +1,10 @@
 import { ICard } from "@/types";
 
 import { FC } from "react";
+import Image from "next/image";
 import {
   ItemCardStyled,
-  ImageStyled,
+  ImageBoxStyled,
   BtnCardStyled,
   BoxTextStyled,
   TextCardStyled,
@@ -12,7 +13,14 @@ import {
 const Card: FC<ICard> = ({ image, text }) => {
   return (
     <ItemCardStyled>
-      <ImageStyled src={image} alt="picture" width={371} height={141} />
+      <ImageBoxStyled>
+        <Image
+          src={image}
+          alt="picture"
+          fill
+          sizes="(min-width: 1440px) 371px, (min-width: 834px) 325px,(min-width: 393px) 321px, 100%"
+        />
+      </ImageBoxStyled>
       <BoxTextStyled>
         <TextCardStyled>{text}</TextCardStyled>
       </BoxTextStyled>
