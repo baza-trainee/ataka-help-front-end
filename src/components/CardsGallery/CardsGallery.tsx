@@ -46,7 +46,7 @@ const CardsGallery: FC = () => {
   return (
     <Section>
       <Container>
-        <TitleListStyled>Інциденти</TitleListStyled>
+        <TitleListStyled textAlignM="center">Інциденти</TitleListStyled>
         <ListCardStyled>
           {cards.map(card => (
             <Card key={card.id} image={card.image} text={card.text} />

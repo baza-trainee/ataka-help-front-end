@@ -63,9 +63,12 @@ export const BtnCardStyled = styled.button`
   border-radius: ${({ theme }) => theme.radii.sm};
   color: ${({ theme }) => theme.colors.blue[300]};
   background-color: ${({ theme }) => theme.colors.blue[400]};
-  &:hover {
+  transition: background-color 250ms ease-out, color 250ms ease-out,
+    border-color 250ms ease-out, box-shadow 250ms ease-out;
+  &:hover,
+  &focus {
     border-color: transparent;
-    color: black;
+    color: ${({ theme }) => theme.colors.blue[200]};
     background-color: ${({ theme }) => theme.colors.blue[600]};
     box-shadow: 0px 4px 10px rgba(173, 176, 185, 0.56);
   }
@@ -76,7 +79,6 @@ export const BtnCardStyled = styled.button`
     margin-bottom: 36px;
   }
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
-    margin-bottom: 36px;
     margin-bottom: 39px;
   }
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {

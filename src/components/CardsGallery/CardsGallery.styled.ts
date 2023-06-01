@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { Title } from "../Common";
 
 export const ListCardStyled = styled.ul`
   display: flex;
@@ -20,22 +21,15 @@ export const ListCardStyled = styled.ul`
     margin-bottom: 60px;
   }
 `;
-export const TitleListStyled = styled.h2`
-  text-align: center;
 
-  font-size: ${({ theme }) => theme.fontSizes[5]};
-  font-weight: ${({ theme }) => theme.fontWeights.medium};
+export const TitleListStyled = styled(Title)`
   margin-bottom: 24px;
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[0]}) {
-    font-size: ${({ theme }) => theme.fontSizes[6]};
-    font-weight: ${({ theme }) => theme.fontWeights.semibold};
     margin-bottom: 32px;
   }
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
-    font-size: ${({ theme }) => theme.fontSizes[13]};
-    font-weight: ${({ theme }) => theme.fontWeights.bold};
     margin-bottom: 48px;
   }
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
