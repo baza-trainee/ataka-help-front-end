@@ -1,10 +1,11 @@
-import Head from "next/head";
 import { useRouter } from "next/router";
 import { useSession, signOut } from "next-auth/react";
-import CardForm from "@/components/AdminPanel/CardForm/CardForm";
 import { useEffect } from "react";
+import Head from "next/head";
+import type { NextPage } from "next";
+import CardForm from "@/components/AdminPanel/CardForm/CardForm";
 
-const Admin = () => {
+const Admin: NextPage = () => {
   const { data: session } = useSession();
 
   const router = useRouter();
@@ -21,9 +22,7 @@ const Admin = () => {
     } else if (session === null) {
       router.push("/login");
     }
-  }, [session, router]);//теоретично роутер треба додавати в залежності, але і без нього все ніби працює
-
-
+  }, [session, router]); //теоретично роутер треба додавати в залежності, але і без нього все ніби працює
 
   return (
     <>
