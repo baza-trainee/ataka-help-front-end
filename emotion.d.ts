@@ -15,15 +15,18 @@ declare module "@emotion/react" {
     colors: {
       white: {
         100: string;
+        200: string;
       };
       black: {
         100: string;
         200: string;
+        300: string;
       };
       grey: {
         100: string;
         200: string;
         300: string;
+        400: string;
       };
       blue: {
         100: string;
@@ -35,6 +38,9 @@ declare module "@emotion/react" {
         700: string;
         800: string;
         900: string;
+      };
+      red: {
+        100: string;
       };
     };
   }

@@ -5,19 +5,12 @@ import { StyledLink } from "./NavLink.styled";
 const NavLink: FC<{
   href: string;
   children: string;
-  isUnderlined?: boolean;
   isFooter?: boolean;
   isButton?: boolean;
-}> = ({ href, children, isUnderlined, isFooter, isButton }) => {
+}> = ({ href, children, isFooter, isButton }) => {
   return (
     <Link href={href} passHref legacyBehavior>
-      <StyledLink
-        isUnderlined={isUnderlined}
-        isFooter={isFooter}
-        isButton={isButton}
-      >
-        {children}
-      </StyledLink>
+      <StyledLink isFooter={isFooter} isButton={isButton}>{children}</StyledLink>
     </Link>
   );
 };

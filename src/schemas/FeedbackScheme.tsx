@@ -1,7 +1,20 @@
 import * as yup from "yup";
+import { EMAIL_REGEX } from "@/constants/regex";
 
 export const FeedbackSchema = yup.object().shape({
-  name: yup.string().required(),
-  email: yup.string().email().required(),
-  comment: yup.string(),
+  name: yup
+    .string()
+    .required("Введіть ім’я")
+    .min(2, "Ім’я повинно бути не менше 2 знаків")
+    .max(50, "Ім’я повинно бути не більше 50 знаків"),
+
+  email: yup
+    .string()
+    .required("Введіть email")
+    .email("Введіть дійсний email")
+    .matches(EMAIL_REGEX, "Email з доменом .ru не підтримується"),
+  comment: yup
+    .string()
+    .required("Введіть повідомлення")
+    .max(300, "Просимо скоротити ваше повідомлення до 300 знаків"),
 });

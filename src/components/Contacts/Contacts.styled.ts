@@ -4,7 +4,7 @@ import { HiddenTitleProps } from "@/types";
 
 export const ImageContainer = styled.div`
   position: relative;
-  margin: 32px auto;
+  margin: 40px auto;
   width: 302px;
   height: 302px;
   border-radius: 50%;
@@ -23,17 +23,19 @@ export const ImageContainer = styled.div`
 `;
 
 export const Subtitle = styled.h3`
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  margin-top: 18px;
   color: ${({ theme }) => theme.colors.black[100]};
   font-size: ${({ theme }) => theme.fontSizes[3]};
   font-weight: ${({ theme }) => theme.fontWeights.semibold};
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
-    margin-top: 20px;
+    margin-top: 22px;
     font-size: ${({ theme }) => theme.fontSizes[4]};
   }
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
-    margin-top: 34px;
+    margin-top: 44px;
+    margin-bottom: 24px;
     font-size: ${({ theme }) => theme.fontSizes[5]};
   }
 `;
@@ -51,6 +53,10 @@ export const Contact = styled.p`
 export const FlexContainer = styled.div`
   display: flex;
   margin-bottom: 10px;
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
+    align-items: center;
+  }
 `;
 
 export const TabletContainer = styled.div`
@@ -71,17 +77,17 @@ export const DesktopContainer = styled.div`
 `;
 
 export const HiddenTitle = styled.div<HiddenTitleProps>`
-  @media screen and (max-width: ${({ theme }) => theme.breakpoints[1]}) {
+  @media screen and (max-width: ${({ theme }) => theme.breakpoints[0]}) {
     display: ${props => props.mob};
   }
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
     display: ${props => props.tab};
-    margin-top: 20px;
+    margin-top: 12px;
   }
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
     display: ${props => props.tab};
-    margin-top: 58px;
+    margin-top: 68px;
   }
 `;
