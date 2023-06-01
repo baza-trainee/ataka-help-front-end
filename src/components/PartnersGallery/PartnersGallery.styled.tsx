@@ -44,7 +44,7 @@ export const ImageContainer = styled.div`
   overflow: hidden;
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
-    width: 171px;
+    width: 170px;
     height: 170px;
   }
 
