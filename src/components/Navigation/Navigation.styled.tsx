@@ -1,22 +1,28 @@
 import styled from "@emotion/styled";
 
-export const List = styled.ul`
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-  @media screen and (min-width: ${({ theme }) => theme.breakpoints[0]}) {
-    gap: 20px;
-    margin-left: 28px;
-    margin-right: 25px;
-  }
+export const NavWrapper = styled.nav`
+  margin-left: auto;
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
-    gap: 32px;
-    margin-right: 39px;
-    margin-left: 105px;
+    margin-left: 28px;
   }
 
-  @media screen and (max-width: ${({ theme }) => theme.breakpoints[1]}) {
-    display: none;
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
+    margin-left: 98px;
+  }
+`;
+
+export const List = styled.ul`
+  display: none;
+  justify-content: center;
+  flex-direction: row;
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
+    display: flex;
+    gap: 20px;
+  }
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
+    gap: 32px;
   }
 `;
 

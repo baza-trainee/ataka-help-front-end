@@ -1,6 +1,6 @@
 import { FC } from "react";
 import NavLink from "../NavLink/NavLink";
-import { List, OpenLinkButton } from "./Navigation.styled";
+import { List, NavWrapper, OpenLinkButton } from "./Navigation.styled";
 
 const data = [
   {
@@ -34,7 +34,7 @@ const Navigation: FC<{
   };
 
   return (
-    <nav>
+    <NavWrapper>
       <List>
         {data.map(link => {
           return (
@@ -47,7 +47,7 @@ const Navigation: FC<{
       <OpenLinkButton onClick={handleToggleNavbar}>
         {toggleNavbar ? <>&#10005;</> : <>&#8801;</>}
       </OpenLinkButton>
-    </nav>
+    </NavWrapper>
   );
 };
 

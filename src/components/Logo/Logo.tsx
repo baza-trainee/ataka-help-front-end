@@ -8,7 +8,12 @@ const Logo: FC = () => {
     <>
       <Link href="/">
         <LogoImage>
-          <Image src="/images/logo.png" fill alt="logo" />
+          <Image
+            src="/images/logo.png"
+            fill
+            alt="logo"
+            sizes="(min-width: 1440px) 241px, (min-width: 834px) 97px, 117px"
+          />
         </LogoImage>
       </Link>
     </>
