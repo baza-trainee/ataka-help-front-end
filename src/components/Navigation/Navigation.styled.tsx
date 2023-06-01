@@ -1,8 +1,10 @@
 import styled from "@emotion/styled";
 
 export const NavWrapper = styled.nav`
+  display: none;
   margin-left: auto;
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
+    display: block;
     margin-left: 28px;
   }
 
@@ -12,12 +14,11 @@ export const NavWrapper = styled.nav`
 `;
 
 export const List = styled.ul`
-  display: none;
+  display: flex;
   justify-content: center;
   flex-direction: row;
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
-    display: flex;
     gap: 20px;
   }
 
@@ -29,6 +30,7 @@ export const List = styled.ul`
 export const OpenLinkButton = styled.button`
   width: 24px;
   height: 24px;
+  margin-left: auto;
   background: none;
   border: none;
   color: ${({ theme }) => theme.colors.blue[300]};
@@ -38,8 +40,8 @@ export const OpenLinkButton = styled.button`
   }
 `;
 
-export const NavbarExtendedContainer = styled.div`
-  margin-top: 45px;
+export const NavbarExtendedContainer = styled.nav`
+  margin-top: 36px;
   height: auto;
   width: 100%;
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
@@ -52,4 +54,7 @@ export const ExtendedList = styled.ul`
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
+  li > a {
+    font-weight: ${({ theme }) => theme.fontWeights.regular};
+  }
 `;

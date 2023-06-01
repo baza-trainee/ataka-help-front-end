@@ -1,6 +1,7 @@
 import { FC } from "react";
 import NavLink from "../NavLink/NavLink";
 import { List, NavWrapper, OpenLinkButton } from "./Navigation.styled";
+import NavigationMobile from "./NavigationMobile";
 
 const data = [
   {
@@ -34,20 +35,22 @@ const Navigation: FC<{
   };
 
   return (
-    <NavWrapper>
-      <List>
-        {data.map(link => {
-          return (
-            <li key={link.id}>
-              <NavLink href={`/${link.path}`}>{link.title}</NavLink>
-            </li>
-          );
-        })}
-      </List>
+    <>
+      <NavWrapper>
+        <List>
+          {data.map(link => {
+            return (
+              <li key={link.id}>
+                <NavLink href={`/${link.path}`}>{link.title}</NavLink>
+              </li>
+            );
+          })}
+        </List>
+      </NavWrapper>
       <OpenLinkButton onClick={handleToggleNavbar}>
         {toggleNavbar ? <>&#10005;</> : <>&#8801;</>}
       </OpenLinkButton>
-    </NavWrapper>
+    </>
   );
 };
 
