@@ -1,6 +1,7 @@
 import React, { FC, useEffect, useState } from "react";
 import {
   Box,
+  BoxTextStyled,
   BtnStyled,
   TextStyled,
   TitleStyled,
@@ -26,7 +27,7 @@ const CookieConsentBanner: FC = () => {
     <>
       {showCookieBanner && (
         <Box>
-          <div>
+          <BoxTextStyled>
             <TitleStyled>Файли Cookies</TitleStyled>
             <TextStyled>
               Цей сайт використовує файли cookies для роботи і покращення
@@ -38,7 +39,7 @@ const CookieConsentBanner: FC = () => {
                 path={"/files/politics.pdf"}
               />
             </TextStyled>
-          </div>
+          </BoxTextStyled>
           <BtnStyled onClick={acceptGoogle} type="button">
             ОК
           </BtnStyled>
