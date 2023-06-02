@@ -4,15 +4,29 @@ export const List = styled.ul`
   display: flex;
   flex-wrap: wrap;
   justify-content: start;
-  gap: 31px;
+  row-gap: 20px;
+  column-gap: 20px;
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[0]}) {
+    column-gap: 31px;
+    row-gap: 24px;
+  }
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
-    gap: 24px;
+    column-gap: 24px;
+  }
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
+    row-gap: 32px;
   }
 `;
 
 export const ListItem = styled.li`
-  width: calc((100% - 31px * 2) / 3);
+  width: calc((100% - 20px * 2) / 3);
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[0]}) {
+    width: calc((100% - 31px * 2) / 3);
+  }
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
     width: calc((100% - 24px * 3) / 4);
@@ -23,10 +37,6 @@ export const ListItem = styled.li`
   }
 `;
 
-export const Title = styled.h2`
-  text-align: center;
-`;
-
 export const ImageContainer = styled.div`
   position: relative;
   width: 100px;
@@ -34,7 +44,7 @@ export const ImageContainer = styled.div`
   overflow: hidden;
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
-    width: 171px;
+    width: 170px;
     height: 170px;
   }
 

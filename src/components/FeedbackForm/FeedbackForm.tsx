@@ -89,7 +89,7 @@ const FeedbackForm: FC = () => {
                   {...register("email")}
                   className={errors.email && "invalid"}
                 />
-                {errors.name && (
+                {errors.email && (
                   <MessageWrapper>
                     <ErrorMessage>{errors.email?.message}</ErrorMessage>
                   </MessageWrapper>
@@ -103,7 +103,7 @@ const FeedbackForm: FC = () => {
                 {...register("comment")}
                 className={errors.comment && "invalid"}
               />
-              {errors.name && (
+              {errors.comment && (
                 <MessageWrapper>
                   <ErrorMessage>{errors.comment?.message}</ErrorMessage>
                 </MessageWrapper>

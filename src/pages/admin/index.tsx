@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import Head from "next/head";
 import type { NextPage } from "next";
 import CardForm from "@/components/AdminPanel/CardForm/CardForm";
+import ReportForm from "@/components/AdminPanel/ReportForm/ReportForm";
 
 const Admin: NextPage = () => {
   const { data: session } = useSession();
@@ -43,8 +44,14 @@ const Admin: NextPage = () => {
               Signed in as {session?.user?.name} <br />
               <button onClick={handleSignOut}>Sign out</button>
             </>
-
+            <br />
+            <br />
+            <br />
             <CardForm />
+            <br />
+            <br />
+            <br />
+            <ReportForm />
           </main>
         </>
       )}

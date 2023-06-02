@@ -11,7 +11,6 @@ import {
   Title,
 } from "./Slider.styled";
 import { Section } from "../Common/Section.styled";
-import { Container } from "../Common";
 
 const Slider: FC = () => {
   return (
@@ -62,16 +61,14 @@ const Slider: FC = () => {
         >
           {[1, 2, 3].map(path => (
             <CarouselBox key={path}>
-              <Container>
-                <Image
-                  src={`/${path}.jpg`}
-                  alt="carusel-img"
-                  fill
-                  style={{ objectFit: "cover" }}
-                  priority={true}
-                />
-                <Title>Знай, як захиститись</Title>
-              </Container>
+              <Image
+                src={`/${path}.jpg`}
+                alt="carusel-img"
+                fill
+                style={{ objectFit: "cover" }}
+                priority={true}
+              />
+              <Title>Знай, як захиститись</Title>
             </CarouselBox>
           ))}
         </Carousel>
