@@ -17,7 +17,7 @@ export const FeedbackSchema = yup.object().shape({
     .matches(EMAIL_REGEX_RU, "Email з доменом .ru не підтримується"),
   comment: yup
     .string()
-    .matches(NAME_REGEX, "Ім'я не валідне")  
+    .matches(NAME_REGEX, "Повідомлення не валідне")  
     .required("Введіть повідомлення")
     .max(300, "Просимо скоротити ваше повідомлення до 300 знаків"),
 });
