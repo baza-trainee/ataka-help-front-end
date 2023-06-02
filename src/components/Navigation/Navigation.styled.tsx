@@ -50,11 +50,39 @@ export const NavbarExtendedContainer = styled.nav`
 `;
 
 export const ExtendedList = styled.ul`
-  gap: 16px;
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
-  li > a {
+  gap: 16px;
+
+  a {
     font-weight: ${({ theme }) => theme.fontWeights.regular};
   }
+
+  .isActive a {
+    color: #5d87f4;
+  }
+`;
+
+export const SubMenu = styled(ExtendedList)`
+  font-size: ${({ theme }) => theme.fontSizes[0]};
+  margin-top: 16px;
+  li {
+    padding-left: 10px;
+  }
+  li::before {
+    content: "·";
+    margin-right: 5px;
+    color: ${({ theme }) => theme.colors.white[100]};
+  }
+
+  a {
+    font-size: ${({ theme }) => theme.fontSizes[0]};
+  }
+`;
+
+export const SubMenuTitle = styled.span`
+  font-size: 14px;
+  font-weight: ${({ theme }) => theme.fontWeights.regular};
+  color: ${({ theme }) => theme.colors.white[100]};
 `;
