@@ -10,7 +10,9 @@ const NavLink: FC<{
 }> = ({ href, children, isFooter, isButton }) => {
   return (
     <Link href={href} passHref legacyBehavior>
-      <StyledLink isFooter={isFooter} isButton={isButton}>{children}</StyledLink>
+      <StyledLink isFooter={isFooter} isButton={isButton}>
+        {children}
+      </StyledLink>
     </Link>
   );
 };

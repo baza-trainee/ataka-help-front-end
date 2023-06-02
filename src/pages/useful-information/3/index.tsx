@@ -5,7 +5,7 @@ import UsefulInformation from "@/components/UsefulInformation";
 import Slider from "@/components/Slider";
 import information from "@/data/useful-information.json";
 
-const TwoFactorAuthentication: NextPage = () => {  
+const TwoFactorAuthentication: NextPage = () => {
   const title = information[2].title;
   const blockOne = information[2].blockOne;
   const blockTwo = information[2].blockTwo;
@@ -13,7 +13,7 @@ const TwoFactorAuthentication: NextPage = () => {
   return (
     <UserLayout title="TwoFactorAuthentication">
       <Slider />
-      <UsefulInformation title={title} text1={blockOne} text2={blockTwo}/>
+      <UsefulInformation title={title} text1={blockOne} text2={blockTwo} />
     </UserLayout>
   );
 };
