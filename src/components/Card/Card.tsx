@@ -14,7 +14,7 @@ import {
 import Modal from "../Modal/Modal";
 import CardModal from "../CardModal/CardModal";
 
-const Card: FC<ICard> = ({ image, text }) => {
+const Card: FC<ICard> = ({ thumb, title, alt, description }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
@@ -25,14 +25,14 @@ const Card: FC<ICard> = ({ image, text }) => {
       <ItemCardStyled>
         <ImageBoxStyled>
           <Image
-            src={image}
-            alt="picture"
+            src={thumb}
+            alt={alt}
             fill
             sizes="(min-width: 1440px) 371px, (min-width: 834px) 325px,(min-width: 393px) 321px, 100%"
           />
         </ImageBoxStyled>
         <BoxTextStyled>
-          <TextCardStyled>{text}</TextCardStyled>
+          <TextCardStyled>{title}</TextCardStyled>
         </BoxTextStyled>
         <BtnCardStyled type="button" onClick={openModal}>
           Як діяти?
@@ -40,7 +40,7 @@ const Card: FC<ICard> = ({ image, text }) => {
       </ItemCardStyled>
       {isModalOpen && (
         <Modal setIsModalOpen={setIsModalOpen}>
-          <CardModal />
+          <CardModal description={description} />
         </Modal>
       )}
     </>
