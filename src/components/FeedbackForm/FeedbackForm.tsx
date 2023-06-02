@@ -72,7 +72,8 @@ const FeedbackForm: FC = () => {
                 <Input
                   type="name"
                   autoComplete="off"
-                  {...register("name")}
+                  {...register("name") }
+                  
                   className={errors.name && "invalid"}
                 />
                 {errors.name && (
