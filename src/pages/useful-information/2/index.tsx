@@ -12,8 +12,8 @@ const HowToChangePassword: NextPage = () => {
 
   return (
     <UserLayout title="HowToChangePassword">
-       <Slider />
-      <UsefulInformation title={title} text1={blockOne} text2={blockTwo}/>
+      <Slider />
+      <UsefulInformation title={title} text1={blockOne} text2={blockTwo} />
     </UserLayout>
   );
 };
