@@ -71,22 +71,30 @@ const CardForm: FC = () => {
 
   return (
     <>
+      <hr />
+      <p style={{ color: "red" }}>Отримати список карток</p>
       <button onClick={getList}>Get cards</button>
 
+      <hr />
+      <hr />
+      <p style={{ color: "red" }}>Відправити картку:</p>
       <form onSubmit={handleSubmit(onSubmitHandler)}>
+        <p style={{ color: "red" }}>Завантажити файл</p>
         <input
           type="file"
           accept="image/*,.png,.jpg,.webp"
           {...register("thumb")}
         />
         {errors.thumb && <p>{errors.thumb.message}</p>}
-
+        <p style={{ color: "red" }}>Ввести опис зображення</p>
         <input type="text" {...register("alt")} />
         {errors.alt && <p>{errors.alt.message}</p>}
-
+        <p style={{ color: "red" }}>Ввести заголовок картки</p>
         <input type="text" {...register("title")} />
         {errors.title && <p>{errors.title.message}</p>}
-
+        <p style={{ color: "red" }}>
+          Ввести опис для картки(динамічне додавання полів)
+        </p>
         {fields.map((field, index) => (
           <div key={field.id}>
             <input type="text" {...register(`description.${index}.item`)} />
@@ -108,7 +116,7 @@ const CardForm: FC = () => {
         <button onClick={() => append({ item: "" })} type="button">
           Add field
         </button>
-
+        <p style={{ color: "red" }}>Відправлення</p>
         <button>Submit</button>
       </form>
     </>

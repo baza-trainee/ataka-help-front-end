@@ -13,7 +13,7 @@ const HowToChoosePassword: NextPage = () => {
   return (
     <UserLayout title="HowToChoosePassword">
       <Slider />
-      <UsefulInformation title={title} text1={blockOne} text2={blockTwo}/>
+      <UsefulInformation title={title} text1={blockOne} text2={blockTwo} />
     </UserLayout>
   );
 };

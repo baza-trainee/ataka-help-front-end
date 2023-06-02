@@ -10,11 +10,11 @@ import {
 import FileOpenLink from "../FileOpenLink/FileOpenLink";
 
 const CookieConsentBanner: FC = () => {
-  const [showCookieBanner, setShowCookieBanner] = useState(true);
+  const [showCookieBanner, setShowCookieBanner] = useState(false);
 
   useEffect(() => {
-    if (localStorage.getItem("consent-google")) {
-      setShowCookieBanner(false);
+    if (!localStorage.getItem("consent-google")) {
+      setShowCookieBanner(true);
     }
   }, []);
 

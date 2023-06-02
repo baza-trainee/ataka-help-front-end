@@ -8,16 +8,12 @@ export const List = styled.ul`
   column-gap: 20px;
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[0]}) {
-    column-gap: 31px;
+    column-gap: 30px;
     row-gap: 24px;
   }
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
     column-gap: 24px;
-  }
-
-  @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
-    row-gap: 32px;
   }
 `;
 
@@ -76,5 +72,9 @@ export const Wrapper = styled.div`
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
     gap: 48px;
+  }
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
+    gap: 56px;
   }
 `;

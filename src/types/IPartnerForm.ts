@@ -1,4 +1,4 @@
-export interface IFileForm {
+export interface IPartnerForm {
   thumb: string[];
   alt: "";
 }

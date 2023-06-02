@@ -1,6 +1,7 @@
 export type { IFeedbackForm } from "./IFeedbackForm";
 export type { IReportForm } from "./IReportForm";
-export type { IFileForm } from "./IFileForm";
+export type { IPartnerForm } from "./IPartnerForm";
+export type { ISliderForm } from "./ISliderForm";
 export type { ICardForm } from "./ICardForm";
 export type { ICard } from "./ICard";
 export type { IContactForm } from "./IContactForm";
