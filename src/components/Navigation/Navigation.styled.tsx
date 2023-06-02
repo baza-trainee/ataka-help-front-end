@@ -1,4 +1,13 @@
+import { IStyles } from "@/types";
+import { css } from "@emotion/react";
 import styled from "@emotion/styled";
+
+const isActive = ({ theme }: IStyles) => css`
+  .isActive a {
+    color: ${theme.colors.blue[1000]};
+    border-bottom: solid 1px ${theme.colors.blue[1000]};
+  }
+`;
 
 export const NavWrapper = styled.nav`
   display: none;
@@ -11,6 +20,8 @@ export const NavWrapper = styled.nav`
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
     margin-left: 98px;
   }
+
+  ${isActive}
 `;
 
 export const List = styled.ul`
@@ -59,9 +70,7 @@ export const ExtendedList = styled.ul`
     font-weight: ${({ theme }) => theme.fontWeights.regular};
   }
 
-  .isActive a {
-    color: #5d87f4;
-  }
+  ${isActive}
 `;
 
 export const SubMenu = styled(ExtendedList)`

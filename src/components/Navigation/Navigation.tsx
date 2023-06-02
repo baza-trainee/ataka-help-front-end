@@ -2,6 +2,10 @@ import { FC } from "react";
 import NavLink from "../NavLink/NavLink";
 import { List, NavWrapper, OpenLinkButton } from "./Navigation.styled";
 import NavigationMobile from "./NavigationMobile";
+import Image from "next/image";
+
+import burgerIcon from "/public/icons/burger-menu.svg";
+import { useRouter } from "next/router";
 
 const data = [
   {
@@ -30,25 +34,39 @@ const Navigation: FC<{
   toggleNavbar: boolean;
   setToggleNavbar: React.Dispatch<React.SetStateAction<boolean>>;
 }> = ({ toggleNavbar, setToggleNavbar }) => {
+  const router = useRouter();
+
   const handleToggleNavbar = (): void => {
     setToggleNavbar((prev: boolean) => !prev);
   };
+
+  const isActiveLink = (href: string) =>
+    router.pathname === href ? "isActive" : "";
 
   return (
     <>
       <NavWrapper>
         <List>
-          {data.map(link => {
-            return (
-              <li key={link.id}>
-                <NavLink href={`/${link.path}`}>{link.title}</NavLink>
-              </li>
-            );
-          })}
+          <li className={isActiveLink("/cases")}>
+            <NavLink href={"/cases"}>Інциденти</NavLink>
+          </li>
+          <li className={isActiveLink("/about")}>
+            <NavLink href={"/about"}>Про проєкт</NavLink>
+          </li>
+          <li className={isActiveLink("/useful-information")}>
+            <NavLink href={"/useful-information"}>Корисна інформація</NavLink>
+          </li>
+          <li className={isActiveLink("/contacts")}>
+            <NavLink href={"/contacts"}>Контакти</NavLink>
+          </li>
         </List>
       </NavWrapper>
       <OpenLinkButton onClick={handleToggleNavbar}>
-        {toggleNavbar ? <>&#10005;</> : <>&#8801;</>}
+        {toggleNavbar ? (
+          <>&#10005;</>
+        ) : (
+          <Image src={burgerIcon} alt="burgerIcon" />
+        )}
       </OpenLinkButton>
     </>
   );
