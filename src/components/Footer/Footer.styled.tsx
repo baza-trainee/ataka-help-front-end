@@ -57,7 +57,7 @@ export const IconList = styled.ul`
   display: flex;
   align-self: center;
   justify-content: center;
-  gap: 32px;
+  gap: 33px;
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
     align-self: flex-end;
@@ -97,7 +97,7 @@ export const ContactsList = styled.ul`
   gap: 20px;
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
-    gap: 14px;
+    gap: 12px;
   }
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
     gap: 12px;
@@ -123,16 +123,16 @@ export const LinkList = styled.ul`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  gap: 28px;
+  gap: 20px;
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
     gap: 14px;
     align-items: flex-start;
-    margin-right: 45px;
+    margin-right: auto;
   }
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
     gap: 18px;
-    margin-right: 117px;
+    margin-right: auto;
   }
 `;
 
@@ -158,7 +158,7 @@ export const ImageContainer = styled.div`
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
     width: 337px;
-    height: 120px;
+    height: 114px;
     margin-right: 219px;
   }
 `;

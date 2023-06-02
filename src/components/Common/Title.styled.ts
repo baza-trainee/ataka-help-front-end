@@ -8,7 +8,7 @@ export const Title = styled.h2<TitlePropsType>`
   text-align: ${props => props.textAlignM};
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
-    font-size: ${({ theme }) => theme.fontSizes[7]};
+    font-size: ${({ theme }) => theme.fontSizes[13]};
     text-align: ${props => props.textAlignT};
   }
 
