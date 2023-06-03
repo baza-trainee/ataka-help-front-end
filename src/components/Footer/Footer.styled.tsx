@@ -3,70 +3,114 @@ import Link from "next/link";
 
 export const StyledFooter = styled.footer`
   position: relative;
-  padding-top: 52px;
-  padding-bottom: 32px;
+  padding-top: 32px;
+  padding-bottom: 20px;
   background-color: ${({ theme }) => theme.colors.blue[100]};
-`;
 
-export const Container = styled.div`
-  margin-left: auto;
-  margin-right: auto;
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
+    padding-top: 48px;
+    padding-bottom: 32px;
+  }
+
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
-    padding-left: 80px;
-    padding-right: 80px;
-    width: 1440px;
+    padding-top: 52px;
   }
 `;
 
 export const Wrapper = styled.div`
   display: flex;
-  margin-bottom: 26px;
-  justify-content: space-between;
-  border-bottom: 1px solid #b2bfce;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.white[100]};
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 0;
+    margin-bottom: 16px;
+  }
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
+    margin-bottom: 32px;
+  }
 `;
 
 export const ContactsWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 93px;
-  margin-bottom: 44px;
+  gap: 32px;
+  margin-bottom: 32px;
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
+    gap: 40px;
+    margin-bottom: 24px;
+  }
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
+    gap: 50px;
+    margin-bottom: 43px;
+  }
 `;
 
 export const IconList = styled.ul`
   display: flex;
-  align-self: flex-end;
+  align-self: center;
   justify-content: center;
-  gap: 20px;
+  gap: 33px;
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
+    align-self: flex-end;
+  }
 `;
 
 export const Copyright = styled.p`
-  font-family: "Montserrat";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 150%;
+  font-weight: ${({ theme }) => theme.fontWeights.medium};
+  font-size: ${({ theme }) => theme.fontSizes[0]};
   color: ${({ theme }) => theme.colors.white[100]};
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
+    font-size: ${({ theme }) => theme.fontSizes[1]};
+  }
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
+    font-size: ${({ theme }) => theme.fontSizes[3]};
+  }
 `;
 
 export const ContactsText = styled.a`
-  font-family: "Montserrat";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 22px;
-  line-height: 150%;
+  font-weight: ${({ theme }) => theme.fontWeights.medium};
+  font-size: ${({ theme }) => theme.fontSizes[5]};
   color: ${({ theme }) => theme.colors.white[100]};
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
+    font-size: ${({ theme }) => theme.fontSizes[2]};
+  }
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
+    font-size: ${({ theme }) => theme.fontSizes[5]};
+  }
 `;
 
 export const ContactsList = styled.ul`
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  align-items: flex-start;
+  gap: 20px;
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
+    gap: 12px;
+  }
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
+    gap: 12px;
+  }
 `;
 
 export const ContactItem = styled.li`
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: 16px;
+  pointer-events: none;
+  cursor: not-allowed;
 `;
 
 export const IconLink = styled(Link)`
@@ -77,5 +121,44 @@ export const IconLink = styled(Link)`
 export const LinkList = styled.ul`
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
+    gap: 14px;
+    align-items: flex-start;
+    margin-right: auto;
+  }
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
+    gap: 18px;
+    margin-right: auto;
+  }
+`;
+
+export const ListItem = styled.li`
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
+    height: 21px;
+  }
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
+    height: 30px;
+  }
+`;
+
+export const ImageContainer = styled.div`
+  position: relative;
+  width: 173px;
+  height: 64px;
+  overflow: hidden;
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
+    width: 191px;
+    margin-right: 68px;
+  }
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
+    width: 337px;
+    height: 114px;
+    margin-right: 219px;
+  }
 `;

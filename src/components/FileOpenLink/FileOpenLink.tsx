@@ -93,7 +93,7 @@ const FileOpenLink: FC<IFileOpenLink> = ({
     container.appendChild(li);
 
     li.setAttribute("id", "page-" + (page._pageIndex + 1));
-    li.setAttribute("style", "width: 100%");
+    li.setAttribute("style", "width: 100%; border: solid 0.5px #000000");
     canvas.setAttribute("style", "width: 100%");
 
     const renderContext = {

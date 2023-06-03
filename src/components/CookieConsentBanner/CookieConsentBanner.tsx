@@ -1,6 +1,7 @@
 import React, { FC, useEffect, useState } from "react";
 import {
   Box,
+  BoxTextStyled,
   BtnStyled,
   TextStyled,
   TitleStyled,
@@ -9,11 +10,11 @@ import {
 import FileOpenLink from "../FileOpenLink/FileOpenLink";
 
 const CookieConsentBanner: FC = () => {
-  const [showCookieBanner, setShowCookieBanner] = useState(true);
+  const [showCookieBanner, setShowCookieBanner] = useState(false);
 
   useEffect(() => {
-    if (localStorage.getItem("consent-google")) {
-      setShowCookieBanner(false);
+    if (!localStorage.getItem("consent-google")) {
+      setShowCookieBanner(true);
     }
   }, []);
 
@@ -26,7 +27,7 @@ const CookieConsentBanner: FC = () => {
     <>
       {showCookieBanner && (
         <Box>
-          <div>
+          <BoxTextStyled>
             <TitleStyled>Файли Cookies</TitleStyled>
             <TextStyled>
               Цей сайт використовує файли cookies для роботи і покращення
@@ -38,7 +39,7 @@ const CookieConsentBanner: FC = () => {
                 path={"/files/politics.pdf"}
               />
             </TextStyled>
-          </div>
+          </BoxTextStyled>
           <BtnStyled onClick={acceptGoogle} type="button">
             ОК
           </BtnStyled>

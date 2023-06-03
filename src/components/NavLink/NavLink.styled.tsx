@@ -2,10 +2,14 @@ import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 import { ILinkProps, IStyledLinkProps } from "@/types";
 
-const linkStyles = ({ theme }: IStyledLinkProps) => css`
+const linkStyles = ({ theme, isFooter }: IStyledLinkProps) => css`
+  font-size: ${isFooter ? `${theme.fontSizes[4]}` : `${theme.fontSizes[1]}`};
   font-weight: ${theme.fontWeights.medium};
   color: ${theme.colors.white[100]};
   cursor: pointer;
+  &:hover, &:focus {
+    border-bottom: solid 2px ${theme.colors.blue[1000]};
+  }
 
   @media screen and (min-width: ${theme.breakpoints[1]}) {
     font-size: ${theme.fontSizes[1]};
@@ -22,7 +26,7 @@ const buttonStyles = ({ theme }: IStyledLinkProps) => css`
   max-width: 410px;
   padding: 16px;
   border: 2px solid ${theme.colors.blue[300]};
-  border-radius: 5px;
+  border-radius: ${theme.radii.sm};
   color: ${theme.colors.blue[300]};
   text-transform: uppercase;
   text-align: center;

@@ -15,6 +15,7 @@ export const theme = {
     "96px", //10
     "120px", //11
     "48px", //12
+    "36px", //13
   ],
 
   fontWeights: {
@@ -55,6 +56,7 @@ export const theme = {
       700: "#B0BFED", //active button
       800: "#656FB4", //cookies-bg
       900: "rgba(160, 194, 231, 0.05)", //button-bg
+      1000: "#5D87F4", //
     },
 
     red: {

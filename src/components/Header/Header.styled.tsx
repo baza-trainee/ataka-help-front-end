@@ -1,8 +1,12 @@
 import styled from "@emotion/styled";
+import { Container, Section } from "../Common";
 
-export const MainHeader = styled.header`
+export const HeaderWrapper = styled.header`
+  background-color: ${({ theme }) => theme.colors.blue[100]};
+`;
+
+export const LogoNavWrapper = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: start;
   align-items: center;
-  gap: 10px;
 `;
