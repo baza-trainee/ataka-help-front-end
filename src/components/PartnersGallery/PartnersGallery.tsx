@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { FC } from "react";
+import React, { FC } from "react";
 
 import LoadMoreButton from "../LoadMoreButton/LoadMoreButton";
 
@@ -11,6 +11,7 @@ import {
   Wrapper,
   ListItem,
 } from "./PartnersGallery.styled";
+
 
 const PartnersGallery: FC = () => {
   return (
