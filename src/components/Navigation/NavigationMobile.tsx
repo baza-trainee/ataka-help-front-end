@@ -47,7 +47,7 @@ const NavigationMobile: FC = () => {
               </li>
               <li className={isActiveLink("/useful-information/3")}>
                 <NavLink href="/useful-information/3">
-                  Що таке двохфакторна аутентифікація
+                  Що таке двофакторна аутентифікація
                 </NavLink>
               </li>
               <li className={isActiveLink("/useful-information/4")}>
