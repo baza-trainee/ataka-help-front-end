@@ -3,15 +3,17 @@ import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 
 const isActive = ({ theme }: IStyles) => css`
-  .isActive a {
+  .isActive a,
+  span.isActive {
     color: ${theme.colors.blue[1000]};
-    border-bottom: solid 1px ${theme.colors.blue[1000]};
+    border-bottom: solid 2px ${theme.colors.blue[1000]};
   }
 `;
 
 export const NavWrapper = styled.nav`
   display: none;
   margin-left: auto;
+
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
     display: block;
     margin-left: 28px;
@@ -38,19 +40,6 @@ export const List = styled.ul`
   }
 `;
 
-export const OpenLinkButton = styled.button`
-  width: 24px;
-  height: 24px;
-  margin-left: auto;
-  background: none;
-  border: none;
-  color: ${({ theme }) => theme.colors.blue[300]};
-  cursor: pointer;
-  @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
-    display: none;
-  }
-`;
-
 export const NavbarExtendedContainer = styled.nav`
   margin-top: 36px;
   height: auto;
@@ -73,7 +62,22 @@ export const ExtendedList = styled.ul`
   ${isActive}
 `;
 
-export const SubMenu = styled(ExtendedList)`
+export const SubMenuTab = styled(ExtendedList)`
+  position: absolute;
+  bottom: 0;
+  transform: translateY(90%);
+  z-index: 2;
+  background-color: ${({ theme }) => theme.colors.blue[100]};
+
+  li {
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-bottom: 16px;
+    border-bottom: solid 1px ${({ theme }) => theme.colors.grey[500]};
+  }
+`;
+
+export const SubMenuMob = styled(ExtendedList)`
   font-size: ${({ theme }) => theme.fontSizes[0]};
   margin-top: 16px;
   li {
@@ -90,8 +94,30 @@ export const SubMenu = styled(ExtendedList)`
   }
 `;
 
-export const SubMenuTitle = styled.span`
-  font-size: 14px;
-  font-weight: ${({ theme }) => theme.fontWeights.regular};
-  color: ${({ theme }) => theme.colors.white[100]};
+const SubMenuTitleCommon = ({ theme }: IStyles) => css`
+  font-weight: ${theme.fontWeights.regular};
+  color: ${theme.colors.white[100]};
+  cursor: pointer;
+
+  :hover,
+  :focus {
+    border-bottom: solid 2px ${theme.colors.blue[1000]};
+  }
+`;
+
+export const SubMenuTitleTab = styled.span`
+  ${SubMenuTitleCommon}
+  font-size: ${({ theme }) => theme.fontSizes[1]};
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
+    font-size: ${({ theme }) => theme.fontSizes[4]};
+  }
+
+  ${isActive}
+`;
+
+export const SubMenuTitleMobile = styled.span`
+  ${SubMenuTitleCommon}
+
+  font-size: ${({ theme }) => theme.fontSizes[1]};
 `;

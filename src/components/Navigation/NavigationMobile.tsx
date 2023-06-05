@@ -4,8 +4,8 @@ import NavLink from "../NavLink/NavLink";
 import {
   ExtendedList,
   NavbarExtendedContainer,
-  SubMenu,
-  SubMenuTitle,
+  SubMenuMob,
+  SubMenuTitleMobile,
 } from "./Navigation.styled";
 
 const NavigationMobile: FC = () => {
@@ -15,22 +15,28 @@ const NavigationMobile: FC = () => {
   const isActiveLink = (href: string) =>
     router.pathname === href ? "isActive" : "";
 
+  const isActiveLinkTitle = (href: string) =>
+    router.pathname.includes(href) ? "isActive" : "";
+
   const subMenuTitleClickHandle = () => setIsUsefulInfoShow(!isUsefulInfoShow);
   return (
     <NavbarExtendedContainer>
       <ExtendedList>
-        <li className={isActiveLink("/cases")}>
-          <NavLink href="/cases">Інциденти</NavLink>
+        <li className={isActiveLink("/")}>
+          <NavLink href="/">Інциденти</NavLink>
         </li>
         <li className={isActiveLink("/about")}>
           <NavLink href="/about">Про проєкт</NavLink>
         </li>
         <li>
-          <SubMenuTitle onClick={subMenuTitleClickHandle}>
+          <SubMenuTitleMobile
+            className={isActiveLinkTitle("/useful-information")}
+            onClick={subMenuTitleClickHandle}
+          >
             Корисна інформація
-          </SubMenuTitle>
+          </SubMenuTitleMobile>
           {isUsefulInfoShow && (
-            <SubMenu>
+            <SubMenuMob>
               <li className={isActiveLink("/useful-information/1")}>
                 <NavLink href="/useful-information/1">Як обрати пароль</NavLink>
               </li>
@@ -49,7 +55,7 @@ const NavigationMobile: FC = () => {
                   Як обрати і встановити антивірус
                 </NavLink>
               </li>
-            </SubMenu>
+            </SubMenuMob>
           )}
         </li>
 
