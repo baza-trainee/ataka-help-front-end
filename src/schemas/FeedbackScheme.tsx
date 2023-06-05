@@ -1,5 +1,5 @@
 import * as yup from "yup";
-import { EMAIL_REGEX, EMAIL_REGEX_RU, NAME_REGEX } from "@/constants/regex";
+import { EMAIL_REGEX, EMAIL_REGEX_RU, NAME_REGEX, COMMENT_REGEX } from "@/constants/regex";
 
 export const FeedbackSchema = yup.object().shape({
   name: yup
@@ -17,7 +17,7 @@ export const FeedbackSchema = yup.object().shape({
     .matches(EMAIL_REGEX_RU, "Email з доменом .ru не підтримується"),
   comment: yup
     .string()
-    .matches(NAME_REGEX, "Повідомлення не валідне")  
+    .matches(COMMENT_REGEX, "Повідомлення не валідне")  
     .required("Введіть повідомлення")
     .max(300, "Просимо скоротити ваше повідомлення до 300 знаків"),
 });
