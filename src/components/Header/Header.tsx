@@ -1,19 +1,27 @@
-import { FC, useState } from "react";
+import { FC, useRef, useState } from "react";
 
-import { HeaderWrapper, LogoNavWrapper } from "./Header.styled";
+import { HeaderWrapper, LogoNavWrapper, OpenLinkButton } from "./Header.styled";
 import Navigation from "../Navigation/Navigation";
 import PaymentButton from "../PaymentButton/PaymentButton";
 import Logo from "../Logo/Logo";
 import NavigationMobile from "../Navigation/NavigationMobile";
 import { Container, Section } from "../Common";
+import Image from "next/image";
+
+import burgerIcon from "/public/icons/burger-menu.svg";
 
 const Header: FC = () => {
-  const [toggleNavbar, setToggleNavbar] = useState<boolean>(false);
+  const [isNavBarShown, setIsNavBarShown] = useState<boolean>(false);
+
+  const handleToggleNavbar = (): void => {
+    setIsNavBarShown((prev: boolean) => !prev);
+  };
 
   return (
     <HeaderWrapper>
       <Section
-        as="header"
+        style={{ position: "relative" }}
+        as="div"
         ptd="48px"
         pbd="49px"
         ptt="33px"
@@ -24,13 +32,16 @@ const Header: FC = () => {
         <Container>
           <LogoNavWrapper>
             <Logo />
-            <Navigation
-              toggleNavbar={toggleNavbar}
-              setToggleNavbar={setToggleNavbar}
-            />
-            {/* <PaymentButton /> */}
+            <Navigation />
+            <OpenLinkButton onClick={handleToggleNavbar}>
+              {isNavBarShown ? (
+                <>&#10005;</>
+              ) : (
+                <Image src={burgerIcon} alt="burgerIcon" />
+              )}
+            </OpenLinkButton>
           </LogoNavWrapper>
-          {toggleNavbar && <NavigationMobile />}
+          {isNavBarShown && <NavigationMobile />}
         </Container>
       </Section>
     </HeaderWrapper>

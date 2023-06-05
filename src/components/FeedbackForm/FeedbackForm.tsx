@@ -72,8 +72,7 @@ const FeedbackForm: FC = () => {
                 <Input
                   type="name"
                   autoComplete="off"
-                  {...register("name") }
-                  
+                  {...register("name")}
                   className={errors.name && "invalid"}
                 />
                 {errors.name && (
@@ -83,7 +82,7 @@ const FeedbackForm: FC = () => {
                 )}
               </InputLabel>
               <InputLabel>
-                Емейл*
+                Email*
                 <Input
                   type="email"
                   autoComplete="off"

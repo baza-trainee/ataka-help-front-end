@@ -4,7 +4,7 @@ export const FormWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 37px;
+  gap: 32px;
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
     gap: 58px;
   }
@@ -91,10 +91,12 @@ export const InputLabel = styled.label`
   position: relative;
   display: flex;
   flex-direction: column;
+  margin-bottom: 32px;
   font-weight: ${({ theme }) => theme.fontWeights.semibold};
   font-size: ${({ theme }) => theme.fontSizes[2]};
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
+    margin-bottom: 0;
     font-size: ${({ theme }) => theme.fontSizes[4]};
   }
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
@@ -174,8 +176,6 @@ export const MessageWrapper = styled.div`
 `;
 
 export const CaptchaWrapper = styled.div`
-  margin-top: 32px;
-
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
     margin-top: 24px;
   }
