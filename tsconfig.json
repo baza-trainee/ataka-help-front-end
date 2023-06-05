@@ -23,6 +23,6 @@
     "**/*.ts",
     "**/*.tsx",
     "src/components/LoginForm"
-  ],
+, "jest.config.mjs"  ],
   "exclude": ["node_modules"]
 }
