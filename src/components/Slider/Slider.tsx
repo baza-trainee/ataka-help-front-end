@@ -20,11 +20,7 @@ const Slider: FC = () => {
           showStatus={false}
           showThumbs={false}
           showIndicators={false}
-          renderArrowPrev={(
-            clickHandler: () => void,
-            hasPrev: boolean,
-            label: string,
-          ) => (
+          renderArrowPrev={(clickHandler: () => void, hasPrev: boolean) => (
             <PrevArrowButton
               onClick={clickHandler}
               style={{ display: hasPrev ? "block" : "none" }}
@@ -39,11 +35,7 @@ const Slider: FC = () => {
               </ArrowWrapper>
             </PrevArrowButton>
           )}
-          renderArrowNext={(
-            clickHandler: () => void,
-            hasNext: boolean,
-            label: string,
-          ) => (
+          renderArrowNext={(clickHandler: () => void, hasNext: boolean) => (
             <NextArrowButton
               onClick={clickHandler}
               style={{ display: hasNext ? "block" : "none" }}
@@ -66,7 +58,6 @@ const Slider: FC = () => {
                 alt="carusel-img"
                 fill
                 style={{ objectFit: "cover" }}
-                priority={true}
               />
               <Title>Знай, як захиститись</Title>
             </CarouselBox>

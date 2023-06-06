@@ -1,8 +1,9 @@
-import { FC } from "react";
+import { FC, use, useEffect, useState } from "react";
 import { Container, Section } from "../Common";
 import Card from "../Card/Card";
 import { ListCardStyled, TitleListStyled } from "./CardsGallery.styled";
 import LoadMoreButton from "../LoadMoreButton/LoadMoreButton";
+import { fetchCards, getCards } from "./../../services/card";
 
 const cards = [
   {
@@ -81,6 +82,16 @@ const cards = [
 ];
 
 const CardsGallery: FC = () => {
+  const [cardList, setCardList] = useState([]);
+  useEffect(() => {
+    const cards = async () => {
+      const cardList = await fetchCards();
+      setCardList(cardList.cards);
+      console.log(cardList);
+    };
+    cards();
+  }, []);
+
   return (
     <Section>
       <Container>
