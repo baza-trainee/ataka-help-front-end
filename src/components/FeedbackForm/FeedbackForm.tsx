@@ -52,10 +52,7 @@ const FeedbackForm: FC = () => {
     const token = captchaRef.current?.getValue();
     const formData = { ...data, token: token };
     try {
-      const result = await axiosPublic.post(
-        `/feedback`,
-        JSON.stringify(formData),
-      );
+      const result = await axiosPublic.post(`/feedback`, formData);
       console.log(result);
     } catch (error) {
       console.log(error);
