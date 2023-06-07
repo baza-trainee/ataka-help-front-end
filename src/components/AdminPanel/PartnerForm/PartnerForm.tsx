@@ -4,30 +4,18 @@ import { yupResolver } from "@hookform/resolvers/yup";
 
 import { IPartnerForm } from "@/types";
 import { FileScheme } from "@/schemas";
+import { getPartners, sendPartner } from "@/services";
 
-//test
-import axios from "axios";
-
-const test = async (data: any) => {
-  const response = await axios.post("https://foradmin.fun/partners", data, {
-    headers: { "Content-Type": "multipart/form-data" },
-  });
-  return response;
-};
-
-const testGet = async () => {
-  const response = await axios.get("https://foradmin.fun/partners");
-  console.log(response);
-};
-
-const getPartners = async () => {
+/* test */
+const getPartnersList = async () => {
   try {
-    const response: any = await testGet();
+    const response: any = await getPartners();
+    console.log(response);
   } catch (error) {
     console.log(error);
   }
 };
-//test
+/*=====================*/
 
 const PartnerForm: FC = () => {
   const {
@@ -48,7 +36,7 @@ const PartnerForm: FC = () => {
     formData.append("thumb", data.thumb[0]);
     formData.append("alt", data.alt);
     try {
-      const response = await test(formData);
+      const response = await sendPartner(formData);
       console.log(response);
     } catch (e) {
       console.log(e);
@@ -60,7 +48,7 @@ const PartnerForm: FC = () => {
       <hr />
       <p style={{ color: "red" }}>Отримати партнерів</p>
 
-      <button onClick={getPartners}>Get logo</button>
+      <button onClick={getPartnersList}>Get logo</button>
       <br />
       <hr />
       <hr />

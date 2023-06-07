@@ -4,25 +4,14 @@ import { yupResolver } from "@hookform/resolvers/yup";
 
 import { ISliderForm } from "@/types";
 import { SliderScheme } from "@/schemas";
+import { getSlider, sendSlide } from "@/services";
 
 //test
-import axios from "axios";
-
-const test = async (data: any) => {
-  const response = await axios.post("https://foradmin.fun/sliders", data, {
-    headers: { "Content-Type": "multipart/form-data" },
-  });
-  return response;
-};
-
-const testGet = async () => {
-  const response = await axios.get("https://foradmin.fun/sliders");
-  console.log(response);
-};
 
 const getSlides = async () => {
   try {
-    const response: any = await testGet();
+    const response: any = await getSlider();
+    console.log(response);
   } catch (error) {
     console.log(error);
   }
@@ -50,7 +39,7 @@ const SliderForm: FC = () => {
     formData.append("alt", data.alt);
     formData.append("title", data.title);
     try {
-      const response = await test(formData);
+      const response = await sendSlide(formData);
       console.log(response);
     } catch (e) {
       console.log(e);

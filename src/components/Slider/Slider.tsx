@@ -6,6 +6,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import {
   ArrowWrapper,
   CarouselBox,
+  Gradient,
   NextArrowButton,
   PrevArrowButton,
   Title,
@@ -53,11 +54,14 @@ const Slider: FC = () => {
         >
           {[1, 2, 3].map(path => (
             <CarouselBox key={path}>
+              <Gradient />
               <Image
                 src={`/${path}.jpg`}
                 alt="carusel-img"
                 fill
-                style={{ objectFit: "cover" }}
+                style={{
+                  objectFit: "cover",
+                }}
               />
               <Title>Знай, як захиститись</Title>
             </CarouselBox>

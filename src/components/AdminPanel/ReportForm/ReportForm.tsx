@@ -4,30 +4,18 @@ import { yupResolver } from "@hookform/resolvers/yup";
 
 import { IReportForm } from "@/types";
 import { ReportScheme } from "@/schemas";
+import { getReport, sendReport } from "@/services";
 
-//test
-import axios from "axios";
-
-const test = async (data: any) => {
-  const response = await axios.put("https://foradmin.fun/reports", data, {
-    headers: { "Content-Type": "multipart/form-data" },
-  });
-  return response;
-};
-
-const testGet = async () => {
-  const response = await axios.get("https://foradmin.fun/reports");
-  console.log(response);
-};
-
-const getDoc = async () => {
+/* test */
+const getReportDoc = async () => {
   try {
-    const response: any = await testGet();
+    const response: any = await getReport();
+    console.log(response);
   } catch (error) {
     console.log(error);
   }
 };
-//test
+/*=====================*/
 
 const ReportForm: FC = () => {
   const {
@@ -47,7 +35,7 @@ const ReportForm: FC = () => {
     formData.append("thumb", data.thumb[0]);
 
     try {
-      const response = await test(formData);
+      const response = await sendReport(formData);
       console.log(response);
     } catch (e) {
       console.log(e);
@@ -58,7 +46,7 @@ const ReportForm: FC = () => {
     <>
       <hr />
       <p style={{ color: "red" }}>Отримати файл</p>
-      <button onClick={getDoc}>Get file</button>
+      <button onClick={getReportDoc}>Get file</button>
 
       <hr />
       <hr />
