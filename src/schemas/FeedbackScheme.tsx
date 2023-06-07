@@ -10,6 +10,7 @@ export const FeedbackSchema = yup.object().shape({
   name: yup
     .string()
     .required("Введіть ім’я")
+    // .trim()
     .matches(NAME_REGEX, "Ім'я недійсне")
     .min(2, "Ім’я повинно бути не менше 2 знаків")
     .max(50, "Ім’я повинно бути не більше 50 знаків"),
