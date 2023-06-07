@@ -2,8 +2,10 @@ import { FC, useRef, useEffect, useState, createRef } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import ReCAPTCHA from "react-google-recaptcha";
+
 import { IFeedbackForm } from "@/types";
 import { FeedbackSchema } from "@/schemas";
+import { axiosPublic } from "@/services/axios";
 
 import { Section, Container, Title } from "../Common";
 import {
@@ -49,7 +51,15 @@ const FeedbackForm: FC = () => {
   const sendFeedback = async (data: IFeedbackForm) => {
     const token = captchaRef.current?.getValue();
     const formData = { ...data, token: token };
-    console.log(formData);
+    try {
+      const result = await axiosPublic.post(
+        `/feedback`,
+        JSON.stringify(formData),
+      );
+      console.log(result);
+    } catch (error) {
+      console.log(error);
+    }
     captchaRef.current?.reset();
     setIsChecked(false);
   };
@@ -117,7 +127,11 @@ const FeedbackForm: FC = () => {
                 onChange={handleCaptcha}
               />
             </CaptchaWrapper>
-            <Button type="submit" disabled={!isChecked}>
+            <Button
+              type="submit"
+              disabled={!isChecked}
+              onClick={() => sendFeedback}
+            >
               Надіслати
             </Button>
           </Form>
