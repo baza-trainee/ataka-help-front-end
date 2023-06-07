@@ -5,6 +5,6 @@ export const EMAIL_REGEX_RU = /^[a-zA-Z0-9._]+@[a-zA-Z0-9.-]+(?<!\.ru)$/;
 
 export const EMAIL_REGEX = /^[a-zA-Z0-9._]+@[a-zA-Z0-9-]+\.[a-zA-Z]{2,}$/;
 
-export const NAME_REGEX = /^(?!\s+$).*$/
+export const NAME_REGEX = /^(?!(?:\S*\s){30,})\S*(?:\s\S+\s*)*$/;
 
-export const COMMENT_REGEX = /^(?!\s+$)[\s\S]*$/
+export const COMMENT_REGEX = /^(?!\s+$)[\s\S]*$/;

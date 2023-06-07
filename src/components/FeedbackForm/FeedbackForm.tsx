@@ -46,16 +46,20 @@ const FeedbackForm: FC = () => {
     if (formState.isSubmitSuccessful) {
       reset();
     }
-  }, [formState.isSubmitSuccessful, reset]);
+  }, [formState.isSubmitSuccessful, reset]);  
 
   const sendFeedback = async (data: IFeedbackForm) => {
     const token = captchaRef.current?.getValue();
-    const formData = { ...data, token: token };
+    console.log(data)
+    const formData = {
+      name: data.name.trim(),
+      email: data.email.trim(),
+      token: token,
+      comment: data.comment.trim()
+    };
+    console.log(formData)
     try {
-      const result = await axiosPublic.post(
-        `/feedback`,
-        JSON.stringify(formData),
-      );
+      const result = await axiosPublic.post(`/feedback`, formData);
       console.log(result);
     } catch (error) {
       console.log(error);
@@ -129,7 +133,7 @@ const FeedbackForm: FC = () => {
             </CaptchaWrapper>
             <Button
               type="submit"
-              disabled={!isChecked}
+              disabled={isChecked}
               onClick={() => sendFeedback}
             >
               Надіслати
