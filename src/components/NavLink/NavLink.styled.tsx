@@ -13,7 +13,7 @@ const linkStyles = ({ theme, isFooter }: IStyledLinkProps) => css`
 
   @media screen and (min-width: ${theme.breakpoints[1]}) {
     font-size: ${theme.fontSizes[1]};
-    font-weight: ${theme.fontWeights.regular};
+    font-weight: ${isFooter ? `${theme.fontWeights.medium}` : `${theme.fontWeights.regular}`};
   }
 
   @media screen and (min-width: ${theme.breakpoints[2]}) {
