@@ -3,6 +3,7 @@ import Image from "next/image";
 
 import NavLink from "../NavLink/NavLink";
 import FileOpenLink from "../FileOpenLink/FileOpenLink";
+import { FacebookIcon, LinkedinIcon } from "@/assets/icons";
 
 import { Container } from "../Common";
 import {
@@ -108,22 +109,12 @@ const Footer: FC = () => {
             <IconList>
               <li>
                 <IconLink href="#" target="_blank">
-                  <Image
-                    src={"/icons/facebook.svg"}
-                    alt="facebookIcon"
-                    width={33}
-                    height={33}
-                  />
+                  <FacebookIcon />
                 </IconLink>
               </li>
               <li>
                 <IconLink href="#" target="_blank">
-                  <Image
-                    src={"/icons/linkedin.svg"}
-                    alt="linkedinIcon"
-                    width={33}
-                    height={33}
-                  />
+                  <LinkedinIcon />
                 </IconLink>
               </li>
             </IconList>
