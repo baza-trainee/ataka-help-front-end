@@ -23,9 +23,9 @@ describe("partnersGallery", () => {
         <PartnersGallery />
       </ThemeProvider>,
     );
-    const partnersList = screen.getByRole("list");   
+    const partnersList = screen.getByRole("list");
 
-    expect(partnersList).toBeInTheDocument();   
+    expect(partnersList).toBeInTheDocument();
   });
   it("renders button", () => {
     render(

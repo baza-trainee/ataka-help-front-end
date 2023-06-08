@@ -22,7 +22,8 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "src/components/LoginForm"
-, "jest.config.mjs"  ],
+    "src/components/LoginForm",
+    "jest.config.mjs"
+  ],
   "exclude": ["node_modules"]
 }
