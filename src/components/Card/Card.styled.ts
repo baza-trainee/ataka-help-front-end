@@ -55,7 +55,7 @@ export const ImageBoxStyled = styled.div`
 export const BoxTextStyled = styled.div`
   display: flex;
   align-items: center;
-
+  height: 307px;
   flex-grow: 1;
   background-color: ${({ theme }) => theme.colors.white[100]};
 `;

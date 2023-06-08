@@ -12,7 +12,6 @@ import {
   ListItem,
 } from "./PartnersGallery.styled";
 
-
 const PartnersGallery: FC = () => {
   return (
     <Section>

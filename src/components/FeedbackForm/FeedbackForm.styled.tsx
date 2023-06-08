@@ -163,7 +163,7 @@ export const Button = styled.button`
 export const ErrorMessage = styled.p`
   color: ${({ theme }) => theme.colors.red[100]};
   font-weight: ${({ theme }) => theme.fontWeights.regular};
-  font-size: ${({ theme }) => theme.fontSizes[0]};  
+  font-size: ${({ theme }) => theme.fontSizes[0]};
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
     font-size: ${({ theme }) => theme.fontSizes[1]};

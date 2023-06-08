@@ -71,16 +71,23 @@ export const BtnStyled = styled.button`
   width: 40px;
   height: 40px;
   text-align: center;
-  font-size: ${({ theme }) => theme.fontSizes[3]};
+  font-size: ${({ theme }) => theme.fontSizes[2]};
   font-weight: ${({ theme }) => theme.fontWeights.medium};
   background-color: ${({ theme }) => theme.colors.blue[100]};
   color: ${({ theme }) => theme.colors.white[100]};
   border: none;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   border-radius: ${({ theme }) => theme.radii.sm};
+  transition: background-color 250ms ease-in-out;
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
+    font-size: ${({ theme }) => theme.fontSizes[3]};
     width: 60px;
     height: 60px;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: #242654;
   }
 `;
