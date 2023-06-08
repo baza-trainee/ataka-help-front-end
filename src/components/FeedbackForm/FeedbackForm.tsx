@@ -133,7 +133,7 @@ const FeedbackForm: FC = () => {
             </CaptchaWrapper>
             <Button
               type="submit"
-              disabled={isChecked}
+              // disabled={!isChecked}
               onClick={() => sendFeedback}
             >
               Надіслати
