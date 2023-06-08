@@ -11,6 +11,7 @@ const Home: NextPage = () => {
   return (
     <UserLayout title="Cases">
       <Slider />
+
       <CardsGallery />
       <DonateMainPage />
       {/* <FileOpenLink path="/M8 FAQ_Russian.pdf" text="text" /> */}

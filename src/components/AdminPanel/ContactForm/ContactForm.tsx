@@ -4,28 +4,18 @@ import { yupResolver } from "@hookform/resolvers/yup";
 
 import { IContactForm } from "@/types";
 import { ContactScheme } from "@/schemas";
+import { getContacts, sendContacts } from "@/services";
 
-//test
-import axios from "axios";
-
-const test = async (data: any) => {
-  const response = await axios.put("https://foradmin.fun/contacts", data);
-  return response;
-};
-
-const testGet = async () => {
-  const response = await axios.get("https://foradmin.fun/contacts");
-  console.log(response);
-};
-
-const getContacts = async () => {
+/* test */
+const getContactsList = async () => {
   try {
-    const response: any = await testGet();
+    const response: any = await getContacts();
+    console.log(response);
   } catch (error) {
     console.log(error);
   }
 };
-//test
+/*=====================*/
 
 const ContactForm: FC = () => {
   const {
@@ -45,7 +35,7 @@ const ContactForm: FC = () => {
   const onSubmitHandler: SubmitHandler<IContactForm> = async data => {
     try {
       console.log(data);
-      const response = await test(data);
+      const response = await sendContacts(data);
       console.log(response);
     } catch (e) {
       console.log(e);
@@ -56,7 +46,7 @@ const ContactForm: FC = () => {
     <>
       <hr />
       <p style={{ color: "red" }}>Отримати контакти</p>
-      <button onClick={getContacts}>Get contacts</button>
+      <button onClick={getContactsList}>Get contacts</button>
 
       <hr />
       <hr />

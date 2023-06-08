@@ -16,6 +16,7 @@ export const CarouselBox = styled.div`
 
 export const Title = styled.h2`
   position: absolute;
+  z-index: 2;
   top: 50%;
   left: 54px;
   transform: translate(0, -50%);
@@ -78,4 +79,16 @@ export const ArrowWrapper = styled.div`
     width: 64px;
     height: 64px;
   }
+`;
+
+export const Gradient = styled.div`
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+    0deg,
+    rgba(48, 56, 126, 0.3),
+    rgba(48, 56, 126, 0.3)
+  );
 `;

@@ -4,30 +4,18 @@ import { yupResolver } from "@hookform/resolvers/yup";
 
 import { ICardForm } from "@/types";
 import { CardScheme } from "@/schemas";
+import { getCards, sendCard } from "@/services";
 
-//test
-import axios from "axios";
-
-const test = async (data: any) => {
-  const response = await axios.post("https://foradmin.fun/", data, {
-    headers: { "Content-Type": "multipart/form-data" },
-  });
-  return response;
-};
-
-const testGet = async () => {
-  const response = await axios.get("https://foradmin.fun/");
-  console.log(response);
-};
-
-const getList = async () => {
+/* test */
+const getCardsList = async () => {
   try {
-    const response: any = await testGet();
+    const response: any = await getCards();
+    console.log(response);
   } catch (error) {
     console.log(error);
   }
 };
-//test
+/*=====================*/
 
 const CardForm: FC = () => {
   const {
@@ -62,7 +50,7 @@ const CardForm: FC = () => {
     );
 
     try {
-      const response = await test(formData);
+      const response = await sendCard(formData);
       console.log(response);
     } catch (e) {
       console.log(e);
@@ -73,7 +61,7 @@ const CardForm: FC = () => {
     <>
       <hr />
       <p style={{ color: "red" }}>Отримати список карток</p>
-      <button onClick={getList}>Get cards</button>
+      <button onClick={getCardsList}>Get cards</button>
 
       <hr />
       <hr />

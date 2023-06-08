@@ -18,7 +18,7 @@ export const SliderScheme = yup
             "image/png",
             "image/jpg",
             "image/webp",
-            "image/svg+xml",
+           
           ].includes(value[0].type)
         );
       }),

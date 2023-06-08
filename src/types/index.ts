@@ -14,3 +14,7 @@ export type { SectionPropsType } from "./SectionPropsType";
 export type { TitlePropsType } from "./TitlePropsType";
 export type { HiddenTitleProps } from "./HiddenTitleProps";
 export type { IStyles, IOpenLink } from "./IFileOpenLink";
+export type { Cards } from "./Cards";
+export type { Report } from "./Report";
+export type { Contacts } from "./Contacts";
+export type { IFieldData } from "./FieldData";
