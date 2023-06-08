@@ -4,7 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 
 import { IReportForm } from "@/types";
 import { ReportScheme } from "@/schemas";
-import { getReport, sendReport } from "@/services";
+import { deleteReport, getReport, sendReport } from "@/services";
 
 /* test */
 const getReportDoc = async () => {
@@ -13,6 +13,15 @@ const getReportDoc = async () => {
     console.log(response);
   } catch (error) {
     console.log(error);
+  }
+};
+
+const deleteDoc = async () => {
+  try {
+    const response = await deleteReport();
+    console.log(response);
+  } catch (e) {
+    console.log(e);
   }
 };
 /*=====================*/
@@ -47,7 +56,12 @@ const ReportForm: FC = () => {
       <hr />
       <p style={{ color: "red" }}>Отримати файл</p>
       <button onClick={getReportDoc}>Get file</button>
-
+      <button
+        style={{ backgroundColor: "red", color: "white", marginLeft: "30px" }}
+        onClick={deleteDoc}
+      >
+        Delete report
+      </button>
       <hr />
       <hr />
       <p style={{ color: "red" }}>Відправити файл:</p>

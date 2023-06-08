@@ -4,7 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 
 import { IPartnerForm } from "@/types";
 import { FileScheme } from "@/schemas";
-import { getPartners, sendPartner } from "@/services";
+import { deletePartner, getPartners, sendPartner } from "@/services";
 
 /* test */
 const getPartnersList = async () => {
@@ -13,6 +13,15 @@ const getPartnersList = async () => {
     console.log(response);
   } catch (error) {
     console.log(error);
+  }
+};
+
+const deleteOnePartner = async (id: string) => {
+  try {
+    const response = await deletePartner(id);
+    console.log(response);
+  } catch (e) {
+    console.log(e);
   }
 };
 /*=====================*/
@@ -49,6 +58,12 @@ const PartnerForm: FC = () => {
       <p style={{ color: "red" }}>Отримати партнерів</p>
 
       <button onClick={getPartnersList}>Get logo</button>
+      <button
+        style={{ backgroundColor: "red", color: "white", marginLeft: "30px" }}
+        onClick={() => deleteOnePartner("")}
+      >
+        Delete partner
+      </button>
       <br />
       <hr />
       <hr />

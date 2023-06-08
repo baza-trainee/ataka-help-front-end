@@ -8,3 +8,7 @@ export { sendContacts } from "./sendContacts";
 export { sendPartner } from "./sendPartner";
 export { sendReport } from "./sendReport";
 export { sendSlide } from "./sendSlide";
+export { deleteCard } from "./deleteCard";
+export { deletePartner } from "./deletePartner";
+export { deleteReport } from "./deleteReport";
+export { deleteSlide } from "./deleteSlide";

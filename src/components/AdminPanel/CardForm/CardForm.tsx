@@ -4,7 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 
 import { ICardForm } from "@/types";
 import { CardScheme } from "@/schemas";
-import { getCards, sendCard } from "@/services";
+import { getCards, sendCard, deleteCard } from "@/services";
 
 /* test */
 const getCardsList = async () => {
@@ -13,6 +13,15 @@ const getCardsList = async () => {
     console.log(response);
   } catch (error) {
     console.log(error);
+  }
+};
+
+const deleteOneCard = async (id: string) => {
+  try {
+    const response = await deleteCard(id);
+    console.log(response);
+  } catch (e) {
+    console.log(e);
   }
 };
 /*=====================*/
@@ -62,7 +71,12 @@ const CardForm: FC = () => {
       <hr />
       <p style={{ color: "red" }}>Отримати список карток</p>
       <button onClick={getCardsList}>Get cards</button>
-
+      <button
+        style={{ backgroundColor: "red", color: "white", marginLeft: "30px" }}
+        onClick={() => deleteOneCard("1c46c8e0-a8f1-4057-804c-750af85f8b48")}
+      >
+        Delete card
+      </button>
       <hr />
       <hr />
       <p style={{ color: "red" }}>Відправити картку:</p>

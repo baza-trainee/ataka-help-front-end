@@ -4,7 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 
 import { ISliderForm } from "@/types";
 import { SliderScheme } from "@/schemas";
-import { getSlider, sendSlide } from "@/services";
+import { deleteSlide, getSlider, sendSlide } from "@/services";
 
 //test
 
@@ -14,6 +14,15 @@ const getSlides = async () => {
     console.log(response);
   } catch (error) {
     console.log(error);
+  }
+};
+
+const deleteOneSlide = async (id: string) => {
+  try {
+    const response = await deleteSlide(id);
+    console.log(response);
+  } catch (e) {
+    console.log(e);
   }
 };
 //test
@@ -51,7 +60,12 @@ const SliderForm: FC = () => {
       <hr />
       <p style={{ color: "red" }}>Отримати слайди</p>
       <button onClick={getSlides}>Get slides</button>
-
+      <button
+        style={{ backgroundColor: "red", color: "white", marginLeft: "30px" }}
+        onClick={() => deleteOneSlide("")}
+      >
+        Delete slide
+      </button>
       <hr />
       <hr />
       <p style={{ color: "red" }}>Відправити слайд:</p>
