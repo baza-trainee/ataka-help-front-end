@@ -44,11 +44,11 @@ export const OpenLink = styled.button<IOpenLink>`
     (isCookiesButtonStyles && CookiesButtonStyles) ||
     FooterButtonStyles}
 
-  border-bottom: ${({ isTextUnderline, theme }) =>
-    isTextUnderline ? `solid 2px ${theme.colors.white[100]}` : "none"};
+  text-decoration: ${({ isTextUnderline }) =>
+    isTextUnderline ? "underline" : "none"};
 
   :hover,
   :focus {
-    border-bottom: ${({ theme }) => `solid 2px ${theme.colors.blue[1000]}`};
+    text-decoration: underline ${({ theme }) => theme.colors.blue[1000]};
   }
 `;
