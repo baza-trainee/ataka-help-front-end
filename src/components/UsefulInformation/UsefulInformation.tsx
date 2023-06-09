@@ -1,8 +1,6 @@
 import { FC } from "react";
 import Image from "next/image";
 
-import image from "../../assets/rectangle.png";
-
 import {
   Text,
   ImageContainer,
@@ -24,8 +22,8 @@ const UsefulInformation: FC<UsefulInformationProps> = props => {
         <FlexContainer>
           <ImageContainer>
             <Image
-              src={image}
-              alt="Image"
+              src={"/images/two-factor-auth1.png"}
+              alt="UsefulInformation1"
               fill
               style={{ objectFit: "cover" }}
               sizes="(min-width: 320px) 360px, (min-width: 834px) 754px, (min-width: 1440px) 628px"
@@ -36,8 +34,8 @@ const UsefulInformation: FC<UsefulInformationProps> = props => {
         <FlexContainer>
           <ImageContainer>
             <Image
-              src={image}
-              alt="Image"
+              src={"/images/two-factor-auth2.png"}
+              alt="UsefulInformation2"
               fill
               style={{ objectFit: "cover" }}
               sizes="(min-width: 320px) 360px, (min-width: 834px) 754px, (min-width: 1440px) 628px"
