@@ -5,6 +5,14 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { IContactForm } from "@/types";
 import { ContactScheme } from "@/schemas";
 import { getContacts, sendContacts } from "@/services";
+import {
+  Input,
+  StyledEdit,
+  StyledError,
+  StyledLabel,
+  SubTitle,
+} from "./ContactsForm.styled";
+import { SubmitButton } from "../CommonFormStyles";
 
 /* test */
 const getContactsList = async () => {
@@ -44,22 +52,33 @@ const ContactForm: FC = () => {
 
   return (
     <>
-      <hr />
+      {/* <hr />
       <p style={{ color: "red" }}>Отримати контакти</p>
       <button onClick={getContactsList}>Get contacts</button>
 
       <hr />
-      <hr />
-      <p style={{ color: "red" }}>Відправити контакти:</p>
+      <hr /> */}
+
       <form onSubmit={handleSubmit(onSubmitHandler)}>
-        <input type="text" {...register("phone1")} />
-        {errors.phone1 && <p>{errors.phone1.message}</p>}
-        <input type="text" {...register("phone2")} />
-        {errors.phone2 && <p>{errors.phone2.message}</p>}
-        <input type="email" {...register("email")} />
-        {errors.email && <p>{errors.email.message}</p>}
-        <p style={{ color: "red" }}>Відправлення</p>
-        <button>Submit</button>
+        <SubTitle>Телефони</SubTitle>
+        <StyledLabel>
+          <Input type="text" {...register("phone1")} />
+          <StyledEdit />
+        </StyledLabel>
+        {errors.phone1 && <StyledError>{errors.phone1.message}</StyledError>}
+        <StyledLabel>
+          <Input type="text" {...register("phone2")} />
+          <StyledEdit />
+        </StyledLabel>
+        {errors.phone2 && <StyledError>{errors.phone2.message}</StyledError>}
+        <SubTitle>Електронна пошта</SubTitle>
+        <StyledLabel>
+          <Input type="email" {...register("email")} />
+          <StyledEdit />
+        </StyledLabel>
+        {errors.email && <StyledError>{errors.email.message}</StyledError>}
+
+        <SubmitButton>Надіслати</SubmitButton>
       </form>
     </>
   );

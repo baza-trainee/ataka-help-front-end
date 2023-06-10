@@ -5,6 +5,20 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { ICardForm } from "@/types";
 import { CardScheme } from "@/schemas";
 import { getCards, sendCard, deleteCard } from "@/services";
+import {
+  FileInput,
+  FileInputWrapper,
+  StyledIcon,
+  IconWrapper,
+  Text,
+  TextInput,
+  DeleteFieldButton,
+  StyledBin,
+  AddFieldButton,
+  StyledPlusIcon,
+  SubmitButton,
+  ErrorMessage,
+} from "../CommonFormStyles";
 
 /* test */
 const getCardsList = async () => {
@@ -68,7 +82,7 @@ const CardForm: FC = () => {
 
   return (
     <>
-      <hr />
+      {/* <hr />
       <p style={{ color: "red" }}>Отримати список карток</p>
       <button onClick={getCardsList}>Get cards</button>
       <button
@@ -78,48 +92,61 @@ const CardForm: FC = () => {
         Delete card
       </button>
       <hr />
-      <hr />
-      <p style={{ color: "red" }}>Відправити картку:</p>
+      <hr /> */}
+
       <form onSubmit={handleSubmit(onSubmitHandler)}>
-        <p style={{ color: "red" }}>Завантажити файл</p>
-        <input
-          type="file"
-          accept="image/*,.png,.jpg,.webp"
-          {...register("thumb")}
+        <FileInputWrapper>
+          <FileInput
+            type="file"
+            accept="image/*,.png,.jpg,.webp"
+            {...register("thumb")}
+          />
+          <IconWrapper>
+            <StyledIcon />
+            <Text>Додати зображення</Text>
+          </IconWrapper>
+        </FileInputWrapper>
+        {errors.thumb && <ErrorMessage>{errors.thumb.message}</ErrorMessage>}
+
+        <TextInput
+          type="text"
+          {...register("alt")}
+          placeholder="Опис зображення"
         />
-        {errors.thumb && <p>{errors.thumb.message}</p>}
-        <p style={{ color: "red" }}>Ввести опис зображення</p>
-        <input type="text" {...register("alt")} />
-        {errors.alt && <p>{errors.alt.message}</p>}
-        <p style={{ color: "red" }}>Ввести заголовок картки</p>
-        <input type="text" {...register("title")} />
-        {errors.title && <p>{errors.title.message}</p>}
-        <p style={{ color: "red" }}>
-          Ввести опис для картки(динамічне додавання полів)
-        </p>
+        {errors.alt && <ErrorMessage>{errors.alt.message}</ErrorMessage>}
+
+        <TextInput type="text" {...register("title")} placeholder="Заголовок" />
+        {errors.title && <ErrorMessage>{errors.title.message}</ErrorMessage>}
+
         {fields.map((field, index) => (
           <div key={field.id}>
-            <input type="text" {...register(`description.${index}.item`)} />
+            <div style={{ position: "relative" }}>
+              <TextInput
+                type="text"
+                {...register(`description.${index}.item`)}
+                placeholder="Опис пункту в інструкції"
+              />
+              {index > 0 && (
+                <DeleteFieldButton onClick={() => remove(index)} type="button">
+                  <StyledBin />
+                </DeleteFieldButton>
+              )}
+            </div>
             {errors.description && (
-              <p>
+              <ErrorMessage>
                 {index === 0
                   ? "Обов'язкове поле"
                   : "Заповніть поле або видаліть"}
-              </p>
-            )}
-            {index > 0 && (
-              <button onClick={() => remove(index)} type="button">
-                Delete field
-              </button>
+              </ErrorMessage>
             )}
           </div>
         ))}
 
-        <button onClick={() => append({ item: "" })} type="button">
-          Add field
-        </button>
-        <p style={{ color: "red" }}>Відправлення</p>
-        <button>Submit</button>
+        <AddFieldButton onClick={() => append({ item: "" })} type="button">
+          <StyledPlusIcon /> Додати пункт
+        </AddFieldButton>
+
+        <SubmitButton>Надіслати</SubmitButton>
       </form>
     </>
   );

@@ -5,6 +5,14 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { IReportForm } from "@/types";
 import { ReportScheme } from "@/schemas";
 import { deleteReport, getReport, sendReport } from "@/services";
+import {
+  FileInput,
+  FileInputWrapper,
+  IconWrapper,
+  StyledIcon,
+  SubmitButton,
+  Text,
+} from "../CommonFormStyles";
 
 /* test */
 const getReportDoc = async () => {
@@ -53,7 +61,7 @@ const ReportForm: FC = () => {
 
   return (
     <>
-      <hr />
+      {/* <hr />
       <p style={{ color: "red" }}>Отримати файл</p>
       <button onClick={getReportDoc}>Get file</button>
       <button
@@ -62,14 +70,19 @@ const ReportForm: FC = () => {
       >
         Delete report
       </button>
-      <hr />
-      <hr />
-      <p style={{ color: "red" }}>Відправити файл:</p>
+      <hr /> */}
+
       <form onSubmit={handleSubmit(onSubmitHandler)}>
-        <input type="file" accept=".pdf" {...register("thumb")} />
+        <FileInputWrapper>
+          <FileInput type="file" accept=".pdf" {...register("thumb")} />
+          <IconWrapper>
+            <StyledIcon />
+            <Text>Завантажити документ</Text>
+          </IconWrapper>
+        </FileInputWrapper>
         {errors.thumb && <p>{errors.thumb.message}</p>}
-        <p style={{ color: "red" }}>Відправлення</p>
-        <button>Submit</button>
+
+        <SubmitButton>Надіслати</SubmitButton>
       </form>
     </>
   );

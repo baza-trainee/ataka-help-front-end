@@ -5,6 +5,16 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { IPartnerForm } from "@/types";
 import { FileScheme } from "@/schemas";
 import { deletePartner, getPartners, sendPartner } from "@/services";
+import {
+  ErrorMessage,
+  FileInput,
+  FileInputWrapper,
+  IconWrapper,
+  StyledIcon,
+  SubmitButton,
+  Text,
+  TextInput,
+} from "../CommonFormStyles";
 
 /* test */
 const getPartnersList = async () => {
@@ -54,7 +64,7 @@ const PartnerForm: FC = () => {
 
   return (
     <>
-      <hr />
+      {/* <hr />
       <p style={{ color: "red" }}>Отримати партнерів</p>
 
       <button onClick={getPartnersList}>Get logo</button>
@@ -66,25 +76,30 @@ const PartnerForm: FC = () => {
       </button>
       <br />
       <hr />
-      <hr />
-      <p style={{ color: "red" }}>Відправити логотип партнера:</p>
-      <br />
+      <hr /> */}
+
       <form onSubmit={handleSubmit(onSubmitHandler)}>
-        <p style={{ color: "red" }}>Завантажити файл</p>
-        <input
-          type="file"
-          accept="image/*,.png,.jpg,.webp,.svg"
-          {...register("thumb")}
+        <FileInputWrapper>
+          <FileInput
+            type="file"
+            accept="image/*,.png,.jpg,.webp,.svg"
+            {...register("thumb")}
+          />
+          <IconWrapper>
+            <StyledIcon />
+            <Text>Додати зображення</Text>
+          </IconWrapper>
+        </FileInputWrapper>
+        {errors.thumb && <ErrorMessage>{errors.thumb.message}</ErrorMessage>}
+
+        <TextInput
+          type="text"
+          {...register("alt")}
+          placeholder="Опис зображення"
         />
-        {errors.thumb && <p>{errors.thumb.message}</p>}
+        {errors.alt && <ErrorMessage>{errors.alt.message}</ErrorMessage>}
 
-        <p style={{ color: "red" }}>Ввести опис лого</p>
-        <input type="text" {...register("alt")} />
-        {errors.alt && <p>{errors.alt.message}</p>}
-
-        <p style={{ color: "red" }}>Відправлення</p>
-
-        <button>Submit</button>
+        <SubmitButton>Надіслати</SubmitButton>
       </form>
     </>
   );
