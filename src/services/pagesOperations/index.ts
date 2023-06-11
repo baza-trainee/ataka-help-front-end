@@ -1,0 +1,1 @@
+export { getFooterData } from "./getFooterData";

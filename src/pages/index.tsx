@@ -5,17 +5,12 @@ import Slider from "@/components/Slider";
 import CardsGallery from "@/components/CardsGallery/CardsGallery";
 import DonateMainPage from "@/components/Donate/DonateMainPage";
 
-import { HomePagePropsType } from "@/types";
-import { getContacts, getReport } from "@/services";
+import { HomePagePropsType } from "@/types/PagesTypes";
+import { getFooterData } from "@/services/pagesOperations";
 
 export const getStaticProps = async () => {
-  try {
-    const contacts = await getContacts();
-    const report = await getReport();
-    return { props: { contacts, report } };
-  } catch (error) {
-    return { props: { contacts: {}, report: {} } };
-  }
+  const result = await getFooterData();
+  return result;
 };
 
 const Home: NextPage<HomePagePropsType> = ({ contacts, report }) => {
