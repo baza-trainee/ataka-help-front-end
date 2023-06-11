@@ -1,10 +1,12 @@
-import { FC } from "react";
+import { FC, useState } from "react";
+import { toast } from "react-toastify";
+import { useRouter } from "next/router";
 import { useForm, useFieldArray, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import { ICardForm } from "@/types";
 import { CardScheme } from "@/schemas";
-import { getCards, sendCard, deleteCard } from "@/services";
+import { sendCard } from "@/services";
 import {
   FileInput,
   FileInputWrapper,
@@ -18,29 +20,15 @@ import {
   StyledPlusIcon,
   SubmitButton,
   ErrorMessage,
+  Section,
 } from "../CommonFormStyles";
-
-/* test */
-const getCardsList = async () => {
-  try {
-    const response: any = await getCards();
-    console.log(response);
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-const deleteOneCard = async (id: string) => {
-  try {
-    const response = await deleteCard(id);
-    console.log(response);
-  } catch (e) {
-    console.log(e);
-  }
-};
-/*=====================*/
+import { Container } from "./CardForm.styled";
 
 const CardForm: FC = () => {
+  const [fileName, setFileName] = useState("");
+
+  const router = useRouter();
+
   const {
     register,
     handleSubmit,
@@ -74,6 +62,8 @@ const CardForm: FC = () => {
 
     try {
       const response = await sendCard(formData);
+      toast.success("Нова картка успішно додана");
+      router.push("/admin/cards");
       console.log(response);
     } catch (e) {
       console.log(e);
@@ -81,29 +71,24 @@ const CardForm: FC = () => {
   };
 
   return (
-    <>
-      {/* <hr />
-      <p style={{ color: "red" }}>Отримати список карток</p>
-      <button onClick={getCardsList}>Get cards</button>
-      <button
-        style={{ backgroundColor: "red", color: "white", marginLeft: "30px" }}
-        onClick={() => deleteOneCard("1c46c8e0-a8f1-4057-804c-750af85f8b48")}
-      >
-        Delete card
-      </button>
-      <hr />
-      <hr /> */}
-
+    <Section>
       <form onSubmit={handleSubmit(onSubmitHandler)}>
         <FileInputWrapper>
           <FileInput
             type="file"
             accept="image/*,.png,.jpg,.webp"
             {...register("thumb")}
+            onInput={(e: any) => setFileName(e.target.files[0].name)}
           />
           <IconWrapper>
-            <StyledIcon />
-            <Text>Додати зображення</Text>
+            {fileName ? (
+              <Text>{fileName}</Text>
+            ) : (
+              <>
+                <StyledIcon />
+                <Text>Додати зображення</Text>
+              </>
+            )}
           </IconWrapper>
         </FileInputWrapper>
         {errors.thumb && <ErrorMessage>{errors.thumb.message}</ErrorMessage>}
@@ -120,7 +105,7 @@ const CardForm: FC = () => {
 
         {fields.map((field, index) => (
           <div key={field.id}>
-            <div style={{ position: "relative" }}>
+            <Container>
               <TextInput
                 type="text"
                 {...register(`description.${index}.item`)}
@@ -131,7 +116,7 @@ const CardForm: FC = () => {
                   <StyledBin />
                 </DeleteFieldButton>
               )}
-            </div>
+            </Container>
             {errors.description && (
               <ErrorMessage>
                 {index === 0
@@ -148,7 +133,7 @@ const CardForm: FC = () => {
 
         <SubmitButton>Надіслати</SubmitButton>
       </form>
-    </>
+    </Section>
   );
 };
 

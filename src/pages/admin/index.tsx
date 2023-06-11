@@ -1,9 +1,9 @@
 import { useRouter } from "next/router";
+import Link from "next/link";
 import { useSession, signOut } from "next-auth/react";
 import { useEffect } from "react";
 import Head from "next/head";
 import type { NextPage } from "next";
-import CardForm from "@/components/AdminPanel/CardForm/CardForm";
 import ReportForm from "@/components/AdminPanel/ReportForm/ReportForm";
 import ContactForm from "@/components/AdminPanel/ContactForm/ContactForm";
 import PartnerForm from "@/components/AdminPanel/PartnerForm/PartnerForm";
@@ -45,10 +45,57 @@ const Admin: NextPage = () => {
             <button onClick={handleSignOut}>Sign out</button>
           </>
           <br />
-          <h2>Картка</h2>
-          <br />
-          <CardForm />
-          <br />
+          <Link
+            href={"/admin/cards"}
+            style={{
+              color: "blue",
+              textDecoration: "underline",
+              display: "block",
+            }}
+          >
+            Картки
+          </Link>
+          <Link
+            href={"/admin/partners"}
+            style={{
+              color: "blue",
+              textDecoration: "underline",
+              display: "block",
+            }}
+          >
+            Партнери
+          </Link>
+          <Link
+            href={"/admin/slider"}
+            style={{
+              color: "blue",
+              textDecoration: "underline",
+              display: "block",
+            }}
+          >
+            Слайдер
+          </Link>
+          <Link
+            href={"/admin/report"}
+            style={{
+              color: "blue",
+              textDecoration: "underline",
+              display: "block",
+            }}
+          >
+            Звітність
+          </Link>
+          <Link
+            href={"/admin/contacts"}
+            style={{
+              color: "blue",
+              textDecoration: "underline",
+              display: "block",
+            }}
+          >
+            Контакти
+          </Link>
+
           <h2>Звітність</h2>
           <br />
           <ReportForm />

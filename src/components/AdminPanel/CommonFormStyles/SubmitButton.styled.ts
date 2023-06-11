@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 export const SubmitButton = styled.button`
   display: block;
   padding: 11.5px 37.5px;
-  margin-top: 49px;
+  margin-top: 48px;
   margin-left: auto;
   margin-right: auto;
   font-size: ${({ theme }) => theme.fontSizes[5]};

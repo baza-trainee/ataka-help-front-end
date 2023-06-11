@@ -61,7 +61,7 @@ const ReportForm: FC = () => {
 
   return (
     <>
-      {/* <hr />
+      <hr />
       <p style={{ color: "red" }}>Отримати файл</p>
       <button onClick={getReportDoc}>Get file</button>
       <button
@@ -70,7 +70,7 @@ const ReportForm: FC = () => {
       >
         Delete report
       </button>
-      <hr /> */}
+      <hr />
 
       <form onSubmit={handleSubmit(onSubmitHandler)}>
         <FileInputWrapper>

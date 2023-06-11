@@ -67,7 +67,7 @@ const SliderForm: FC = () => {
 
   return (
     <>
-      {/* <hr />
+      <hr />
       <p style={{ color: "red" }}>Отримати слайди</p>
       <button onClick={getSlides}>Get slides</button>
       <button
@@ -77,7 +77,7 @@ const SliderForm: FC = () => {
         Delete slide
       </button>
       <hr />
-      <hr /> */}
+      <hr />
 
       <form onSubmit={handleSubmit(onSubmitHandler)}>
         <FileInputWrapper>

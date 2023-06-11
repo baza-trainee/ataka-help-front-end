@@ -12,7 +12,7 @@ import {
   StyledLabel,
   SubTitle,
 } from "./ContactsForm.styled";
-import { SubmitButton } from "../CommonFormStyles";
+import { Section, SubmitButton } from "../CommonFormStyles";
 
 /* test */
 const getContactsList = async () => {
@@ -51,14 +51,7 @@ const ContactForm: FC = () => {
   };
 
   return (
-    <>
-      {/* <hr />
-      <p style={{ color: "red" }}>Отримати контакти</p>
-      <button onClick={getContactsList}>Get contacts</button>
-
-      <hr />
-      <hr /> */}
-
+    <Section>
       <form onSubmit={handleSubmit(onSubmitHandler)}>
         <SubTitle>Телефони</SubTitle>
         <StyledLabel>
@@ -80,7 +73,7 @@ const ContactForm: FC = () => {
 
         <SubmitButton>Надіслати</SubmitButton>
       </form>
-    </>
+    </Section>
   );
 };
 
