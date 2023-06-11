@@ -1,11 +1,7 @@
-import { ReactNode } from "react";
-
 import { Contacts } from "./Contacts";
 import { Report } from "./Report";
 
-export type LayoutPropsType = {
-  title: string;
-  children: ReactNode;
+export type FooterPropsType = {
   contacts: Contacts;
   report: Report;
 };

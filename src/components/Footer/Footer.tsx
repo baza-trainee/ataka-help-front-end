@@ -5,6 +5,8 @@ import NavLink from "../NavLink/NavLink";
 import FileOpenLink from "../FileOpenLink/FileOpenLink";
 import { FacebookIcon, LinkedinIcon } from "@/assets/icons";
 
+import { FooterPropsType } from "@/types";
+
 import { Container } from "../Common";
 import {
   StyledFooter,
@@ -21,7 +23,15 @@ import {
   ListItem,
 } from "./Footer.styled";
 
-const Footer: FC = () => {
+const Footer: FC<FooterPropsType> = ({
+  contacts: { phone1, phone2, email },
+  report: { file },
+}) => {
+  const phoneOne = phone1;
+  const phoneTwo = phone2;
+  const emailOne = email;
+  const reportPath = file;
+
   return (
     <StyledFooter>
       <Container>
@@ -45,13 +55,16 @@ const Footer: FC = () => {
                 Про проєкт
               </NavLink>
             </ListItem>
-            <ListItem>
-              <FileOpenLink
-                text="Звітність"
-                path="/files/report.pdf"
-                isFooterButtonStyles={true}
-              />
-            </ListItem>
+            {file && (
+              <ListItem>
+                <FileOpenLink
+                  text="Звітність"
+                  path={reportPath}
+                  isFooterButtonStyles={true}
+                />
+              </ListItem>
+            )}
+
             <ListItem>
               <FileOpenLink
                 text="Політика конфіденційності"
@@ -71,39 +84,48 @@ const Footer: FC = () => {
           </LinkList>
           <ContactsWrapper>
             <ContactsList>
-              <ContactItem>
-                <Image
-                  src={"icons/phone-footer.svg"}
-                  alt="phoneIcon"
-                  width={24}
-                  height={24}
-                />
-                <ContactsText href="tel:380932830000">
-                  +38 093 802 7214
-                </ContactsText>
-              </ContactItem>
-              <ContactItem>
-                <Image
-                  src={"icons/phone-footer.svg"}
-                  alt="phoneIcon"
-                  width={24}
-                  height={24}
-                />
-                <ContactsText href="tel:380932830000">
-                  +38 063 628 6630
-                </ContactsText>
-              </ContactItem>
-              <ContactItem>
-                <Image
-                  src={"icons/email-footer.svg"}
-                  alt="emailIcon"
-                  width={24}
-                  height={24}
-                />
-                <ContactsText href="mailto:example@gmail.com">
-                  info@ataka-help.tech
-                </ContactsText>
-              </ContactItem>
+              {phoneOne && (
+                <ContactItem>
+                  <Image
+                    src={"/icons/phone-footer.svg"}
+                    alt="phoneIcon"
+                    width={24}
+                    height={24}
+                  />
+                  <ContactsText href="tel:380932830000">
+                    {phoneOne}
+                    {/* +38 093 802 7214 */}
+                  </ContactsText>
+                </ContactItem>
+              )}
+              {phoneTwo && (
+                <ContactItem>
+                  <Image
+                    src={"/icons/phone-footer.svg"}
+                    alt="phoneIcon"
+                    width={24}
+                    height={24}
+                  />
+                  <ContactsText href="tel:380932830000">
+                    {phoneTwo}
+                    {/* +38 063 628 6630 */}
+                  </ContactsText>
+                </ContactItem>
+              )}
+              {emailOne && (
+                <ContactItem>
+                  <Image
+                    src={"/icons/email-footer.svg"}
+                    alt="emailIcon"
+                    width={24}
+                    height={24}
+                  />
+                  <ContactsText href="mailto:example@gmail.com">
+                    {emailOne}
+                    {/* info@ataka-help.tech */}
+                  </ContactsText>
+                </ContactItem>
+              )}
             </ContactsList>
 
             <IconList>

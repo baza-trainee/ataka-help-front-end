@@ -7,7 +7,12 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CookieConsentBanner from "@/components/CookieConsentBanner";
 
-const UserLayout: FC<LayoutPropsType> = ({ title, children }) => {
+const UserLayout: FC<LayoutPropsType> = ({
+  title,
+  children,
+  contacts,
+  report,
+}) => {
   return (
     <>
       <Head>
@@ -18,7 +23,7 @@ const UserLayout: FC<LayoutPropsType> = ({ title, children }) => {
       </Head>
       <Header />
       <main>{children}</main>
-      <Footer />
+      <Footer contacts={contacts} report={report} />
       <CookieConsentBanner />
     </>
   );

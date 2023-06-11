@@ -6,9 +6,17 @@ import About from "@/components/About";
 import PartnersGallery from "@/components/PartnersGallery";
 import Donate from "@/components/Donate";
 
-const Cases: NextPage = () => {
+import { AboutPagePropsType } from "@/types/PagesTypes";
+import { getFooterData } from "@/services/pagesOperations";
+
+export const getStaticProps = async () => {
+  const result = await getFooterData();
+  return result;
+};
+
+const Cases: NextPage<AboutPagePropsType> = ({ contacts, report }) => {
   return (
-    <UserLayout title="About">
+    <UserLayout title="About" contacts={contacts} report={report}>
       <Slider />
       <About />
       <PartnersGallery />
