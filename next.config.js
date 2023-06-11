@@ -7,9 +7,7 @@ const nextConfig = {
       process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_KEY,
   },
   experimental: {
-    outputFileTracingExcludes: {
-      "*": ["node_modules/canvas"],
-    },
+    outputFileTracingIgnores: ["**canvas**"],
   },
 };
 
