@@ -45,6 +45,8 @@ export const theme = {
       300: "#D0D2D6", //disabled button
       400: "#A2A4A7", //disabled button text color
       500: "#9497AB", //underline submenu (useful-info) link
+      600: "#C6C6C6", //contacts input
+      700: "#C7C7C7", //add info border
     },
 
     blue: {
@@ -58,10 +60,13 @@ export const theme = {
       800: "#656FB4", //cookies-bg
       900: "rgba(160, 194, 231, 0.05)", //button-bg
       1000: "#5D87F4", //active submenu (useful-info) link
+      1100: "#9fbdd7", //admin input border
+      1200: "#2F88FF", //plus icon
     },
 
     red: {
       100: "#DC0C31", // error-message
+      200: "#FF5858", //delete bin
     },
   },
 };

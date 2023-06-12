@@ -6,6 +6,17 @@ const nextConfig = {
     NEXT_PUBLIC_GOOGLE_ANALYTICS_KEY:
       process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_KEY,
   },
+
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: `${process.env.NEXT_PUBLIC_HOSTNAME}`,
+        port: "",
+        pathname: `${process.env.NEXT_PUBLIC_PATHNAME}`,
+      },
+    ],
+  },
   experimental: {
     outputFileTracingIgnores: ["**canvas**"],
   },

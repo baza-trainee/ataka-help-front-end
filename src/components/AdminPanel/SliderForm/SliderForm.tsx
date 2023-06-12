@@ -4,19 +4,18 @@ import { yupResolver } from "@hookform/resolvers/yup";
 
 import { ISliderForm } from "@/types";
 import { SliderScheme } from "@/schemas";
-import { getSlider, sendSlide } from "@/services";
-
-//test
-
-const getSlides = async () => {
-  try {
-    const response: any = await getSlider();
-    console.log(response);
-  } catch (error) {
-    console.log(error);
-  }
-};
-//test
+import { sendSlide } from "@/services";
+import {
+  ErrorMessage,
+  FileInput,
+  FileInputWrapper,
+  IconWrapper,
+  Section,
+  StyledIcon,
+  SubmitButton,
+  Text,
+  TextInput,
+} from "../CommonFormStyles";
 
 const SliderForm: FC = () => {
   const {
@@ -47,33 +46,34 @@ const SliderForm: FC = () => {
   };
 
   return (
-    <>
-      <hr />
-      <p style={{ color: "red" }}>Отримати слайди</p>
-      <button onClick={getSlides}>Get slides</button>
-
-      <hr />
-      <hr />
-      <p style={{ color: "red" }}>Відправити слайд:</p>
-      <br />
+    <Section>
       <form onSubmit={handleSubmit(onSubmitHandler)}>
-        <p style={{ color: "red" }}>Завантажити файл</p>
-        <input
-          type="file"
-          accept="image/*,.png,.jpg,.webp,.svg"
-          {...register("thumb")}
+        <FileInputWrapper>
+          <FileInput
+            type="file"
+            accept="image/*,.png,.jpg,.webp,.svg"
+            {...register("thumb")}
+          />
+          <IconWrapper>
+            <StyledIcon />
+            <Text>Додати зображення</Text>
+          </IconWrapper>
+        </FileInputWrapper>
+        {errors.thumb && <ErrorMessage>{errors.thumb.message}</ErrorMessage>}
+
+        <TextInput
+          type="text"
+          {...register("alt")}
+          placeholder="Опис зображення"
         />
-        {errors.thumb && <p>{errors.thumb.message}</p>}
-        <p style={{ color: "red" }}>Ввести опис зображення</p>
-        <input type="text" {...register("alt")} />
-        {errors.alt && <p>{errors.alt.message}</p>}
-        <p style={{ color: "red" }}>Ввести заголовок для слайду</p>
-        <input type="text" {...register("title")} />
-        {errors.title && <p>{errors.title.message}</p>}
-        <p style={{ color: "red" }}>Відправлення</p>
-        <button>Submit</button>
+        {errors.alt && <ErrorMessage>{errors.alt.message}</ErrorMessage>}
+
+        <TextInput type="text" {...register("title")} placeholder="Заголовок" />
+        {errors.title && <ErrorMessage>{errors.title.message}</ErrorMessage>}
+
+        <SubmitButton>Надіслати</SubmitButton>
       </form>
-    </>
+    </Section>
   );
 };
 

@@ -28,6 +28,8 @@ declare module "@emotion/react" {
         300: string;
         400: string;
         500: string;
+        600: string;
+        700: string;
       };
       blue: {
         100: string;
@@ -40,9 +42,12 @@ declare module "@emotion/react" {
         800: string;
         900: string;
         1000: string;
+        1100: string;
+        1200: string;
       };
       red: {
         100: string;
+        200: string;
       };
     };
   }
