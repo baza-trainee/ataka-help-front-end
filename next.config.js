@@ -6,15 +6,19 @@ const nextConfig = {
     NEXT_PUBLIC_GOOGLE_ANALYTICS_KEY:
       process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_KEY,
   },
+
   images: {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "atakhelp.onrender.com",
+        hostname: `${process.env.NEXT_PUBLIC_HOSTNAME}`,
         port: "",
-        pathname: "/static/**",
+        pathname: `${process.env.NEXT_PUBLIC_PATHNAME}`,
       },
     ],
+  },
+  experimental: {
+    outputFileTracingIgnores: ["**canvas**"],
   },
 };
 

@@ -44,5 +44,8 @@
     "jest": "^29.5.0",
     "jest-environment-jsdom": "^29.5.0",
     "prettier": "^2.8.8"
+  },
+  "resolutions": {
+    "canvas": "https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.2.1.tgz"
   }
 }
