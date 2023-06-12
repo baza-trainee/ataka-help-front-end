@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
-import CardForm from "@/components/AdminPanel";
+
+import CardForm from "@/components/AdminPanel/CardForm";
 
 const Form: NextPage = () => {
   return <CardForm />;

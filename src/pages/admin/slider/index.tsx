@@ -2,7 +2,29 @@ import Head from "next/head";
 import type { NextPage } from "next";
 import Link from "next/link";
 
+import { deleteSlide, getSlider } from "@/services";
+
 const Slider: NextPage = () => {
+  //test
+
+  const getSlides = async () => {
+    try {
+      const response: any = await getSlider();
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const deleteOneSlide = async (id: string) => {
+    try {
+      const response = await deleteSlide(id);
+      console.log(response);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+  //test
   return (
     <>
       <Head>
@@ -13,7 +35,27 @@ const Slider: NextPage = () => {
       </Head>
       <main>
         Slider page
-        <Link href={"/admin/slider/form"}>Add slide</Link>
+        <hr />
+        <p style={{ color: "red" }}>Отримати слайди</p>
+        <button onClick={getSlides}>Get slides</button>
+        <button
+          style={{ backgroundColor: "red", color: "white", marginLeft: "30px" }}
+          onClick={() => deleteOneSlide("")}
+        >
+          Delete slide
+        </button>
+        <hr />
+        <hr />
+        <Link
+          href={"/admin/slider/form"}
+          style={{
+            color: "blue",
+            textDecoration: "underline",
+            display: "block",
+          }}
+        >
+          Add slide
+        </Link>
       </main>
     </>
   );

@@ -4,37 +4,18 @@ import { yupResolver } from "@hookform/resolvers/yup";
 
 import { IPartnerForm } from "@/types";
 import { FileScheme } from "@/schemas";
-import { deletePartner, getPartners, sendPartner } from "@/services";
+import { sendPartner } from "@/services";
 import {
   ErrorMessage,
   FileInput,
   FileInputWrapper,
   IconWrapper,
+  Section,
   StyledIcon,
   SubmitButton,
   Text,
   TextInput,
 } from "../CommonFormStyles";
-
-/* test */
-const getPartnersList = async () => {
-  try {
-    const response: any = await getPartners();
-    console.log(response);
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-const deleteOnePartner = async (id: string) => {
-  try {
-    const response = await deletePartner(id);
-    console.log(response);
-  } catch (e) {
-    console.log(e);
-  }
-};
-/*=====================*/
 
 const PartnerForm: FC = () => {
   const {
@@ -63,21 +44,7 @@ const PartnerForm: FC = () => {
   };
 
   return (
-    <>
-      {/* <hr />
-      <p style={{ color: "red" }}>Отримати партнерів</p>
-
-      <button onClick={getPartnersList}>Get logo</button>
-      <button
-        style={{ backgroundColor: "red", color: "white", marginLeft: "30px" }}
-        onClick={() => deleteOnePartner("")}
-      >
-        Delete partner
-      </button>
-      <br />
-      <hr />
-      <hr /> */}
-
+    <Section>
       <form onSubmit={handleSubmit(onSubmitHandler)}>
         <FileInputWrapper>
           <FileInput
@@ -101,7 +68,7 @@ const PartnerForm: FC = () => {
 
         <SubmitButton>Надіслати</SubmitButton>
       </form>
-    </>
+    </Section>
   );
 };
 

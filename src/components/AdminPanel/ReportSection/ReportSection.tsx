@@ -1,3 +1,5 @@
+import Link from "next/link";
+import { Section } from "../CommonFormStyles";
 import PDFIcon from "../PDFIcon";
 import {
   AddReport,
@@ -13,7 +15,7 @@ import {
 
 const ReportSection = () => {
   return (
-    <>
+    <Section>
       <Report>
         <PDFIcon />
         <Button type="button">Звітність</Button>
@@ -24,11 +26,13 @@ const ReportSection = () => {
       </Report>
       <AddReport>
         <IconWrapper>
-          <StyledIcon />
-          <Text>Додати звітність</Text>
+          <Link href={"/admin/report/form"}>
+            <StyledIcon />
+            <Text>Додати звітність</Text>
+          </Link>
         </IconWrapper>
       </AddReport>
-    </>
+    </Section>
   );
 };
 

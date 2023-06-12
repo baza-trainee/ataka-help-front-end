@@ -1,9 +1,9 @@
 import type { NextPage } from "next";
 
-import PartnerForm from "@/components/AdminPanel/PartnerForm";
+import SliderForm from "@/components/AdminPanel/SliderForm";
 
 const Form: NextPage = () => {
-  return <PartnerForm />;
+  return <SliderForm />;
 };
 
 export default Form;

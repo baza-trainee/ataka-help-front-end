@@ -4,38 +4,18 @@ import { yupResolver } from "@hookform/resolvers/yup";
 
 import { ISliderForm } from "@/types";
 import { SliderScheme } from "@/schemas";
-import { deleteSlide, getSlider, sendSlide } from "@/services";
+import { sendSlide } from "@/services";
 import {
   ErrorMessage,
   FileInput,
   FileInputWrapper,
   IconWrapper,
+  Section,
   StyledIcon,
   SubmitButton,
   Text,
   TextInput,
 } from "../CommonFormStyles";
-
-//test
-
-const getSlides = async () => {
-  try {
-    const response: any = await getSlider();
-    console.log(response);
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-const deleteOneSlide = async (id: string) => {
-  try {
-    const response = await deleteSlide(id);
-    console.log(response);
-  } catch (e) {
-    console.log(e);
-  }
-};
-//test
 
 const SliderForm: FC = () => {
   const {
@@ -66,19 +46,7 @@ const SliderForm: FC = () => {
   };
 
   return (
-    <>
-      <hr />
-      <p style={{ color: "red" }}>Отримати слайди</p>
-      <button onClick={getSlides}>Get slides</button>
-      <button
-        style={{ backgroundColor: "red", color: "white", marginLeft: "30px" }}
-        onClick={() => deleteOneSlide("")}
-      >
-        Delete slide
-      </button>
-      <hr />
-      <hr />
-
+    <Section>
       <form onSubmit={handleSubmit(onSubmitHandler)}>
         <FileInputWrapper>
           <FileInput
@@ -105,7 +73,7 @@ const SliderForm: FC = () => {
 
         <SubmitButton>Надіслати</SubmitButton>
       </form>
-    </>
+    </Section>
   );
 };
 

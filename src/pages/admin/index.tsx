@@ -4,10 +4,6 @@ import { useSession, signOut } from "next-auth/react";
 import { useEffect } from "react";
 import Head from "next/head";
 import type { NextPage } from "next";
-import ReportForm from "@/components/AdminPanel/ReportForm/ReportForm";
-import ContactForm from "@/components/AdminPanel/ContactForm/ContactForm";
-import PartnerForm from "@/components/AdminPanel/PartnerForm/PartnerForm";
-import SliderForm from "@/components/AdminPanel/SliderForm/SliderForm";
 
 const Admin: NextPage = () => {
   const { data: session } = useSession();
@@ -95,22 +91,6 @@ const Admin: NextPage = () => {
           >
             Контакти
           </Link>
-
-          <h2>Звітність</h2>
-          <br />
-          <ReportForm />
-          <br />
-          <h2>Контакти</h2>
-          <br />
-          <ContactForm />
-          <br />
-          <h2>Партнери</h2>
-          <br />
-          <PartnerForm />
-          <br />
-          <h2>Слайдер</h2>
-          <br />
-          <SliderForm />
         </main>
       </>
       {/* )} */}
