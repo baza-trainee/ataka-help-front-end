@@ -97,7 +97,7 @@ const CardsGallery: FC<Cards> = ({ cards, total }) => {
             }) => (
               <Card
                 key={card.id}
-                thumb={`${process.env.NEXT_PUBLIC_API_URL}${card.thumb}`}
+                thumb={`${process.env.NEXT_PUBLIC_API_URL}/${card.thumb}`}
                 title={card.title}
                 alt={card.alt}
                 description={card.description}
