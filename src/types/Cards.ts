@@ -1,7 +1,7 @@
 export type Cards = {
   cards: [
     {
-      id: number;
+      id: string;
       title: string;
       thumb: string;
       alt: string;

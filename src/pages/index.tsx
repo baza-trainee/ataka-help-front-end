@@ -6,18 +6,19 @@ import CardsGallery from "@/components/CardsGallery/CardsGallery";
 import DonateMainPage from "@/components/Donate/DonateMainPage";
 
 import { HomePagePropsType } from "@/types/PagesTypes";
-import { getFooterData } from "@/services/pagesOperations";
+import { getHomePageData } from "@/services/pagesOperations";
 
 export const getStaticProps = async () => {
-  const result = await getFooterData();
+  const result = await getHomePageData();
   return result;
 };
 
-const Home: NextPage<HomePagePropsType> = ({ contacts, report }) => {
+const Home: NextPage<HomePagePropsType> = ({ contacts, report, cards }) => {
   return (
     <UserLayout title="Cases" contacts={contacts} report={report}>
       <Slider />
-      <CardsGallery />
+      <CardsGallery cards={cards.cards} total={cards.total} />
+
       <DonateMainPage />
     </UserLayout>
   );
