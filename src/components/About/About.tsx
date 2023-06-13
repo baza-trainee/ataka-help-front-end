@@ -1,7 +1,6 @@
 import { FC } from "react";
 import Image from "next/image";
 
-import image from "../../assets/rectangle.png";
 import {
   Text,
   ImageContainer,
@@ -18,7 +17,7 @@ const About: FC = () => {
         <FlexContainer>
           <ImageContainer>
             <Image
-              src={image}
+              src={"/images/about-page.png"}
               alt="Image"
               fill
               style={{ objectFit: "cover" }}

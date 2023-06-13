@@ -44,6 +44,11 @@ export const OpenLink = styled.button<IOpenLink>`
     (isCookiesButtonStyles && CookiesButtonStyles) ||
     FooterButtonStyles}
 
-  text-decoration-line: ${({ isTextUnderline }) =>
+  text-decoration: ${({ isTextUnderline }) =>
     isTextUnderline ? "underline" : "none"};
+
+  :hover,
+  :focus {
+    text-decoration: underline ${({ theme }) => theme.colors.blue[1000]};
+  }
 `;

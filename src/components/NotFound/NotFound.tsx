@@ -20,7 +20,9 @@ const NotFound: FC = () => {
           <TitleH1>404</TitleH1>
           <StyledTextWrap>
             <StyledText>Цю сторінку не знайдено.</StyledText>
-            <StyledText>Ми не змогли знайти сторінку, яку Ви шукаєте.</StyledText>
+            <StyledText>
+              Ми не змогли знайти сторінку, яку Ви шукаєте.
+            </StyledText>
             <StyledText>Можливо, сталася помилка.</StyledText>
           </StyledTextWrap>
           <StyledLink>

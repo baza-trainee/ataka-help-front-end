@@ -4,28 +4,26 @@ import { yupResolver } from "@hookform/resolvers/yup";
 
 import { IContactForm } from "@/types";
 import { ContactScheme } from "@/schemas";
+import { getContacts, sendContacts } from "@/services";
+import {
+  Input,
+  StyledEdit,
+  StyledError,
+  StyledLabel,
+  SubTitle,
+} from "./ContactsForm.styled";
+import { Section, SubmitButton } from "../CommonFormStyles";
 
-//test
-import axios from "axios";
-
-const test = async (data: any) => {
-  const response = await axios.put("https://foradmin.fun/contacts", data);
-  return response;
-};
-
-const testGet = async () => {
-  const response = await axios.get("https://foradmin.fun/contacts");
-  console.log(response);
-};
-
-const getContacts = async () => {
+/* test */
+const getContactsList = async () => {
   try {
-    const response: any = await testGet();
+    const response: any = await getContacts();
+    console.log(response);
   } catch (error) {
     console.log(error);
   }
 };
-//test
+/*=====================*/
 
 const ContactForm: FC = () => {
   const {
@@ -45,7 +43,7 @@ const ContactForm: FC = () => {
   const onSubmitHandler: SubmitHandler<IContactForm> = async data => {
     try {
       console.log(data);
-      const response = await test(data);
+      const response = await sendContacts(data);
       console.log(response);
     } catch (e) {
       console.log(e);
@@ -53,25 +51,29 @@ const ContactForm: FC = () => {
   };
 
   return (
-    <>
-      <hr />
-      <p style={{ color: "red" }}>Отримати контакти</p>
-      <button onClick={getContacts}>Get contacts</button>
-
-      <hr />
-      <hr />
-      <p style={{ color: "red" }}>Відправити контакти:</p>
+    <Section>
       <form onSubmit={handleSubmit(onSubmitHandler)}>
-        <input type="text" {...register("phone1")} />
-        {errors.phone1 && <p>{errors.phone1.message}</p>}
-        <input type="text" {...register("phone2")} />
-        {errors.phone2 && <p>{errors.phone2.message}</p>}
-        <input type="email" {...register("email")} />
-        {errors.email && <p>{errors.email.message}</p>}
-        <p style={{ color: "red" }}>Відправлення</p>
-        <button>Submit</button>
+        <SubTitle>Телефони</SubTitle>
+        <StyledLabel>
+          <Input type="text" {...register("phone1")} />
+          <StyledEdit />
+        </StyledLabel>
+        {errors.phone1 && <StyledError>{errors.phone1.message}</StyledError>}
+        <StyledLabel>
+          <Input type="text" {...register("phone2")} />
+          <StyledEdit />
+        </StyledLabel>
+        {errors.phone2 && <StyledError>{errors.phone2.message}</StyledError>}
+        <SubTitle>Електронна пошта</SubTitle>
+        <StyledLabel>
+          <Input type="email" {...register("email")} />
+          <StyledEdit />
+        </StyledLabel>
+        {errors.email && <StyledError>{errors.email.message}</StyledError>}
+
+        <SubmitButton>Надіслати</SubmitButton>
       </form>
-    </>
+    </Section>
   );
 };
 

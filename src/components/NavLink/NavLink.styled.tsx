@@ -7,13 +7,16 @@ const linkStyles = ({ theme, isFooter }: IStyledLinkProps) => css`
   font-weight: ${theme.fontWeights.medium};
   color: ${theme.colors.white[100]};
   cursor: pointer;
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     border-bottom: solid 2px ${theme.colors.blue[1000]};
   }
 
   @media screen and (min-width: ${theme.breakpoints[1]}) {
     font-size: ${theme.fontSizes[1]};
-    font-weight: ${isFooter ? `${theme.fontWeights.medium}` : `${theme.fontWeights.regular}`};
+    font-weight: ${isFooter
+      ? `${theme.fontWeights.medium}`
+      : `${theme.fontWeights.regular}`};
   }
 
   @media screen and (min-width: ${theme.breakpoints[2]}) {

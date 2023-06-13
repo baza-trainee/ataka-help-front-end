@@ -74,6 +74,13 @@ export const axiosPrivateFormData = axios.create({
 //     }
 //   );
 
+axiosPrivateFormData.interceptors.response.use(async response => {
+  if ((response.data.status = 201 && response.config.url === "/cards")) {
+    toast.success("Нова картка успішно додана");
+  }
+  return response;
+});
+
 //   axiosPublic.interceptors.response.use(
 //     async response => {
 //       if ((response.data.status = 201 && response.config.url === '/login')) {

@@ -4,30 +4,18 @@ import { yupResolver } from "@hookform/resolvers/yup";
 
 import { IPartnerForm } from "@/types";
 import { FileScheme } from "@/schemas";
-
-//test
-import axios from "axios";
-
-const test = async (data: any) => {
-  const response = await axios.post("https://foradmin.fun/partners", data, {
-    headers: { "Content-Type": "multipart/form-data" },
-  });
-  return response;
-};
-
-const testGet = async () => {
-  const response = await axios.get("https://foradmin.fun/partners");
-  console.log(response);
-};
-
-const getPartners = async () => {
-  try {
-    const response: any = await testGet();
-  } catch (error) {
-    console.log(error);
-  }
-};
-//test
+import { sendPartner } from "@/services";
+import {
+  ErrorMessage,
+  FileInput,
+  FileInputWrapper,
+  IconWrapper,
+  Section,
+  StyledIcon,
+  SubmitButton,
+  Text,
+  TextInput,
+} from "../CommonFormStyles";
 
 const PartnerForm: FC = () => {
   const {
@@ -48,7 +36,7 @@ const PartnerForm: FC = () => {
     formData.append("thumb", data.thumb[0]);
     formData.append("alt", data.alt);
     try {
-      const response = await test(formData);
+      const response = await sendPartner(formData);
       console.log(response);
     } catch (e) {
       console.log(e);
@@ -56,34 +44,31 @@ const PartnerForm: FC = () => {
   };
 
   return (
-    <>
-      <hr />
-      <p style={{ color: "red" }}>Отримати партнерів</p>
-
-      <button onClick={getPartners}>Get logo</button>
-      <br />
-      <hr />
-      <hr />
-      <p style={{ color: "red" }}>Відправити логотип партнера:</p>
-      <br />
+    <Section>
       <form onSubmit={handleSubmit(onSubmitHandler)}>
-        <p style={{ color: "red" }}>Завантажити файл</p>
-        <input
-          type="file"
-          accept="image/*,.png,.jpg,.webp,.svg"
-          {...register("thumb")}
+        <FileInputWrapper>
+          <FileInput
+            type="file"
+            accept="image/*,.png,.jpg,.webp,.svg"
+            {...register("thumb")}
+          />
+          <IconWrapper>
+            <StyledIcon />
+            <Text>Додати зображення</Text>
+          </IconWrapper>
+        </FileInputWrapper>
+        {errors.thumb && <ErrorMessage>{errors.thumb.message}</ErrorMessage>}
+
+        <TextInput
+          type="text"
+          {...register("alt")}
+          placeholder="Опис зображення"
         />
-        {errors.thumb && <p>{errors.thumb.message}</p>}
+        {errors.alt && <ErrorMessage>{errors.alt.message}</ErrorMessage>}
 
-        <p style={{ color: "red" }}>Ввести опис лого</p>
-        <input type="text" {...register("alt")} />
-        {errors.alt && <p>{errors.alt.message}</p>}
-
-        <p style={{ color: "red" }}>Відправлення</p>
-
-        <button>Submit</button>
+        <SubmitButton>Надіслати</SubmitButton>
       </form>
-    </>
+    </Section>
   );
 };
 

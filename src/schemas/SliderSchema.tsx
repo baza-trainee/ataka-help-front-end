@@ -13,13 +13,9 @@ export const SliderScheme = yup
       .test("fileType", "Невалідний формат", (value: any) => {
         return (
           value?.length &&
-          [
-            "image/jpeg",
-            "image/png",
-            "image/jpg",
-            "image/webp",
-            "image/svg+xml",
-          ].includes(value[0].type)
+          ["image/jpeg", "image/png", "image/jpg", "image/webp"].includes(
+            value[0].type,
+          )
         );
       }),
     alt: yup

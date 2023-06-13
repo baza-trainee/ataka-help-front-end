@@ -1,35 +1,34 @@
-import { FC } from "react";
+import { FC, useState } from "react";
+import { toast } from "react-toastify";
+import { useRouter } from "next/router";
 import { useForm, useFieldArray, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import { ICardForm } from "@/types";
 import { CardScheme } from "@/schemas";
-
-//test
-import axios from "axios";
-
-const test = async (data: any) => {
-  const response = await axios.post("https://foradmin.fun/", data, {
-    headers: { "Content-Type": "multipart/form-data" },
-  });
-  return response;
-};
-
-const testGet = async () => {
-  const response = await axios.get("https://foradmin.fun/");
-  console.log(response);
-};
-
-const getList = async () => {
-  try {
-    const response: any = await testGet();
-  } catch (error) {
-    console.log(error);
-  }
-};
-//test
+import { sendCard } from "@/services";
+import {
+  FileInput,
+  FileInputWrapper,
+  StyledIcon,
+  IconWrapper,
+  Text,
+  TextInput,
+  DeleteFieldButton,
+  StyledBin,
+  AddFieldButton,
+  StyledPlusIcon,
+  SubmitButton,
+  ErrorMessage,
+  Section,
+} from "../CommonFormStyles";
+import { Container } from "./CardForm.styled";
 
 const CardForm: FC = () => {
+  const [fileName, setFileName] = useState("");
+
+  const router = useRouter();
+
   const {
     register,
     handleSubmit,
@@ -62,7 +61,9 @@ const CardForm: FC = () => {
     );
 
     try {
-      const response = await test(formData);
+      const response = await sendCard(formData);
+      toast.success("Нова картка успішно додана");
+      router.push("/admin/cards");
       console.log(response);
     } catch (e) {
       console.log(e);
@@ -70,56 +71,69 @@ const CardForm: FC = () => {
   };
 
   return (
-    <>
-      <hr />
-      <p style={{ color: "red" }}>Отримати список карток</p>
-      <button onClick={getList}>Get cards</button>
-
-      <hr />
-      <hr />
-      <p style={{ color: "red" }}>Відправити картку:</p>
+    <Section>
       <form onSubmit={handleSubmit(onSubmitHandler)}>
-        <p style={{ color: "red" }}>Завантажити файл</p>
-        <input
-          type="file"
-          accept="image/*,.png,.jpg,.webp"
-          {...register("thumb")}
+        <FileInputWrapper>
+          <FileInput
+            type="file"
+            accept="image/*,.png,.jpg,.webp"
+            {...register("thumb")}
+            onInput={(e: any) => setFileName(e.target.files[0].name)}
+          />
+          <IconWrapper>
+            {fileName ? (
+              <Text>{fileName}</Text>
+            ) : (
+              <>
+                <StyledIcon />
+                <Text>Додати зображення</Text>
+              </>
+            )}
+          </IconWrapper>
+        </FileInputWrapper>
+        {errors.thumb && <ErrorMessage>{errors.thumb.message}</ErrorMessage>}
+
+        <TextInput
+          type="text"
+          {...register("alt")}
+          placeholder="Опис зображення"
         />
-        {errors.thumb && <p>{errors.thumb.message}</p>}
-        <p style={{ color: "red" }}>Ввести опис зображення</p>
-        <input type="text" {...register("alt")} />
-        {errors.alt && <p>{errors.alt.message}</p>}
-        <p style={{ color: "red" }}>Ввести заголовок картки</p>
-        <input type="text" {...register("title")} />
-        {errors.title && <p>{errors.title.message}</p>}
-        <p style={{ color: "red" }}>
-          Ввести опис для картки(динамічне додавання полів)
-        </p>
+        {errors.alt && <ErrorMessage>{errors.alt.message}</ErrorMessage>}
+
+        <TextInput type="text" {...register("title")} placeholder="Заголовок" />
+        {errors.title && <ErrorMessage>{errors.title.message}</ErrorMessage>}
+
         {fields.map((field, index) => (
           <div key={field.id}>
-            <input type="text" {...register(`description.${index}.item`)} />
+            <Container>
+              <TextInput
+                type="text"
+                {...register(`description.${index}.item`)}
+                placeholder="Опис пункту в інструкції"
+              />
+              {index > 0 && (
+                <DeleteFieldButton onClick={() => remove(index)} type="button">
+                  <StyledBin />
+                </DeleteFieldButton>
+              )}
+            </Container>
             {errors.description && (
-              <p>
+              <ErrorMessage>
                 {index === 0
                   ? "Обов'язкове поле"
                   : "Заповніть поле або видаліть"}
-              </p>
-            )}
-            {index > 0 && (
-              <button onClick={() => remove(index)} type="button">
-                Delete field
-              </button>
+              </ErrorMessage>
             )}
           </div>
         ))}
 
-        <button onClick={() => append({ item: "" })} type="button">
-          Add field
-        </button>
-        <p style={{ color: "red" }}>Відправлення</p>
-        <button>Submit</button>
+        <AddFieldButton onClick={() => append({ item: "" })} type="button">
+          <StyledPlusIcon /> Додати пункт
+        </AddFieldButton>
+
+        <SubmitButton>Надіслати</SubmitButton>
       </form>
-    </>
+    </Section>
   );
 };
 

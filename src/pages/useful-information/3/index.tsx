@@ -5,13 +5,28 @@ import UsefulInformation from "@/components/UsefulInformation";
 import Slider from "@/components/Slider";
 import information from "@/data/useful-information.json";
 
-const TwoFactorAuthentication: NextPage = () => {
+import { UsefulInformationPagePropsType } from "@/types/PagesTypes";
+import { getFooterData } from "@/services/pagesOperations";
+
+export const getStaticProps = async () => {
+  const result = await getFooterData();
+  return result;
+};
+
+const TwoFactorAuthentication: NextPage<UsefulInformationPagePropsType> = ({
+  contacts,
+  report,
+}) => {
   const title = information[2].title;
   const blockOne = information[2].blockOne;
   const blockTwo = information[2].blockTwo;
 
   return (
-    <UserLayout title="TwoFactorAuthentication">
+    <UserLayout
+      title="TwoFactorAuthentication"
+      contacts={contacts}
+      report={report}
+    >
       <Slider />
       <UsefulInformation title={title} text1={blockOne} text2={blockTwo} />
     </UserLayout>

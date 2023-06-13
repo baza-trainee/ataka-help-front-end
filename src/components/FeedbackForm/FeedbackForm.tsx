@@ -46,18 +46,18 @@ const FeedbackForm: FC = () => {
     if (formState.isSubmitSuccessful) {
       reset();
     }
-  }, [formState.isSubmitSuccessful, reset]);  
+  }, [formState.isSubmitSuccessful, reset]);
 
   const sendFeedback = async (data: IFeedbackForm) => {
     const token = captchaRef.current?.getValue();
-    console.log(data)
+    console.log(data);
     const formData = {
       name: data.name.trim(),
       email: data.email.trim(),
       token: token,
-      comment: data.comment.trim()
+      comment: data.comment.trim(),
     };
-    console.log(formData)
+    console.log(formData);
     try {
       const result = await axiosPublic.post(`/feedback`, formData);
       console.log(result);

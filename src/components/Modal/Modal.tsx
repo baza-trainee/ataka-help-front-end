@@ -11,7 +11,7 @@ import {
   ModalHeader,
   ModalWrapper,
 } from "./Modal.styled";
-import closeIcon from "../../assets/icons/close.svg";
+import closeIcon from "public/icons/close.svg";
 import logo from "/public/images/logo.png";
 
 const Modal: FC<IModal> = ({ children, setIsModalOpen }) => {

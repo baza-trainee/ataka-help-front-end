@@ -1,19 +1,25 @@
-import type { NextPage } from "next";
+import type { NextPage, InferGetStaticPropsType, GetStaticProps } from "next";
 
 import UserLayout from "@/components/UserLayout/UserLayout";
 import Slider from "@/components/Slider";
 import CardsGallery from "@/components/CardsGallery/CardsGallery";
-
-// import FileOpenLink from "@/components/FileOpenLink";
 import DonateMainPage from "@/components/Donate/DonateMainPage";
 
-const Home: NextPage = () => {
+import { HomePagePropsType } from "@/types/PagesTypes";
+import { getHomePageData } from "@/services/pagesOperations";
+
+export const getStaticProps = async () => {
+  const result = await getHomePageData();
+  return result;
+};
+
+const Home: NextPage<HomePagePropsType> = ({ contacts, report, cards }) => {
   return (
-    <UserLayout title="Cases">
+    <UserLayout title="Cases" contacts={contacts} report={report}>
       <Slider />
-      <CardsGallery />
+      <CardsGallery cards={cards.cards} total={cards.total} />
+
       <DonateMainPage />
-      {/* <FileOpenLink path="/M8 FAQ_Russian.pdf" text="text" /> */}
     </UserLayout>
   );
 };

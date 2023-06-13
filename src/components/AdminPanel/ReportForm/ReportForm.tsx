@@ -4,30 +4,36 @@ import { yupResolver } from "@hookform/resolvers/yup";
 
 import { IReportForm } from "@/types";
 import { ReportScheme } from "@/schemas";
+import { deleteReport, getReport, sendReport } from "@/services";
+import {
+  FileInput,
+  FileInputWrapper,
+  IconWrapper,
+  Section,
+  StyledIcon,
+  SubmitButton,
+  Text,
+} from "../CommonFormStyles";
 
-//test
-import axios from "axios";
-
-const test = async (data: any) => {
-  const response = await axios.put("https://foradmin.fun/reports", data, {
-    headers: { "Content-Type": "multipart/form-data" },
-  });
-  return response;
-};
-
-const testGet = async () => {
-  const response = await axios.get("https://foradmin.fun/reports");
-  console.log(response);
-};
-
-const getDoc = async () => {
+/* test */
+const getReportDoc = async () => {
   try {
-    const response: any = await testGet();
+    const response: any = await getReport();
+    console.log(response);
   } catch (error) {
     console.log(error);
   }
 };
-//test
+
+const deleteDoc = async () => {
+  try {
+    const response = await deleteReport();
+    console.log(response);
+  } catch (e) {
+    console.log(e);
+  }
+};
+/*=====================*/
 
 const ReportForm: FC = () => {
   const {
@@ -47,7 +53,7 @@ const ReportForm: FC = () => {
     formData.append("thumb", data.thumb[0]);
 
     try {
-      const response = await test(formData);
+      const response = await sendReport(formData);
       console.log(response);
     } catch (e) {
       console.log(e);
@@ -55,21 +61,31 @@ const ReportForm: FC = () => {
   };
 
   return (
-    <>
-      <hr />
+    <Section>
+      {/* <hr />
       <p style={{ color: "red" }}>Отримати файл</p>
-      <button onClick={getDoc}>Get file</button>
+      <button onClick={getReportDoc}>Get file</button>
+      <button
+        style={{ backgroundColor: "red", color: "white", marginLeft: "30px" }}
+        onClick={deleteDoc}
+      >
+        Delete report
+      </button>
+      <hr /> */}
 
-      <hr />
-      <hr />
-      <p style={{ color: "red" }}>Відправити файл:</p>
       <form onSubmit={handleSubmit(onSubmitHandler)}>
-        <input type="file" accept=".pdf" {...register("thumb")} />
+        <FileInputWrapper>
+          <FileInput type="file" accept=".pdf" {...register("thumb")} />
+          <IconWrapper>
+            <StyledIcon />
+            <Text>Завантажити документ</Text>
+          </IconWrapper>
+        </FileInputWrapper>
         {errors.thumb && <p>{errors.thumb.message}</p>}
-        <p style={{ color: "red" }}>Відправлення</p>
-        <button>Submit</button>
+
+        <SubmitButton>Надіслати</SubmitButton>
       </form>
-    </>
+    </Section>
   );
 };
 
