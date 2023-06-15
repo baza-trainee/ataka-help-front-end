@@ -1,4 +1,7 @@
 import { FC } from "react";
+import useSWR from "swr";
+
+import { getCards } from "@/services";
 
 import Card from "../AdminCard/AdminCard";
 import {
@@ -84,12 +87,17 @@ import { Cards } from "@/types";
 //   },
 // ];
 
-const AdminCardsGallery: FC<Cards> = ({ cards, total }) => {
+const AdminCardsGallery: FC = () => {
+  const { data, error } = useSWR<Cards>("admin-cards", getCards);
+  if (error) return <div>Error</div>;
+
+  if (!data) return <div>Loading...</div>;
+
   return (
     <>
       <ListCardStyled>
-        {cards?.map((card, idx) => {
-          if (idx !== cards.length - 1) {
+        {data.cards?.map((card, idx) => {
+          if (idx !== data.cards.length - 1) {
             return (
               <Card
                 key={card.id}
