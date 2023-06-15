@@ -18,12 +18,6 @@ export const LinkAddCard = styled(Link)`
   height: 542px;
 
   border: 0.753755px dashed #c7c7c7;
-  border-spacing: 8px;
-  transition: scale 250ms ease-in-out;
-
-  &:hover {
-    scale: 1.03;
-  }
 `;
 
 export const SvgAddCard = styled(Image)`

@@ -9,14 +9,10 @@ export const ItemCardStyled = styled.li`
   height: 542px;
 
   background-color: ${({ theme }) => theme.colors.blue[400]};
-  transition: scale 250ms ease-in-out;
+
   box-shadow: 0px 33px 13px rgba(0, 0, 0, 0.01),
     0px 19px 11px rgba(0, 0, 0, 0.05), 0px 8px 8px rgba(0, 0, 0, 0.09),
     0px 2px 5px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
-
-  &:hover {
-    scale: 1.03;
-  }
 `;
 
 export const CardContainer = styled.div`
@@ -33,6 +29,7 @@ export const BoxTextStyled = styled.div`
   display: flex;
   margin-bottom: 46px;
   align-items: center;
+  justify-content: center;
   height: 199px;
   flex-grow: 1;
   background-color: ${({ theme }) => theme.colors.white[100]};

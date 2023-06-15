@@ -13,5 +13,5 @@ export const ButtonDeleteStyled = styled.button`
   background-color: transparent;
   color: ${({ theme }) => theme.colors.blue[300]};
   border: 1px solid ${({ theme }) => theme.colors.blue[300]};
-  border-radius: 5px;
+  border-radius: ${({ theme }) => theme.radii.sm};
 `;
