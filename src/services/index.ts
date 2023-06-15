@@ -10,5 +10,5 @@ export { sendReport } from "./sendReport";
 export { sendSlide } from "./sendSlide";
 export { deleteCard } from "./deleteCard";
 export { deletePartner } from "./deletePartner";
-export { deleteReport } from "./deleteReport";
+export { deleteReport } from "./adminReportOperations";
 export { deleteSlide } from "./deleteSlide";
