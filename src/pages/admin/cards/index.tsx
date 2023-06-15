@@ -1,30 +1,17 @@
 import Head from "next/head";
 import type { NextPage } from "next";
+import useSWR from "swr";
+
 import Link from "next/link";
 import { deleteCard, getCards } from "@/services";
 import AdminCardsGallery from "@/components/AdminPanel/AdminCardsGallery/AdminCardsGallery";
-import { Cards } from "@/types";
 
-export const getServerSideProps = async () => {
-  try {
-    const response = await getCards();
+const Cards: NextPage = () => {
+  const { data, error } = useSWR("admin-cards", getCards);
+  if (error) return <div>Error</div>;
+  if (!data) return <div>Loading...</div>;
 
-    return { props: { cards: response.cards, total: response.total } };
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-const Cards: NextPage<Cards> = ({ cards, total }) => {
-  const deleteOneCard = async (id: string) => {
-    try {
-      const response = await deleteCard(id);
-      console.log(response);
-    } catch (e) {
-      console.log(e);
-    }
-  };
-  return <AdminCardsGallery cards={cards} total={total} />;
+  return <AdminCardsGallery cards={data.cards} total={data.total} />;
 };
 
 export default Cards;
