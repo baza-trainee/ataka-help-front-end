@@ -37,7 +37,7 @@ const Cards: NextPage = () => {
         <p style={{ color: "red" }}>Видалити картку</p>
         <button
           style={{ backgroundColor: "red", color: "white", marginLeft: "30px" }}
-          onClick={() => deleteOneCard("06f9ca90-3875-4623-88da-ccbedb9ca11c")}
+          onClick={() => deleteOneCard("868f6297-e44d-4567-8912-1d4873275bfa")}
         >
           Delete card
         </button>

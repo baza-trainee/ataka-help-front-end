@@ -1,4 +1,5 @@
-import { FC } from "react";
+import { FC, useState } from "react";
+import { useRouter } from "next/router";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
@@ -17,7 +18,14 @@ import {
   TextInput,
 } from "../CommonFormStyles";
 
+import ButtonSpiner from "@/components/ButtonSpiner";
+
 const PartnerForm: FC = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [fileName, setFileName] = useState("");
+
+  const router = useRouter();
+
   const {
     register,
     handleSubmit,
@@ -35,11 +43,16 @@ const PartnerForm: FC = () => {
     const formData = new FormData();
     formData.append("thumb", data.thumb[0]);
     formData.append("alt", data.alt);
+
     try {
-      const response = await sendPartner(formData);
-      console.log(response);
+      setIsLoading(true);
+      await sendPartner(formData);
+      router.push("/admin/partners");
     } catch (e) {
       console.log(e);
+      return;
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -51,10 +64,17 @@ const PartnerForm: FC = () => {
             type="file"
             accept="image/*,.png,.jpg,.webp,.svg"
             {...register("thumb")}
+            onInput={(e: any) => setFileName(e.target.files[0].name)}
           />
           <IconWrapper>
-            <StyledIcon />
-            <Text>Додати зображення</Text>
+            {fileName ? (
+              <Text>{fileName}</Text>
+            ) : (
+              <>
+                <StyledIcon />
+                <Text>Додати зображення</Text>
+              </>
+            )}
           </IconWrapper>
         </FileInputWrapper>
         {errors.thumb && <ErrorMessage>{errors.thumb.message}</ErrorMessage>}
@@ -66,7 +86,9 @@ const PartnerForm: FC = () => {
         />
         {errors.alt && <ErrorMessage>{errors.alt.message}</ErrorMessage>}
 
-        <SubmitButton>Надіслати</SubmitButton>
+        <SubmitButton>
+          {isLoading ? <ButtonSpiner /> : "Надіслати"}
+        </SubmitButton>
       </form>
     </Section>
   );
