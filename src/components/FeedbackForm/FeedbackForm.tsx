@@ -39,7 +39,7 @@ const FeedbackForm: FC = () => {
       comment: "",
     },
     mode: "onTouched",
-    // resolver: yupResolver(FeedbackSchema),
+    resolver: yupResolver(FeedbackSchema),
   });
 
   useEffect(() => {
