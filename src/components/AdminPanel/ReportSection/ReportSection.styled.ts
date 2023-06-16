@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import { LuEdit3 } from "react-icons/lu";
 import { ImBin } from "react-icons/im";
 import { IoIosAddCircle } from "react-icons/io";
+import Link from "next/link";
 
 export const Report = styled.div`
   display: flex;
@@ -16,9 +17,12 @@ export const Button = styled.button`
   font-weight: ${({ theme }) => theme.fontWeights.medium};
   border: none;
 `;
-export const Edit = styled(LuEdit3)`
+export const StyledLink = styled(Link)`
   display: block;
   margin-left: auto;
+`;
+export const Edit = styled(LuEdit3)`
+  display: block;
   width: 24px;
   height: 24px;
   cursor: pointer;

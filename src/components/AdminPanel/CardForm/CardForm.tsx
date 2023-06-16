@@ -1,5 +1,4 @@
 import { FC, useState } from "react";
-import { toast } from "react-toastify";
 import { useRouter } from "next/router";
 import { useForm, useFieldArray, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -23,8 +22,10 @@ import {
   Section,
 } from "../CommonFormStyles";
 import { Container } from "./CardForm.styled";
+import ButtonSpiner from "@/components/ButtonSpiner";
 
 const CardForm: FC = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const [fileName, setFileName] = useState("");
 
   const router = useRouter();
@@ -61,12 +62,13 @@ const CardForm: FC = () => {
     );
 
     try {
-      const response = await sendCard(formData);
-      toast.success("Нова картка успішно додана");
+      setIsLoading(true);
+      await sendCard(formData);
       router.push("/admin/cards");
-      console.log(response);
     } catch (e) {
-      console.log(e);
+      return;
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -131,7 +133,9 @@ const CardForm: FC = () => {
           <StyledPlusIcon /> Додати пункт
         </AddFieldButton>
 
-        <SubmitButton>Надіслати</SubmitButton>
+        <SubmitButton>
+          {isLoading ? <ButtonSpiner /> : "Надіслати"}
+        </SubmitButton>
       </form>
     </Section>
   );
