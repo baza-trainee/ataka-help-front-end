@@ -10,6 +10,7 @@ import { getHomePageData } from "@/services/pagesOperations";
 
 export const getStaticProps = async () => {
   const result = await getHomePageData();
+  console.log(result)
   return result;
 };
 

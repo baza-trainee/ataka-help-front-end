@@ -39,7 +39,7 @@ const FeedbackForm: FC = () => {
       comment: "",
     },
     mode: "onTouched",
-    resolver: yupResolver(FeedbackSchema),
+    // resolver: yupResolver(FeedbackSchema),
   });
 
   useEffect(() => {
@@ -76,16 +76,8 @@ const FeedbackForm: FC = () => {
 
   return (
     <Section pbd="100">
-      <Container>
-      <CaptchaWrapper>
-              <ReCAPTCHA
-                sitekey={`${process.env.NEXT_PUBLIC_SITE_KEY} `}
-                size={"normal"}
-                ref={captchaRef}
-                onChange={handleCaptcha}
-              />
-            </CaptchaWrapper>
-        {/* <FormWrapper>
+      <Container>    
+        <FormWrapper>
           <Title>Зворотний зв`язок</Title>
           <Form onSubmit={handleSubmit(sendFeedback)}>
             <Wrapper>
@@ -131,14 +123,15 @@ const FeedbackForm: FC = () => {
                 </MessageWrapper>
               )}
             </InputLabel>
-            <CaptchaWrapper>
+            
+            {/* <CaptchaWrapper>
               <ReCAPTCHA
                 sitekey={`${process.env.NEXT_PUBLIC_SITE_KEY} `}
                 size={"normal"}
                 ref={captchaRef}
                 onChange={handleCaptcha}
               />
-            </CaptchaWrapper>
+            </CaptchaWrapper> */}
             <Button
               type="submit"
               // disabled={!isChecked}
@@ -147,7 +140,7 @@ const FeedbackForm: FC = () => {
               Надіслати
             </Button>
           </Form>
-        </FormWrapper> */}
+        </FormWrapper>
       </Container>
     </Section>
   );
