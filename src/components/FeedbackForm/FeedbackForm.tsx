@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import ReCAPTCHA from "react-google-recaptcha";
 
+
 import { IFeedbackForm } from "@/types";
 import { FeedbackSchema } from "@/schemas";
 import { axiosPublic } from "@/services/axios";
@@ -49,22 +50,27 @@ const FeedbackForm: FC = () => {
     resolver: yupResolver(FeedbackSchema),
   });
 
-  useEffect(() => {
-    if (formState.isSubmitSuccessful) {
-      reset();
-    }
-  }, [formState.isSubmitSuccessful, reset]);
+  // useEffect(() => {
+  //   if (formState.isSubmitSuccessful) {
+  //     reset();
+  //   }
+  // }, [formState.isSubmitSuccessful, reset]);
 
   const sendFeedback = async (data: IFeedbackForm) => {
     const token = captchaRef.current?.getValue();
-    console.log(data);
+    // console.log(data);
+    
+   
+    const newVariable : any = window.navigator;
+    const browser = newVariable.userAgentData.brands
+    console.log(browser)
     const formData = {
       name: data.name.trim(),
       email: data.email.trim(),
       token: token,
       comment: data.comment.trim(),
     };
-    console.log(formData);
+    // console.log(formData);
     try {
       const result = await axiosPublic.post(`/feedback`, formData);
       console.log(result);
