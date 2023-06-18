@@ -24,6 +24,13 @@ import {
 const FeedbackForm: FC = () => {
   const captchaRef = useRef<ReCAPTCHA>(null);
   const [isChecked, setIsChecked] = useState(false);
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    if (window) {
+      setIsClient(true);      
+    }   
+  });
 
   const {
     register,
@@ -75,75 +82,77 @@ const FeedbackForm: FC = () => {
   };
 
   return (
-    <Section pbd="100">
-      <Container>    
-        <FormWrapper>
-          <Title>Зворотний зв`язок</Title>
-          <Form onSubmit={handleSubmit(sendFeedback)}>
-            <Wrapper>
-              <InputLabel>
-                Ім`я*
-                <Input
-                  type="name"
-                  autoComplete="off"
-                  {...register("name")}
-                  className={errors.name && "invalid"}
-                />
-                {errors.name && (
-                  <MessageWrapper>
-                    <ErrorMessage>{errors.name?.message}</ErrorMessage>
-                  </MessageWrapper>
-                )}
-              </InputLabel>
-              <InputLabel>
-                Email*
-                <Input
-                  type="email"
-                  autoComplete="off"
-                  {...register("email")}
-                  className={errors.email && "invalid"}
-                />
-                {errors.email && (
-                  <MessageWrapper>
-                    <ErrorMessage>{errors.email?.message}</ErrorMessage>
-                  </MessageWrapper>
-                )}
-              </InputLabel>
-            </Wrapper>
+    isClient ? (<Section pbd="100">
+    <Container>    
+      <FormWrapper>
+        <Title>Зворотний зв`язок</Title>
+        <Form onSubmit={handleSubmit(sendFeedback)}>
+          <Wrapper>
             <InputLabel>
-              Повідомлення*
-              <Comment
+              Ім`я*
+              <Input
+                type="name"
                 autoComplete="off"
-                {...register("comment")}
-                className={errors.comment && "invalid"}
+                {...register("name")}
+                className={errors.name && "invalid"}
               />
-              {errors.comment && (
+              {errors.name && (
                 <MessageWrapper>
-                  <ErrorMessage>{errors.comment?.message}</ErrorMessage>
+                  <ErrorMessage>{errors.name?.message}</ErrorMessage>
                 </MessageWrapper>
               )}
             </InputLabel>
-            
-            {/* <CaptchaWrapper>
-              <ReCAPTCHA
-                sitekey={`${process.env.NEXT_PUBLIC_SITE_KEY} `}
-                size={"normal"}
-                ref={captchaRef}
-                onChange={handleCaptcha}
+            <InputLabel>
+              Email*
+              <Input
+                type="email"
+                autoComplete="off"
+                {...register("email")}
+                className={errors.email && "invalid"}
               />
-            </CaptchaWrapper> */}
-            <Button
-              type="submit"
-              // disabled={!isChecked}
-              onClick={() => sendFeedback}
-            >
-              Надіслати
-            </Button>
-          </Form>
-        </FormWrapper>
-      </Container>
-    </Section>
+              {errors.email && (
+                <MessageWrapper>
+                  <ErrorMessage>{errors.email?.message}</ErrorMessage>
+                </MessageWrapper>
+              )}
+            </InputLabel>
+          </Wrapper>
+          <InputLabel>
+            Повідомлення*
+            <Comment
+              autoComplete="off"
+              {...register("comment")}
+              className={errors.comment && "invalid"}
+            />
+            {errors.comment && (
+              <MessageWrapper>
+                <ErrorMessage>{errors.comment?.message}</ErrorMessage>
+              </MessageWrapper>
+            )}
+          </InputLabel>
+          
+          <CaptchaWrapper>
+            <ReCAPTCHA
+              sitekey={`${process.env.NEXT_PUBLIC_SITE_KEY} `}
+              size={"normal"}
+              ref={captchaRef}
+              onChange={handleCaptcha}
+            />
+          </CaptchaWrapper>
+          <Button
+            type="submit"
+            // disabled={!isChecked}
+            onClick={() => sendFeedback}
+          >
+            Надіслати
+          </Button>
+        </Form>
+      </FormWrapper>
+    </Container>
+  </Section>) : <p></p>
   );
+
+ 
 };
 
 export default FeedbackForm;
