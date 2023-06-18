@@ -74,12 +74,31 @@ export const axiosPrivateFormData = axios.create({
 //     }
 //   );
 
+
 axiosPrivateFormData.interceptors.response.use(async response => {
   if ((response.data.status = 201 && response.config.url === "/cards")) {
     toast.success("Нова картка успішно додана");
   }
   return response;
 });
+
+axiosPublic.interceptors.response.use(async response => {
+  if ((response.data.status = 200 && response.config.url === "/feedback")) {
+    toast.success("Дякуємо за Ваш відгук!");
+  }  
+  return response;
+},
+async error => {
+  if (!error.response) {
+    toast.error('Сталася помилка... Спробуйте пізніше!');
+  }
+  if (error.response.status === 400 && error.config.url === '/feedback') {
+    toast.error('Сталася помилка... Спробуйте пізніше!');           
+  }
+  
+  return Promise.reject(error);
+}
+);
 
 //   axiosPublic.interceptors.response.use(
 //     async response => {
