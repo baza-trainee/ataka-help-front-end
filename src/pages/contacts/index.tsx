@@ -15,7 +15,7 @@ export const getStaticProps = async () => {
 const Contacts: NextPage<ContactsPagePropsType> = ({ contacts, report }) => {
   return (
     <UserLayout title="Contacts" contacts={contacts} report={report}>
-      <ContactsSection />
+      <ContactsSection contacts={contacts} />
       <FeedbackForm />
     </UserLayout>
   );

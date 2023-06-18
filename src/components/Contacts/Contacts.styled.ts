@@ -24,19 +24,33 @@ export const ImageContainer = styled.div`
 
 export const Subtitle = styled.h3`
   margin-bottom: 20px;
-  margin-top: 18px;
+  margin-top: 28px;
   color: ${({ theme }) => theme.colors.black[100]};
   font-size: ${({ theme }) => theme.fontSizes[3]};
   font-weight: ${({ theme }) => theme.fontWeights.semibold};
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
-    margin-top: 22px;
     font-size: ${({ theme }) => theme.fontSizes[4]};
   }
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
-    margin-top: 44px;
-    margin-bottom: 24px;
     font-size: ${({ theme }) => theme.fontSizes[5]};
+  }
+`;
+
+export const Phone = styled(Subtitle)`
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
+    margin-top: 30px;
+  }
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
+    margin-top: 38px;
+  }
+`;
+export const Email = styled(Subtitle)`
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
+    margin-top: 32px;
+  }
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
+    margin-top: 44px;
   }
 `;
 
