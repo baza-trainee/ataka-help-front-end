@@ -2,6 +2,7 @@ import { FC, useRef, useEffect, useState, createRef } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import ReCAPTCHA from "react-google-recaptcha";
+import dynamic from 'next/dynamic';
 
 
 import { IFeedbackForm } from "@/types";
@@ -22,39 +23,41 @@ import {
   CaptchaWrapper,
 } from "./FeedbackForm.styled";
 
+
+
 const FeedbackForm: FC = () => {
   const captchaRef = useRef<ReCAPTCHA>(null);
   const [isChecked, setIsChecked] = useState(false);
-  const [isClient, setIsClient] = useState(false);
-  const [isSafari, setIsSafari] = useState(false); 
+  // const [isClient, setIsClient] = useState(false);
+  // const [isSafari, setIsSafari] = useState(false); 
 
-  useEffect(() => {
-    if (window) {
-      setIsClient(true); 
-      if (typeof InstallTrigger !== 'undefined') {
+  // useEffect(() => {
+  //   if (window) {
+  //     setIsClient(true); 
+  //     if (typeof InstallTrigger !== 'undefined') {
         
-        console.log('Mozilla Firefox');
-    } else if (!!(window as any).chrome) {
+  //       console.log('Mozilla Firefox');
+  //   } else if (!!(window as any).chrome) {
       
-        console.log('Google Chrome');
-    } else if (typeof (window as any).safari !== 'undefined') {
-      setIsSafari(true);
-        console.log('Apple Safari');
-    } else if (!!(window as any).opr && !!(window as any).opr.addons) {
+  //       console.log('Google Chrome');
+  //   } else if (typeof (window as any).safari !== 'undefined') {
+  //     setIsSafari(true);
+  //       console.log('Apple Safari');
+  //   } else if (!!(window as any).opr && !!(window as any).opr.addons) {
      
-        console.log('Opera');
-    } else if (/Edge\/(\d+)/.test(navigator.userAgent)) {
+  //       console.log('Opera');
+  //   } else if (/Edge\/(\d+)/.test(navigator.userAgent)) {
      
-        console.log('Microsoft Edge');
-    } else if (!!window.MSInputMethodContext && !!(document as any).documentMode) {
+  //       console.log('Microsoft Edge');
+  //   } else if (!!window.MSInputMethodContext && !!(document as any).documentMode) {
       
-        console.log('Internet Explorer');
-    } else {
+  //       console.log('Internet Explorer');
+  //   } else {
      
-        console.log('Unknown browser');
-    }
-    }   
-  });
+  //       console.log('Unknown browser');
+  //   }
+  //   }   
+  // });
 
  
 
@@ -130,82 +133,83 @@ const FeedbackForm: FC = () => {
     }
   };
 
-  return (
-    isSafari ? <p>Hello Safari</p> : <p>Hello</p>
-  );
-
   // return (
-  //   isClient ? (<Section pbd="100">
-  //   <Container>    
-  //     <FormWrapper>
-  //       <Title>Зворотний зв`язок</Title>
-  //       <Form onSubmit={handleSubmit(sendFeedback)}>
-  //         <Wrapper>
-  //           <InputLabel>
-  //             Ім`я*
-  //             <Input
-  //               type="name"
-  //               autoComplete="off"
-  //               {...register("name")}
-  //               className={errors.name && "invalid"}
-  //             />
-  //             {errors.name && (
-  //               <MessageWrapper>
-  //                 <ErrorMessage>{errors.name?.message}</ErrorMessage>
-  //               </MessageWrapper>
-  //             )}
-  //           </InputLabel>
-  //           <InputLabel>
-  //             Email*
-  //             <Input
-  //               type="email"
-  //               autoComplete="off"
-  //               {...register("email")}
-  //               className={errors.email && "invalid"}
-  //             />
-  //             {errors.email && (
-  //               <MessageWrapper>
-  //                 <ErrorMessage>{errors.email?.message}</ErrorMessage>
-  //               </MessageWrapper>
-  //             )}
-  //           </InputLabel>
-  //         </Wrapper>
-  //         <InputLabel>
-  //           Повідомлення*
-  //           <Comment
-  //             autoComplete="off"
-  //             {...register("comment")}
-  //             className={errors.comment && "invalid"}
-  //           />
-  //           {errors.comment && (
-  //             <MessageWrapper>
-  //               <ErrorMessage>{errors.comment?.message}</ErrorMessage>
-  //             </MessageWrapper>
-  //           )}
-  //         </InputLabel>
-          
-  //         <CaptchaWrapper>
-  //           <ReCAPTCHA
-  //             sitekey={`${process.env.NEXT_PUBLIC_SITE_KEY} `}
-  //             size={"normal"}
-  //             ref={captchaRef}
-  //             onChange={handleCaptcha}
-  //           />
-  //         </CaptchaWrapper>
-  //         <Button
-  //           type="submit"
-  //           // disabled={!isChecked}
-  //           onClick={() => sendFeedback}
-  //         >
-  //           Надіслати
-  //         </Button>
-  //       </Form>
-  //     </FormWrapper>
-  //   </Container>
-  // </Section>) : <p></p>
+  //   isSafari ? <p>Hello Safari</p> : <p>Hello</p>
   // );
+
+  return (
+    (<Section pbd="100">
+    <Container>    
+      <FormWrapper>
+        <Title>Зворотний зв`язок</Title>
+        <Form onSubmit={handleSubmit(sendFeedback)}>
+          <Wrapper>
+            <InputLabel>
+              Ім`я*
+              <Input
+                type="name"
+                autoComplete="off"
+                {...register("name")}
+                className={errors.name && "invalid"}
+              />
+              {errors.name && (
+                <MessageWrapper>
+                  <ErrorMessage>{errors.name?.message}</ErrorMessage>
+                </MessageWrapper>
+              )}
+            </InputLabel>
+            <InputLabel>
+              Email*
+              <Input
+                type="email"
+                autoComplete="off"
+                {...register("email")}
+                className={errors.email && "invalid"}
+              />
+              {errors.email && (
+                <MessageWrapper>
+                  <ErrorMessage>{errors.email?.message}</ErrorMessage>
+                </MessageWrapper>
+              )}
+            </InputLabel>
+          </Wrapper>
+          <InputLabel>
+            Повідомлення*
+            <Comment
+              autoComplete="off"
+              {...register("comment")}
+              className={errors.comment && "invalid"}
+            />
+            {errors.comment && (
+              <MessageWrapper>
+                <ErrorMessage>{errors.comment?.message}</ErrorMessage>
+              </MessageWrapper>
+            )}
+          </InputLabel>
+          
+          <CaptchaWrapper>
+            <ReCAPTCHA
+              sitekey={`${process.env.NEXT_PUBLIC_SITE_KEY} `}
+              size={"normal"}
+              ref={captchaRef}
+              onChange={handleCaptcha}
+            />
+          </CaptchaWrapper>
+          <Button
+            type="submit"
+            // disabled={!isChecked}
+            onClick={() => sendFeedback}
+          >
+            Надіслати
+          </Button>
+        </Form>
+      </FormWrapper>
+    </Container>
+  </Section>) 
+  );
 
  
 };
 
 export default FeedbackForm;
+
