@@ -76,7 +76,7 @@ const FeedbackForm: FC = () => {
 
   return (
     <Section pbd="100">
-      <Container>
+      <Container>    
         <FormWrapper>
           <Title>Зворотний зв`язок</Title>
           <Form onSubmit={handleSubmit(sendFeedback)}>
@@ -123,14 +123,15 @@ const FeedbackForm: FC = () => {
                 </MessageWrapper>
               )}
             </InputLabel>
-            <CaptchaWrapper>
+            
+            {/* <CaptchaWrapper>
               <ReCAPTCHA
                 sitekey={`${process.env.NEXT_PUBLIC_SITE_KEY} `}
                 size={"normal"}
                 ref={captchaRef}
                 onChange={handleCaptcha}
               />
-            </CaptchaWrapper>
+            </CaptchaWrapper> */}
             <Button
               type="submit"
               // disabled={!isChecked}

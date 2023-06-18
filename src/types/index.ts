@@ -20,3 +20,5 @@ export type { Contacts } from "./Contacts";
 export type { IFieldData } from "./FieldData";
 export type { FooterPropsType } from "./FooterPropsType";
 export type { HomePagePropsType } from "./PagesTypes/HomePagePropsType";
+export type { IAdminLayout } from "./IAdminLayout";
+export type { IAdminButton } from "./IAdminButton";
