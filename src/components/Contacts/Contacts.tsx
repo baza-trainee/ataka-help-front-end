@@ -31,9 +31,9 @@ const ContactsSection: FC = () => {
           </ImageContainer>
           <DesktopContainer>
             <HiddenTitle mob="none">
-              <Title textAlignM="left">Контакти</Title>
+              <Title textAlignM="left" data-testid="ContactHeading">Контакти</Title>
             </HiddenTitle>
-            <Subtitle>Телефони</Subtitle>
+            <Subtitle data-testid="ContactSubtitle1">Телефони</Subtitle>
             {["+38 093 802 7214", "+38 063 628 6630"].map((item, index) => (
               <FlexContainer key={index}>
                 <Image
@@ -43,10 +43,10 @@ const ContactsSection: FC = () => {
                   height={24}
                   style={{ fill: "white" }}
                 />
-                <Contact>{item}</Contact>
+                <Contact data-testid="Phonenumbers">{item}</Contact>
               </FlexContainer>
             ))}
-            <Subtitle>Електронна пошта</Subtitle>
+            <Subtitle data-testid="ContactSubtitle2">Електронна пошта</Subtitle>
             <FlexContainer>
               <Image
                 src={`/icons/email.svg`}
@@ -55,7 +55,7 @@ const ContactsSection: FC = () => {
                 height={24}
                 style={{ fill: "white" }}
               />
-              <Contact>info@ataka-help.tech</Contact>
+              <Contact data-testid="ContactInfo">info@ataka-help.tech</Contact>
             </FlexContainer>
           </DesktopContainer>
         </TabletContainer>
