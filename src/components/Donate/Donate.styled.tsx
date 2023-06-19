@@ -53,19 +53,26 @@ export const ButtonContainer = styled.div`
   }
 `;
 export const ImageContainer = styled.div`
+
+  position: relative;
+
+
   margin-bottom: 48px;
   width: 100%;
   height: 160px;
-  background-color: ${({ theme }) => theme.colors.blue[500]};
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
-    height: 200px;
+
+    height: 184px;
+
   }
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
     margin-bottom: 60px;
-    height: 320px;
-  }
+
+    height: 356px;
+
+
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[3]}) {
     height: 400px;
   }
