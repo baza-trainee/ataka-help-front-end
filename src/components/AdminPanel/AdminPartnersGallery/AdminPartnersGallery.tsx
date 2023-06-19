@@ -34,17 +34,24 @@ const AdminPartnersGallery: FC = () => {
           );
         }
         return (
-          <li key={"add"}>
-            <LinkAddPartner href={"/admin/cards/form"}>
-              <SvgAddPartner
-                src={"/icons/icon-park_add-one.svg"}
-                alt="add"
-                width={60}
-                height={60}
-              />
-              Додати картку
-            </LinkAddPartner>
-          </li>
+          <>
+            <AdminPartnerCard
+              key={partner.id}
+              image={partner.image}
+              alt={partner.alt}
+            />
+            <li key={"add"}>
+              <LinkAddPartner href={"/admin/cards/form"}>
+                <SvgAddPartner
+                  src={"/icons/icon-park_add-one.svg"}
+                  alt="add"
+                  width={60}
+                  height={60}
+                />
+                Додати картку
+              </LinkAddPartner>
+            </li>
+          </>
         );
       })}
     </AdminListPartnersStyled>
