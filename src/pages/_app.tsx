@@ -10,6 +10,7 @@ import Script from "next/script";
 import { useEffect, useState } from "react";
 import { SessionProvider } from "next-auth/react";
 import React from "react";
+import ErrorBoundary from "@/components/ErrorBoundary/ErrorBoundary";
 
 export default function App({
   Component,
@@ -43,7 +44,9 @@ export default function App({
               </Script>
             </>
           )}
+          <ErrorBoundary>
           <Component {...pageProps} />
+          </ErrorBoundary>
           <ToastContainer />
         </ThemeProvider>
       </SessionProvider>
