@@ -9,7 +9,7 @@ import { HomePagePropsType } from "@/types/PagesTypes";
 import { getHomePageData } from "@/services/pagesOperations";
 
 export const getStaticProps = async () => {
-  const result = await getHomePageData();
+  const result = await getHomePageData();  
   return result;
 };
 
