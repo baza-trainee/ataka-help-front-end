@@ -95,6 +95,9 @@ async error => {
   if (error.response.status === 400 && error.config.url === '/feedback') {
     toast.error('Сталася помилка... Спробуйте пізніше!');           
   }
+  if (error.response.status === 403 && error.config.url === '/feedback') {
+    toast.error('Сталася помилка... Спробуйте ще раз!');           
+  }
   
   return Promise.reject(error);
 }
