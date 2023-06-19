@@ -109,17 +109,26 @@ const AdminCardsGallery: FC = () => {
             );
           }
           return (
-            <li key={"add"}>
-              <LinkAddCard href={"/admin/cards/form"}>
-                <SvgAddCard
-                  src={"/icons/icon-park_add-one.svg"}
-                  alt="add"
-                  width={60}
-                  height={60}
-                />
-                Додати картку
-              </LinkAddCard>
-            </li>
+            <>
+              <Card
+                key={card.id}
+                thumb={`${process.env.NEXT_PUBLIC_API_URL}/${card.thumb}`}
+                title={card.title}
+                alt={card.alt}
+                description={card.description}
+              />
+              <li key={"add"}>
+                <LinkAddCard href={"/admin/cards/form"}>
+                  <SvgAddCard
+                    src={"/icons/icon-park_add-one.svg"}
+                    alt="add"
+                    width={60}
+                    height={60}
+                  />
+                  Додати картку
+                </LinkAddCard>
+              </li>
+            </>
           );
         })}
       </ListCardStyled>
