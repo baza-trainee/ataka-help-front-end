@@ -55,7 +55,7 @@ export const FlexContainer = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
 
-  :nth-child(odd) {
+  :nth-of-type(odd) {
     flex-direction: row-reverse;
   }
 `;
