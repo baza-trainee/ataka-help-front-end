@@ -3,7 +3,6 @@ import Link from "next/link";
 
 import { getReportAdmin } from "@/services/adminReportOperations";
 import { deleteReport } from "@/services";
-import { Section } from "../CommonFormStyles";
 import PDFIcon from "../PDFIcon";
 import {
   AddReport,
@@ -37,7 +36,7 @@ const ReportSection = () => {
   };
 
   return (
-    <Section>
+    <>
       {data && (
         <Report>
           <PDFIcon />
@@ -51,7 +50,7 @@ const ReportSection = () => {
         </Report>
       )}
 
-      {error && (
+      {!data && (
         <AddReport>
           <IconWrapper>
             <Link href={"/admin/report/form"}>
@@ -61,7 +60,7 @@ const ReportSection = () => {
           </IconWrapper>
         </AddReport>
       )}
-    </Section>
+    </>
   );
 };
 

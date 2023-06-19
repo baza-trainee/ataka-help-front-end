@@ -13,6 +13,7 @@ export const List = styled.ul`
   display: flex;
   align-items: center;
 `;
+
 export const Item = styled.li`
   margin-right: 18px;
   font-size: ${({ theme }) => theme.fontSizes[3]};

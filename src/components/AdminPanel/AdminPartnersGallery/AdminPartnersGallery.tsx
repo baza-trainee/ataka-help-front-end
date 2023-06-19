@@ -41,14 +41,14 @@ const AdminPartnersGallery: FC = () => {
               alt={partner.alt}
             />
             <li key={"add"}>
-              <LinkAddPartner href={"/admin/cards/form"}>
+              <LinkAddPartner href={"/admin/partners/form"}>
                 <SvgAddPartner
                   src={"/icons/icon-park_add-one.svg"}
                   alt="add"
                   width={60}
                   height={60}
                 />
-                Додати картку
+                Додати лого
               </LinkAddPartner>
             </li>
           </>

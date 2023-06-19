@@ -24,11 +24,7 @@ const SideBar: FC = () => {
       <NavList>
         <LinkStyled
           href={"/admin/cards"}
-          color={
-            router.pathname === "/admin/cards" || "/admin/cards/form"
-              ? "#618DFE"
-              : "white"
-          }
+          color={router.pathname === "/admin/cards" ? "#618DFE" : "white"}
         >
           Картки
         </LinkStyled>

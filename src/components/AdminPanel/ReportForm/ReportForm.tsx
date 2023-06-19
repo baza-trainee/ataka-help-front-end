@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
@@ -9,13 +9,19 @@ import {
   FileInput,
   FileInputWrapper,
   IconWrapper,
-  Section,
   StyledIcon,
   SubmitButton,
   Text,
 } from "../CommonFormStyles";
+import { useRouter } from "next/router";
+import ButtonSpiner from "@/components/ButtonSpiner";
 
 const ReportForm: FC = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [fileName, setFileName] = useState("");
+
+  const router = useRouter();
+
   const {
     register,
     handleSubmit,
@@ -33,28 +39,40 @@ const ReportForm: FC = () => {
     formData.append("thumb", data.thumb[0]);
 
     try {
-      const response = await sendReport(formData);
-      console.log(response);
+      setIsLoading(true);
+      await sendReport(formData);
+      router.push("/admin/report");
     } catch (e) {
       console.log(e);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
-    <Section>
-      <form onSubmit={handleSubmit(onSubmitHandler)}>
-        <FileInputWrapper>
-          <FileInput type="file" accept=".pdf" {...register("thumb")} />
-          <IconWrapper>
-            <StyledIcon />
-            <Text>Завантажити документ</Text>
-          </IconWrapper>
-        </FileInputWrapper>
-        {errors.thumb && <p>{errors.thumb.message}</p>}
+    <form onSubmit={handleSubmit(onSubmitHandler)}>
+      <FileInputWrapper>
+        <FileInput
+          type="file"
+          accept=".pdf"
+          {...register("thumb")}
+          onInput={(e: any) => setFileName(e.target.files[0].name)}
+        />
+        <IconWrapper>
+          {fileName ? (
+            <Text>{fileName}</Text>
+          ) : (
+            <>
+              <StyledIcon />
+              <Text>Завантажити документ</Text>
+            </>
+          )}
+        </IconWrapper>
+      </FileInputWrapper>
+      {errors.thumb && <p>{errors.thumb.message}</p>}
 
-        <SubmitButton>Надіслати</SubmitButton>
-      </form>
-    </Section>
+      <SubmitButton>{isLoading ? <ButtonSpiner /> : "Надіслати"}</SubmitButton>
+    </form>
   );
 };
 

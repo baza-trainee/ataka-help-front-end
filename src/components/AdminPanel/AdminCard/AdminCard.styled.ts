@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 
 export const ItemCardStyled = styled.li`
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
