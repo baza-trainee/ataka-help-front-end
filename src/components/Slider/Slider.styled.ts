@@ -2,14 +2,17 @@ import styled from "@emotion/styled";
 
 export const CarouselBox = styled.div`
   position: relative;
-
   height: 160px;
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
-    height: 200px;
+    height: 184px;
   }
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
+    height: 356px;
+  }
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[3]}) {
     height: 400px;
   }
 `;
