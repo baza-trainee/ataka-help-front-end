@@ -1,7 +1,11 @@
 import React, { FC } from "react";
 import AdminPartnerCard from "./AdminPartnerCard/AdminPartnerCard";
 import { IPartner } from "@/types";
-import { AdminListPartnersStyled } from "./AdminPartnersGallery.styled";
+import {
+  AdminListPartnersStyled,
+  LinkAddPartner,
+  SvgAddPartner,
+} from "./AdminPartnersGallery.styled";
 
 const partners = [
   { id: 1, image: `/images/partner-logo.png`, alt: "Universe" },
@@ -19,13 +23,30 @@ const partners = [
 const AdminPartnersGallery: FC = () => {
   return (
     <AdminListPartnersStyled>
-      {partners.map((partner, idx) => (
-        <AdminPartnerCard
-          key={partner.id}
-          image={partner.image}
-          alt={partner.alt}
-        />
-      ))}
+      {partners.map((partner, idx) => {
+        if (idx !== partners.length - 1) {
+          return (
+            <AdminPartnerCard
+              key={partner.id}
+              image={partner.image}
+              alt={partner.alt}
+            />
+          );
+        }
+        return (
+          <li key={"add"}>
+            <LinkAddPartner href={"/admin/cards/form"}>
+              <SvgAddPartner
+                src={"/icons/icon-park_add-one.svg"}
+                alt="add"
+                width={60}
+                height={60}
+              />
+              Додати картку
+            </LinkAddPartner>
+          </li>
+        );
+      })}
     </AdminListPartnersStyled>
   );
 };
