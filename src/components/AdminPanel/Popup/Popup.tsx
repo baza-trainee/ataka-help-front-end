@@ -15,17 +15,19 @@ import {
   ButtonRemove,
 } from "./Popup.styled";
 
-const Popup: FC<IPopup> = ({ title, onClick }) => {
+const Popup: FC<IPopup> = ({ title, onClick, onClose }) => {
   return (
     <WrapperPopup>
       <PopupItem>
-        <ClosedIconWrapper>
+        <ClosedIconWrapper onClick={onClose}>
           <ClosedIcon fill src={closeIcon} alt="close icon" />
         </ClosedIconWrapper>
         <PopupConatiner>
           <TitleH3>{`Ви дійсно бажаєте видалити ${title}?`}</TitleH3>
           <PopupGroupBtn>
-            <ButtonCancel type="button">Відмінити</ButtonCancel>
+            <ButtonCancel type="button" onClick={onClose}>
+              Відмінити
+            </ButtonCancel>
             <ButtonRemove type="button" onClick={onClick}>
               Видалити
             </ButtonRemove>
