@@ -5,7 +5,6 @@ import Link from "next/link";
 export const ListCardStyled = styled.ul`
   display: flex;
   gap: 24px;
-  margin-left: 265px;
   flex-wrap: wrap;
 `;
 export const LinkAddCard = styled(Link)`

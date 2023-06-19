@@ -56,7 +56,7 @@ const Slider: FC = () => {
             <CarouselBox key={path}>
               <Gradient />
               <Image
-                src={`/${path}.jpg`}
+                src={`/${path}.png`}
                 alt="carusel-img"
                 fill
                 style={{
