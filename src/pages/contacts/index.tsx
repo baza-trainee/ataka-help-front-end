@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 
 import UserLayout from "@/components/UserLayout/UserLayout";
 import FeedbackForm from "@/components/FeedbackForm";
+import FeedbackClient from "@/components/FeedbackForm/FeedbackClient";
 import ContactsSection from "@/components/Contacts";
 
 import { ContactsPagePropsType } from "@/types/PagesTypes";
@@ -15,8 +16,8 @@ export const getStaticProps = async () => {
 const Contacts: NextPage<ContactsPagePropsType> = ({ contacts, report }) => {
   return (
     <UserLayout title="Contacts" contacts={contacts} report={report}>
-      <ContactsSection />
-      <FeedbackForm />
+      <ContactsSection contacts={contacts} />
+      <FeedbackClient />
     </UserLayout>
   );
 };

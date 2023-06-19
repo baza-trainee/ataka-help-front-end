@@ -2,6 +2,7 @@ import { FC, useRef, useEffect, useState, createRef } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import ReCAPTCHA from "react-google-recaptcha";
+import dynamic from 'next/dynamic';
 
 
 import { IFeedbackForm } from "@/types";
@@ -22,16 +23,43 @@ import {
   CaptchaWrapper,
 } from "./FeedbackForm.styled";
 
+
+
 const FeedbackForm: FC = () => {
   const captchaRef = useRef<ReCAPTCHA>(null);
   const [isChecked, setIsChecked] = useState(false);
-  const [isClient, setIsClient] = useState(false);
+  // const [isClient, setIsClient] = useState(false);
+  // const [isSafari, setIsSafari] = useState(false); 
 
-  useEffect(() => {
-    if (window) {
-      setIsClient(true);      
-    }   
-  });
+  // useEffect(() => {
+  //   if (window) {
+  //     setIsClient(true); 
+  //     if (typeof InstallTrigger !== 'undefined') {
+        
+  //       console.log('Mozilla Firefox');
+  //   } else if (!!(window as any).chrome) {
+      
+  //       console.log('Google Chrome');
+  //   } else if (typeof (window as any).safari !== 'undefined') {
+  //     setIsSafari(true);
+  //       console.log('Apple Safari');
+  //   } else if (!!(window as any).opr && !!(window as any).opr.addons) {
+     
+  //       console.log('Opera');
+  //   } else if (/Edge\/(\d+)/.test(navigator.userAgent)) {
+     
+  //       console.log('Microsoft Edge');
+  //   } else if (!!window.MSInputMethodContext && !!(document as any).documentMode) {
+      
+  //       console.log('Internet Explorer');
+  //   } else {
+     
+  //       console.log('Unknown browser');
+  //   }
+  //   }   
+  // });
+
+ 
 
   const {
     register,
@@ -61,15 +89,33 @@ const FeedbackForm: FC = () => {
     // console.log(data);
     
    
-    const newVariable : any = window.navigator;
-    const browser = newVariable.userAgentData.brands
-    console.log(browser)
+    // const newVariable : any = window.navigator;
+    // const browser = newVariable.userAgent
+  //   let browserName = "";
+  //   if (typeof InstallTrigger !== 'undefined') {
+  //     console.log('Mozilla Firefox');
+  // } else if (!!(window as any).chrome) {
+  //     console.log('Google Chrome');
+  // } else if (typeof (window as any).safari !== 'undefined') {
+  //     console.log('Apple Safari');
+  // } else if (!!(window as any).opr && !!(window as any).opr.addons) {
+  //     console.log('Opera');
+  // } else if (/Edge\/(\d+)/.test(navigator.userAgent)) {
+  //     console.log('Microsoft Edge');
+  // } else if (!!window.MSInputMethodContext && !!(document as any).documentMode) {
+  //     console.log('Internet Explorer');
+  // } else {
+  //     console.log('Unknown browser');
+  // }
+    // console.log(browserName)
+  
     const formData = {
       name: data.name.trim(),
       email: data.email.trim(),
       token: token,
       comment: data.comment.trim(),
     };
+
     // console.log(formData);
     try {
       const result = await axiosPublic.post(`/feedback`, formData);
@@ -87,8 +133,12 @@ const FeedbackForm: FC = () => {
     }
   };
 
+  // return (
+  //   isSafari ? <p>Hello Safari</p> : <p>Hello</p>
+  // );
+
   return (
-    isClient ? (<Section pbd="100">
+    (<Section pbd="100">
     <Container>    
       <FormWrapper>
         <Title>Зворотний зв`язок</Title>
@@ -155,10 +205,11 @@ const FeedbackForm: FC = () => {
         </Form>
       </FormWrapper>
     </Container>
-  </Section>) : <p></p>
+  </Section>) 
   );
 
  
 };
 
 export default FeedbackForm;
+

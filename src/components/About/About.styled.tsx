@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 export const ImageContainer = styled.div`
   position: relative;
   margin: 32px auto 16px;
-  min-width: 300px;
+  width: 100%;
   height: 180px;
   overflow: hidden;
 
@@ -12,23 +12,25 @@ export const ImageContainer = styled.div`
   }
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
-    width: 754px;
-    height: 384px;
+    width: 704px;
+    height: 354px;
     margin: 48px auto 24px;
   }
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
+    width: 560px;
+    height: 484px;
+    margin: 0;
+  }
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[3]}) {
     width: 628px;
     height: 470px;
-    margin: 0;
   }
 `;
 
 export const Text = styled.p`
-  text-align: center;
-  @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
-    font-size: ${({ theme }) => theme.fontSizes[5]};
-  }
+  font-size: ${({ theme }) => theme.fontSizes[3]};
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
     font-size: ${({ theme }) => theme.fontSizes[4]};
   }
@@ -39,13 +41,19 @@ export const TextContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.blue[500]};
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
-    padding: 40px;
+    padding: 28px;
   }
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
+    width: 560px;
+    height: 484px;
+    overflow: hidden;
+    padding: 40px;
+  }
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[3]}) {
     width: 628px;
     height: 470px;
-    overflow: hidden;
   }
 `;
 
