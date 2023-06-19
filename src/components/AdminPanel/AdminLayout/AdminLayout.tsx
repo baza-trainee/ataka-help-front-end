@@ -17,7 +17,7 @@ const AdminLayout: FC<IAdminLayout> = ({ children, title }) => {
       <Header />
       <MainWrapper>
         <SideBar />
-        <div>{children}</div>
+        <main>{children}</main>
       </MainWrapper>
     </>
   );
