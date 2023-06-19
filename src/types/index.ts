@@ -20,3 +20,4 @@ export type { Contacts } from "./Contacts";
 export type { IFieldData } from "./FieldData";
 export type { FooterPropsType } from "./FooterPropsType";
 export type { HomePagePropsType } from "./PagesTypes/HomePagePropsType";
+export type { IPopup } from "./IPopup";
