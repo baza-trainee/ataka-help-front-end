@@ -14,6 +14,17 @@ export const List = styled.ul`
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
     column-gap: 24px;
+    row-gap: 24px;
+  }
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
+    column-gap: 22px;
+    row-gap: 22px;
+  }
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[3]}) {
+    column-gap: 24px;
+    row-gap: 24px;
   }
 `;
 
@@ -29,6 +40,10 @@ export const ListItem = styled.li`
   }
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
+    width: calc((100% - 22px * 4) / 5);
+  }
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[3]}) {
     width: calc((100% - 24px * 4) / 5);
   }
 `;
@@ -40,11 +55,16 @@ export const ImageContainer = styled.div`
   overflow: hidden;
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
-    width: 170px;
-    height: 170px;
+    width: 158px;
+    height: 158px;
   }
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
+    width: 210px;
+    height: 210px;
+  }
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[3]}) {
     width: 237px;
     height: 237px;
   }

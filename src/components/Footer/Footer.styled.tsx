@@ -13,6 +13,10 @@ export const StyledFooter = styled.footer`
   }
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
+    padding-top: 40px;
+  }
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[3]}) {
     padding-top: 52px;
   }
 `;
@@ -44,12 +48,19 @@ export const ContactsWrapper = styled.div`
   margin-bottom: 32px;
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
-    gap: 40px;
+    gap: 44px;
     margin-bottom: 24px;
+    margin-left: auto;
   }
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
+    gap: 61px;
+    margin-bottom: 40px;
+    margin-left: 0;
+  }
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[3]}) {
     gap: 50px;
-    margin-bottom: 43px;
+    margin-bottom: 44px;
   }
 `;
 
@@ -128,8 +139,9 @@ export const LinkList = styled.ul`
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
     gap: 14px;
     align-items: flex-start;
-    margin-right: auto;
+    margin-right: 34px;
   }
+
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
     gap: 18px;
     margin-right: auto;
@@ -153,10 +165,16 @@ export const ImageContainer = styled.div`
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
     width: 191px;
-    margin-right: 68px;
+    margin-right: 29px;
   }
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
+    width: 270px;
+    height: 104px;
+    margin-right: 213px;
+  }
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[3]}) {
     width: 337px;
     height: 114px;
     margin-right: 219px;
