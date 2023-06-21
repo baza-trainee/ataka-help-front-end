@@ -14,11 +14,11 @@ export const TitleH1 = styled.h1`
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
     font-size: ${({ theme }) => theme.fontSizes[10]};
-    margin: 0 0 43px 0;
+    margin: 0 0 48px 0;
     text-align: left;
   }
 
-  @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[3]}) {
     font-size: ${({ theme }) => theme.fontSizes[11]};
     margin: 0 0 92px 0;
   }
@@ -60,6 +60,7 @@ export const StyledTextWrap = styled.div`
   }
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
+    margin: 0;
     padding-right: 24px;
   }
 `;
