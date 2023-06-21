@@ -105,6 +105,7 @@ const AdminCardsGallery: FC = () => {
                 title={card.title}
                 alt={card.alt}
                 description={card.description}
+                id={card.id}
               />
             );
           }
@@ -116,6 +117,7 @@ const AdminCardsGallery: FC = () => {
                 title={card.title}
                 alt={card.alt}
                 description={card.description}
+                id={card.id}
               />
               <li key={"add"}>
                 <LinkAddCard href={"/admin/cards/form"}>

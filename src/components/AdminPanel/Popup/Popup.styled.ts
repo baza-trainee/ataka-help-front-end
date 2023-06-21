@@ -15,7 +15,7 @@ export const PopupItem = styled.div`
   width: 446px;
   padding: 20px;
   background-color: ${({ theme }) => theme.colors.blue[400]};
-  z-index: 3;
+  z-index: 6;
 `;
 
 export const PopupConatiner = styled.div`

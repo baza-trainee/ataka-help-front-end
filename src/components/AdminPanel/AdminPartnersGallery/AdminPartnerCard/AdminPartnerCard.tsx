@@ -4,16 +4,26 @@ import React, { FC } from "react";
 import {
   AdminCardImageBoxStyled,
   ItemPartnerCardStyled,
-  PartnerButtonDeleteContainerStyled,
-  PartnerButtonDeleteStyled,
 } from "./AdminPartnerCard.styled";
+import AdminButtonDelete from "../../AdminButtonDelete/AdminButtonDelete";
+import { deletePartner } from "@/services";
 
 interface PartnerCardProps {
   image: string;
   alt: string;
+  id: string;
 }
 
-const AdminPartnerCard: FC<PartnerCardProps> = ({ image, alt }) => {
+const AdminPartnerCard: FC<PartnerCardProps> = ({ image, alt, id }) => {
+  const onClickHandler = async () => {
+    try {
+      const response = await deletePartner(id);
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <ItemPartnerCardStyled>
       <AdminCardImageBoxStyled>
@@ -23,11 +33,12 @@ const AdminPartnerCard: FC<PartnerCardProps> = ({ image, alt }) => {
           fill
           sizes="(min-width: 1440px) 371px, (min-width: 834px) 325px,(min-width: 393px) 321px, 100%"
         />
-        <PartnerButtonDeleteContainerStyled>
+        <AdminButtonDelete title="партнера" onClick={onClickHandler} />
+        {/* <PartnerButtonDeleteContainerStyled>
           <PartnerButtonDeleteStyled type="button">
             Видалити
           </PartnerButtonDeleteStyled>
-        </PartnerButtonDeleteContainerStyled>
+        </PartnerButtonDeleteContainerStyled> */}
       </AdminCardImageBoxStyled>
     </ItemPartnerCardStyled>
   );

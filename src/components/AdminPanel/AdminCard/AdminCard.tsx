@@ -12,16 +12,27 @@ import {
   TextCardStyled,
   CardContainer,
 } from "./AdminCard.styled";
-import Modal from "@/components/Modal/Modal";
-import CardModal from "@/components/CardModal/CardModal";
-import AdminButtonDelete from "../AdminButtonDelete/AdminButtonDelete";
+import Modal from "@/components/Modal";
+import CardModal from "@/components/CardModal";
+import AdminButtonDelete from "../AdminButtonDelete";
+import { deleteCard } from "@/services";
 
-const AdminCard: FC<ICard> = ({ thumb, title, alt, description }) => {
+const AdminCard: FC<ICard> = ({ thumb, title, alt, description, id }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
     setIsModalOpen(true);
   };
+
+  const onClickHandler = async () => {
+    try {
+      const response = await deleteCard(id);
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <>
       <ItemCardStyled>
@@ -41,7 +52,7 @@ const AdminCard: FC<ICard> = ({ thumb, title, alt, description }) => {
             Як діяти?
           </BtnCardStyled>
         </CardContainer>
-        <AdminButtonDelete />
+        <AdminButtonDelete title="картку" onClick={onClickHandler} />
       </ItemCardStyled>
       {isModalOpen && (
         <Modal setIsModalOpen={setIsModalOpen}>

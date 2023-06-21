@@ -8,16 +8,16 @@ import {
 } from "./AdminPartnersGallery.styled";
 
 const partners = [
-  { id: 1, image: `/images/partner-logo.png`, alt: "Universe" },
-  { id: 2, image: `/images/partner-logo.png`, alt: "Universe" },
-  { id: 3, image: `/images/partner-logo.png`, alt: "Universe" },
-  { id: 4, image: `/images/partner-logo.png`, alt: "Universe" },
-  { id: 5, image: `/images/partner-logo.png`, alt: "Universe" },
-  { id: 6, image: `/images/partner-logo.png`, alt: "Universe" },
-  { id: 7, image: `/images/partner-logo.png`, alt: "Universe" },
-  { id: 8, image: `/images/partner-logo.png`, alt: "Universe" },
-  { id: 9, image: `/images/partner-logo.png`, alt: "Universe" },
-  { id: 10, image: `/images/partner-logo.png`, alt: "Universe" },
+  { id: "1", image: `/images/partner-logo.png`, alt: "Universe" },
+  { id: "2", image: `/images/partner-logo.png`, alt: "Universe" },
+  { id: "3", image: `/images/partner-logo.png`, alt: "Universe" },
+  { id: "4", image: `/images/partner-logo.png`, alt: "Universe" },
+  { id: "5", image: `/images/partner-logo.png`, alt: "Universe" },
+  { id: "6", image: `/images/partner-logo.png`, alt: "Universe" },
+  { id: "7", image: `/images/partner-logo.png`, alt: "Universe" },
+  { id: "8", image: `/images/partner-logo.png`, alt: "Universe" },
+  { id: "9", image: `/images/partner-logo.png`, alt: "Universe" },
+  { id: "10", image: `/images/partner-logo.png`, alt: "Universe" },
 ];
 
 const AdminPartnersGallery: FC = () => {
@@ -30,6 +30,7 @@ const AdminPartnersGallery: FC = () => {
               key={partner.id}
               image={partner.image}
               alt={partner.alt}
+              id={partner.id}
             />
           );
         }
@@ -39,6 +40,7 @@ const AdminPartnersGallery: FC = () => {
               key={partner.id}
               image={partner.image}
               alt={partner.alt}
+              id={partner.id}
             />
             <li key={"add"}>
               <LinkAddPartner href={"/admin/partners/form"}>
