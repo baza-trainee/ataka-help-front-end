@@ -14,12 +14,13 @@ export const TitleH1 = styled.h1`
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
     font-size: ${({ theme }) => theme.fontSizes[10]};
-    margin: 0;
+    margin: 0 0 48px 0;
     text-align: left;
   }
 
-  @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[3]}) {
     font-size: ${({ theme }) => theme.fontSizes[11]};
+    margin: 0 0 92px 0;
   }
 `;
 
@@ -54,7 +55,14 @@ export const StyledTextWrap = styled.div`
   margin: 20px 0 36px 0;
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
+    margin: 0 0 46px 0;
+
+    padding-right: 45px;
+  }
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
     margin: 0;
+    padding-right: 24px;
   }
 `;
 
@@ -71,6 +79,11 @@ export const StyledDivImg = styled.div`
   }
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
+    width: 560px;
+    height: 560px;
+  }
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[3]}) {
     width: 590px;
     height: 590px;
   }

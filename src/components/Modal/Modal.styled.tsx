@@ -31,11 +31,16 @@ export const ModalHeader = styled(Container)`
   }
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
     width: 100%;
-    padding-top: 33px;
-    padding-bottom: 34px;
-    align-items: normal;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    align-items: center;
   }
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
+    width: 100%;
+    padding-top: 44px;
+    padding-bottom: 44px;
+  }
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[3]}) {
     width: 100%;
     padding-top: 48px;
     padding-bottom: 49px;
@@ -85,10 +90,14 @@ export const LogoWrapper = styled.div`
   width: 117px;
   height: 40px;
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
-    width: 97px;
+    width: 89px;
     height: 33px;
   }
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
+    width: 169px;
+    height: 52px;
+  }
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[3]}) {
     width: 241px;
     height: 83px;
   }
@@ -104,7 +113,6 @@ export const CloseIconWrapper = styled.button`
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
     width: 40px;
     height: 40px;
-    top: -17px;
   }
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
     top: 0;

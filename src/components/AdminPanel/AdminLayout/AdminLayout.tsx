@@ -4,6 +4,7 @@ import { IAdminLayout } from "@/types";
 import { MainWrapper } from "./AdminLatout.styled";
 import Header from "./Header";
 import SideBar from "./SideBar";
+import { Section } from "../CommonFormStyles";
 
 const AdminLayout: FC<IAdminLayout> = ({ children, title }) => {
   return (
@@ -17,7 +18,9 @@ const AdminLayout: FC<IAdminLayout> = ({ children, title }) => {
       <Header />
       <MainWrapper>
         <SideBar />
-        <main>{children}</main>
+        <main>
+          <Section>{children}</Section>
+        </main>
       </MainWrapper>
     </>
   );

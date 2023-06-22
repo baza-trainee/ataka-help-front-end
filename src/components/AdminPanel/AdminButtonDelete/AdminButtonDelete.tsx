@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { createPortal } from "react-dom";
+import { useSWRConfig } from "swr";
 import {
   ButtonDeleteContainerStyled,
   ButtonDeleteStyled,
@@ -9,9 +10,11 @@ import Popup from "../Popup/Popup";
 type DeleteProps = {
   title: string;
   onClick: () => Promise<void>;
+  fetcherName: string;
 };
 
-const AdminButtonDelete = ({ title, onClick }: DeleteProps) => {
+const AdminButtonDelete = ({ title, onClick, fetcherName }: DeleteProps) => {
+  const { mutate } = useSWRConfig();
   const [isOpenPopup, setIsOpenPopup] = useState(false);
 
   const handlerPopup = () => {
@@ -19,7 +22,9 @@ const AdminButtonDelete = ({ title, onClick }: DeleteProps) => {
   };
 
   const handleClick = async () => {
-    onClick().then(() => setIsOpenPopup(false));
+    onClick()
+      .then(() => setIsOpenPopup(false))
+      .then(() => mutate(fetcherName));
   };
 
   return (

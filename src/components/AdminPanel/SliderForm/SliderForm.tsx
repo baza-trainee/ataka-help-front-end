@@ -23,6 +23,7 @@ const SliderForm: FC = () => {
   const [fileName, setFileName] = useState("");
 
   const router = useRouter();
+
   const {
     register,
     handleSubmit,
@@ -45,11 +46,9 @@ const SliderForm: FC = () => {
 
     try {
       setIsLoading(true);
-      const response = await sendSlide(formData);
-      console.log(response);
+      await sendSlide(formData);
       router.push("/admin/slider");
     } catch (e) {
-      console.log(e);
       return;
     } finally {
       setIsLoading(false);
@@ -88,7 +87,9 @@ const SliderForm: FC = () => {
       <TextInput type="text" {...register("title")} placeholder="Заголовок" />
       {errors.title && <ErrorMessage>{errors.title.message}</ErrorMessage>}
 
-      <SubmitButton>{isLoading ? <ButtonSpiner /> : "Надіслати"}</SubmitButton>
+      <SubmitButton disabled={Object.values(errors).length > 0}>
+        {isLoading ? <ButtonSpiner /> : "Надіслати"}
+      </SubmitButton>
     </form>
   );
 };

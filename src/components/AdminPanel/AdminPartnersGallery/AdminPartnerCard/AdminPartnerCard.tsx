@@ -1,26 +1,20 @@
-import { IPartner } from "@/types";
 import Image from "next/image";
 import React, { FC } from "react";
+
+import { IPartner } from "@/types";
+import { deletePartner } from "@/services";
 import {
   AdminCardImageBoxStyled,
   ItemPartnerCardStyled,
 } from "./AdminPartnerCard.styled";
-import AdminButtonDelete from "../../AdminButtonDelete/AdminButtonDelete";
-import { deletePartner } from "@/services";
+import AdminButtonDelete from "../../AdminButtonDelete";
 
-interface PartnerCardProps {
-  image: string;
-  alt: string;
-  id: string;
-}
-
-const AdminPartnerCard: FC<PartnerCardProps> = ({ image, alt, id }) => {
+const AdminPartnerCard: FC<IPartner> = ({ thumb, alt, id }) => {
   const onClickHandler = async () => {
     try {
-      const response = await deletePartner(id);
-      console.log(response);
+      await deletePartner(id);
     } catch (error) {
-      console.log(error);
+      return;
     }
   };
 
@@ -28,17 +22,17 @@ const AdminPartnerCard: FC<PartnerCardProps> = ({ image, alt, id }) => {
     <ItemPartnerCardStyled>
       <AdminCardImageBoxStyled>
         <Image
-          src={image}
+          src={thumb}
           alt={alt}
           fill
+          style={{ objectFit: "cover" }}
           sizes="(min-width: 1440px) 371px, (min-width: 834px) 325px,(min-width: 393px) 321px, 100%"
         />
-        <AdminButtonDelete title="партнера" onClick={onClickHandler} />
-        {/* <PartnerButtonDeleteContainerStyled>
-          <PartnerButtonDeleteStyled type="button">
-            Видалити
-          </PartnerButtonDeleteStyled>
-        </PartnerButtonDeleteContainerStyled> */}
+        <AdminButtonDelete
+          title="партнера"
+          onClick={onClickHandler}
+          fetcherName="partners"
+        />
       </AdminCardImageBoxStyled>
     </ItemPartnerCardStyled>
   );

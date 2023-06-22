@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { FC } from "react";
+
 import { IAdminButton } from "@/types";
 
 export const AdminButton: FC<IAdminButton> = ({

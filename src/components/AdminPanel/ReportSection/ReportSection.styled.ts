@@ -8,10 +8,9 @@ export const Report = styled.div`
   display: flex;
   align-items: center;
 `;
-export const Button = styled.button`
+export const LinkPDF = styled.a`
   margin-left: 54px;
   color: ${({ theme }) => theme.colors.black[100]};
-  background-color: transparent;
   font-size: ${({ theme }) => theme.fontSizes[2]};
   line-height: 2;
   font-weight: ${({ theme }) => theme.fontWeights.medium};

@@ -28,6 +28,7 @@ const Card: FC<ICard> = ({ thumb, title, alt, description }) => {
             src={thumb}
             alt={alt}
             fill
+            style={{ objectFit: "cover" }}
             sizes="(min-width: 1440px) 371px, (min-width: 834px) 325px,(min-width: 393px) 321px, 100%"
           />
         </ImageBoxStyled>

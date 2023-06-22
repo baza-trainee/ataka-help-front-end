@@ -46,4 +46,12 @@ export const BackButton = styled.button`
   font-weight: ${({ theme }) => theme.fontWeights.semibold};
   border: 1px solid ${({ theme }) => theme.colors.blue[300]};
   border-radius: ${({ theme }) => theme.radii.sm};
+
+  :hover,
+  :focus {
+    color: ${({ theme }) => theme.colors.blue[200]};
+    background-color: ${({ theme }) => theme.colors.blue[600]};
+    border-color: ${({ theme }) => theme.colors.blue[600]};
+    box-shadow: 0px 4px 10px 0px rgba(173, 176, 185, 0.56);
+  }
 `;

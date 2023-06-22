@@ -6,6 +6,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { IPartnerForm } from "@/types";
 import { FileScheme } from "@/schemas";
 import { sendPartner } from "@/services";
+import ButtonSpiner from "@/components/ButtonSpiner";
 import {
   ErrorMessage,
   FileInput,
@@ -16,8 +17,6 @@ import {
   Text,
   TextInput,
 } from "../CommonFormStyles";
-
-import ButtonSpiner from "@/components/ButtonSpiner";
 
 const PartnerForm: FC = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -48,7 +47,6 @@ const PartnerForm: FC = () => {
       await sendPartner(formData);
       router.push("/admin/partners");
     } catch (e) {
-      console.log(e);
       return;
     } finally {
       setIsLoading(false);
@@ -84,7 +82,9 @@ const PartnerForm: FC = () => {
       />
       {errors.alt && <ErrorMessage>{errors.alt.message}</ErrorMessage>}
 
-      <SubmitButton>{isLoading ? <ButtonSpiner /> : "Надіслати"}</SubmitButton>
+      <SubmitButton disabled={Object.values(errors).length > 0}>
+        {isLoading ? <ButtonSpiner /> : "Надіслати"}
+      </SubmitButton>
     </form>
   );
 };

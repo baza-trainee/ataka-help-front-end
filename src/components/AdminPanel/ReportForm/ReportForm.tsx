@@ -1,11 +1,14 @@
 import { FC, useState } from "react";
+import { useRouter } from "next/router";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import { IReportForm } from "@/types";
 import { ReportScheme } from "@/schemas";
 import { sendReport } from "@/services";
+import ButtonSpiner from "@/components/ButtonSpiner";
 import {
+  ErrorMessage,
   FileInput,
   FileInputWrapper,
   IconWrapper,
@@ -13,8 +16,6 @@ import {
   SubmitButton,
   Text,
 } from "../CommonFormStyles";
-import { useRouter } from "next/router";
-import ButtonSpiner from "@/components/ButtonSpiner";
 
 const ReportForm: FC = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -42,8 +43,8 @@ const ReportForm: FC = () => {
       setIsLoading(true);
       await sendReport(formData);
       router.push("/admin/report");
-    } catch (e) {
-      console.log(e);
+    } catch (error) {
+      return;
     } finally {
       setIsLoading(false);
     }
@@ -69,9 +70,11 @@ const ReportForm: FC = () => {
           )}
         </IconWrapper>
       </FileInputWrapper>
-      {errors.thumb && <p>{errors.thumb.message}</p>}
+      {errors.thumb && <ErrorMessage>{errors.thumb.message}</ErrorMessage>}
 
-      <SubmitButton>{isLoading ? <ButtonSpiner /> : "Надіслати"}</SubmitButton>
+      <SubmitButton disabled={Object.values(errors).length > 0}>
+        {isLoading ? <ButtonSpiner /> : "Надіслати"}
+      </SubmitButton>
     </form>
   );
 };

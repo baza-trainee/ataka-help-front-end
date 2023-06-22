@@ -26,8 +26,10 @@ const linkStyles = ({ theme, isFooter }: IStyledLinkProps) => css`
 
 const buttonStyles = ({ theme }: IStyledLinkProps) => css`
   display: block;
-  max-width: 410px;
+  width: 361px;
   padding: 16px;
+  height: 62px;
+  font-weight: ${theme.fontWeights.semibold};
   border: 2px solid ${theme.colors.blue[300]};
   border-radius: ${theme.radii.sm};
   color: ${theme.colors.blue[300]};
@@ -43,6 +45,10 @@ const buttonStyles = ({ theme }: IStyledLinkProps) => css`
     color: ${theme.colors.blue[200]};
     border-color: transparent;
     box-shadow: 0px 4px 10px rgba(173, 176, 185, 0.56);
+  }
+
+  @media screen and (min-width: ${theme.breakpoints[1]}) {
+    width: 410px;
   }
 `;
 

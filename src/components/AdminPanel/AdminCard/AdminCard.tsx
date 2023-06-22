@@ -1,9 +1,10 @@
 import { FC, useState } from "react";
-
-import { ICard } from "@/types";
-
 import Image from "next/image";
 
+import { ICard } from "@/types";
+import { deleteCard } from "@/services";
+import Modal from "@/components/Modal";
+import CardModal from "@/components/CardModal";
 import {
   ItemCardStyled,
   ImageBoxStyled,
@@ -12,10 +13,7 @@ import {
   TextCardStyled,
   CardContainer,
 } from "./AdminCard.styled";
-import Modal from "@/components/Modal";
-import CardModal from "@/components/CardModal";
 import AdminButtonDelete from "../AdminButtonDelete";
-import { deleteCard } from "@/services";
 
 const AdminCard: FC<ICard> = ({ thumb, title, alt, description, id }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -26,10 +24,9 @@ const AdminCard: FC<ICard> = ({ thumb, title, alt, description, id }) => {
 
   const onClickHandler = async () => {
     try {
-      const response = await deleteCard(id);
-      console.log(response);
+      await deleteCard(id);
     } catch (error) {
-      console.log(error);
+      return;
     }
   };
 
@@ -42,6 +39,7 @@ const AdminCard: FC<ICard> = ({ thumb, title, alt, description, id }) => {
               src={thumb}
               alt={alt}
               fill
+              style={{ objectFit: "cover" }}
               sizes="(min-width: 1440px) 371px, (min-width: 834px) 325px,(min-width: 393px) 321px, 100%"
             />
           </ImageBoxStyled>
@@ -52,7 +50,11 @@ const AdminCard: FC<ICard> = ({ thumb, title, alt, description, id }) => {
             Як діяти?
           </BtnCardStyled>
         </CardContainer>
-        <AdminButtonDelete title="картку" onClick={onClickHandler} />
+        <AdminButtonDelete
+          title="картку"
+          onClick={onClickHandler}
+          fetcherName="admin-cards"
+        />
       </ItemCardStyled>
       {isModalOpen && (
         <Modal setIsModalOpen={setIsModalOpen}>

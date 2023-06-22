@@ -129,7 +129,9 @@ const CardForm: FC = () => {
         <StyledPlusIcon /> Додати пункт
       </AddFieldButton>
 
-      <SubmitButton>{isLoading ? <ButtonSpiner /> : "Надіслати"}</SubmitButton>
+      <SubmitButton disabled={Object.values(errors).length > 0}>
+        {isLoading ? <ButtonSpiner /> : "Надіслати"}
+      </SubmitButton>
     </form>
   );
 };

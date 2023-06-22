@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 import Image from "next/image";
 import Link from "next/link";
+import { RxExit } from "react-icons/rx";
 
 import { IStyles } from "@/types";
 import { Color } from "@/types/styles";
@@ -48,10 +49,9 @@ export const Aside = styled.aside`
 `;
 
 export const LinkStyled = styled(Link)<Color>`
-  display: block;
-  :not(:first-child) {
-    margin-top: 16px;
-  }
+  display: flex;
+  align-items: center;
+  margin-top: 16px;
 
   color: ${({ color }) => color};
   :hover,
@@ -103,11 +103,20 @@ export const CantegoryButton = styled(AdminButton)`
   cursor: default;
 `;
 
-export const PasswordChangeButton = styled(AdminButton)`
-  ${AdminButtonBasic}
-  margin-top: 16px;
+export const ExitButton = styled.button`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  font-size: ${({ theme }) => theme.fontSizes[2]};
+  border: none;
+  background-color: transparent;
+  color: ${({ theme }) => theme.colors.white[100]};
+  position: absolute;
+  bottom: 100px;
+  left: 0;
+  line-height: 1.7;
+  font-size: ${({ theme }) => theme.fontSizes[3]};
 
   :hover,
   :focus {
@@ -115,15 +124,10 @@ export const PasswordChangeButton = styled(AdminButton)`
   }
 `;
 
-export const ExitButton = styled(AdminButton)`
-  ${AdminButtonBasic}
-  position: absolute;
-  bottom: 100px;
-  left: 0;
-  font-weight: ${({ theme }) => theme.fontWeights.regular};
-
-  :hover,
-  :focus {
-    color: ${({ theme }) => theme.colors.blue[300]};
-  }
+export const Icon = styled(RxExit)`
+  display: block;
+  width: 24px;
+  height: 24px;
+  margin-right: 18px;
+  color: currentColor;
 `;

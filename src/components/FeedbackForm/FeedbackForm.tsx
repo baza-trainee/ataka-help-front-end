@@ -2,8 +2,7 @@ import { FC, useRef, useEffect, useState, createRef } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import ReCAPTCHA from "react-google-recaptcha";
-import dynamic from 'next/dynamic';
-
+import { toast } from "react-toastify";
 
 import { IFeedbackForm } from "@/types";
 import { FeedbackSchema } from "@/schemas";
@@ -23,43 +22,9 @@ import {
   CaptchaWrapper,
 } from "./FeedbackForm.styled";
 
-
-
 const FeedbackForm: FC = () => {
   const captchaRef = useRef<ReCAPTCHA>(null);
-  const [isChecked, setIsChecked] = useState(false);
-  // const [isClient, setIsClient] = useState(false);
-  // const [isSafari, setIsSafari] = useState(false); 
-
-  // useEffect(() => {
-  //   if (window) {
-  //     setIsClient(true); 
-  //     if (typeof InstallTrigger !== 'undefined') {
-        
-  //       console.log('Mozilla Firefox');
-  //   } else if (!!(window as any).chrome) {
-      
-  //       console.log('Google Chrome');
-  //   } else if (typeof (window as any).safari !== 'undefined') {
-  //     setIsSafari(true);
-  //       console.log('Apple Safari');
-  //   } else if (!!(window as any).opr && !!(window as any).opr.addons) {
-     
-  //       console.log('Opera');
-  //   } else if (/Edge\/(\d+)/.test(navigator.userAgent)) {
-     
-  //       console.log('Microsoft Edge');
-  //   } else if (!!window.MSInputMethodContext && !!(document as any).documentMode) {
-      
-  //       console.log('Internet Explorer');
-  //   } else {
-     
-  //       console.log('Unknown browser');
-  //   }
-  //   }   
-  // });
-
- 
+  const [isChecked, setIsChecked] = useState(false)
 
   const {
     register,
@@ -78,66 +43,47 @@ const FeedbackForm: FC = () => {
     resolver: yupResolver(FeedbackSchema),
   });
 
-  // useEffect(() => {
-  //   if (formState.isSubmitSuccessful) {
-  //     reset();
-  //   }
-  // }, [formState.isSubmitSuccessful, reset]);
+  useEffect(() => {
+    if (formState.isSubmitSuccessful) {
+      reset();
+    }
+  }, [formState.isSubmitSuccessful, reset]);
 
-  const sendFeedback = async (data: IFeedbackForm) => {
+  const sendFeedback = async (data: IFeedbackForm) => {   
     const token = captchaRef.current?.getValue();
-    // console.log(data);
-    
-   
-    // const newVariable : any = window.navigator;
-    // const browser = newVariable.userAgent
-  //   let browserName = "";
-  //   if (typeof InstallTrigger !== 'undefined') {
-  //     console.log('Mozilla Firefox');
-  // } else if (!!(window as any).chrome) {
-  //     console.log('Google Chrome');
-  // } else if (typeof (window as any).safari !== 'undefined') {
-  //     console.log('Apple Safari');
-  // } else if (!!(window as any).opr && !!(window as any).opr.addons) {
-  //     console.log('Opera');
-  // } else if (/Edge\/(\d+)/.test(navigator.userAgent)) {
-  //     console.log('Microsoft Edge');
-  // } else if (!!window.MSInputMethodContext && !!(document as any).documentMode) {
-  //     console.log('Internet Explorer');
-  // } else {
-  //     console.log('Unknown browser');
-  // }
-    // console.log(browserName)
-  
+
     const formData = {
       name: data.name.trim(),
       email: data.email.trim(),
       token: token,
       comment: data.comment.trim(),
     };
-
-    // console.log(formData);
-    try {
-      const result = await axiosPublic.post(`/feedback`, formData);
-      console.log(result);
-    } catch (error) {
-      console.log(error);
+    if (!token)  {
+      toast.success("Підтвердіть, що Ви не робот.");
+      setIsChecked(false);
     }
-    captchaRef.current?.reset();
-    setIsChecked(false);
+
+    if (token) {
+      try {
+        const result = await axiosPublic.post(`/feedback`, formData);  
+        console.log(result)    
+      } catch (error) {
+        console.log(error);
+      }
+      captchaRef.current?.reset();
+      setIsChecked(false);
+    }    
   };
 
   const handleCaptcha = () => {
     if (captchaRef.current?.getValue()) {
       setIsChecked(true);
+    } else {
+      setIsChecked(false)
     }
   };
 
-  // return (
-  //   isSafari ? <p>Hello Safari</p> : <p>Hello</p>
-  // );
-
-  return (
+   return (
     (<Section pbd="100">
     <Container>    
       <FormWrapper>
@@ -197,7 +143,7 @@ const FeedbackForm: FC = () => {
           </CaptchaWrapper>
           <Button
             type="submit"
-            // disabled={!isChecked}
+            disabled={!isChecked}
             onClick={() => sendFeedback}
           >
             Надіслати
@@ -206,10 +152,7 @@ const FeedbackForm: FC = () => {
       </FormWrapper>
     </Container>
   </Section>) 
-  );
-
- 
+  ); 
 };
 
 export default FeedbackForm;
-
