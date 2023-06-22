@@ -25,8 +25,7 @@ const UsefulInformation: FC<UsefulInformationProps> = props => {
               src={"/images/two-factor-auth1.png"}
               alt="UsefulInformation1"
               fill
-              style={{ objectFit: "cover" }}
-              sizes="(min-width: 320px) 360px, (min-width: 834px) 754px, (min-width: 1440px) 628px"
+              style={{ objectFit: "cover" }}    
             />
           </ImageContainer>
           <TextContainer>{text1}</TextContainer>
@@ -38,7 +37,6 @@ const UsefulInformation: FC<UsefulInformationProps> = props => {
               alt="UsefulInformation2"
               fill
               style={{ objectFit: "cover" }}
-              sizes="(min-width: 320px) 360px, (min-width: 834px) 754px, (min-width: 1440px) 628px"
             />
           </ImageContainer>
           <TextContainer>
