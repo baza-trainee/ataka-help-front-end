@@ -56,12 +56,13 @@ export const StyledTextWrap = styled.div`
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
     margin: 0 0 46px 0;
-    padding-right: 45px;
+    width: 365px;
   }
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
     margin: 0;
     padding-right: 24px;
+    width: 100%;
   }
 `;
 
@@ -75,11 +76,13 @@ export const StyledDivImg = styled.div`
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
     width: 329px;
     height: 329px;
+    right: 36px;
   }
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
     width: 560px;
     height: 560px;
+    right: 0;
   }
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[3]}) {
