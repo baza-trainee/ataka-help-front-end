@@ -10,7 +10,7 @@ import Script from "next/script";
 import { useEffect, useState } from "react";
 import { SessionProvider } from "next-auth/react";
 import React from "react";
-import ErrorBoundary from "@/components/ErrorBoundary/ErrorBoundary";
+import ErrorBoundary from "@/components/ErrorBoundary";
 
 export default function App({
   Component,
