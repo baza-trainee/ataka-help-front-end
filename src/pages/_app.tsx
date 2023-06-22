@@ -45,7 +45,7 @@ export default function App({
             </>
           )}
           <ErrorBoundary>
-          <Component {...pageProps} />
+            <Component {...pageProps} />
           </ErrorBoundary>
           <ToastContainer />
         </ThemeProvider>
