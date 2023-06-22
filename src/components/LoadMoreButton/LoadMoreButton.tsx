@@ -1,11 +1,12 @@
-import { FC } from "react";
 import Image from "next/image";
 
 import { ImageContainer, StyledButton } from "./LoadMoreButton.styled";
-
-const LoadMoreButton: FC = () => {
+type ButtonProp = {
+  onClick?: () => void;
+};
+const LoadMoreButton = ({ onClick }: ButtonProp) => {
   return (
-    <StyledButton type="button">
+    <StyledButton type="button" onClick={onClick}>
       Дивитися більше
       <ImageContainer>
         <Image

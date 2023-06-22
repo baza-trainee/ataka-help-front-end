@@ -22,8 +22,10 @@ const Header: FC = () => {
       <Section
         style={{ position: "relative" }}
         as="div"
-        ptd="48px"
-        pbd="49px"
+        ptdd="49px"
+        pbdd="48px"
+        ptd="44px"
+        pbd="44px"
         ptt="33px"
         pbt="34px"
         ptm="20px"
