@@ -16,37 +16,39 @@ export const TextContainer = styled.div`
   }
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
+    width: 560px;
+    height: 560px;    
+  }
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[3]}) {
     width: 628px;
-    height: 470px;
-    overflow: hidden;
+    height: 470px;   
   }
 `;
 
 export const ImageContainer = styled.div`
   position: relative;
 
-  @media screen and (max-width: ${({ theme }) => theme.breakpoints[0]}) {
-    height: 184px;
-    width: 361px;
-    margin: 0 auto 24px;
-  }
-
-  @media screen and (min-width: ${({ theme }) => theme.breakpoints[0]}) {
-    width: 361px;
-    height: 184px;
-    margin: 0 auto 24px;
+  @media screen and (max-width: ${({ theme }) => theme.breakpoints[1]}) {
+    width: 361px;    
+    height: 184px;  
+    margin-bottom: 24px;   
   }
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
-    width: 754px;
-    height: 384px;
-    margin: 0 auto 24px;
+    width: 704px;
+    height: 359px;
+    margin-bottom: 24px;
   }
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
+    width: 560px;
+    height: 560px;    
+  }
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[3]}) {
     width: 628px;
-    height: 470px;
-    margin: 0;
+    height: 470px;   
   }
 `;
 
