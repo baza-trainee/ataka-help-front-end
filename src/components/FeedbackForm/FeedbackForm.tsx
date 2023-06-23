@@ -81,7 +81,7 @@ const FeedbackForm: FC = () => {
           <Title>Зворотний зв`язок</Title>
           <Form onSubmit={handleSubmit(sendFeedback)}>
             <Wrapper>
-              <InputLabel>
+              <InputLabel data-testid="NameLabel">
                 Ім`я*
                 <Input
                   type="name"
@@ -95,7 +95,7 @@ const FeedbackForm: FC = () => {
                   </MessageWrapper>
                 )}
               </InputLabel>
-              <InputLabel>
+              <InputLabel data-testid="EmailLabel">
                 Email*
                 <Input
                   type="email"
@@ -110,9 +110,10 @@ const FeedbackForm: FC = () => {
                 )}
               </InputLabel>
             </Wrapper>
-            <InputLabel>
+            <InputLabel data-testid="MessageLabel">
               Повідомлення*
               <Comment
+                data-testid="MessageInput"
                 autoComplete="off"
                 {...register("comment")}
                 className={errors.comment && "invalid"}
@@ -126,6 +127,7 @@ const FeedbackForm: FC = () => {
             
             {/* <CaptchaWrapper>
               <ReCAPTCHA
+                data-testid="Captcha"
                 sitekey={`${process.env.NEXT_PUBLIC_SITE_KEY} `}
                 size={"normal"}
                 ref={captchaRef}
