@@ -8,10 +8,9 @@ export const Report = styled.div`
   display: flex;
   align-items: center;
 `;
-export const Button = styled.button`
+export const LinkPDF = styled.a`
   margin-left: 54px;
   color: ${({ theme }) => theme.colors.black[100]};
-  background-color: transparent;
   font-size: ${({ theme }) => theme.fontSizes[2]};
   line-height: 2;
   font-weight: ${({ theme }) => theme.fontWeights.medium};
@@ -46,13 +45,13 @@ export const DeleteButton = styled.button`
 export const AddReport = styled.div`
   position: relative;
   width: 100%;
-  height: 141px;
+  height: 200px;
   border: 1px dashed ${({ theme }) => theme.colors.grey[700]};
   cursor: pointer;
 `;
 export const StyledIcon = styled(IoIosAddCircle)`
-  width: 24px;
-  height: 24px;
+  width: 60px;
+  height: 60px;
   color: ${({ theme }) => theme.colors.blue[1200]};
 `;
 export const IconWrapper = styled.div`

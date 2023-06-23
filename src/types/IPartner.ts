@@ -1,5 +1,5 @@
 export interface IPartner {
-  id: number;
-  image: string;
+  id: string;
+  thumb: string;
   alt: string;
 }

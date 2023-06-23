@@ -27,6 +27,7 @@ export const theme = {
 
   radii: {
     sm: "5px", //card-button, buttons, feedback-form inputs
+    md: "12px",
   },
 
   colors: {

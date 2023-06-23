@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 
 export const ItemCardStyled = styled.li`
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,6 +29,7 @@ export const ImageBoxStyled = styled.div`
 export const BoxTextStyled = styled.div`
   display: flex;
   margin-bottom: 46px;
+  padding: 6px;
   align-items: center;
   justify-content: center;
   height: 199px;
@@ -36,13 +38,15 @@ export const BoxTextStyled = styled.div`
 `;
 
 export const TextCardStyled = styled.p`
-  text-align: center;
+  font-size: ${({ theme }) => theme.fontSizes[0]};
+  font-weight: ${({ theme }) => theme.fontWeights.medium};
 `;
 
 export const BtnCardStyled = styled.button`
   display: block;
   padding: 8px 28px;
   font-size: ${({ theme }) => theme.fontSizes[1]};
+  font-weight: ${({ theme }) => theme.fontWeights.semibold};
   margin: 0 auto 41px auto;
   border: 1px solid ${({ theme }) => theme.colors.blue[300]};
   border-radius: ${({ theme }) => theme.radii.sm};
@@ -51,7 +55,7 @@ export const BtnCardStyled = styled.button`
   transition: background-color 250ms ease-out, color 250ms ease-out,
     border-color 250ms ease-out, box-shadow 250ms ease-out;
   &:hover,
-  &focus {
+  &:focus {
     border-color: transparent;
     color: ${({ theme }) => theme.colors.blue[200]};
     background-color: ${({ theme }) => theme.colors.blue[600]};

@@ -1,7 +1,11 @@
 import { HeaderWrapper } from "./AdminLatout.styled";
 
 const Header = () => {
-  return <HeaderWrapper>Вітаємо!</HeaderWrapper>;
+  return (
+    <HeaderWrapper>
+      <p>Вітаємо!</p>
+    </HeaderWrapper>
+  );
 };
 
 export default Header;

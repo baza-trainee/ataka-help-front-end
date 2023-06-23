@@ -21,15 +21,17 @@ const CardsGallery: FC<Cards> = ({ cards, total }) => {
       <Container>
         <TitleListStyled textAlignM="center">Інциденти</TitleListStyled>
         <ListCardStyled>
-          {shownCards?.map((card: ICard) => (
-            <Card
-              key={card.id}
-              thumb={`${process.env.NEXT_PUBLIC_API_URL}/${card.thumb}`}
-              title={card.title}
-              alt={card.alt}
-              description={card.description}
-            />
-          ))}
+          {shownCards.length > 0 &&
+            shownCards?.map(({ id, thumb, title, alt, description }: ICard) => (
+              <Card
+                key={id}
+                thumb={`${process.env.NEXT_PUBLIC_API_URL}/${thumb}`}
+                title={title}
+                alt={alt}
+                description={description}
+                id={id}
+              />
+            ))}
         </ListCardStyled>
         {total > 3 && total > shownCards.length && (
           <LoadMoreButton onClick={onClickHandler} />

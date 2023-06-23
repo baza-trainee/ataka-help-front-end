@@ -56,7 +56,7 @@ export const StyledTextWrap = styled.div`
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
     margin: 0 0 46px 0;
-    width: 365px;
+    padding-right: 45px;
   }
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {

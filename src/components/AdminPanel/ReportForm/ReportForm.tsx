@@ -1,21 +1,28 @@
-import { FC } from "react";
+import { FC, useState } from "react";
+import { useRouter } from "next/router";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import { IReportForm } from "@/types";
 import { ReportScheme } from "@/schemas";
 import { sendReport } from "@/services";
+import ButtonSpiner from "@/components/ButtonSpiner";
 import {
+  ErrorMessage,
   FileInput,
   FileInputWrapper,
   IconWrapper,
-  Section,
   StyledIcon,
   SubmitButton,
   Text,
 } from "../CommonFormStyles";
 
 const ReportForm: FC = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [fileName, setFileName] = useState("");
+
+  const router = useRouter();
+
   const {
     register,
     handleSubmit,
@@ -33,28 +40,42 @@ const ReportForm: FC = () => {
     formData.append("thumb", data.thumb[0]);
 
     try {
-      const response = await sendReport(formData);
-      console.log(response);
-    } catch (e) {
-      console.log(e);
+      setIsLoading(true);
+      await sendReport(formData);
+      router.push("/admin/report");
+    } catch (error) {
+      return;
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
-    <Section>
-      <form onSubmit={handleSubmit(onSubmitHandler)}>
-        <FileInputWrapper>
-          <FileInput type="file" accept=".pdf" {...register("thumb")} />
-          <IconWrapper>
-            <StyledIcon />
-            <Text>Завантажити документ</Text>
-          </IconWrapper>
-        </FileInputWrapper>
-        {errors.thumb && <p>{errors.thumb.message}</p>}
+    <form onSubmit={handleSubmit(onSubmitHandler)}>
+      <FileInputWrapper>
+        <FileInput
+          type="file"
+          accept=".pdf"
+          {...register("thumb")}
+          onInput={(e: any) => setFileName(e.target.files[0].name)}
+        />
+        <IconWrapper>
+          {fileName ? (
+            <Text>{fileName}</Text>
+          ) : (
+            <>
+              <StyledIcon />
+              <Text>Завантажити документ</Text>
+            </>
+          )}
+        </IconWrapper>
+      </FileInputWrapper>
+      {errors.thumb && <ErrorMessage>{errors.thumb.message}</ErrorMessage>}
 
-        <SubmitButton>Надіслати</SubmitButton>
-      </form>
-    </Section>
+      <SubmitButton disabled={Object.values(errors).length > 0}>
+        {isLoading ? <ButtonSpiner /> : "Надіслати"}
+      </SubmitButton>
+    </form>
   );
 };
 
