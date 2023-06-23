@@ -1,5 +1,6 @@
 import React, { FC, useEffect, useState } from "react";
 import {
+  BackdropCookieBanner,
   Box,
   BoxTextStyled,
   BtnStyled,
@@ -26,24 +27,27 @@ const CookieConsentBanner: FC = () => {
   return (
     <>
       {showCookieBanner && (
-        <Box>
-          <BoxTextStyled>
-            <TitleStyled>Файли Cookies</TitleStyled>
-            <TextStyled>
-              Цей сайт використовує файли cookies для роботи і покращення
-              сервісу. Дізнайтесь більше в{" "}
-              <FileOpenLink
-                isTextUnderline
-                isCookiesButtonStyles
-                text={"Політика конфіденційності"}
-                path={"/files/politics.pdf"}
-              />
-            </TextStyled>
-          </BoxTextStyled>
-          <BtnStyled onClick={acceptGoogle} type="button">
-            ОК
-          </BtnStyled>
-        </Box>
+        <BackdropCookieBanner>
+          <Box>
+            <BoxTextStyled>
+              <TitleStyled>Файли Cookies</TitleStyled>
+              <TextStyled>
+                Цей сайт використовує файли cookies для правильної роботи і
+                покращення сервісу. Якщо ви погоджуєтесь з їхнім використанням,
+                натисніть ОК. Більше інформації в{" "}
+                <FileOpenLink
+                  isTextUnderline
+                  isCookiesButtonStyles
+                  text={"Політика конфіденційності"}
+                  path={"/files/politics.pdf"}
+                />
+              </TextStyled>
+            </BoxTextStyled>
+            <BtnStyled onClick={acceptGoogle} type="button">
+              ОК
+            </BtnStyled>
+          </Box>
+        </BackdropCookieBanner>
       )}
     </>
   );
