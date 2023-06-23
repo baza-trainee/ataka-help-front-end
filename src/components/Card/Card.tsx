@@ -14,7 +14,7 @@ import {
 import Modal from "../Modal/Modal";
 import CardModal from "../CardModal/CardModal";
 
-const Card: FC<ICard> = ({ thumb, title, alt, description }) => {
+const Card: FC<ICard> = ({ thumb, title, alt, description, id }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
@@ -23,7 +23,7 @@ const Card: FC<ICard> = ({ thumb, title, alt, description }) => {
   return (
     <>
       <ItemCardStyled>
-        <ImageBoxStyled>
+        <ImageBoxStyled id={id}>
           <Image
             src={thumb}
             alt={alt}

@@ -29,6 +29,7 @@ const CardsGallery: FC<Cards> = ({ cards, total }) => {
                 title={title}
                 alt={alt}
                 description={description}
+                id={id}
               />
             ))}
         </ListCardStyled>
