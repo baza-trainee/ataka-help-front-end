@@ -2,14 +2,17 @@ import styled from "@emotion/styled";
 
 export const CarouselBox = styled.div`
   position: relative;
-
   height: 160px;
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
-    height: 200px;
+    height: 184px;
   }
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
+    height: 356px;
+  }
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[3]}) {
     height: 400px;
   }
 `;
@@ -18,19 +21,16 @@ export const Title = styled.h2`
   position: absolute;
   z-index: 2;
   top: 50%;
-  left: 54px;
-  transform: translate(0, -50%);
+  left: 50%;
+  transform: translate(-50%, -50%);
   color: ${({ theme }) => theme.colors.white[200]};
-  font-size: ${({ theme }) => theme.fontSizes[4]};
+  font-size: ${({ theme }) => theme.fontSizes[6]};
   font-weight: ${({ theme }) => theme.fontWeights.semibold};
 
-  @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
-    left: 99px;
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
     font-size: ${({ theme }) => theme.fontSizes[8]};
   }
-
-  @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
-    left: 138px;
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[3]}) {
     font-size: ${({ theme }) => theme.fontSizes[12]};
   }
 `;
@@ -76,6 +76,10 @@ export const ArrowWrapper = styled.div`
     height: 44px;
   }
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
+    width: 60px;
+    height: 60px;
+  }
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[3]}) {
     width: 64px;
     height: 64px;
   }

@@ -1,18 +1,23 @@
 import Image from "next/image";
 import { FC } from "react";
 
+import { ContactsPropsType } from "@/types";
+
 import { Section, Container, Title } from "../Common";
 import {
   Contact,
   DesktopContainer,
+  Email,
   FlexContainer,
   HiddenTitle,
   ImageContainer,
-  Subtitle,
+  Phone,
   TabletContainer,
 } from "./Contacts.styled";
 
-const ContactsSection: FC = () => {
+const ContactsSection: FC<ContactsPropsType> = ({
+  contacts: { phone1, phone2, email },
+}) => {
   return (
     <Section ptm="32px" ptt="48px" ptd="60px">
       <Container>
@@ -32,21 +37,29 @@ const ContactsSection: FC = () => {
           <DesktopContainer>
             <HiddenTitle mob="none">
               <Title textAlignM="left" data-testid="ContactHeading">Контакти</Title>
-            </HiddenTitle>
-            <Subtitle data-testid="ContactSubtitle1">Телефони</Subtitle>
-            {["+38 093 802 7214", "+38 063 628 6630"].map((item, index) => (
-              <FlexContainer key={index}>
-                <Image
-                  src={`/icons/phone.svg`}
-                  alt="Phone icon"
-                  width={24}
-                  height={24}
-                  style={{ fill: "white" }}
-                />
-                <Contact data-testid="Phonenumbers">{item}</Contact>
-              </FlexContainer>
-            ))}
-            <Subtitle data-testid="ContactSubtitle2">Електронна пошта</Subtitle>
+            </HiddenTitle>                                  
+            <Phone data-testid="ContactSubtitle1">Телефони</Phone>
+            <FlexContainer>
+              <Image
+                src={`/icons/phone.svg`}
+                alt="Phone icon"
+                width={24}
+                height={24}
+                style={{ fill: "white" }}
+              />
+              <Contact ata-testid="Phonenumbers">{phone1}</Contact>
+            </FlexContainer>
+            <FlexContainer>
+              <Image
+                src={`/icons/phone.svg`}
+                alt="Phone icon"
+                width={24}
+                height={24}
+                style={{ fill: "white" }}
+              />
+              <Contact>{phone2}</Contact>
+            </FlexContainer>
+            <Email data-testid="ContactSubtitle2">Електронна пошта</Email>
             <FlexContainer>
               <Image
                 src={`/icons/email.svg`}
@@ -54,8 +67,8 @@ const ContactsSection: FC = () => {
                 width={24}
                 height={24}
                 style={{ fill: "white" }}
-              />
-              <Contact data-testid="ContactInfo">info@ataka-help.tech</Contact>
+              />             
+              <Contact data-testid="ContactInfo">{email}</Contact>
             </FlexContainer>
           </DesktopContainer>
         </TabletContainer>

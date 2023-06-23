@@ -11,7 +11,6 @@ import {
   FileInput,
   FileInputWrapper,
   IconWrapper,
-  Section,
   StyledIcon,
   SubmitButton,
   Text,
@@ -24,6 +23,7 @@ const SliderForm: FC = () => {
   const [fileName, setFileName] = useState("");
 
   const router = useRouter();
+
   const {
     register,
     handleSubmit,
@@ -46,11 +46,9 @@ const SliderForm: FC = () => {
 
     try {
       setIsLoading(true);
-      const response = await sendSlide(formData);
-      console.log(response);
+      await sendSlide(formData);
       router.push("/admin/slider");
     } catch (e) {
-      console.log(e);
       return;
     } finally {
       setIsLoading(false);
@@ -58,43 +56,41 @@ const SliderForm: FC = () => {
   };
 
   return (
-    <Section>
-      <form onSubmit={handleSubmit(onSubmitHandler)}>
-        <FileInputWrapper>
-          <FileInput
-            type="file"
-            accept="image/*,.png,.jpg,.webp,.svg"
-            {...register("thumb")}
-            onInput={(e: any) => setFileName(e.target.files[0].name)}
-          />
-          <IconWrapper>
-            {fileName ? (
-              <Text>{fileName}</Text>
-            ) : (
-              <>
-                <StyledIcon />
-                <Text>Додати зображення</Text>
-              </>
-            )}
-          </IconWrapper>
-        </FileInputWrapper>
-        {errors.thumb && <ErrorMessage>{errors.thumb.message}</ErrorMessage>}
-
-        <TextInput
-          type="text"
-          {...register("alt")}
-          placeholder="Опис зображення"
+    <form onSubmit={handleSubmit(onSubmitHandler)}>
+      <FileInputWrapper>
+        <FileInput
+          type="file"
+          accept="image/*,.png,.jpg,.webp,.svg"
+          {...register("thumb")}
+          onInput={(e: any) => setFileName(e.target.files[0].name)}
         />
-        {errors.alt && <ErrorMessage>{errors.alt.message}</ErrorMessage>}
+        <IconWrapper>
+          {fileName ? (
+            <Text>{fileName}</Text>
+          ) : (
+            <>
+              <StyledIcon />
+              <Text>Додати зображення</Text>
+            </>
+          )}
+        </IconWrapper>
+      </FileInputWrapper>
+      {errors.thumb && <ErrorMessage>{errors.thumb.message}</ErrorMessage>}
 
-        <TextInput type="text" {...register("title")} placeholder="Заголовок" />
-        {errors.title && <ErrorMessage>{errors.title.message}</ErrorMessage>}
+      <TextInput
+        type="text"
+        {...register("alt")}
+        placeholder="Опис зображення"
+      />
+      {errors.alt && <ErrorMessage>{errors.alt.message}</ErrorMessage>}
 
-        <SubmitButton>
-          {isLoading ? <ButtonSpiner /> : "Надіслати"}
-        </SubmitButton>
-      </form>
-    </Section>
+      <TextInput type="text" {...register("title")} placeholder="Заголовок" />
+      {errors.title && <ErrorMessage>{errors.title.message}</ErrorMessage>}
+
+      <SubmitButton disabled={Object.values(errors).length > 0}>
+        {isLoading ? <ButtonSpiner /> : "Надіслати"}
+      </SubmitButton>
+    </form>
   );
 };
 

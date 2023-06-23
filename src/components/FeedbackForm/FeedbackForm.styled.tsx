@@ -6,9 +6,12 @@ export const FormWrapper = styled.div`
   align-items: center;
   gap: 32px;
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
-    gap: 58px;
+    gap: 48px;
   }
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
+    gap: 59px;
+  }
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[3]}) {
     gap: 71px;
   }
 `;
@@ -33,10 +36,13 @@ export const Input = styled.input`
     width: 361px;
   }
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
-    width: 365px;
+    width: 340px;
     height: 60px;
   }
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
+    width: 367px;    
+  }
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[3]}) {
     width: 410px;
     font-size: ${({ theme }) => theme.fontSizes[5]};
   }
@@ -68,10 +74,13 @@ export const Comment = styled.textarea`
     width: 361px;
   }
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
-    width: 754px;
+    width: 704px;
     height: 300px;
   }
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
+    width: 754px;    
+  }
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[3]}) {
     width: 846px;
     font-size: ${({ theme }) => theme.fontSizes[5]};
   }
@@ -110,7 +119,10 @@ export const Wrapper = styled.div`
     gap: 24px;
     margin-bottom: 24px;
   }
-  @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
+    margin-bottom: 33px;
+  }
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[3]}) {
     margin-bottom: 32px;
   }
 `;
@@ -122,8 +134,7 @@ export const Button = styled.button`
   height: 60px;
   width: 90%;
   color: ${({ theme }) => theme.colors.blue[300]};
-  font-weight: ${({ theme }) => theme.fontWeights.semibold};
-  font-variant: small-caps;
+  font-weight: ${({ theme }) => theme.fontWeights.semibold};  
   font-size: ${({ theme }) => theme.fontSizes[5]};
   background-color: transparent;
   border: 2px solid ${({ theme }) => theme.colors.blue[300]};
@@ -139,8 +150,12 @@ export const Button = styled.button`
   }
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
-    margin-top: 54px;
+    margin-top: 48px;
     width: 300px;
+  }
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
+    margin-top: 60px;    
   }
 
   &[disabled] {

@@ -6,19 +6,17 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { IPartnerForm } from "@/types";
 import { FileScheme } from "@/schemas";
 import { sendPartner } from "@/services";
+import ButtonSpiner from "@/components/ButtonSpiner";
 import {
   ErrorMessage,
   FileInput,
   FileInputWrapper,
   IconWrapper,
-  Section,
   StyledIcon,
   SubmitButton,
   Text,
   TextInput,
 } from "../CommonFormStyles";
-
-import ButtonSpiner from "@/components/ButtonSpiner";
 
 const PartnerForm: FC = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -49,7 +47,6 @@ const PartnerForm: FC = () => {
       await sendPartner(formData);
       router.push("/admin/partners");
     } catch (e) {
-      console.log(e);
       return;
     } finally {
       setIsLoading(false);
@@ -57,40 +54,38 @@ const PartnerForm: FC = () => {
   };
 
   return (
-    <Section>
-      <form onSubmit={handleSubmit(onSubmitHandler)}>
-        <FileInputWrapper>
-          <FileInput
-            type="file"
-            accept="image/*,.png,.jpg,.webp,.svg"
-            {...register("thumb")}
-            onInput={(e: any) => setFileName(e.target.files[0].name)}
-          />
-          <IconWrapper>
-            {fileName ? (
-              <Text>{fileName}</Text>
-            ) : (
-              <>
-                <StyledIcon />
-                <Text>Додати зображення</Text>
-              </>
-            )}
-          </IconWrapper>
-        </FileInputWrapper>
-        {errors.thumb && <ErrorMessage>{errors.thumb.message}</ErrorMessage>}
-
-        <TextInput
-          type="text"
-          {...register("alt")}
-          placeholder="Опис зображення"
+    <form onSubmit={handleSubmit(onSubmitHandler)}>
+      <FileInputWrapper>
+        <FileInput
+          type="file"
+          accept="image/*,.png,.jpg,.webp,.svg"
+          {...register("thumb")}
+          onInput={(e: any) => setFileName(e.target.files[0].name)}
         />
-        {errors.alt && <ErrorMessage>{errors.alt.message}</ErrorMessage>}
+        <IconWrapper>
+          {fileName ? (
+            <Text>{fileName}</Text>
+          ) : (
+            <>
+              <StyledIcon />
+              <Text>Додати зображення</Text>
+            </>
+          )}
+        </IconWrapper>
+      </FileInputWrapper>
+      {errors.thumb && <ErrorMessage>{errors.thumb.message}</ErrorMessage>}
 
-        <SubmitButton>
-          {isLoading ? <ButtonSpiner /> : "Надіслати"}
-        </SubmitButton>
-      </form>
-    </Section>
+      <TextInput
+        type="text"
+        {...register("alt")}
+        placeholder="Опис зображення"
+      />
+      {errors.alt && <ErrorMessage>{errors.alt.message}</ErrorMessage>}
+
+      <SubmitButton disabled={Object.values(errors).length > 0}>
+        {isLoading ? <ButtonSpiner /> : "Надіслати"}
+      </SubmitButton>
+    </form>
   );
 };
 

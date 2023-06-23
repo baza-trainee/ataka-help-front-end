@@ -6,6 +6,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { ICardForm } from "@/types";
 import { CardScheme } from "@/schemas";
 import { sendCard } from "@/services";
+import ButtonSpiner from "@/components/ButtonSpiner";
 import {
   FileInput,
   FileInputWrapper,
@@ -19,10 +20,8 @@ import {
   StyledPlusIcon,
   SubmitButton,
   ErrorMessage,
-  Section,
 } from "../CommonFormStyles";
 import { Container } from "./CardForm.styled";
-import ButtonSpiner from "@/components/ButtonSpiner";
 
 const CardForm: FC = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -73,71 +72,67 @@ const CardForm: FC = () => {
   };
 
   return (
-    <Section>
-      <form onSubmit={handleSubmit(onSubmitHandler)}>
-        <FileInputWrapper>
-          <FileInput
-            type="file"
-            accept="image/*,.png,.jpg,.webp"
-            {...register("thumb")}
-            onInput={(e: any) => setFileName(e.target.files[0].name)}
-          />
-          <IconWrapper>
-            {fileName ? (
-              <Text>{fileName}</Text>
-            ) : (
-              <>
-                <StyledIcon />
-                <Text>Додати зображення</Text>
-              </>
-            )}
-          </IconWrapper>
-        </FileInputWrapper>
-        {errors.thumb && <ErrorMessage>{errors.thumb.message}</ErrorMessage>}
-
-        <TextInput
-          type="text"
-          {...register("alt")}
-          placeholder="Опис зображення"
+    <form onSubmit={handleSubmit(onSubmitHandler)}>
+      <FileInputWrapper>
+        <FileInput
+          type="file"
+          accept="image/*,.png,.jpg,.webp"
+          {...register("thumb")}
+          onInput={(e: any) => setFileName(e.target.files[0].name)}
         />
-        {errors.alt && <ErrorMessage>{errors.alt.message}</ErrorMessage>}
+        <IconWrapper>
+          {fileName ? (
+            <Text>{fileName}</Text>
+          ) : (
+            <>
+              <StyledIcon />
+              <Text>Додати зображення</Text>
+            </>
+          )}
+        </IconWrapper>
+      </FileInputWrapper>
+      {errors.thumb && <ErrorMessage>{errors.thumb.message}</ErrorMessage>}
 
-        <TextInput type="text" {...register("title")} placeholder="Заголовок" />
-        {errors.title && <ErrorMessage>{errors.title.message}</ErrorMessage>}
+      <TextInput
+        type="text"
+        {...register("alt")}
+        placeholder="Опис зображення"
+      />
+      {errors.alt && <ErrorMessage>{errors.alt.message}</ErrorMessage>}
 
-        {fields.map((field, index) => (
-          <div key={field.id}>
-            <Container>
-              <TextInput
-                type="text"
-                {...register(`description.${index}.item`)}
-                placeholder="Опис пункту в інструкції"
-              />
-              {index > 0 && (
-                <DeleteFieldButton onClick={() => remove(index)} type="button">
-                  <StyledBin />
-                </DeleteFieldButton>
-              )}
-            </Container>
-            {errors.description && (
-              <ErrorMessage>
-                {index === 0
-                  ? "Обов'язкове поле"
-                  : "Заповніть поле або видаліть"}
-              </ErrorMessage>
+      <TextInput type="text" {...register("title")} placeholder="Заголовок" />
+      {errors.title && <ErrorMessage>{errors.title.message}</ErrorMessage>}
+
+      {fields.map((field, index) => (
+        <div key={field.id}>
+          <Container>
+            <TextInput
+              type="text"
+              {...register(`description.${index}.item`)}
+              placeholder="Опис пункту в інструкції"
+            />
+            {index > 0 && (
+              <DeleteFieldButton onClick={() => remove(index)} type="button">
+                <StyledBin />
+              </DeleteFieldButton>
             )}
-          </div>
-        ))}
+          </Container>
+          {errors.description && (
+            <ErrorMessage>
+              {index === 0 ? "Обов'язкове поле" : "Заповніть поле або видаліть"}
+            </ErrorMessage>
+          )}
+        </div>
+      ))}
 
-        <AddFieldButton onClick={() => append({ item: "" })} type="button">
-          <StyledPlusIcon /> Додати пункт
-        </AddFieldButton>
+      <AddFieldButton onClick={() => append({ item: "" })} type="button">
+        <StyledPlusIcon /> Додати пункт
+      </AddFieldButton>
 
-        <SubmitButton>
-          {isLoading ? <ButtonSpiner /> : "Надіслати"}
-        </SubmitButton>
-      </form>
-    </Section>
+      <SubmitButton disabled={Object.values(errors).length > 0}>
+        {isLoading ? <ButtonSpiner /> : "Надіслати"}
+      </SubmitButton>
+    </form>
   );
 };
 

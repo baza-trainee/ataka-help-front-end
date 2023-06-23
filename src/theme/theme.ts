@@ -1,5 +1,5 @@
 export const theme = {
-  breakpoints: ["393px", "834px", "1440px"],
+  breakpoints: ["393px", "767px", "1280px", "1440px"],
 
   fontSizes: [
     "12px", //0
@@ -27,6 +27,7 @@ export const theme = {
 
   radii: {
     sm: "5px", //card-button, buttons, feedback-form inputs
+    md: "12px",
   },
 
   colors: {
