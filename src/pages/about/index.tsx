@@ -6,7 +6,7 @@ import About from "@/components/About";
 import PartnersGallery from "@/components/PartnersGallery";
 import Donate from "@/components/Donate";
 
-import { AboutPagePropsType } from "@/types/PagesTypes";
+import { AboutPagePropsType } from "@/types/pages";
 import { getFooterData } from "@/services/pagesOperations";
 
 export const getStaticProps = async () => {

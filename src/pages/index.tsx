@@ -5,7 +5,7 @@ import Slider from "@/components/Slider";
 import CardsGallery from "@/components/CardsGallery/CardsGallery";
 import DonateMainPage from "@/components/Donate/DonateMainPage";
 
-import { HomePagePropsType } from "@/types/PagesTypes";
+import { HomePagePropsType } from "@/types/pages";
 import { getHomePageData } from "@/services/pagesOperations";
 
 export const getStaticProps = async () => {
@@ -17,7 +17,7 @@ const Home: NextPage<HomePagePropsType> = ({ contacts, report, cards }) => {
   return (
     <UserLayout title="Cases" contacts={contacts} report={report}>
       <Slider />
-      <CardsGallery cards={cards.cards} total={cards.total} />
+      <CardsGallery cards={cards?.cards} total={cards?.total} />
 
       <DonateMainPage />
     </UserLayout>

@@ -5,7 +5,7 @@ import UsefulInformation from "@/components/UsefulInformation";
 import Slider from "@/components/Slider";
 import information from "@/data/useful-information.json";
 
-import { UsefulInformationPagePropsType } from "@/types/PagesTypes";
+import { UsefulInformationPagePropsType } from "@/types/pages";
 import { getFooterData } from "@/services/pagesOperations";
 
 export const getStaticProps = async () => {

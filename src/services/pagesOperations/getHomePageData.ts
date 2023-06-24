@@ -1,6 +1,6 @@
-import { getCards } from "../getCards";
-import { getContacts } from "../getContacts";
-import { getReport } from "../getReport";
+import { getCards } from "../adminCardsOperations";
+import { getContacts } from "../adminContactsOperations";
+import { getReport } from "../adminReportOperations";
 
 export const getHomePageData = async () => {
   try {
@@ -9,6 +9,6 @@ export const getHomePageData = async () => {
     const cards = await getCards();
     return { props: { contacts, report, cards }, revalidate: 120 };
   } catch (error) {
-    return { props: { contacts: {}, report: {} } };
+    return { props: { contacts: {}, report: {}, cards: {} } };
   }
 };

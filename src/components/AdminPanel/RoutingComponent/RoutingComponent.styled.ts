@@ -15,16 +15,21 @@ export const List = styled.ul`
 `;
 
 export const Item = styled.li`
-  margin-right: 18px;
-  font-size: ${({ theme }) => theme.fontSizes[3]};
-  line-height: 1.77;
-  font-weight: ${({ theme }) => theme.fontWeights.medium};
+  display: flex;
+  align-items: center;
+
   :not(:last-child) {
     color: ${({ theme }) => theme.colors.blue[1100]};
   }
   :last-child {
     color: ${({ theme }) => theme.colors.blue[300]};
   }
+`;
+export const Text = styled.p`
+  margin-right: 18px;
+  font-size: ${({ theme }) => theme.fontSizes[3]};
+  line-height: 1.77;
+  font-weight: ${({ theme }) => theme.fontWeights.medium};
 `;
 
 export const Icon = styled(BsFillCaretRightFill)`

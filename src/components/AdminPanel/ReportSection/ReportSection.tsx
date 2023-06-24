@@ -2,8 +2,7 @@ import useSWR from "swr";
 import Link from "next/link";
 import { useSWRConfig } from "swr";
 
-import { getReportAdmin } from "@/services/adminReportOperations";
-import { deleteReport } from "@/services";
+import { deleteReport, getReportAdmin } from "@/services";
 import Loader from "@/components/Loader";
 import PDFIcon from "../PDFIcon";
 import {
