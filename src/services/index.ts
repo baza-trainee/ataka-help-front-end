@@ -4,6 +4,7 @@ export {
   getFooterData,
   getHomePageData,
   getAboutPageData,
+  getUsefullInfoData,
 } from "./pagesOperations";
 
 export { getContacts, sendContacts } from "./adminContactsOperations";
