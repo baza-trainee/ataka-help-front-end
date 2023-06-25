@@ -1,6 +1,6 @@
 export type { ChangePasswordType } from "./auth";
 
-export type { HomePagePropsType } from "./pages";
+export type { HomePagePropsType, AboutPagePropsType } from "./pages";
 
 export type { IReportForm, Report } from "./report";
 export type { IPartner, IPartnerForm, Partners } from "./partners";

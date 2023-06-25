@@ -1,1 +1,1 @@
-export const MAX_FILE_SIZE = 2097152; //2MB;
+export const MAX_FILE_SIZE = 5242880; //5MB;

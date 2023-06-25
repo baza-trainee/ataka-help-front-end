@@ -68,7 +68,8 @@ const SideBar: FC = () => {
         />
         Змінити пароль
       </LinkStyled>
-      <ExitButton onClick={refresh}>
+      <button onClick={refresh}>Refresh</button>
+      <ExitButton onClick={() => console.log("logout")}>
         <Icon /> Вихід
       </ExitButton>
     </Aside>

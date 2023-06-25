@@ -1,6 +1,10 @@
 export { login, logout, changePassword, refresh } from "./auth";
 
-export { getFooterData, getHomePageData } from "./pagesOperations";
+export {
+  getFooterData,
+  getHomePageData,
+  getAboutPageData,
+} from "./pagesOperations";
 
 export { getContacts, sendContacts } from "./adminContactsOperations";
 export { getCards, sendCard, deleteCard } from "./adminCardsOperations";

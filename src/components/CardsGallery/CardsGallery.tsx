@@ -10,7 +10,7 @@ import LoadMoreButton from "../LoadMoreButton/LoadMoreButton";
 const CardsGallery: FC<Cards> = ({ cards, total }) => {
   const [page, setPage] = useState(2);
   const [shownCards, setShownCards] = useState(cards?.slice(0, 6));
-  console.log(shownCards);
+
   const onClickHandler = () => {
     setPage(prev => prev + 1);
     setShownCards(cards?.slice(0, page * 6));
@@ -33,7 +33,7 @@ const CardsGallery: FC<Cards> = ({ cards, total }) => {
               />
             ))}
         </ListCardStyled>
-        {total > 3 && total > shownCards.length && (
+        {total > 6 && total > shownCards.length && (
           <LoadMoreButton onClick={onClickHandler} />
         )}
       </Container>

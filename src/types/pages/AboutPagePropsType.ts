@@ -1,7 +1,8 @@
-import { Contacts } from "../contacts/Contacts";
-import { Report } from "../report/Report";
+import { Contacts, Partners, Report, Sliders } from "@/types";
 
 export type AboutPagePropsType = {
   contacts: Contacts;
   report: Report;
+  slider: Sliders;
+  partners: Partners;
 };
