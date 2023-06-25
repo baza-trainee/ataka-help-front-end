@@ -12,6 +12,7 @@ import {
 } from "./AdminLatout.styled";
 
 import category from "public/icons/icon-checklist.svg";
+import { refresh } from "@/services";
 
 const SideBar: FC = () => {
   const router = useRouter();
@@ -67,7 +68,8 @@ const SideBar: FC = () => {
         />
         Змінити пароль
       </LinkStyled>
-      <ExitButton onClick={() => console.log("exit")}>
+      <button onClick={refresh}>Refresh</button>
+      <ExitButton onClick={() => console.log("logout")}>
         <Icon /> Вихід
       </ExitButton>
     </Aside>

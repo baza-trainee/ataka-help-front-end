@@ -1,27 +1,37 @@
-export type { IFeedbackForm } from "./IFeedbackForm";
-export type { IReportForm } from "./IReportForm";
-export type { IPartnerForm } from "./IPartnerForm";
-export type { IPartner } from "./IPartner";
-export type { ISliderForm } from "./ISliderForm";
-export type { ICardForm } from "./ICardForm";
-export type { ICard } from "./ICard";
-export type { IContactForm } from "./IContactForm";
-export type { LayoutPropsType } from "./LayoutPropsType";
-export type { IFileOpenLink } from "./IFileOpenLink";
-export type { IModal } from "./IModal";
-export type { ILinkProps } from "./ILinkProps";
-export type { IStyledLinkProps } from "./IStyledLinkProps";
-export type { SectionPropsType } from "./SectionPropsType";
-export type { TitlePropsType } from "./TitlePropsType";
-export type { HiddenTitleProps } from "./HiddenTitleProps";
-export type { IStyles, IOpenLink } from "./IFileOpenLink";
-export type { Cards } from "./Cards";
-export type { Report } from "./Report";
-export type { Contacts } from "./Contacts";
-export type { IFieldData } from "./FieldData";
-export type { FooterPropsType } from "./FooterPropsType";
-export type { HomePagePropsType } from "./PagesTypes/HomePagePropsType";
-export type { IPopup } from "./IPopup";
-export type { IAdminLayout } from "./IAdminLayout";
-export type { IAdminButton } from "./IAdminButton";
-export type { ContactsPropsType } from "./ContactsPropsType";
+export type { ChangePasswordType } from "./auth";
+
+export type {
+  HomePagePropsType,
+  AboutPagePropsType,
+  UsefulInformationPagePropsType,
+} from "./pages";
+
+export type { IReportForm, Report } from "./report";
+export type { IPartner, IPartnerForm, Partners } from "./partners";
+export type { ISliderForm, Sliders } from "./slider";
+export type { Cards, ICard, ICardForm } from "./card";
+export type { ContactsPropsType, Contacts, IContactForm } from "./contacts";
+
+export type { ILoginForm, IFieldData, IFeedbackForm } from "./forms";
+
+export type {
+  IPopup,
+  FooterPropsType,
+  IAdminLayout,
+  IAdminButton,
+  ILinkProps,
+  IModal,
+  IFileOpenLink,
+  LayoutPropsType,
+  IStyles,
+  IOpenLink,
+  IStyledLinkProps,
+  UsefulInformationProps,
+  RoutingProps,
+} from "./components";
+
+export type {
+  TitlePropsType,
+  SectionPropsType,
+  HiddenTitleProps,
+} from "./styles";

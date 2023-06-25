@@ -4,7 +4,7 @@ import UserLayout from "@/components/UserLayout/UserLayout";
 import FeedbackClientForm from "@/components/FeedbackForm/FeedbackClient";
 import ContactsSection from "@/components/Contacts";
 
-import { ContactsPagePropsType } from "@/types/PagesTypes";
+import { ContactsPagePropsType } from "@/types/pages";
 import { getFooterData } from "@/services/pagesOperations";
 
 export const getStaticProps = async () => {

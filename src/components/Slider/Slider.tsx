@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
+import { Sliders } from "@/types";
 import {
   ArrowWrapper,
   CarouselBox,
@@ -13,7 +14,7 @@ import {
 } from "./Slider.styled";
 import { Section } from "../Common/Section.styled";
 
-const Slider: FC = () => {
+const Slider: FC<Sliders> = ({ slider }) => {
   return (
     <Section>
       <div style={{ position: "relative" }}>
@@ -52,18 +53,18 @@ const Slider: FC = () => {
             </NextArrowButton>
           )}
         >
-          {[1, 2, 3].map(path => (
-            <CarouselBox key={path}>
+          {slider.map(({ id, thumb, title, alt }) => (
+            <CarouselBox key={id}>
               <Gradient />
               <Image
-                src={`/${path}.png`}
-                alt="carusel-img"
+                src={`${process.env.NEXT_PUBLIC_API_URL}/${thumb}`}
+                alt={alt}
                 fill
                 style={{
                   objectFit: "cover",
                 }}
               />
-              <Title>Знай, як захиститись</Title>
+              <Title>{title}</Title>
             </CarouselBox>
           ))}
         </Carousel>

@@ -9,11 +9,11 @@ import LoadMoreButton from "../LoadMoreButton/LoadMoreButton";
 
 const CardsGallery: FC<Cards> = ({ cards, total }) => {
   const [page, setPage] = useState(2);
-  const [shownCards, setShownCards] = useState(cards.slice(0, 6));
+  const [shownCards, setShownCards] = useState(cards?.slice(0, 6));
 
   const onClickHandler = () => {
     setPage(prev => prev + 1);
-    setShownCards(cards.slice(0, page * 6));
+    setShownCards(cards?.slice(0, page * 6));
   };
 
   return (
@@ -21,7 +21,7 @@ const CardsGallery: FC<Cards> = ({ cards, total }) => {
       <Container>
         <TitleListStyled textAlignM="center">Інциденти</TitleListStyled>
         <ListCardStyled>
-          {shownCards.length > 0 &&
+          {shownCards?.length > 0 &&
             shownCards?.map(({ id, thumb, title, alt, description }: ICard) => (
               <Card
                 key={id}
@@ -33,7 +33,7 @@ const CardsGallery: FC<Cards> = ({ cards, total }) => {
               />
             ))}
         </ListCardStyled>
-        {total > 3 && total > shownCards.length && (
+        {total > 6 && total > shownCards.length && (
           <LoadMoreButton onClick={onClickHandler} />
         )}
       </Container>

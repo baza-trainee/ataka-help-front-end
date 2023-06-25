@@ -18,7 +18,8 @@ import router from "next/router";
 import Link from "next/link";
 
 import { LoginSchema } from "@/schemas/LoginScheme";
-import { ILoginForm } from "@/types/ILoginForm";
+import { ILoginForm } from "@/types";
+import { login } from "@/services";
 
 const LoginForm: FC = () => {
   const [authError, setAuthError] = useState<string | null>(null);
@@ -29,7 +30,7 @@ const LoginForm: FC = () => {
     formState: { errors },
   } = useForm<ILoginForm>({
     defaultValues: {
-      email: "",
+      login: "",
       password: "",
     },
     mode: "onTouched",
@@ -37,20 +38,25 @@ const LoginForm: FC = () => {
   });
 
   const handleLogin = async (data: ILoginForm) => {
-    const { email, password } = data;
-
-    const result = await signIn("credentials", {
-      redirect: false,
-      username: email,
-      password,
-    });
-
-    if (result?.error) {
-      console.log("Authentication failed:", result.error);
-      setAuthError("Помилка авторизації. Будь ласка, перевірте свої дані.");
-    } else {
-      router.push("/admin");
+    console.log(data);
+    try {
+      const response = await login(data);
+      console.log(response);
+    } catch (error) {
+      console.log(error);
     }
+    // const result = await signIn("credentials", {
+    //   redirect: false,
+    //   username: email,
+    //   password,
+    // });
+
+    // if (result?.error) {
+    //   console.log("Authentication failed:", result.error);
+    //   setAuthError("Помилка авторизації. Будь ласка, перевірте свої дані.");
+    // } else {
+    //   router.push("/admin");
+    // }
   };
 
   return (
@@ -66,13 +72,13 @@ const LoginForm: FC = () => {
               type="email"
               autoComplete="off"
               // value={username}
-              {...register("email")}
-              className={errors.email && "invalid"}
+              {...register("login")}
+              className={errors.login && "invalid"}
               // onChange={e => setUsername(e.target.value)}
             />
-            {errors.email && (
+            {errors.login && (
               <MessageWrapper>
-                <ErrorMessage>{errors.email?.message}</ErrorMessage>
+                <ErrorMessage>{errors.login?.message}</ErrorMessage>
               </MessageWrapper>
             )}
           </InputLabel>

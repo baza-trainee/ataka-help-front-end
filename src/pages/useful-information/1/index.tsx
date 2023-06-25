@@ -5,17 +5,18 @@ import Slider from "@/components/Slider";
 import UsefulInformation from "@/components/UsefulInformation";
 import information from "@/data/useful-information.json";
 
-import { UsefulInformationPagePropsType } from "@/types/PagesTypes";
-import { getFooterData } from "@/services/pagesOperations";
+import { UsefulInformationPagePropsType } from "@/types";
+import { getUsefullInfoData } from "@/services";
 
 export const getStaticProps = async () => {
-  const result = await getFooterData();
+  const result = await getUsefullInfoData();
   return result;
 };
 
 const HowToChoosePassword: NextPage<UsefulInformationPagePropsType> = ({
   contacts,
   report,
+  slider,
 }) => {
   const title = information[0].title;
   const blockOne = information[0].blockOne;
@@ -23,7 +24,7 @@ const HowToChoosePassword: NextPage<UsefulInformationPagePropsType> = ({
 
   return (
     <UserLayout title="HowToChoosePassword" contacts={contacts} report={report}>
-      <Slider />
+      <Slider slider={slider?.slider} />
       <UsefulInformation title={title} text1={blockOne} text2={blockTwo} />
     </UserLayout>
   );
