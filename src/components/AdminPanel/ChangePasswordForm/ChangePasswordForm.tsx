@@ -1,15 +1,13 @@
 import { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
 
+import { ChangePasswordScheme } from "@/schemas";
+import { IChangePassword } from "@/types";
 import ButtonSpiner from "@/components/ButtonSpiner";
 import { ErrorMessage, SubmitButton } from "../CommonFormStyles";
 import { Form, Input, Label, Title } from "./ChangePasswordForm.styled";
-
-interface IChangePassword {
-  oldPassword: string;
-  newPassword: string;
-  confirmation: string;
-}
+import { changePassword } from "@/services";
 
 const ChangePasswordForm = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -20,7 +18,7 @@ const ChangePasswordForm = () => {
     formState: { errors },
   } = useForm<IChangePassword>({
     mode: "all",
-    //   resolver: yupResolver(CardScheme),
+    resolver: yupResolver(ChangePasswordScheme),
     defaultValues: {
       oldPassword: "",
       newPassword: "",
@@ -30,7 +28,8 @@ const ChangePasswordForm = () => {
   const onSubmitHandler: SubmitHandler<IChangePassword> = async data => {
     try {
       setIsLoading(true);
-      console.log(data);
+      const response = await changePassword(data);
+      console.log(response);
     } catch (error) {
       console.log(error);
     } finally {

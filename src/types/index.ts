@@ -1,5 +1,3 @@
-export type { ChangePasswordType } from "./auth";
-
 export type {
   HomePagePropsType,
   AboutPagePropsType,
@@ -12,7 +10,12 @@ export type { ISliderForm, Sliders } from "./slider";
 export type { Cards, ICard, ICardForm } from "./card";
 export type { ContactsPropsType, Contacts, IContactForm } from "./contacts";
 
-export type { ILoginForm, IFieldData, IFeedbackForm } from "./forms";
+export type {
+  ILoginForm,
+  IFieldData,
+  IFeedbackForm,
+  IChangePassword,
+} from "./forms";
 
 export type {
   IPopup,

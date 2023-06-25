@@ -70,6 +70,7 @@ export const BoxTextStyled = styled.div`
   align-items: center;
   padding: 8px;
   height: 307px;
+  width: 100%;
   flex-grow: 1;
   background-color: ${({ theme }) => theme.colors.white[100]};
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[0]}) {
@@ -104,6 +105,8 @@ export const BtnCardStyled = styled.button`
   justify-content: center;
   margin-top: 20px;
   margin-bottom: 18px;
+  width: 195px;
+  height: 56px;
   border: 1px solid ${({ theme }) => theme.colors.blue[300]};
   border-radius: ${({ theme }) => theme.radii.sm};
   color: ${({ theme }) => theme.colors.blue[300]};
@@ -123,8 +126,6 @@ export const BtnCardStyled = styled.button`
   }
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[0]}) {
-    width: 195px;
-    height: 56px;
     margin-top: 40px;
     margin-bottom: 36px;
   }

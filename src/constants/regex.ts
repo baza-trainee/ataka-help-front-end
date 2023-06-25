@@ -8,3 +8,6 @@ export const EMAIL_REGEX = /^[a-zA-Z0-9._]+@[a-zA-Z0-9-]+\.[a-zA-Z]{2,}$/;
 export const NAME_REGEX = /^(?!(?:\S*\s){30,})\S*(?:\s\S+\s*)*$/;
 
 export const COMMENT_REGEX = /^(?!\s+$)[\s\S]*$/;
+
+export const PASSWORD_REGEX =
+  /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#%&])(?=.{8,14})/;

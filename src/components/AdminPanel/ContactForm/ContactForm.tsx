@@ -35,6 +35,7 @@ const ContactForm: FC = () => {
     try {
       setIsLoading(true);
       await sendContacts(data);
+
       router.push("/admin/contacts");
     } catch (error) {
       return;

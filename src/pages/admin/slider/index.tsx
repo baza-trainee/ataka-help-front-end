@@ -6,7 +6,7 @@ import SliderGallery from "@/components/AdminPanel/SliderGallery";
 
 const Slider: NextPage = () => {
   return (
-    <AdminLayout>
+    <AdminLayout title="Slider">
       <RoutingComponent routes={["Категорії", "Слайдер"]} />
       <SliderGallery />
     </AdminLayout>

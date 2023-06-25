@@ -7,7 +7,7 @@ export const List = styled.ul`
   row-gap: 20px;
   column-gap: 20px;
   margin-top: 32px;
-  margin-bottom: 32px;
+
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[0]}) {
     column-gap: 30px;
     row-gap: 24px;
@@ -17,14 +17,12 @@ export const List = styled.ul`
     column-gap: 24px;
     row-gap: 24px;
     margin-top: 48px;
-    margin-bottom: 48px;
   }
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
     column-gap: 22px;
     row-gap: 22px;
     margin-top: 60px;
-    margin-bottom: 60px;
   }
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[3]}) {
