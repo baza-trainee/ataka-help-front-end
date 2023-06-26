@@ -4,6 +4,7 @@ import Image from "next/image";
 import {
   Text,
   ImageContainer,
+  ImageContainerLast,
   TextContainer,
   FlexContainer,
 } from "./UsefulInformation.styled";
@@ -48,15 +49,15 @@ const UsefulInformation: FC<UsefulInformationProps> = props => {
           </TextContainer>
         </FlexContainer>
         <FlexContainer>
-          <ImageContainer>
+          <ImageContainerLast>
             <Image
               src={"/images/two-factor-auth2.png"}
               alt="UsefulInformation2"
               fill
               style={{ objectFit: "cover" }}
             />
-          </ImageContainer>
-          <TextContainer>
+          </ImageContainerLast>
+          <TextContainer style={{ marginBottom: 0 }}>
             <Text data-testid="TextBox1">
               Більшість цифрових продуктів - пошти або банківського сервісу
               пропонують вам встановити двофакторну аутентифікацію, коли ви
@@ -72,6 +73,7 @@ const UsefulInformation: FC<UsefulInformationProps> = props => {
               Існує близько шести способів аутентифікації крім названих - також
               відбиток пальця, кодове слово та інші.
             </Text>
+     
           </TextContainer>
         </FlexContainer>
       </Container>

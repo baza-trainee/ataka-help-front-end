@@ -11,6 +11,7 @@ export const Text = styled.p`
 export const TextContainer = styled.div`
   padding: 20px;
   margin-bottom: 24px;
+
   background-color: ${({ theme }) => theme.colors.blue[500]};
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
@@ -19,13 +20,13 @@ export const TextContainer = styled.div`
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
     width: 560px;
-    height: 560px;    
+    height: 560px;  
   }
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[3]}) {
     width: 628px;
     height: 470px;   
-  }
+  }  
 `;
 
 export const ImageContainer = styled.div`
@@ -45,7 +46,32 @@ export const ImageContainer = styled.div`
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
     width: 560px;
-    height: 560px;    
+    height: 560px;  
+  }
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[3]}) {
+    width: 628px;
+    height: 470px;   
+  }
+`;
+
+export const ImageContainerLast = styled.div`
+  position: relative;
+  margin-bottom: 24px;
+  
+  @media screen and (max-width: ${({ theme }) => theme.breakpoints[1]}) {
+    width: 361px;    
+    height: 184px;   
+  }
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
+    width: 704px;
+    height: 383px;
+  }
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
+    width: 560px;
+    height: 560px;  
   }
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[3]}) {
@@ -63,3 +89,4 @@ export const FlexContainer = styled.div`
     flex-direction: row-reverse;
   }
 `;
+
