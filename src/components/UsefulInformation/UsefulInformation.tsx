@@ -28,7 +28,24 @@ const UsefulInformation: FC<UsefulInformationProps> = props => {
               style={{ objectFit: "cover" }}
             />
           </ImageContainer>
-          <TextContainer>{text1}</TextContainer>
+          <TextContainer>
+            <Text data-testid="TextBox1">
+              Це спосіб, який гарантує, що доступ до ваших даних маєте тільки
+              ви, навіть якщо ваш пароль попав до когось іншого.
+            </Text>
+            <br />
+            <Text data-testid="TextBox2">
+              Аутентифікація - це підтвердження, що ви -це саме ви. Перший
+              фактор підтвердження - пароль, який ви встановлюєте до електронної
+              пошти. Другий - найчастіше це СМС, що приходить на запит на ваш
+              номер телефона.
+            </Text>
+            <br />
+            <Text data-testid="TextBox3">
+              Оскільки два фактори захисту розведені по різних гаджетах, це вас
+              захищає двічі надійніше.
+            </Text>
+          </TextContainer>
         </FlexContainer>
         <FlexContainer>
           <ImageContainer>
@@ -40,7 +57,21 @@ const UsefulInformation: FC<UsefulInformationProps> = props => {
             />
           </ImageContainer>
           <TextContainer>
-            <Text>{text2}</Text>
+            <Text data-testid="TextBox1">
+              Більшість цифрових продуктів - пошти або банківського сервісу
+              пропонують вам встановити двофакторну аутентифікацію, коли ви
+              реєструєтесь в сервісі.
+            </Text>
+            <br />
+            <Text data-testid="TextBox2">
+              Не нехтуйте цим способом, особливо коли йдеться про банківські
+              дані - так ви максимально захистите себе від крадіжки коштів.
+            </Text>
+            <br />
+            <Text data-testid="TextBox3">
+              Існує близько шести способів аутентифікації крім названих - також
+              відбиток пальця, кодове слово та інші.
+            </Text>
           </TextContainer>
         </FlexContainer>
       </Container>

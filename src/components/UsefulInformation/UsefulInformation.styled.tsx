@@ -1,8 +1,10 @@
 import styled from "@emotion/styled";
 
 export const Text = styled.p`
-  @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
-    font-size: ${({ theme }) => theme.fontSizes[5]};
+  font-size: ${({ theme }) => theme.fontSizes[5]};
+  
+  @media screen and (max-width: ${({ theme }) => theme.breakpoints[0]}) {
+    font-size: ${({ theme }) => theme.fontSizes[2]};
   }
 `;
 
@@ -37,7 +39,7 @@ export const ImageContainer = styled.div`
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
     width: 704px;
-    height: 359px;
+    height: 383px;
     margin-bottom: 24px;
   }
 
