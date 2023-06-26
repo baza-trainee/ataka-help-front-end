@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { SubmitButton } from "../AdminPanel/CommonFormStyles";
 
 export const ParentContainer = styled.div`
   width: 600px;
@@ -65,21 +66,8 @@ export const Form = styled.form`
   align-items: center;
 `;
 
-export const Button = styled.button`
-  align-self: center;
-  margin-top: 54px;
-  margin-bottom: 18px;
-  padding: 16px 40px;
-  height: 60px;
-  color: ${({ theme }) => theme.colors.blue[300]};
-  font-weight: ${({ theme }) => theme.fontWeights.semibold};
-  font-variant: small-caps;
-  font-size: ${({ theme }) => theme.fontSizes[5]};
-  background-color: transparent;
-  border: 2px solid ${({ theme }) => theme.colors.blue[300]};
-  border-radius: ${({ theme }) => theme.radii.sm};
-  box-shadow: none;
-  cursor: pointer;
+export const Button = styled(SubmitButton)`
+  height: 62px;
   width: 254px;
 `;
 

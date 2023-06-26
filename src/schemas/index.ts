@@ -5,3 +5,4 @@ export { ReportScheme } from "./ReportScheme";
 export { FileScheme } from "./FileSchema";
 export { CardScheme } from "./CardScheme";
 export { ChangePasswordScheme } from "./ChangePasswordScheme";
+export { LoginSchema } from "./LoginScheme";

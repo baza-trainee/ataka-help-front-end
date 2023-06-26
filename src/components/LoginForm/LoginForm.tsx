@@ -1,8 +1,16 @@
+"use client";
+
 import { FC, useState } from "react";
-import { signIn } from "next-auth/react";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useRouter } from "next/router";
+
+import { LoginSchema } from "@/schemas";
+import { ILoginForm } from "@/types";
+import { loginUser } from "@/services";
+
 import { Title } from "../Common";
+import ButtonSpiner from "../ButtonSpiner";
 import {
   Button,
   ErrorMessage,
@@ -14,15 +22,9 @@ import {
   ParentContainer,
 } from "./LoginForm.styled";
 
-import router from "next/router";
-import Link from "next/link";
-
-import { LoginSchema } from "@/schemas/LoginScheme";
-import { ILoginForm } from "@/types";
-import { login } from "@/services";
-
 const LoginForm: FC = () => {
-  const [authError, setAuthError] = useState<string | null>(null);
+  const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
 
   const {
     register,
@@ -33,30 +35,26 @@ const LoginForm: FC = () => {
       login: "",
       password: "",
     },
-    mode: "onTouched",
+    mode: "all",
     resolver: yupResolver(LoginSchema),
   });
 
   const handleLogin = async (data: ILoginForm) => {
-    console.log(data);
     try {
-      const response = await login(data);
-      console.log(response);
+      setIsLoading(true);
+      await loginUser(data);
+      router.push("/admin");
+      // await signIn("credentials", {
+      //   login: data.login,
+      //   password: data.password,
+      //   redirect: true,
+      //   callbackUrl: "/admin",
+      // });
     } catch (error) {
       console.log(error);
+    } finally {
+      setIsLoading(false);
     }
-    // const result = await signIn("credentials", {
-    //   redirect: false,
-    //   username: email,
-    //   password,
-    // });
-
-    // if (result?.error) {
-    //   console.log("Authentication failed:", result.error);
-    //   setAuthError("Помилка авторизації. Будь ласка, перевірте свої дані.");
-    // } else {
-    //   router.push("/admin");
-    // }
   };
 
   return (
@@ -68,14 +66,7 @@ const LoginForm: FC = () => {
         <FlexContainer>
           <InputLabel>
             Email*
-            <Input
-              type="email"
-              autoComplete="off"
-              // value={username}
-              {...register("login")}
-              className={errors.login && "invalid"}
-              // onChange={e => setUsername(e.target.value)}
-            />
+            <Input type="email" autoComplete="off" {...register("login")} />
             {errors.login && (
               <MessageWrapper>
                 <ErrorMessage>{errors.login?.message}</ErrorMessage>
@@ -89,10 +80,7 @@ const LoginForm: FC = () => {
             <Input
               type="password"
               autoComplete="off"
-              // value={password}
               {...register("password")}
-              className={errors.password && "invalid"}
-              // onChange={e => setPassword(e.target.value)}
             />
             {errors.password && (
               <MessageWrapper>
@@ -101,18 +89,14 @@ const LoginForm: FC = () => {
             )}
           </InputLabel>
         </FlexContainer>
-        {authError && (
-          <FlexContainer>
-            <ErrorMessage>{authError}</ErrorMessage>
-          </FlexContainer>
-        )}
-        <FlexContainer>
-          <Button type="submit">Вхід</Button>
-        </FlexContainer>
 
-        <FlexContainer>
+        <Button disabled={Object.values(errors).length > 0}>
+          {isLoading ? <ButtonSpiner /> : "Вхід"}
+        </Button>
+
+        {/* <FlexContainer>
           <Link href="/">Забули пароль?</Link>
-        </FlexContainer>
+        </FlexContainer> */}
       </Form>
     </ParentContainer>
   );
