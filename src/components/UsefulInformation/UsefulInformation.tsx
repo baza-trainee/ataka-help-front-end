@@ -30,22 +30,11 @@ const UsefulInformation: FC<UsefulInformationProps> = props => {
               />
             </ImageContainer>
             <TextContainer>
-              <Text data-testid="TextBox1">
-                Це спосіб, який гарантує, що доступ до ваших даних маєте тільки
-                ви, навіть якщо ваш пароль попав до когось іншого.
-              </Text>
+              <Text data-testid="TextBox1">{text1[1]}</Text>
               <br />
-              <Text data-testid="TextBox2">
-                Аутентифікація - це підтвердження, що ви -це саме ви. Перший
-                фактор підтвердження - пароль, який ви встановлюєте до
-                електронної пошти. Другий - найчастіше це СМС, що приходить на
-                запит на ваш номер телефона.
-              </Text>
+              <Text data-testid="TextBox2">{text1[2]}</Text>
               <br />
-              <Text data-testid="TextBox3">
-                Оскільки два фактори захисту розведені по різних гаджетах, це
-                вас захищає двічі надійніше.
-              </Text>
+              <Text data-testid="TextBox3">{text1?.[3]}</Text>
             </TextContainer>
           </FlexContainer>
           <FlexContainer>
@@ -58,21 +47,11 @@ const UsefulInformation: FC<UsefulInformationProps> = props => {
               />
             </ImageContainer>
             <TextContainer style={{ marginBottom: 0 }}>
-              <Text data-testid="TextBox1">
-                Більшість цифрових продуктів - пошти або банківського сервісу
-                пропонують вам встановити двофакторну аутентифікацію, коли ви
-                реєструєтесь в сервісі.
-              </Text>
+              <Text data-testid="TextBox1">{text2[1]}</Text>
               <br />
-              <Text data-testid="TextBox2">
-                Не нехтуйте цим способом, особливо коли йдеться про банківські
-                дані - так ви максимально захистите себе від крадіжки коштів.
-              </Text>
+              <Text data-testid="TextBox2">{text2[2]}</Text>
               <br />
-              <Text data-testid="TextBox3">
-                Існує близько шести способів аутентифікації крім названих -
-                також відбиток пальця, кодове слово та інші.
-              </Text>
+              <Text data-testid="TextBox3">{text2?.[3]}</Text>
             </TextContainer>
           </FlexContainer>
         </Wrapper>

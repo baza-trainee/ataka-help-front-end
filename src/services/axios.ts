@@ -1,5 +1,6 @@
 import axios, { Axios } from "axios";
 import { toast } from "react-toastify";
+import { refresh } from "./auth";
 
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL,
   isServer = typeof window === "undefined";
@@ -10,7 +11,7 @@ export const axiosPublic = axios.create({
   headers: {
     "Content-Type": "application/json",
   },
-}) as Axios;
+});
 
 export const axiosPrivateJson = axios.create({
   baseURL: BASE_URL,
@@ -18,7 +19,7 @@ export const axiosPrivateJson = axios.create({
   headers: {
     "Content-Type": "application/json",
   },
-}) as Axios;
+});
 
 export const axiosPrivateFormData = axios.create({
   baseURL: BASE_URL,
@@ -26,7 +27,7 @@ export const axiosPrivateFormData = axios.create({
   headers: {
     "Content-Type": "multipart/form-data",
   },
-}) as Axios;
+});
 
 // axiosPrivateJson.interceptors.request.use(async config => {
 //   if (isServer) {
@@ -77,10 +78,45 @@ export const axiosPrivateFormData = axios.create({
 //     }
 //   );
 
+axiosPrivateFormData.interceptors.response.use(
+  response => response,
+  async error => {
+    const originalRequest = error.config;
+
+    if (error.response.status === 401 && !originalRequest._retry) {
+      originalRequest._retry = true;
+
+      await refresh();
+
+      return axiosPrivateFormData(originalRequest);
+    }
+
+    return Promise.reject(error);
+  },
+);
+
+axiosPrivateJson.interceptors.response.use(
+  response => response,
+  async error => {
+    const originalRequest = error.config;
+
+    if (error.response.status === 401 && !originalRequest._retry) {
+      originalRequest._retry = true;
+
+      await refresh();
+
+      return axiosPrivateJson(originalRequest);
+    }
+
+    return Promise.reject(error);
+  },
+);
+
 axiosPrivateFormData.interceptors.response.use(async response => {
   if ((response.data.status = 201 && response.config.url === "/cards")) {
     toast.success("Нова картка успішно додана");
   }
+
   return response;
 });
 

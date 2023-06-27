@@ -8,7 +8,7 @@ import { global } from "../styles/globals-style";
 import { theme } from "../theme";
 import Script from "next/script";
 import { useEffect, useState } from "react";
-import { SessionProvider } from "next-auth/react";
+
 import React from "react";
 import ErrorBoundary from "@/components/ErrorBoundary";
 
@@ -25,31 +25,29 @@ export default function App({
   }, []);
   return (
     <>
-      <SessionProvider session={session}>
-        <ThemeProvider theme={theme}>
-          <Global styles={global} />
-          {useScript && (
-            <>
-              <Script
-                src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_KEY}`}
-                strategy="afterInteractive"
-              />
-              <Script id="google-analytics" strategy="afterInteractive">
-                {`
+      <ThemeProvider theme={theme}>
+        <Global styles={global} />
+        {useScript && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_KEY}`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_KEY}');
     `}
-              </Script>
-            </>
-          )}
-          <ErrorBoundary>
-            <Component {...pageProps} />
-          </ErrorBoundary>
-          <ToastContainer />
-        </ThemeProvider>
-      </SessionProvider>
+            </Script>
+          </>
+        )}
+        <ErrorBoundary>
+          <Component {...pageProps} />
+        </ErrorBoundary>
+        <ToastContainer />
+      </ThemeProvider>
     </>
   );
 }

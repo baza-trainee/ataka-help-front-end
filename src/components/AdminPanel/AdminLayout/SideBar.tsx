@@ -12,20 +12,23 @@ import {
 } from "./AdminLatout.styled";
 
 import category from "public/icons/icon-checklist.svg";
-import { logout, refresh } from "@/services";
-import { signOut } from "next-auth/react";
+import { logout } from "@/services";
 
 const SideBar: FC = () => {
   const router = useRouter();
+
   const handleSignOut = async () => {
     try {
       await logout();
+      sessionStorage.removeItem(
+        `${process.env.NEXT_PUBLIC_SESSION_STORAGE_KEY}`,
+      );
       router.push("/login");
-      // await signOut({ callbackUrl: "/login" });
     } catch (error) {
       console.log(error);
     }
   };
+
   return (
     <Aside>
       <Image src={"/images/logo.png"} alt="logo" width={177} height={68} />
@@ -78,7 +81,7 @@ const SideBar: FC = () => {
         />
         Змінити пароль
       </LinkStyled>
-      <button onClick={refresh}>Refresh</button>
+
       <ExitButton onClick={() => handleSignOut()}>
         <Icon /> Вихід
       </ExitButton>

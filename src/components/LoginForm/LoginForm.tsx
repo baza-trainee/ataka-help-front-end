@@ -1,5 +1,3 @@
-"use client";
-
 import { FC, useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -42,14 +40,13 @@ const LoginForm: FC = () => {
   const handleLogin = async (data: ILoginForm) => {
     try {
       setIsLoading(true);
-      await loginUser(data);
+      const response = await loginUser(data);
+      sessionStorage.setItem(
+        `${process.env.NEXT_PUBLIC_SESSION_STORAGE_KEY}`,
+        `${process.env.NEXT_PUBLIC_SESSION_STORAGE_VALUE}`,
+      );
+
       router.push("/admin");
-      // await signIn("credentials", {
-      //   login: data.login,
-      //   password: data.password,
-      //   redirect: true,
-      //   callbackUrl: "/admin",
-      // });
     } catch (error) {
       console.log(error);
     } finally {
