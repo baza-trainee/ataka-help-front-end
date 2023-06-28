@@ -47,7 +47,7 @@ const ContactsSection: FC<ContactsPropsType> = ({
                 height={24}
                 style={{ fill: "white" }}
               />
-              <Contact ata-testid="Phonenumbers">{phone1}</Contact>
+              <Contact data-testid="Phonenumber1">{phone1}</Contact>
             </FlexContainer>
             <FlexContainer>
               <Image
@@ -57,7 +57,7 @@ const ContactsSection: FC<ContactsPropsType> = ({
                 height={24}
                 style={{ fill: "white" }}
               />
-              <Contact>{phone2}</Contact>
+              <Contact data-testid="Phonenumber2">{phone2}</Contact>
             </FlexContainer>
             <Email data-testid="ContactSubtitle2">Електронна пошта</Email>
             <FlexContainer>

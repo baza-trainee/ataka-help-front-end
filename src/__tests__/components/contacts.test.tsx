@@ -10,7 +10,11 @@ describe("aboutProject", () => {
   it("renders appropriate title", () => {
     render(
       <ThemeProvider theme={theme}>
-        <Contacts />
+        <Contacts contacts={{
+          phone1: "+38 093 802 7214",
+          phone2: "+38 063 628 6630",
+          email: "info@ataka-help.tech"
+        }} />
       </ThemeProvider>,
     );
     const header = screen.getByTestId("ContactHeading");
@@ -21,7 +25,11 @@ describe("aboutProject", () => {
   it("renders appropriate subtitle", () => {
     render(
       <ThemeProvider theme={theme}>
-        <Contacts />
+        <Contacts contacts={{
+          phone1: "+38 093 802 7214",
+          phone2: "+38 063 628 6630",
+          email: "info@ataka-help.tech"
+        }} />
       </ThemeProvider>,
     );
     const header = screen.getByTestId("ContactSubtitle1");
@@ -32,7 +40,11 @@ describe("aboutProject", () => {
   it("renders appropriate subtitle", () => {
     render(
       <ThemeProvider theme={theme}>
-        <Contacts />
+        <Contacts contacts={{
+          phone1: "+38 093 802 7214",
+          phone2: "+38 063 628 6630",
+          email: "info@ataka-help.tech"
+        }} />
       </ThemeProvider>,
     );
     const header = screen.getByTestId("ContactSubtitle2");
@@ -43,7 +55,11 @@ describe("aboutProject", () => {
   it("renders appropriate text", () => {
     render(
       <ThemeProvider theme={theme}>
-        <Contacts />
+        <Contacts contacts={{
+          phone1: "+38 093 802 7214",
+          phone2: "+38 063 628 6630",
+          email: "info@ataka-help.tech"
+        }} />
       </ThemeProvider>,
     );
     const paragraph = screen.getByTestId("ContactInfo");
@@ -54,7 +70,11 @@ describe("aboutProject", () => {
   it("renders appropriate image", () => {
     render(
       <ThemeProvider theme={theme}>
-        <Contacts />
+        <Contacts contacts={{
+          phone1: "+38 093 802 7214",
+          phone2: "+38 063 628 6630",
+          email: "info@ataka-help.tech"
+        }} />
       </ThemeProvider>,
     );
     const image = screen.getByAltText("Universe");
@@ -64,7 +84,11 @@ describe("aboutProject", () => {
   it("renders appropriate image", () => {
     render(
       <ThemeProvider theme={theme}>
-        <Contacts />
+        <Contacts contacts={{
+          phone1: "+38 093 802 7214",
+          phone2: "+38 063 628 6630",
+          email: "info@ataka-help.tech"
+        }} />
       </ThemeProvider>,
     );
     const image = screen.getAllByAltText("Phone icon");
@@ -75,25 +99,46 @@ describe("aboutProject", () => {
   it("renders appropriate image", () => {
     render(
       <ThemeProvider theme={theme}>
-        <Contacts />
+        <Contacts contacts={{
+          phone1: "+38 093 802 7214",
+          phone2: "+38 063 628 6630",
+          email: "info@ataka-help.tech"
+        }} />
       </ThemeProvider>,
     );
     const image = screen.getByAltText("Email icon");
 
     expect(image).toBeInTheDocument();
   });
-  it("renders appropriate text", () => {
+  it("renders appropriate phone", () => {
     render(
       <ThemeProvider theme={theme}>
-        <Contacts />
+        <Contacts contacts={{
+          phone1: "+38 093 802 7214",
+          phone2: "+38 063 628 6630",
+          email: "info@ataka-help.tech"
+        }} />
       </ThemeProvider>,
     );
-    const paragraph = screen.getAllByTestId("Phonenumbers"); 
+    const phone = screen.getByTestId("Phonenumber1"); 
 
-    expect(paragraph[0]).toBeInTheDocument();
-    expect(paragraph[0]).toHaveTextContent("+38 093 802 7214");
-    expect(paragraph[1]).toBeInTheDocument();
-    expect(paragraph[1]).toHaveTextContent("+38 063 628 6630");
+    expect(phone).toBeInTheDocument();
+    expect(phone).toHaveTextContent("+38 093 802 7214");
+  });
+  it("renders appropriate phone", () => {
+    render(
+      <ThemeProvider theme={theme}>
+        <Contacts contacts={{
+          phone1: "+38 093 802 7214",
+          phone2: "+38 063 628 6630",
+          email: "info@ataka-help.tech"
+        }} />
+      </ThemeProvider>,
+    );
+    const phone = screen.getByTestId("Phonenumber2"); 
+
+    expect(phone).toBeInTheDocument();
+    expect(phone).toHaveTextContent("+38 063 628 6630");
   });
   
 });
