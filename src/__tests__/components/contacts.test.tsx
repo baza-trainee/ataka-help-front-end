@@ -6,7 +6,7 @@ import { Global, ThemeProvider } from "@emotion/react";
 import { theme } from "../../theme";
 import Contacts from "@/components/Contacts/Contacts";
 
-describe("aboutProject", () => {
+describe("contacts", () => {
   it("renders appropriate title", () => {
     render(
       <ThemeProvider theme={theme}>

@@ -7,7 +7,7 @@ import { theme } from "../../theme";
 import FeedbackForm from "@/components/FeedbackForm/FeedbackForm";
 
 
-describe("aboutProject", () => {
+describe("feedbackForm", () => {
   it("renders appropriate title", () => {
     render(
       <ThemeProvider theme={theme}>
