@@ -8,79 +8,60 @@ export const ModalWrapper = styled.div`
   top: 0;
   width: 100vw;
   height: 100vh;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   background-color: ${({ theme }) => theme.colors.white[100]};
   z-index: 3;
 `;
 
-export const ModalHeader = styled(Container)`
+export const ModalHeader = styled.header`
   display: flex;
   justify-content: space-between;
-  min-height: auto;
+
   width: 100%;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding: 40px 16px 20px;
+
   align-items: center;
   filter: drop-shadow(0px 4px 4px #0000003e);
   background: ${({ theme }) => theme.colors.blue[100]};
 
-  @media screen and (min-width: ${({ theme }) => theme.breakpoints[0]}) {
-    width: 100%;
-  }
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
-    width: 100%;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    align-items: center;
+    height: 100px;
+    padding: 30px 32px;
   }
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
-    width: 100%;
-    padding-top: 44px;
-    padding-bottom: 44px;
+    height: 140px;
+    padding: 44px 70px;
   }
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[3]}) {
-    width: 100%;
-    padding-top: 48px;
-    padding-bottom: 49px;
+    height: 180px;
+    padding: 48px 80px;
   }
 `;
 
-export const ModalFooter = styled(Container)`
-  min-height: auto;
-  height: 40px;
+export const ModalFooter = styled.div`
+  height: 100px;
+
   width: 100%;
   background: ${({ theme }) => theme.colors.blue[100]};
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[0]}) {
-    width: 100%;
   }
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
-    width: 100%;
     height: 48px;
   }
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
-    width: 100%;
     height: 90px;
   }
 `;
 
 export const ModalBody = styled(Container)`
   min-height: auto;
-  height: calc(100% - 80px - 40px);
-  width: 100%;
+  height: calc(100% - 80px - 100px);
   overflow: auto;
 
-  @media screen and (min-width: ${({ theme }) => theme.breakpoints[0]}) {
-    width: 100%;
-  }
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
-    width: 100%;
     height: calc(100% - 100px - 48px);
   }
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
-    width: 100%;
     height: calc(100% - 180px - 90px);
   }
 `;

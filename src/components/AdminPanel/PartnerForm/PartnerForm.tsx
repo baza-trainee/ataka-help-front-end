@@ -1,4 +1,5 @@
 import { FC, useState } from "react";
+import { toast } from "react-toastify";
 import { useRouter } from "next/router";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -45,9 +46,10 @@ const PartnerForm: FC = () => {
     try {
       setIsLoading(true);
       await sendPartner(formData);
+      toast.success("Нового партнера успішно додано");
       router.push("/admin/partners");
     } catch (e) {
-      return;
+      toast.error("Сталася помилка, спробуйте пізніше");
     } finally {
       setIsLoading(false);
     }

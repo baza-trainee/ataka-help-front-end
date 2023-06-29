@@ -10,7 +10,8 @@ const CardModal: FC<CardModalProps> = ({ description }) => {
     <ListTextStyled>
       {description.map((text, idx) => (
         <ItemTextStyled key={idx}>
-          <TextStyled>{`${idx + 1}. ${text}`}</TextStyled>
+          {idx + 1}
+          <TextStyled>{text}</TextStyled>
         </ItemTextStyled>
       ))}
     </ListTextStyled>

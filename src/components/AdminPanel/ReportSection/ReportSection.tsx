@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import useSWR from "swr";
 import Link from "next/link";
 import { useSWRConfig } from "swr";
@@ -26,8 +27,9 @@ const ReportSection = () => {
     try {
       await deleteReport();
       mutate("report", undefined, { revalidate: false });
+      toast.success("Звіт успішно видалено");
     } catch (e) {
-      return;
+      toast.error("Сталася помилка, спробуйте пізніше");
     }
   };
 

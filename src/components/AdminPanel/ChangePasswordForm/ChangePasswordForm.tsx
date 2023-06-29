@@ -1,26 +1,24 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
 
+import { ChangePasswordScheme } from "@/schemas";
+import { IChangePassword } from "@/types";
 import ButtonSpiner from "@/components/ButtonSpiner";
 import { ErrorMessage, SubmitButton } from "../CommonFormStyles";
 import { Form, Input, Label, Title } from "./ChangePasswordForm.styled";
-
-interface IChangePassword {
-  oldPassword: string;
-  newPassword: string;
-  confirmation: string;
-}
+import { changePassword } from "@/services";
 
 const ChangePasswordForm = () => {
   const [isLoading, setIsLoading] = useState(false);
   const {
     register,
     handleSubmit,
-    control,
     formState: { errors },
   } = useForm<IChangePassword>({
     mode: "all",
-    //   resolver: yupResolver(CardScheme),
+    resolver: yupResolver(ChangePasswordScheme),
     defaultValues: {
       oldPassword: "",
       newPassword: "",
@@ -30,9 +28,10 @@ const ChangePasswordForm = () => {
   const onSubmitHandler: SubmitHandler<IChangePassword> = async data => {
     try {
       setIsLoading(true);
-      console.log(data);
+      await changePassword(data);
+      toast.success("Пароль успішно змінено");
     } catch (error) {
-      console.log(error);
+      toast.error("Сталася помилка, спробуйте пізніше");
     } finally {
       setIsLoading(false);
     }

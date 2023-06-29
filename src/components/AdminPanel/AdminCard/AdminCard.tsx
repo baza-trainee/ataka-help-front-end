@@ -1,4 +1,5 @@
 import { FC, useState } from "react";
+import { toast } from "react-toastify";
 import Image from "next/image";
 
 import { ICard } from "@/types";
@@ -17,7 +18,9 @@ import AdminButtonDelete from "../AdminButtonDelete";
 
 const AdminCard: FC<ICard> = ({ thumb, title, alt, description, id }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-
+  // const myLoader = ({ src }: any) => {
+  //   return `${process.env.NEXT_PUBLIC_API_URL}/${thumb}`;
+  // };
   const openModal = () => {
     setIsModalOpen(true);
   };
@@ -25,8 +28,9 @@ const AdminCard: FC<ICard> = ({ thumb, title, alt, description, id }) => {
   const onClickHandler = async () => {
     try {
       await deleteCard(id);
+      toast.success("Картку успішно видалено");
     } catch (error) {
-      return;
+      toast.error("Сталася помилка, спробуйте пізніше");
     }
   };
 
@@ -36,6 +40,7 @@ const AdminCard: FC<ICard> = ({ thumb, title, alt, description, id }) => {
         <CardContainer>
           <ImageBoxStyled>
             <Image
+              // loader={myLoader}
               src={thumb}
               alt={alt}
               fill

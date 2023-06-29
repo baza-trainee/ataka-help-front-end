@@ -15,6 +15,7 @@ import {
   Text,
   Title,
 } from "./SliderGallery.styled";
+import { toast } from "react-toastify";
 
 const SliderGallery = () => {
   const { data, isLoading } = useSWR("slider", getSlider);
@@ -24,8 +25,9 @@ const SliderGallery = () => {
   const onClickHandler = async (id: string) => {
     try {
       await deleteSlide(id);
+      toast.success("Слайд успішно видалено");
     } catch (error) {
-      return;
+      toast.error("Сталася помилка, спробуйте пізніше");
     }
   };
 

@@ -53,7 +53,7 @@ const Slider: FC<Sliders> = ({ slider }) => {
             </NextArrowButton>
           )}
         >
-          {slider.map(({ id, thumb, title, alt }) => (
+          {slider?.map(({ id, thumb, title, alt }) => (
             <CarouselBox key={id}>
               <Gradient />
               <Image

@@ -1,4 +1,5 @@
 import { FC, useState } from "react";
+import { toast } from "react-toastify";
 import { useRouter } from "next/router";
 import { useForm, useFieldArray, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -63,9 +64,10 @@ const CardForm: FC = () => {
     try {
       setIsLoading(true);
       await sendCard(formData);
+      toast.success("Нова картка успішно додана");
       router.push("/admin/cards");
     } catch (e) {
-      return;
+      toast.error("Сталася помилка, спробуйте пізніше");
     } finally {
       setIsLoading(false);
     }
@@ -110,6 +112,7 @@ const CardForm: FC = () => {
               type="text"
               {...register(`description.${index}.item`)}
               placeholder="Опис пункту в інструкції"
+              style={{ paddingRight: "50px" }}
             />
             {index > 0 && (
               <DeleteFieldButton onClick={() => remove(index)} type="button">
