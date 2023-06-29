@@ -1,5 +1,5 @@
 import type { AppProps } from "next/app";
-import type { Session } from "next-auth";
+
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -14,8 +14,8 @@ import ErrorBoundary from "@/components/ErrorBoundary";
 
 export default function App({
   Component,
-  pageProps: { session, ...pageProps },
-}: AppProps<{ session: Session }>) {
+  pageProps: { ...pageProps },
+}: AppProps) {
   const [useScript, setUseScript] = useState(false);
 
   useEffect(() => {
