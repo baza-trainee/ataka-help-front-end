@@ -6,20 +6,25 @@ import About from "@/components/About";
 import PartnersGallery from "@/components/PartnersGallery";
 import Donate from "@/components/Donate";
 
-import { AboutPagePropsType } from "@/types/PagesTypes";
-import { getFooterData } from "@/services/pagesOperations";
+import { AboutPagePropsType } from "@/types";
+import { getAboutPageData } from "@/services";
 
 export const getStaticProps = async () => {
-  const result = await getFooterData();
+  const result = await getAboutPageData();
   return result;
 };
 
-const Cases: NextPage<AboutPagePropsType> = ({ contacts, report }) => {
+const Cases: NextPage<AboutPagePropsType> = ({
+  contacts,
+  report,
+  slider,
+  partners,
+}) => {
   return (
     <UserLayout title="About" contacts={contacts} report={report}>
-      <Slider />
+      <Slider slider={slider?.slider} />
       <About />
-      <PartnersGallery />
+      <PartnersGallery partners={partners?.partners} total={partners?.total} />
       <Donate />
     </UserLayout>
   );

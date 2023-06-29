@@ -3,17 +3,17 @@ import { FC, useState } from "react";
 import { Cards, ICard } from "@/types";
 
 import { Container, Section } from "../Common";
-import Card from "../Card/Card";
+import Card from "../Card";
 import { ListCardStyled, TitleListStyled } from "./CardsGallery.styled";
-import LoadMoreButton from "../LoadMoreButton/LoadMoreButton";
+import LoadMoreButton from "../LoadMoreButton";
 
 const CardsGallery: FC<Cards> = ({ cards, total }) => {
   const [page, setPage] = useState(2);
-  const [shownCards, setShownCards] = useState(cards.slice(0, 6));
+  const [shownCards, setShownCards] = useState(cards?.slice(0, 6));
 
   const onClickHandler = () => {
     setPage(prev => prev + 1);
-    setShownCards(cards.slice(0, page * 6));
+    setShownCards(cards?.slice(0, page * 6));
   };
 
   return (
@@ -21,17 +21,19 @@ const CardsGallery: FC<Cards> = ({ cards, total }) => {
       <Container>
         <TitleListStyled textAlignM="center">Інциденти</TitleListStyled>
         <ListCardStyled>
-          {shownCards?.map((card: ICard) => (
-            <Card
-              key={card.id}
-              thumb={`${process.env.NEXT_PUBLIC_API_URL}/${card.thumb}`}
-              title={card.title}
-              alt={card.alt}
-              description={card.description}
-            />
-          ))}
+          {shownCards?.length > 0 &&
+            shownCards?.map(({ id, thumb, title, alt, description }: ICard) => (
+              <Card
+                key={id}
+                thumb={`${process.env.NEXT_PUBLIC_API_URL}/${thumb}`}
+                title={title}
+                alt={alt}
+                description={description}
+                id={id}
+              />
+            ))}
         </ListCardStyled>
-        {total > 3 && total > shownCards.length && (
+        {total > 6 && total > shownCards?.length && (
           <LoadMoreButton onClick={onClickHandler} />
         )}
       </Container>

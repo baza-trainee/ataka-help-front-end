@@ -1,47 +1,51 @@
+import { toast } from "react-toastify";
 import useSWR from "swr";
 import Link from "next/link";
+import { useSWRConfig } from "swr";
 
-import { getReportAdmin } from "@/services/adminReportOperations";
-import { deleteReport } from "@/services";
-import { Section } from "../CommonFormStyles";
+import { deleteReport, getReport } from "@/services";
+import Loader from "@/components/Loader";
 import PDFIcon from "../PDFIcon";
 import {
   AddReport,
   Bin,
-  Button,
   DeleteButton,
   Edit,
   IconWrapper,
+  LinkPDF,
   Report,
   StyledIcon,
   StyledLink,
   Text,
 } from "./ReportSection.styled";
 
-const fetcher = async () => {
-  const data = await getReportAdmin();
-  return data;
-};
-
 const ReportSection = () => {
-  const { data, error } = useSWR("report", fetcher);
-  console.log(data);
+  const { mutate } = useSWRConfig();
+  const { data, isLoading } = useSWR("report", getReport);
 
   const deleteDocument = async () => {
     try {
-      const response = await deleteReport();
-      console.log(response);
+      await deleteReport();
+      mutate("report", undefined, { revalidate: false });
+      toast.success("Звіт успішно видалено");
     } catch (e) {
-      console.log(e);
+      toast.error("Сталася помилка, спробуйте пізніше");
     }
   };
 
+  if (isLoading) return <Loader />;
+
   return (
-    <Section>
-      {data && (
+    <>
+      {data ? (
         <Report>
           <PDFIcon />
-          <Button type="button">Звітність</Button>
+          <LinkPDF
+            href={`${process.env.NEXT_PUBLIC_API_URL}/${data.file}`}
+            target="_blank"
+          >
+            Звітність
+          </LinkPDF>
           <StyledLink href={"/admin/report/form"}>
             <Edit />
           </StyledLink>
@@ -49,9 +53,7 @@ const ReportSection = () => {
             <Bin />
           </DeleteButton>
         </Report>
-      )}
-
-      {error && (
+      ) : (
         <AddReport>
           <IconWrapper>
             <Link href={"/admin/report/form"}>
@@ -61,7 +63,7 @@ const ReportSection = () => {
           </IconWrapper>
         </AddReport>
       )}
-    </Section>
+    </>
   );
 };
 

@@ -3,7 +3,7 @@ import type { NextPage } from "next";
 import UserLayout from "@/components/UserLayout";
 import NotFound from "@/components/NotFound";
 
-import { NotFoundPagePropsType } from "@/types/PagesTypes";
+import { NotFoundPagePropsType } from "@/types/pages";
 import { getFooterData } from "@/services/pagesOperations";
 
 export const getStaticProps = async () => {

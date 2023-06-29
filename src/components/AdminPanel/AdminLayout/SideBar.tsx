@@ -1,43 +1,89 @@
 import { FC } from "react";
+import Image from "next/image";
+import { useRouter } from "next/router";
+
+import { logout } from "@/services";
+import category from "/public/icons/icon-checklist.svg";
 import {
   Aside,
-  CategoryImg,
   LinkStyled,
   NavList,
-  PasswordChangeButton,
   ExitButton,
   CantegoryButton,
+  Icon,
 } from "./AdminLatout.styled";
-import Image from "next/image";
-import logo from "public/images/logo.png";
-import logout from "public/icons/icon-logout.svg";
-import settings from "public/icons/icon-setting.svg";
-import category from "public/icons/icon-checklist.svg";
 
 const SideBar: FC = () => {
+  const router = useRouter();
+
+  const handleSignOut = async () => {
+    try {
+      await logout();
+      sessionStorage.removeItem(
+        `${process.env.NEXT_PUBLIC_SESSION_STORAGE_KEY}`,
+      );
+      router.push("/login");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <Aside>
-      <Image src={logo} alt="logo" width={177} />
+      <Image src={"/images/logo.svg"} alt="logo" width={177} height={68} />
       <CantegoryButton imgSrc={category} imgAlt="logo" title="Категорії" />
       <NavList>
-        <LinkStyled href={"/admin/cards"}>Картки</LinkStyled>
-        <LinkStyled href={"/admin/partners"}>Лого партнерів</LinkStyled>
-        <LinkStyled href={"/admin/slider"}>Слайдер</LinkStyled>
-        <LinkStyled href={"/admin/report"}>Звітність</LinkStyled>
-        <LinkStyled href={"/admin/contacts"}>Контакти</LinkStyled>
+        <LinkStyled
+          href={"/admin/cards"}
+          color={router.pathname === "/admin/cards" ? "#618DFE" : "white"}
+        >
+          Картки
+        </LinkStyled>
+        <LinkStyled
+          href={"/admin/partners"}
+          color={router.pathname === "/admin/partners" ? "#618DFE" : "white"}
+        >
+          Лого партнерів
+        </LinkStyled>
+        <LinkStyled
+          href={"/admin/slider"}
+          color={router.pathname === "/admin/slider" ? "#618DFE" : "white"}
+        >
+          Слайдер
+        </LinkStyled>
+        <LinkStyled
+          href={"/admin/report"}
+          color={router.pathname === "/admin/report" ? "#618DFE" : "white"}
+        >
+          Звітність
+        </LinkStyled>
+        <LinkStyled
+          href={"/admin/contacts"}
+          color={router.pathname === "/admin/contacts" ? "#618DFE" : "white"}
+        >
+          Контакти
+        </LinkStyled>
       </NavList>
-      <PasswordChangeButton
-        onClick={() => console.log("should put here open modal function")}
-        imgSrc={settings}
-        imgAlt="settings-icon"
-        title="Змінити пароль"
-      />
-      <ExitButton
-        onClick={() => console.log("should put here open modal function")}
-        imgSrc={logout}
-        imgAlt="logout-icon"
-        title="Вихід"
-      />
+
+      <LinkStyled
+        href={"/admin/change-password"}
+        color={
+          router.pathname === "/admin/change-password" ? "#618DFE" : "white"
+        }
+      >
+        <Image
+          src={"/icons/icon-setting.svg"}
+          width={20}
+          height={20}
+          alt="settings image"
+          style={{ marginRight: "18px" }}
+        />
+        Змінити пароль
+      </LinkStyled>
+
+      <ExitButton onClick={() => handleSignOut()}>
+        <Icon /> Вихід
+      </ExitButton>
     </Aside>
   );
 };

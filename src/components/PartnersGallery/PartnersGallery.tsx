@@ -1,141 +1,50 @@
 import Image from "next/image";
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 
 import LoadMoreButton from "../LoadMoreButton/LoadMoreButton";
 
 import { Section, Container, Title } from "../Common";
-import {
-  List,
-  ImageContainer,
-  ContentWrapper,
-  Wrapper,
-  ListItem,
-} from "./PartnersGallery.styled";
+import { List, ImageContainer, ListItem } from "./PartnersGallery.styled";
+import { Partners } from "@/types";
 
-const PartnersGallery: FC = () => {
+const PartnersGallery: FC<Partners> = ({ partners, total }) => {
+  const [page, setPage] = useState(2);
+  const [shownPartners, setShownPartners] = useState(partners?.slice(0, 10));
+
+  const onClickHandler = () => {
+    setPage(prev => prev + 1);
+    setShownPartners(partners?.slice(0, page * 10));
+  };
+
   return (
-    <Section>
-      <Container>
-        <Wrapper>
-          <ContentWrapper>
+    <>
+      {partners?.length > 0 && (
+        <Section>
+          <Container>
             <Title textAlignM="center">Наші партнери</Title>
             <List>
-              <ListItem>
-                <ImageContainer>
-                  <Image
-                    src={`/images/partner-logo.png`}
-                    alt="Universe"
-                    fill
-                    style={{ objectFit: "cover" }}
-                    sizes="(min-width: 320px) 100px, (min-width: 834px) 170px, (min-width: 1440px) 237px"
-                  />
-                </ImageContainer>
-              </ListItem>
-              <ListItem>
-                <ImageContainer>
-                  <Image
-                    src={`/images/partner-logo.png`}
-                    alt="Universe"
-                    fill
-                    style={{ objectFit: "cover" }}
-                    sizes="(min-width: 320px) 100px, (min-width: 834px) 170px, (min-width: 1440px) 237px"
-                  />
-                </ImageContainer>
-              </ListItem>
-              <ListItem>
-                <ImageContainer>
-                  <Image
-                    src={`/images/partner-logo.png`}
-                    alt="Universe"
-                    fill
-                    style={{ objectFit: "cover" }}
-                    sizes="(min-width: 320px) 100px, (min-width: 834px) 170px, (min-width: 1440px) 237px"
-                  />
-                </ImageContainer>
-              </ListItem>
-              <ListItem>
-                <ImageContainer>
-                  <Image
-                    src={`/images/partner-logo.png`}
-                    alt="Universe"
-                    fill
-                    style={{ objectFit: "cover" }}
-                    sizes="(min-width: 320px) 100px, (min-width: 834px) 170px, (min-width: 1440px) 237px"
-                  />
-                </ImageContainer>
-              </ListItem>
-              <ListItem>
-                <ImageContainer>
-                  <Image
-                    src={`/images/partner-logo.png`}
-                    alt="Universe"
-                    fill
-                    style={{ objectFit: "cover" }}
-                    sizes="(min-width: 320px) 100px, (min-width: 834px) 170px, (min-width: 1440px) 237px"
-                  />
-                </ImageContainer>
-              </ListItem>
-              <ListItem>
-                <ImageContainer>
-                  <Image
-                    src={`/images/partner-logo.png`}
-                    alt="Universe"
-                    fill
-                    style={{ objectFit: "cover" }}
-                    sizes="(min-width: 320px) 100px, (min-width: 834px) 170px, (min-width: 1440px) 237px"
-                  />
-                </ImageContainer>
-              </ListItem>
-              <ListItem>
-                <ImageContainer>
-                  <Image
-                    src={`/images/partner-logo.png`}
-                    alt="Universe"
-                    fill
-                    style={{ objectFit: "cover" }}
-                    sizes="(min-width: 320px) 100px, (min-width: 834px) 170px, (min-width: 1440px) 237px"
-                  />
-                </ImageContainer>
-              </ListItem>
-              <ListItem>
-                <ImageContainer>
-                  <Image
-                    src={`/images/partner-logo.png`}
-                    alt="Universe"
-                    fill
-                    style={{ objectFit: "cover" }}
-                    sizes="(min-width: 320px) 100px, (min-width: 834px) 170px, (min-width: 1440px) 237px"
-                  />
-                </ImageContainer>
-              </ListItem>
-              <ListItem>
-                <ImageContainer>
-                  <Image
-                    src={`/images/partner-logo.png`}
-                    alt="Universe"
-                    fill
-                    style={{ objectFit: "cover" }}
-                    sizes="(min-width: 320px) 100px, (min-width: 834px) 170px, (min-width: 1440px) 237px"
-                  />
-                </ImageContainer>
-              </ListItem>
-              <ListItem>
-                <ImageContainer>
-                  <Image
-                    src={`/images/partner-logo.png`}
-                    alt="Universe"
-                    fill
-                    style={{ objectFit: "cover" }}
-                    sizes="(min-width: 320px) 100px, (min-width: 834px) 170px, (min-width: 1440px) 237px"
-                  />
-                </ImageContainer>
-              </ListItem>
+              {shownPartners.map(({ id, thumb, alt }) => (
+                <ListItem key={id}>
+                  <ImageContainer>
+                    <Image
+                      src={`${process.env.NEXT_PUBLIC_API_URL}/${thumb}`}
+                      alt={alt}
+                      fill
+                      style={{ objectFit: "cover" }}
+                      sizes="(min-width: 320px) 100px, (min-width: 834px) 170px, (min-width: 1440px) 237px"
+                    />
+                  </ImageContainer>
+                </ListItem>
+              ))}
             </List>
-          </ContentWrapper>
-          <LoadMoreButton />
-        </Wrapper>
-      </Container>
-    </Section>
+
+            {total > 10 && total > shownPartners.length && (
+              <LoadMoreButton onClick={onClickHandler} />
+            )}
+          </Container>
+        </Section>
+      )}
+    </>
   );
 };
 

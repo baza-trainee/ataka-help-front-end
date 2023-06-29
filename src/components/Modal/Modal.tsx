@@ -12,7 +12,6 @@ import {
   ModalWrapper,
 } from "./Modal.styled";
 import closeIcon from "public/icons/close.svg";
-import logo from "/public/images/logo.png";
 
 const Modal: FC<IModal> = ({ children, setIsModalOpen }) => {
   const [mounted, setMounted] = useState(false);
@@ -45,7 +44,7 @@ const Modal: FC<IModal> = ({ children, setIsModalOpen }) => {
               <LogoWrapper>
                 <Image
                   fill
-                  src={logo}
+                  src={"/images/logo.svg"}
                   alt="logo"
                   sizes="(min-width: 1440px) 241px, (min-width: 834px) 97px, 117px"
                 />

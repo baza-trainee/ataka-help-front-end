@@ -8,14 +8,7 @@ const nextConfig = {
   },
 
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: `${process.env.NEXT_PUBLIC_HOSTNAME}`,
-        port: "",
-        pathname: `${process.env.NEXT_PUBLIC_PATHNAME}`,
-      },
-    ],
+    domains: [`${process.env.NEXT_PUBLIC_HOSTNAME}`],
   },
   experimental: {
     outputFileTracingIgnores: ["**canvas**"],

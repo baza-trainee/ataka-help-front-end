@@ -45,7 +45,7 @@ export const ButtonContainer = styled.div`
     align-items: center;
     width: 560px;
     height: 433px;
-    background-color: ${({ theme }) => theme.colors.blue[900]};
+    background-color: ${({ theme }) => theme.colors.blue[500]};
   }
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[3]}) {
     width: 627px;

@@ -1,5 +1,13 @@
 import styled from "@emotion/styled";
 
+export const BackdropCookieBanner = styled.div`
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+`;
+
 export const Box = styled.div`
   position: fixed;
   left: 50%;

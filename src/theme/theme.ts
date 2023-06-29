@@ -27,6 +27,7 @@ export const theme = {
 
   radii: {
     sm: "5px", //card-button, buttons, feedback-form inputs
+    md: "12px",
   },
 
   colors: {
@@ -62,6 +63,7 @@ export const theme = {
       1000: "#5D87F4", //active submenu (useful-info) link
       1100: "#9fbdd7", //admin input border
       1200: "#2F88FF", //plus icon
+      1300: "#DFE8FF", //donate-button color bg
     },
 
     red: {

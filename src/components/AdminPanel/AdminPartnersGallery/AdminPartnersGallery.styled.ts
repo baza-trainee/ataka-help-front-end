@@ -5,7 +5,7 @@ import Link from "next/link";
 export const AdminListPartnersStyled = styled.ul`
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
   gap: 24px;
   flex-wrap: wrap;
 `;

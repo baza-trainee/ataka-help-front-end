@@ -36,10 +36,9 @@ const ContactsSection: FC<ContactsPropsType> = ({
           </ImageContainer>
           <DesktopContainer>
             <HiddenTitle mob="none">
-              <Title textAlignM="left">Контакти</Title>
-            </HiddenTitle>
-            <Phone>Телефони</Phone>
-
+              <Title textAlignM="left" data-testid="ContactHeading">Контакти</Title>
+            </HiddenTitle>                                  
+            <Phone data-testid="ContactSubtitle1">Телефони</Phone>
             <FlexContainer>
               <Image
                 src={`/icons/phone.svg`}
@@ -48,7 +47,7 @@ const ContactsSection: FC<ContactsPropsType> = ({
                 height={24}
                 style={{ fill: "white" }}
               />
-              <Contact>{phone1}</Contact>
+              <Contact ata-testid="Phonenumbers">{phone1}</Contact>
             </FlexContainer>
             <FlexContainer>
               <Image
@@ -60,8 +59,7 @@ const ContactsSection: FC<ContactsPropsType> = ({
               />
               <Contact>{phone2}</Contact>
             </FlexContainer>
-
-            <Email>Електронна пошта</Email>
+            <Email data-testid="ContactSubtitle2">Електронна пошта</Email>
             <FlexContainer>
               <Image
                 src={`/icons/email.svg`}
@@ -69,8 +67,8 @@ const ContactsSection: FC<ContactsPropsType> = ({
                 width={24}
                 height={24}
                 style={{ fill: "white" }}
-              />
-              <Contact>{email}</Contact>
+              />             
+              <Contact data-testid="ContactInfo">{email}</Contact>
             </FlexContainer>
           </DesktopContainer>
         </TabletContainer>

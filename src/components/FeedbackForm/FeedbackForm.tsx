@@ -81,8 +81,8 @@ const FeedbackForm: FC = () => {
     } else {
       setIsChecked(false)
     }
-  };
-
+  };            
+        
    return (
     (<Section pbd="100">
     <Container>    
@@ -90,10 +90,11 @@ const FeedbackForm: FC = () => {
         <Title>Зворотний зв`язок</Title>
         <Form onSubmit={handleSubmit(sendFeedback)}>
           <Wrapper>
-            <InputLabel>
+            <InputLabel data-testid="NameLabel">
               Ім`я*
               <Input
                 type="name"
+
                 autoComplete="off"
                 {...register("name")}
                 className={errors.name && "invalid"}
@@ -103,8 +104,8 @@ const FeedbackForm: FC = () => {
                   <ErrorMessage>{errors.name?.message}</ErrorMessage>
                 </MessageWrapper>
               )}
-            </InputLabel>
-            <InputLabel>
+            </InputLabel>        
+            <InputLabel data-testid="EmailLabel">
               Email*
               <Input
                 type="email"
@@ -119,9 +120,10 @@ const FeedbackForm: FC = () => {
               )}
             </InputLabel>
           </Wrapper>
-          <InputLabel>
+          <InputLabel data-testid="MessageLabel">
             Повідомлення*
             <Comment
+              data-testid="MessageInput"
               autoComplete="off"
               {...register("comment")}
               className={errors.comment && "invalid"}
@@ -139,6 +141,7 @@ const FeedbackForm: FC = () => {
               size={"normal"}
               ref={captchaRef}
               onChange={handleCaptcha}
+              data-testid="Captcha"
             />
           </CaptchaWrapper>
           <Button
@@ -156,4 +159,3 @@ const FeedbackForm: FC = () => {
 };
 
 export default FeedbackForm;
-

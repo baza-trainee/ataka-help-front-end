@@ -6,6 +6,7 @@ export const List = styled.ul`
   justify-content: start;
   row-gap: 20px;
   column-gap: 20px;
+  margin-top: 32px;
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[0]}) {
     column-gap: 30px;
@@ -15,11 +16,13 @@ export const List = styled.ul`
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
     column-gap: 24px;
     row-gap: 24px;
+    margin-top: 48px;
   }
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
     column-gap: 22px;
     row-gap: 22px;
+    margin-top: 60px;
   }
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[3]}) {
@@ -32,7 +35,7 @@ export const ListItem = styled.li`
   width: calc((100% - 20px * 2) / 3);
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[0]}) {
-    width: calc((100% - 31px * 2) / 3);
+    width: calc((100% - 30px * 2) / 3);
   }
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
@@ -50,9 +53,14 @@ export const ListItem = styled.li`
 
 export const ImageContainer = styled.div`
   position: relative;
-  width: 100px;
-  height: 100px;
+  width: 90px;
+  height: 90px;
   overflow: hidden;
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[0]}) {
+    width: 100px;
+    height: 100px;
+  }
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
     width: 158px;
@@ -67,34 +75,5 @@ export const ImageContainer = styled.div`
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[3]}) {
     width: 237px;
     height: 237px;
-  }
-`;
-
-export const ContentWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-
-  @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
-    gap: 48px;
-  }
-
-  @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
-    gap: 60px;
-  }
-`;
-
-export const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 32px;
-
-  @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
-    gap: 48px;
-  }
-
-  @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
-    gap: 56px;
   }
 `;
