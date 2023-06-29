@@ -5,7 +5,7 @@ export const Button = styled.button`
   padding-top: 16px;
   padding-bottom: 16px;
   border: 2px solid ${({ theme }) => theme.colors.blue[300]};
-  background-color: transparent;
+  background-color: ${({ theme }) => theme.colors.blue[1300]};
   color: ${({ theme }) => theme.colors.blue[300]};
   font-weight: ${({ theme }) => theme.fontWeights.semibold};
 

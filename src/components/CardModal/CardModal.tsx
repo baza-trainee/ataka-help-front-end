@@ -1,5 +1,10 @@
 import { FC } from "react";
-import { ItemTextStyled, ListTextStyled, TextStyled } from "./CardModal.styled";
+import {
+  ItemTextStyled,
+  ListContainer,
+  ListTextStyled,
+  TextStyled,
+} from "./CardModal.styled";
 
 interface CardModalProps {
   description: string[];
@@ -7,13 +12,15 @@ interface CardModalProps {
 
 const CardModal: FC<CardModalProps> = ({ description }) => {
   return (
-    <ListTextStyled>
-      {description.map((text, idx) => (
-        <ItemTextStyled key={idx}>
-          <TextStyled>{`${idx + 1}. ${text}`}</TextStyled>
-        </ItemTextStyled>
-      ))}
-    </ListTextStyled>
+    <ListContainer>
+      <ListTextStyled>
+        {description.map((text, idx) => (
+          <ItemTextStyled key={idx}>
+            <TextStyled>{text}</TextStyled>
+          </ItemTextStyled>
+        ))}
+      </ListTextStyled>
+    </ListContainer>
   );
 };
 

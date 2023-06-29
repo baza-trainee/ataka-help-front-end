@@ -1,13 +1,12 @@
 import { FC } from "react";
+import Image from "next/image";
 import { useRouter } from "next/router";
+
 import {
   HeaderWrapper,
   LogoNavWrapper,
   CloseButton,
 } from "./HeaderLogin.styled";
-import Image from "next/image";
-import closeIcon from "/public/icons/close.svg";
-import logoImage from "/public/images/logo.png";
 
 const HeaderLogin: FC = () => {
   const router = useRouter();
@@ -20,14 +19,17 @@ const HeaderLogin: FC = () => {
     <HeaderWrapper>
       <LogoNavWrapper>
         <Image
-          style={{ width: "151px", height: "58px" }}
-          src={logoImage}
+          src={"/images/logo.svg"}
+          width={151}
+          height={58}
           alt="logoImage"
         />
+
         <CloseButton onClick={handleCloseButtonClick}>
           <Image
-            style={{ width: "24px", height: "24px" }}
-            src={closeIcon}
+            width={24}
+            height={24}
+            src={"/icons/close.svg"}
             alt="closeIcon"
           />
         </CloseButton>

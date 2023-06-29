@@ -1,8 +1,8 @@
-import { FC, useRef, useState } from "react";
+import { FC, useState } from "react";
 
 import { HeaderWrapper, LogoNavWrapper, OpenLinkButton } from "./Header.styled";
 import Navigation from "../Navigation/Navigation";
-import PaymentButton from "../PaymentButton/PaymentButton";
+
 import Logo from "../Logo/Logo";
 import NavigationMobile from "../Navigation/NavigationMobile";
 import { Container, Section } from "../Common";

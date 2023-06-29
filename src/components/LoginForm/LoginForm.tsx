@@ -19,6 +19,7 @@ import {
   MessageWrapper,
   ParentContainer,
 } from "./LoginForm.styled";
+import { toast } from "react-toastify";
 
 const LoginForm: FC = () => {
   const router = useRouter();
@@ -40,15 +41,19 @@ const LoginForm: FC = () => {
   const handleLogin = async (data: ILoginForm) => {
     try {
       setIsLoading(true);
-      const response = await loginUser(data);
+      await loginUser(data);
       sessionStorage.setItem(
         `${process.env.NEXT_PUBLIC_SESSION_STORAGE_KEY}`,
         `${process.env.NEXT_PUBLIC_SESSION_STORAGE_VALUE}`,
       );
 
       router.push("/admin");
-    } catch (error) {
-      console.log(error);
+    } catch (error: any) {
+      if (error.response.status === 401) {
+        toast.error("Невірний логін або пароль");
+      } else {
+        toast.error("Сталася помилка! Спробуйте пізніше");
+      }
     } finally {
       setIsLoading(false);
     }

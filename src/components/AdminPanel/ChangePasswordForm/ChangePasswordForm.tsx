@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
@@ -14,7 +15,6 @@ const ChangePasswordForm = () => {
   const {
     register,
     handleSubmit,
-    control,
     formState: { errors },
   } = useForm<IChangePassword>({
     mode: "all",
@@ -28,10 +28,10 @@ const ChangePasswordForm = () => {
   const onSubmitHandler: SubmitHandler<IChangePassword> = async data => {
     try {
       setIsLoading(true);
-      const response = await changePassword(data);
-      console.log(response);
+      await changePassword(data);
+      toast.success("Пароль успішно змінено");
     } catch (error) {
-      console.log(error);
+      toast.error("Сталася помилка, спробуйте пізніше");
     } finally {
       setIsLoading(false);
     }

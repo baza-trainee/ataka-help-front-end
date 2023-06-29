@@ -2,6 +2,8 @@ import { FC } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 
+import { logout } from "@/services";
+import category from "/public/icons/icon-checklist.svg";
 import {
   Aside,
   LinkStyled,
@@ -10,9 +12,6 @@ import {
   CantegoryButton,
   Icon,
 } from "./AdminLatout.styled";
-
-import category from "public/icons/icon-checklist.svg";
-import { logout } from "@/services";
 
 const SideBar: FC = () => {
   const router = useRouter();
@@ -31,7 +30,7 @@ const SideBar: FC = () => {
 
   return (
     <Aside>
-      <Image src={"/images/logo.png"} alt="logo" width={177} height={68} />
+      <Image src={"/images/logo.svg"} alt="logo" width={177} height={68} />
       <CantegoryButton imgSrc={category} imgAlt="logo" title="Категорії" />
       <NavList>
         <LinkStyled

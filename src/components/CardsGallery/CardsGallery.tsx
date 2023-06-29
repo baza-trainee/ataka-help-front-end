@@ -3,9 +3,9 @@ import { FC, useState } from "react";
 import { Cards, ICard } from "@/types";
 
 import { Container, Section } from "../Common";
-import Card from "../Card/Card";
+import Card from "../Card";
 import { ListCardStyled, TitleListStyled } from "./CardsGallery.styled";
-import LoadMoreButton from "../LoadMoreButton/LoadMoreButton";
+import LoadMoreButton from "../LoadMoreButton";
 
 const CardsGallery: FC<Cards> = ({ cards, total }) => {
   const [page, setPage] = useState(2);
@@ -33,7 +33,7 @@ const CardsGallery: FC<Cards> = ({ cards, total }) => {
               />
             ))}
         </ListCardStyled>
-        {total > 6 && total > shownCards.length && (
+        {total > 6 && total > shownCards?.length && (
           <LoadMoreButton onClick={onClickHandler} />
         )}
       </Container>
