@@ -15,6 +15,10 @@ import {
 import { Section } from "../Common/Section.styled";
 
 const Slider: FC<Sliders> = ({ slider }) => {
+  const myLoader = ({ src }: any) => {
+    return `${src}`;
+  };
+
   return (
     <Section>
       <div style={{ position: "relative" }}>
@@ -57,7 +61,8 @@ const Slider: FC<Sliders> = ({ slider }) => {
             <CarouselBox key={id}>
               <Gradient />
               <Image
-                src={`${process.env.NEXT_PUBLIC_API_URL}/${thumb}`}
+                loader={myLoader}
+                src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/${thumb}`}
                 alt={alt}
                 fill
                 style={{

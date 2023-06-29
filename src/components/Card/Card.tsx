@@ -17,6 +17,10 @@ import CardModal from "../CardModal/CardModal";
 const Card: FC<ICard> = ({ thumb, title, alt, description, id }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const myLoader = ({ src }: any) => {
+    return `${process.env.NEXT_PUBLIC_IMAGE_URL}/${thumb}`;
+  };
+
   const openModal = () => {
     setIsModalOpen(true);
   };
@@ -25,7 +29,8 @@ const Card: FC<ICard> = ({ thumb, title, alt, description, id }) => {
       <ItemCardStyled>
         <ImageBoxStyled id={id}>
           <Image
-            src={thumb}
+            loader={myLoader}
+            src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/${thumb}`}
             alt={alt}
             fill
             style={{ objectFit: "cover" }}

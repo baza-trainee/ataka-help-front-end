@@ -12,7 +12,9 @@ export const axiosPublic = axios.create({
     "Content-Type": "application/json",
   },
 });
-
+export const axiosReport = axios.create({
+  baseURL: process.env.NEXT_PUBLIC_IMAGE_URL,
+});
 export const axiosPrivateJson = axios.create({
   baseURL: BASE_URL,
   withCredentials: true,

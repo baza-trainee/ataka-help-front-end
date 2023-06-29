@@ -22,7 +22,7 @@ const AdminCardsGallery: FC = () => {
         data.cards?.map(({ id, thumb, title, alt, description }) => (
           <Card
             key={id}
-            thumb={`${process.env.NEXT_PUBLIC_API_URL}/${thumb}`}
+            thumb={thumb}
             title={title}
             alt={alt}
             description={description}
