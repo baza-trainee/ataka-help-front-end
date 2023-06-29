@@ -56,18 +56,12 @@ export const ModalFooter = styled.div`
 export const ModalBody = styled(Container)`
   min-height: auto;
   height: calc(100% - 80px - 100px);
-  /* width: 100%; */
   overflow: auto;
 
-  @media screen and (min-width: ${({ theme }) => theme.breakpoints[0]}) {
-    /* width: 100%; */
-  }
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
-    /* width: 100%; */
     height: calc(100% - 100px - 48px);
   }
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
-    /* width: 100%; */
     height: calc(100% - 180px - 90px);
   }
 `;
