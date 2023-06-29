@@ -1,7 +1,6 @@
 import Head from "next/head";
 import type { NextPage } from "next";
 import LoginForm from "@/components/LoginForm";
-import { useSession } from "next-auth/react";
 import HeaderLogin from "@/components/HeaderLogin/HeaderLogin";
 
 const Login: NextPage = () => {
