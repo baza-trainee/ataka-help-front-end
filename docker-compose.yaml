@@ -1,0 +1,19 @@
+version: '3.9'
+
+services:
+    ataka-front:
+      env_file:
+        - .env.local
+      build: .
+      container_name: ataka-front
+      restart: unless-stopped
+      ports:
+        - ${APP_PORT}:${APP_PORT}
+      networks:
+        - localnet
+
+
+networks:
+  localnet:
+    external: true
+    name: localnet
