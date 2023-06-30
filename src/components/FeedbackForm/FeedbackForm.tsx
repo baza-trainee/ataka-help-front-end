@@ -24,7 +24,7 @@ import {
 
 const FeedbackForm: FC = () => {
   const captchaRef = useRef<ReCAPTCHA>(null);
-  const [isChecked, setIsChecked] = useState(false)
+  const [isChecked, setIsChecked] = useState(false);
 
   const {
     register,
@@ -49,7 +49,7 @@ const FeedbackForm: FC = () => {
     }
   }, [formState.isSubmitSuccessful, reset]);
 
-  const sendFeedback = async (data: IFeedbackForm) => {   
+  const sendFeedback = async (data: IFeedbackForm) => {
     const token = captchaRef.current?.getValue();
 
     const formData = {
@@ -58,104 +58,105 @@ const FeedbackForm: FC = () => {
       token: token,
       comment: data.comment.trim(),
     };
-    if (!token)  {
+    if (!token) {
       toast.success("Підтвердіть, що Ви не робот.");
       setIsChecked(false);
     }
 
     if (token) {
       try {
-        const result = await axiosPublic.post(`/feedback`, formData);  
-        console.log(result)    
+        const result = await axiosPublic.post(`/feedback`, formData);
+        console.log(result);
+        toast.success("Дякуємо за Ваш відгук!");
       } catch (error) {
         console.log(error);
+        toast.error("Сталася помилка... Спробуйте пізніше!");
       }
       captchaRef.current?.reset();
       setIsChecked(false);
-    }    
+    }
   };
 
   const handleCaptcha = () => {
     if (captchaRef.current?.getValue()) {
       setIsChecked(true);
     } else {
-      setIsChecked(false)
+      setIsChecked(false);
     }
-  };            
-        
-   return (
-    (<Section pbd="100">
-    <Container>    
-      <FormWrapper>
-        <Title>Зворотний зв`язок</Title>
-        <Form onSubmit={handleSubmit(sendFeedback)}>
-          <Wrapper>
-            <InputLabel data-testid="NameLabel">
-              Ім`я*
-              <Input
-                type="name"
+  };
 
+  return (
+    <Section pbd="100">
+      <Container>
+        <FormWrapper>
+          <Title>Зворотний зв`язок</Title>
+          <Form onSubmit={handleSubmit(sendFeedback)}>
+            <Wrapper>
+              <InputLabel data-testid="NameLabel">
+                Ім`я*
+                <Input
+                  type="name"
+                  autoComplete="off"
+                  {...register("name")}
+                  className={errors.name && "invalid"}
+                />
+                {errors.name && (
+                  <MessageWrapper>
+                    <ErrorMessage>{errors.name?.message}</ErrorMessage>
+                  </MessageWrapper>
+                )}
+              </InputLabel>
+              <InputLabel data-testid="EmailLabel">
+                Email*
+                <Input
+                  type="email"
+                  autoComplete="off"
+                  {...register("email")}
+                  className={errors.email && "invalid"}
+                />
+                {errors.email && (
+                  <MessageWrapper>
+                    <ErrorMessage>{errors.email?.message}</ErrorMessage>
+                  </MessageWrapper>
+                )}
+              </InputLabel>
+            </Wrapper>
+            <InputLabel data-testid="MessageLabel">
+              Повідомлення*
+              <Comment
+                data-testid="MessageInput"
                 autoComplete="off"
-                {...register("name")}
-                className={errors.name && "invalid"}
+                {...register("comment")}
+                className={errors.comment && "invalid"}
               />
-              {errors.name && (
+              {errors.comment && (
                 <MessageWrapper>
-                  <ErrorMessage>{errors.name?.message}</ErrorMessage>
-                </MessageWrapper>
-              )}
-            </InputLabel>        
-            <InputLabel data-testid="EmailLabel">
-              Email*
-              <Input
-                type="email"
-                autoComplete="off"
-                {...register("email")}
-                className={errors.email && "invalid"}
-              />
-              {errors.email && (
-                <MessageWrapper>
-                  <ErrorMessage>{errors.email?.message}</ErrorMessage>
+                  <ErrorMessage>{errors.comment?.message}</ErrorMessage>
                 </MessageWrapper>
               )}
             </InputLabel>
-          </Wrapper>
-          <InputLabel data-testid="MessageLabel">
-            Повідомлення*
-            <Comment
-              data-testid="MessageInput"
-              autoComplete="off"
-              {...register("comment")}
-              className={errors.comment && "invalid"}
-            />
-            {errors.comment && (
-              <MessageWrapper>
-                <ErrorMessage>{errors.comment?.message}</ErrorMessage>
-              </MessageWrapper>
-            )}
-          </InputLabel>
-          
-          <CaptchaWrapper>
-            <ReCAPTCHA
-              sitekey={`${process.env.NEXT_PUBLIC_SITE_KEY} `}
-              size={"normal"}
-              ref={captchaRef}
-              onChange={handleCaptcha}
-              data-testid="Captcha"
-            />
-          </CaptchaWrapper>
-          <Button
-            type="submit"
-            disabled={!isChecked}
-            onClick={() => sendFeedback}
-          >
-            Надіслати
-          </Button>
-        </Form>
-      </FormWrapper>
-    </Container>
-  </Section>) 
-  ); 
+
+            <CaptchaWrapper>
+              <ReCAPTCHA
+                sitekey={`${process.env.NEXT_PUBLIC_SITE_KEY} `}
+                size={"normal"}
+                ref={captchaRef}
+                onChange={handleCaptcha}
+                data-testid="Captcha"
+              />
+            </CaptchaWrapper>
+            <Button
+              type="submit"
+              disabled={!isChecked}
+              onClick={() => sendFeedback}
+            >
+              Надіслати
+            </Button>
+          </Form>
+        </FormWrapper>
+      </Container>
+    </Section>
+  );
 };
 
 export default FeedbackForm;

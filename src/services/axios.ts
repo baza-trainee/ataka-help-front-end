@@ -1,5 +1,5 @@
 import axios from "axios";
-import { toast } from "react-toastify";
+
 import { refresh } from "./auth";
 
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL,
@@ -73,25 +73,3 @@ axiosPrivateJson.interceptors.response.use(
     return Promise.reject(error);
   },
 );
-
-// axiosPublic.interceptors.response.use(
-//   async response => {
-//     if ((response.data.status = 200 && response.config.url === "/feedback")) {
-//       toast.success("Дякуємо за Ваш відгук!");
-//     }
-//     return response;
-//   },
-//   async error => {
-//     if (!error.response) {
-//       toast.error("Сталася помилка... Спробуйте пізніше!");
-//     }
-//     if (error.response.status === 400 && error.config.url === "/feedback") {
-//       toast.error("Сталася помилка... Спробуйте пізніше!");
-//     }
-//     if (error.response.status === 403 && error.config.url === "/feedback") {
-//       toast.error("Сталася помилка... Спробуйте ще раз!");
-//     }
-
-//     return Promise.reject(error);
-//   },
-// );
