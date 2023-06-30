@@ -11,10 +11,6 @@ const PartnersGallery: FC<Partners> = ({ partners, total }) => {
   const [page, setPage] = useState(2);
   const [shownPartners, setShownPartners] = useState(partners?.slice(0, 10));
 
-  const myLoader = ({ src }: any) => {
-    return `${src}`;
-  };
-
   const onClickHandler = () => {
     setPage(prev => prev + 1);
     setShownPartners(partners?.slice(0, page * 10));
@@ -31,7 +27,6 @@ const PartnersGallery: FC<Partners> = ({ partners, total }) => {
                 <ListItem key={id}>
                   <ImageContainer>
                     <Image
-                      loader={myLoader}
                       src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/${thumb}`}
                       alt={alt}
                       fill

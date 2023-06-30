@@ -22,10 +22,6 @@ const SliderGallery = () => {
 
   if (isLoading) return <Loader />;
 
-  const myLoader = ({ src }: any) => {
-    return `${src}`;
-  };
-
   const onClickHandler = async (id: string) => {
     try {
       await deleteSlide(id);
@@ -43,7 +39,6 @@ const SliderGallery = () => {
             <ImageWrapper>
               <Gradient />
               <Image
-                loader={myLoader}
                 src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/${thumb}`}
                 alt={alt}
                 fill
