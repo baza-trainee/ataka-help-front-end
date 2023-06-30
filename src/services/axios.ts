@@ -36,12 +36,17 @@ axiosPrivateFormData.interceptors.response.use(
 
     if (error.response.status === 401 && !originalRequest._retry) {
       originalRequest._retry = true;
+      try {
+        await refresh();
 
-      await refresh();
-
-      return axiosPrivateFormData(originalRequest);
+        return await axiosPrivateFormData(originalRequest);
+      } catch (error) {
+        sessionStorage.removeItem(
+          `${process.env.NEXT_PUBLIC_SESSION_STORAGE_KEY}`,
+        );
+        return (window.location.href = "/login");
+      }
     }
-
     return Promise.reject(error);
   },
 );
@@ -53,10 +58,16 @@ axiosPrivateJson.interceptors.response.use(
 
     if (error.response.status === 401 && !originalRequest._retry) {
       originalRequest._retry = true;
+      try {
+        await refresh();
 
-      await refresh();
-
-      return axiosPrivateJson(originalRequest);
+        return await axiosPrivateJson(originalRequest);
+      } catch (error) {
+        sessionStorage.removeItem(
+          `${process.env.NEXT_PUBLIC_SESSION_STORAGE_KEY}`,
+        );
+        return (window.location.href = "/login");
+      }
     }
 
     return Promise.reject(error);

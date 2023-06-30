@@ -27,7 +27,7 @@ const PartnersGallery: FC<Partners> = ({ partners, total }) => {
                 <ListItem key={id}>
                   <ImageContainer>
                     <Image
-                      src={`${process.env.NEXT_PUBLIC_API_URL}/${thumb}`}
+                      src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/${thumb}`}
                       alt={alt}
                       fill
                       style={{ objectFit: "cover" }}

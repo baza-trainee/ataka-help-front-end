@@ -30,7 +30,7 @@ const Footer: FC<FooterPropsType> = ({
   const phoneOne = phone1;
   const phoneTwo = phone2;
   const emailOne = email;
-  const reportPath = file;
+  const reportPath = `${process.env.NEXT_PUBLIC_IMAGE_URL}/${file}`;
 
   return (
     <StyledFooter>

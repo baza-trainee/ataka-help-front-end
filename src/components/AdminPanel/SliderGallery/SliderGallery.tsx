@@ -39,7 +39,7 @@ const SliderGallery = () => {
             <ImageWrapper>
               <Gradient />
               <Image
-                src={`${process.env.NEXT_PUBLIC_API_URL}/${thumb}`}
+                src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/${thumb}`}
                 alt={alt}
                 fill
                 style={{

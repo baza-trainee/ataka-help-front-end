@@ -11,6 +11,10 @@ import {
 import AdminButtonDelete from "../../AdminButtonDelete";
 
 const AdminPartnerCard: FC<IPartner> = ({ thumb, alt, id }) => {
+  const myLoader = ({ src }: any) => {
+    return `${process.env.NEXT_PUBLIC_IMAGE_URL}/${thumb}`;
+  };
+
   const onClickHandler = async () => {
     try {
       await deletePartner(id);
@@ -24,7 +28,8 @@ const AdminPartnerCard: FC<IPartner> = ({ thumb, alt, id }) => {
     <ItemPartnerCardStyled>
       <AdminCardImageBoxStyled>
         <Image
-          src={thumb}
+          loader={myLoader}
+          src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/${thumb}`}
           alt={alt}
           fill
           style={{ objectFit: "cover" }}

@@ -41,7 +41,7 @@ const ReportSection = () => {
         <Report>
           <PDFIcon />
           <LinkPDF
-            href={`${process.env.NEXT_PUBLIC_API_URL}/${data.file}`}
+            href={`${process.env.NEXT_PUBLIC_IMAGE_URL}/${data.file}`}
             target="_blank"
           >
             Звітність
