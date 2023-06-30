@@ -25,7 +25,7 @@ const CardsGallery: FC<Cards> = ({ cards, total }) => {
             shownCards?.map(({ id, thumb, title, alt, description }: ICard) => (
               <Card
                 key={id}
-                thumb={`${process.env.NEXT_PUBLIC_API_URL}/${thumb}`}
+                thumb={thumb}
                 title={title}
                 alt={alt}
                 description={description}

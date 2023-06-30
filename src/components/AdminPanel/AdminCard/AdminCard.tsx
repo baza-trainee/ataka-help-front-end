@@ -18,9 +18,7 @@ import AdminButtonDelete from "../AdminButtonDelete";
 
 const AdminCard: FC<ICard> = ({ thumb, title, alt, description, id }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  // const myLoader = ({ src }: any) => {
-  //   return `${process.env.NEXT_PUBLIC_API_URL}/${thumb}`;
-  // };
+
   const openModal = () => {
     setIsModalOpen(true);
   };
@@ -40,8 +38,7 @@ const AdminCard: FC<ICard> = ({ thumb, title, alt, description, id }) => {
         <CardContainer>
           <ImageBoxStyled>
             <Image
-              // loader={myLoader}
-              src={thumb}
+              src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/${thumb}`}
               alt={alt}
               fill
               style={{ objectFit: "cover" }}
