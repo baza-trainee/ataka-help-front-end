@@ -24,7 +24,7 @@ export const Form = styled.form`
 export const Input = styled.input`
   padding: 10px 23px 10px 10px;
   height: 48px;
-  width: 90%;
+  width: 100%;
   color: ${({ theme }) => theme.colors.black[100]};
   font-size: ${({ theme }) => theme.fontSizes[2]};
   font-weight: ${({ theme }) => theme.fontWeights.regular};
@@ -40,7 +40,7 @@ export const Input = styled.input`
     height: 60px;
   }
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
-    width: 367px;    
+    width: 367px;
   }
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[3]}) {
     width: 410px;
@@ -62,7 +62,7 @@ export const Input = styled.input`
 export const Comment = styled.textarea`
   padding: 10px 23px 10px 10px;
   height: 148px;
-  width: 90%;
+  width: 100%;
   resize: none;
   font-size: ${({ theme }) => theme.fontSizes[2]};
   font-weight: ${({ theme }) => theme.fontWeights.regular};
@@ -78,7 +78,7 @@ export const Comment = styled.textarea`
     height: 300px;
   }
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
-    width: 754px;    
+    width: 754px;
   }
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[3]}) {
     width: 846px;
@@ -134,7 +134,7 @@ export const Button = styled.button`
   height: 60px;
   width: 90%;
   color: ${({ theme }) => theme.colors.blue[300]};
-  font-weight: ${({ theme }) => theme.fontWeights.semibold};  
+  font-weight: ${({ theme }) => theme.fontWeights.semibold};
   font-size: ${({ theme }) => theme.fontSizes[5]};
   background-color: transparent;
   border: 2px solid ${({ theme }) => theme.colors.blue[300]};
@@ -155,7 +155,7 @@ export const Button = styled.button`
   }
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
-    margin-top: 60px;    
+    margin-top: 60px;
   }
 
   &[disabled] {
