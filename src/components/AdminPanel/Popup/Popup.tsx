@@ -26,7 +26,7 @@ const Popup: FC<IPopup> = ({ title, onClick, onClose }) => {
           <TitleH3>{`Ви дійсно бажаєте видалити ${title}?`}</TitleH3>
           <PopupGroupBtn>
             <ButtonCancel type="button" onClick={onClose}>
-              Відмінити
+              Скасувати
             </ButtonCancel>
             <ButtonRemove type="button" onClick={onClick}>
               Видалити

@@ -49,7 +49,7 @@ const LoginForm: FC = () => {
 
       router.push("/admin");
     } catch (error: any) {
-      if (error.response.status === 401) {
+      if (error?.response?.status === 401) {
         toast.error("Невірний логін або пароль");
       } else {
         toast.error("Сталася помилка! Спробуйте пізніше");

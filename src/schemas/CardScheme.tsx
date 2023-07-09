@@ -7,7 +7,7 @@ export const CardScheme = yup
     thumb: yup
       .mixed()
       .test("required", "Обов'язкове поле", (value: any) => value?.length > 0)
-      .test("fileSize", "Розмір файлу має бути максимум 2 MВ", (value: any) => {
+      .test("fileSize", "Розмір файлу має бути максимум 5 MВ", (value: any) => {
         return value?.length && value[0].size <= MAX_FILE_SIZE;
       })
       .test("fileType", "Невалідний формат", (value: any) => {
@@ -27,7 +27,7 @@ export const CardScheme = yup
       .string()
       .required("Обов'язкове поле")
       .min(3, "Заголовок має містити мінімум 3 символи")
-      .max(300, "Заголовок має містити максимум 300 символів"),
+      .max(150, "Заголовок має містити максимум 150 символів"),
     description: yup
       .array()
       .of(

@@ -1,5 +1,8 @@
 import styled from "@emotion/styled";
+import Link from "next/link";
+
 import { Title } from "../Common";
+import { Color } from "@/types/styles";
 
 export const StyledTitle = styled(Title)`
   margin-bottom: 32px;
@@ -15,7 +18,7 @@ export const StyledTitle = styled(Title)`
   }
 `;
 export const Text = styled.p`
-  font-size: ${({ theme }) => theme.fontSizes[2]};
+  font-size: ${({ theme }) => theme.fontSizes[3]};
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
     font-size: ${({ theme }) => theme.fontSizes[5]};
@@ -81,4 +84,24 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 24px;
+`;
+
+export const StyledLink = styled(Link)<Color>`
+  display: block;
+  color: ${({ color }) => color};
+  font-size: ${({ theme }) => theme.fontSizes[3]};
+  text-decoration: underline;
+
+  :hover {
+    color: ${({ theme }) => theme.colors.blue[1000]};
+  }
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
+    font-size: ${({ theme }) => theme.fontSizes[5]};
+  }
+`;
+
+export const Item = styled.li`
+  :not(:last-child) {
+    margin-bottom: 14px;
+  }
 `;

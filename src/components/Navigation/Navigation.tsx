@@ -6,11 +6,8 @@ import {
   SubMenuTab,
   SubMenuTitleTab,
 } from "./Navigation.styled";
-import NavigationMobile from "./NavigationMobile";
-import Image from "next/image";
 
 import { useRouter } from "next/router";
-import { theme } from "@/theme";
 
 const Navigation: FC = () => {
   const router = useRouter();

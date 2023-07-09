@@ -7,7 +7,7 @@ export const FileScheme = yup
     thumb: yup
       .mixed()
       .test("required", "Обов'язкове поле", (value: any) => value?.length > 0)
-      .test("fileSize", "Розмір файлу має бути максимум 2 MВ", (value: any) => {
+      .test("fileSize", "Розмір файлу має бути максимум 5 MВ", (value: any) => {
         return value?.length && value[0].size <= MAX_FILE_SIZE;
       })
       .test("fileType", "Невалідний формат", (value: any) => {

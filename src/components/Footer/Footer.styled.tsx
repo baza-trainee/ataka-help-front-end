@@ -90,7 +90,7 @@ export const Copyright = styled.p`
 
 export const ContactsText = styled.a`
   font-weight: ${({ theme }) => theme.fontWeights.medium};
-  font-size: ${({ theme }) => theme.fontSizes[5]};
+  font-size: ${({ theme }) => theme.fontSizes[3]};
   color: ${({ theme }) => theme.colors.white[100]};
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
