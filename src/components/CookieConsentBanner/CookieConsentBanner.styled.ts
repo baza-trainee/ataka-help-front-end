@@ -85,9 +85,10 @@ export const BtnStyled = styled.button`
   text-align: center;
   font-size: ${({ theme }) => theme.fontSizes[2]};
   font-weight: ${({ theme }) => theme.fontWeights.medium};
-  background-color: transparent;
-  color: ${({ theme }) => theme.colors.blue[100]};
+  background-color: ${({ theme }) => theme.colors.blue[100]};
+  color: ${({ theme }) => theme.colors.white[100]};
   border-radius: ${({ theme }) => theme.radii.sm};
+  border-color: transparent;
   transition: background-color 250ms ease-in-out;
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[0]}) {
     margin-left: 20px;

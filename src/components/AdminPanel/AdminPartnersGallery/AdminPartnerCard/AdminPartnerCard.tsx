@@ -19,11 +19,14 @@ const AdminPartnerCard: FC<IPartner> = ({ thumb, alt, id }) => {
       toast.error("Сталася помилка, спробуйте пізніше");
     }
   };
-
+  const imageLoader = ({ src }: any) => {
+    return `${process.env.NEXT_PUBLIC_IMAGE_URL}/${thumb}`;
+  };
   return (
     <ItemPartnerCardStyled>
       <AdminCardImageBoxStyled>
         <Image
+          loader={imageLoader}
           src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/${thumb}`}
           alt={alt}
           fill
