@@ -18,7 +18,7 @@ export const StyledTitle = styled(Title)`
   }
 `;
 export const Text = styled.p`
-  font-size: ${({ theme }) => theme.fontSizes[2]};
+  font-size: ${({ theme }) => theme.fontSizes[3]};
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
     font-size: ${({ theme }) => theme.fontSizes[5]};

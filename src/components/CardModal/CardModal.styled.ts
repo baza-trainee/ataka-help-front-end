@@ -21,7 +21,7 @@ export const ListTextStyled = styled.ul`
 
 export const ItemTextStyled = styled.li`
   display: flex;
-  font-size: ${({ theme }) => theme.fontSizes[4]};
+  font-size: ${({ theme }) => theme.fontSizes[3]};
   font-weight: ${({ theme }) => theme.fontWeights.medium};
   margin-bottom: 16px;
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
