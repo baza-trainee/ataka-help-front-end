@@ -45,6 +45,7 @@ const SliderGallery = () => {
                 style={{
                   objectFit: "cover",
                 }}
+                sizes="(min-width: 1440px) 793px, 100%"
               />
               <Title>{title}</Title>
 
