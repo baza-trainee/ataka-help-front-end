@@ -9,11 +9,13 @@ export const PagesList = styled.ul`
 
 const FooterButtonStyles = ({ theme }: IStyles) => css`
   @media screen and (min-width: ${theme.breakpoints[0]}) {
-    font-size: ${theme.fontSizes[4]};
+    font-size: ${theme.fontSizes[3]};
   }
+
   @media screen and (min-width: ${theme.breakpoints[1]}) {
     font-size: ${theme.fontSizes[1]};
   }
+
   @media screen and (min-width: ${theme.breakpoints[2]}) {
     font-size: ${theme.fontSizes[4]};
   }
@@ -34,8 +36,9 @@ const CookiesButtonStyles = ({ theme }: IStyles) => css`
 export const OpenLink = styled.button<IOpenLink>`
   color: ${({ theme }) => theme.colors.white[100]};
   background-color: transparent;
+
   font-weight: ${({ theme }) => theme.fontWeights.medium};
-  line-height: 150%;
+
   font-style: normal;
   border: none;
 
@@ -44,14 +47,11 @@ export const OpenLink = styled.button<IOpenLink>`
     (isCookiesButtonStyles && CookiesButtonStyles) ||
     FooterButtonStyles}
 
-  text-decoration: ${({ isTextUnderline }) =>
-    isTextUnderline ? "underline" : "none"};
+  border-bottom: ${({ isTextUnderline }) =>
+    isTextUnderline ? "2px solid white" : "none"};
 
   :hover,
   :focus {
-    text-decoration-line: underline;
-    -webkit-text-decoration-line: underline;
-    text-decoration-color: ${({ theme }) => theme.colors.blue[1000]};
-    -webkit-text-decoration-color: ${({ theme }) => theme.colors.blue[1000]};
+    border-bottom: 2px solid ${({ theme }) => theme.colors.blue[1000]};
   }
 `;
