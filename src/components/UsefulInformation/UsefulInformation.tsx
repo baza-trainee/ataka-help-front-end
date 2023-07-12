@@ -1,83 +1,116 @@
 import { FC } from "react";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 import {
   Text,
   ImageContainer,
-  ImageContainerLast,
   TextContainer,
   FlexContainer,
+  Wrapper,
+  StyledTitle,
+  StyledLink,
+  Item,
 } from "./UsefulInformation.styled";
-import { Container, Section, Title } from "../Common";
-import { UsefulInformationProps } from "@/types/components/UsefulInformationProps";
+import { Container, Section } from "../Common";
+import { UsefulInformationProps } from "@/types";
+import { Router } from "next/router";
 
 const UsefulInformation: FC<UsefulInformationProps> = props => {
   const { title, text1, text2 } = props;
+  const pathName = usePathname();
 
   return (
-    <Section>
-      <Container>
-        <Title textAlignM="center" style={{ paddingBottom: "40px" }}>
-          {title}
-        </Title>
-        <FlexContainer>
-          <ImageContainer>
-            <Image
-              src={"/images/two-factor-auth1.png"}
-              alt="UsefulInformation1"
-              fill
-              style={{ objectFit: "cover" }}
-            />
-          </ImageContainer>
-          <TextContainer>
-            <Text data-testid="TextBox1">
-              Це спосіб, який гарантує, що доступ до ваших даних маєте тільки
-              ви, навіть якщо ваш пароль попав до когось іншого.
-            </Text>
-            <br />
-            <Text data-testid="TextBox2">
-              Аутентифікація - це підтвердження, що ви -це саме ви. Перший
-              фактор підтвердження - пароль, який ви встановлюєте до електронної
-              пошти. Другий - найчастіше це СМС, що приходить на запит на ваш
-              номер телефона.
-            </Text>
-            <br />
-            <Text data-testid="TextBox3">
-              Оскільки два фактори захисту розведені по різних гаджетах, це вас
-              захищає двічі надійніше.
-            </Text>
-          </TextContainer>
-        </FlexContainer>
-        <FlexContainer>
-          <ImageContainerLast>
-            <Image
-              src={"/images/two-factor-auth2.png"}
-              alt="UsefulInformation2"
-              fill
-              style={{ objectFit: "cover" }}
-            />
-          </ImageContainerLast>
-          <TextContainer style={{ marginBottom: 0 }}>
-            <Text data-testid="TextBox1">
-              Більшість цифрових продуктів - пошти або банківського сервісу
-              пропонують вам встановити двофакторну аутентифікацію, коли ви
-              реєструєтесь в сервісі.
-            </Text>
-            <br />
-            <Text data-testid="TextBox2">
-              Не нехтуйте цим способом, особливо коли йдеться про банківські
-              дані - так ви максимально захистите себе від крадіжки коштів.
-            </Text>
-            <br />
-            <Text data-testid="TextBox3">
-              Існує близько шести способів аутентифікації крім названих - також
-              відбиток пальця, кодове слово та інші.
-            </Text>
-     
-          </TextContainer>
-        </FlexContainer>
-      </Container>
-    </Section>
+    <>
+      <Section>
+        <Container>
+          <StyledTitle textAlignM="center">{title}</StyledTitle>
+          <Wrapper>
+            <FlexContainer>
+              <ImageContainer>
+                <Image
+                  src={"/images/two-factor-auth1.png"}
+                  alt="UsefulInformation1"
+                  fill
+                  style={{ objectFit: "cover" }}
+                />
+              </ImageContainer>
+              <TextContainer>
+                <Text data-testid="TextBox1">{text1[1]}</Text>
+                <br />
+                <Text data-testid="TextBox2">{text1[2]}</Text>
+                <br />
+                <Text data-testid="TextBox3">{text1?.[3]}</Text>
+              </TextContainer>
+            </FlexContainer>
+            <FlexContainer>
+              <ImageContainer>
+                <Image
+                  src={"/images/two-factor-auth2.png"}
+                  alt="UsefulInformation2"
+                  fill
+                  style={{ objectFit: "cover" }}
+                />
+              </ImageContainer>
+              <TextContainer style={{ marginBottom: 0 }}>
+                <Text data-testid="TextBox1">{text2[1]}</Text>
+                <br />
+                <Text data-testid="TextBox2">{text2[2]}</Text>
+                <br />
+                <Text data-testid="TextBox3">{text2?.[3]}</Text>
+              </TextContainer>
+            </FlexContainer>
+          </Wrapper>
+        </Container>
+      </Section>
+      <Section>
+        <Container>
+          <ul>
+            <Item>
+              <StyledLink
+                href="/useful-information/1"
+                color={
+                  pathName === "/useful-information/1" ? "#5D87F4" : "#010413"
+                }
+              >
+                Як обрати пароль
+              </StyledLink>
+            </Item>
+            <Item>
+              <StyledLink
+                href="/useful-information/2"
+                color={
+                  pathName === "/useful-information/2" ? "#5D87F4" : "#010413"
+                }
+              >
+                Як замінити пароль до акаунту в соціальній мережі
+              </StyledLink>
+            </Item>
+            <Item>
+              <StyledLink
+                href="/useful-information/3"
+                color={
+                  pathName === "/useful-information/3" ? "#5D87F4" : "#010413"
+                }
+              >
+                Що таке двохфакторна аутентифікація
+              </StyledLink>
+            </Item>
+            <Item>
+              <StyledLink
+                href="/useful-information/4"
+                color={
+                  pathName === "/useful-information/4" ? "#5D87F4" : "#010413"
+                }
+              >
+                Як обрати і встановити антивірус
+              </StyledLink>
+            </Item>
+          </ul>
+        </Container>
+      </Section>
+    </>
   );
 };
 

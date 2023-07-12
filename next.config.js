@@ -13,7 +13,7 @@ const nextConfig = {
         protocol: "https",
         hostname: `${process.env.NEXT_PUBLIC_HOSTNAME}`,
         port: "",
-        pathname: `${process.env.NEXT_PUBLIC_PATHNAME}`,
+        pathname: "/static/**",
       },
     ],
   },

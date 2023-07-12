@@ -3,7 +3,7 @@ import { css } from "@emotion/react";
 import { ILinkProps, IStyledLinkProps } from "@/types";
 
 const linkStyles = ({ theme, isFooter }: IStyledLinkProps) => css`
-  font-size: ${isFooter ? `${theme.fontSizes[4]}` : `${theme.fontSizes[1]}`};
+  font-size: ${isFooter ? `${theme.fontSizes[3]}` : `${theme.fontSizes[1]}`};
   font-weight: ${theme.fontWeights.medium};
   color: ${theme.colors.white[100]};
   cursor: pointer;

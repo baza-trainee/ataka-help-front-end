@@ -18,12 +18,7 @@ const AdminPartnersGallery: FC = () => {
     <AdminListPartnersStyled>
       {data &&
         data.partners?.map(({ id, thumb, alt }) => (
-          <AdminPartnerCard
-            key={id}
-            thumb={`${process.env.NEXT_PUBLIC_API_URL}/${thumb}`}
-            alt={alt}
-            id={id}
-          />
+          <AdminPartnerCard key={id} thumb={thumb} alt={alt} id={id} />
         ))}
       <li key={"addPartner"}>
         <LinkAddPartner href={"/admin/partners/form"}>

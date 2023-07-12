@@ -49,6 +49,9 @@ export const OpenLink = styled.button<IOpenLink>`
 
   :hover,
   :focus {
-    text-decoration: underline ${({ theme }) => theme.colors.blue[1000]};
+    text-decoration-line: underline;
+    -webkit-text-decoration-line: underline;
+    text-decoration-color: ${({ theme }) => theme.colors.blue[1000]};
+    -webkit-text-decoration-color: ${({ theme }) => theme.colors.blue[1000]};
   }
 `;

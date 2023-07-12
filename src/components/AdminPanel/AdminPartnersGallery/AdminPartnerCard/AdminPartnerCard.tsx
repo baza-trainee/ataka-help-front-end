@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React, { FC } from "react";
+import { toast } from "react-toastify";
 
 import { IPartner } from "@/types";
 import { deletePartner } from "@/services";
@@ -13,16 +14,20 @@ const AdminPartnerCard: FC<IPartner> = ({ thumb, alt, id }) => {
   const onClickHandler = async () => {
     try {
       await deletePartner(id);
+      toast.success("Логотип партнера успішно видалено");
     } catch (error) {
-      return;
+      toast.error("Сталася помилка, спробуйте пізніше");
     }
   };
-
+  const imageLoader = ({ src }: any) => {
+    return `${process.env.NEXT_PUBLIC_IMAGE_URL}/${thumb}`;
+  };
   return (
     <ItemPartnerCardStyled>
       <AdminCardImageBoxStyled>
         <Image
-          src={thumb}
+          loader={imageLoader}
+          src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/${thumb}`}
           alt={alt}
           fill
           style={{ objectFit: "cover" }}

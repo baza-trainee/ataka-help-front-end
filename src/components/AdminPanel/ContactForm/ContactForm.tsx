@@ -1,4 +1,5 @@
 import { FC, useState } from "react";
+import { toast } from "react-toastify";
 import { useRouter } from "next/router";
 import useSWR from "swr";
 import { useForm, SubmitHandler } from "react-hook-form";
@@ -35,9 +36,10 @@ const ContactForm: FC = () => {
     try {
       setIsLoading(true);
       await sendContacts(data);
+      toast.success("Контакти змінено");
       router.push("/admin/contacts");
     } catch (error) {
-      return;
+      toast.error("Сталася помилка, спробуйте пізніше");
     } finally {
       setIsLoading(false);
     }

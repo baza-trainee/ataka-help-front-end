@@ -1,4 +1,5 @@
 import { FC, useState } from "react";
+import { toast } from "react-toastify";
 import { useRouter } from "next/router";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -42,9 +43,10 @@ const ReportForm: FC = () => {
     try {
       setIsLoading(true);
       await sendReport(formData);
+      toast.success("Звіт успішно додано");
       router.push("/admin/report");
     } catch (error) {
-      return;
+      toast.error("Сталася помилка, спробуйте пізніше");
     } finally {
       setIsLoading(false);
     }

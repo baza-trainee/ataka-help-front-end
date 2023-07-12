@@ -25,7 +25,7 @@ const Card: FC<ICard> = ({ thumb, title, alt, description, id }) => {
       <ItemCardStyled>
         <ImageBoxStyled id={id}>
           <Image
-            src={thumb}
+            src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/${thumb}`}
             alt={alt}
             fill
             style={{ objectFit: "cover" }}

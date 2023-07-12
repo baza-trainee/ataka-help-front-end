@@ -31,8 +31,9 @@ export const BoxTextStyled = styled.div`
   margin-bottom: 46px;
   padding: 6px;
   align-items: center;
-  justify-content: center;
   height: 199px;
+  width: 240px;
+  overflow: hidden;
   flex-grow: 1;
   background-color: ${({ theme }) => theme.colors.white[100]};
 `;

@@ -1,12 +1,24 @@
 import Head from "next/head";
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { IAdminLayout } from "@/types";
 import { MainWrapper } from "./AdminLatout.styled";
 import Header from "./Header";
 import SideBar from "./SideBar";
 import { Section } from "../CommonFormStyles";
+import { useRouter } from "next/router";
 
 const AdminLayout: FC<IAdminLayout> = ({ children, title }) => {
+  const router = useRouter();
+
+  useEffect(() => {
+    let data = sessionStorage.getItem(
+      `${process.env.NEXT_PUBLIC_SESSION_STORAGE_KEY}`,
+    );
+    if (data !== `${process.env.NEXT_PUBLIC_SESSION_STORAGE_VALUE}`) {
+      router.push("/login");
+    }
+  }, [router]);
+
   return (
     <>
       <Head>

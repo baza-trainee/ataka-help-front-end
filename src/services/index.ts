@@ -1,4 +1,4 @@
-export { login, logout, changePassword, refresh } from "./auth";
+export { loginUser, logout, changePassword, refresh } from "./auth";
 
 export {
   getFooterData,

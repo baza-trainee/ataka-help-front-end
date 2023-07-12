@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import useSWR from "swr";
 import Link from "next/link";
 import { useSWRConfig } from "swr";
@@ -26,8 +27,9 @@ const ReportSection = () => {
     try {
       await deleteReport();
       mutate("report", undefined, { revalidate: false });
+      toast.success("Звіт успішно видалено");
     } catch (e) {
-      return;
+      toast.error("Сталася помилка, спробуйте пізніше");
     }
   };
 
@@ -39,7 +41,7 @@ const ReportSection = () => {
         <Report>
           <PDFIcon />
           <LinkPDF
-            href={`${process.env.NEXT_PUBLIC_API_URL}/${data.file}`}
+            href={`${process.env.NEXT_PUBLIC_IMAGE_URL}/${data.file}`}
             target="_blank"
           >
             Звітність

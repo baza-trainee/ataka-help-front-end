@@ -6,7 +6,7 @@ import ContactsSection from "@/components/AdminPanel/ContactsSection";
 
 const Contacts: NextPage = () => {
   return (
-    <AdminLayout>
+    <AdminLayout title="Contacts">
       <RoutingComponent routes={["Категорії", "Контакти"]} />
       <ContactsSection />
     </AdminLayout>

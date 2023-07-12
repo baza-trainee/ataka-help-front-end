@@ -30,11 +30,15 @@ export const StyledButton = styled.button`
   color: ${({ theme }) => theme.colors.blue[300]};
   border: none;
   background-color: transparent;
-
+  margin-top: 32px;
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
     gap: 25px;
     width: 220px;
     height: 104px;
     font-size: ${({ theme }) => theme.fontSizes[6]};
+    margin-top: 48px;
+  }
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
+    margin-top: 60px;
   }
 `;

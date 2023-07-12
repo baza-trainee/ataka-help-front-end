@@ -1,4 +1,5 @@
 import { FC, useState } from "react";
+import { toast } from "react-toastify";
 import Image from "next/image";
 
 import { ICard } from "@/types";
@@ -25,8 +26,9 @@ const AdminCard: FC<ICard> = ({ thumb, title, alt, description, id }) => {
   const onClickHandler = async () => {
     try {
       await deleteCard(id);
+      toast.success("Картку успішно видалено");
     } catch (error) {
-      return;
+      toast.error("Сталася помилка, спробуйте пізніше");
     }
   };
 
@@ -36,7 +38,7 @@ const AdminCard: FC<ICard> = ({ thumb, title, alt, description, id }) => {
         <CardContainer>
           <ImageBoxStyled>
             <Image
-              src={thumb}
+              src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/${thumb}`}
               alt={alt}
               fill
               style={{ objectFit: "cover" }}

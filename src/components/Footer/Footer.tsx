@@ -30,7 +30,7 @@ const Footer: FC<FooterPropsType> = ({
   const phoneOne = phone1;
   const phoneTwo = phone2;
   const emailOne = email;
-  const reportPath = file;
+  const reportPath = `${process.env.NEXT_PUBLIC_IMAGE_URL}/${file}`;
 
   return (
     <StyledFooter>
@@ -38,7 +38,7 @@ const Footer: FC<FooterPropsType> = ({
         <Wrapper>
           <ImageContainer>
             <Image
-              src="/images/logo.png"
+              src="/images/logo.svg"
               fill
               sizes="(min-width: 320px) 173px, (min-width: 834px) 170px, (min-width: 1440px) 237px"
               alt="logo"

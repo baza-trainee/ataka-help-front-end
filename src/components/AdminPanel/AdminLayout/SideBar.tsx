@@ -2,6 +2,8 @@ import { FC } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 
+import { logout } from "@/services";
+import category from "/public/icons/icon-checklist.svg";
 import {
   Aside,
   LinkStyled,
@@ -11,14 +13,24 @@ import {
   Icon,
 } from "./AdminLatout.styled";
 
-import category from "public/icons/icon-checklist.svg";
-import { refresh } from "@/services";
-
 const SideBar: FC = () => {
   const router = useRouter();
+
+  const handleSignOut = async () => {
+    try {
+      await logout();
+      sessionStorage.removeItem(
+        `${process.env.NEXT_PUBLIC_SESSION_STORAGE_KEY}`,
+      );
+      router.push("/login");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <Aside>
-      <Image src={"/images/logo.png"} alt="logo" width={177} height={68} />
+      <Image src={"/images/logo.svg"} alt="logo" width={177} height={68} />
       <CantegoryButton imgSrc={category} imgAlt="logo" title="Категорії" />
       <NavList>
         <LinkStyled
@@ -68,8 +80,8 @@ const SideBar: FC = () => {
         />
         Змінити пароль
       </LinkStyled>
-      <button onClick={refresh}>Refresh</button>
-      <ExitButton onClick={() => console.log("logout")}>
+
+      <ExitButton onClick={() => handleSignOut()}>
         <Icon /> Вихід
       </ExitButton>
     </Aside>
