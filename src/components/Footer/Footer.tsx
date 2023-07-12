@@ -45,12 +45,12 @@ const Footer: FC<FooterPropsType> = ({
             />
           </ImageContainer>
           <LinkList>
-            <ListItem>
+            <ListItem data-testid="TextBox1">
               <NavLink href="/" isFooter={true}>
                 Інциденти
               </NavLink>
             </ListItem>
-            <ListItem>
+            <ListItem data-testid="TextBox2">
               <NavLink href="/about" isFooter={true}>
                 Про проєкт
               </NavLink>
@@ -65,7 +65,7 @@ const Footer: FC<FooterPropsType> = ({
               </ListItem>
             )}
 
-            <ListItem>
+            <ListItem data-testid="TextBox3">
               <FileOpenLink
                 text="Політика конфіденційності"
                 path="/files/politics.pdf"
@@ -73,7 +73,7 @@ const Footer: FC<FooterPropsType> = ({
                 isFooterButtonStyles={true}
               />
             </ListItem>
-            <ListItem>
+            <ListItem data-testid="TextBox4">
               <FileOpenLink
                 text="Правила користування сайтом"
                 path="/files/rules.pdf"
@@ -142,7 +142,7 @@ const Footer: FC<FooterPropsType> = ({
             </IconList>
           </ContactsWrapper>
         </Wrapper>
-        <Copyright>
+        <Copyright data-testid="TextBox5">
           Розробка BazaTraineeUkraine 2023 &#169; Усі права захищені
         </Copyright>
       </Container>
