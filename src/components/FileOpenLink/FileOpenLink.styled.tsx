@@ -8,7 +8,7 @@ export const PagesList = styled.ul`
 `;
 
 const FooterButtonStyles = ({ theme }: IStyles) => css`
-  @media screen and (min-width: ${theme.breakpoints[0]}) {
+  @media screen and (min-width: 320px) {
     font-size: ${theme.fontSizes[3]};
   }
 
