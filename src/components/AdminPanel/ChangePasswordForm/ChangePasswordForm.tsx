@@ -20,9 +20,9 @@ const ChangePasswordForm = () => {
     mode: "all",
     resolver: yupResolver(ChangePasswordScheme),
     defaultValues: {
-      oldPassword: "",
+      currentPassword: "",
       newPassword: "",
-      confirmation: "",
+      newPasswordConfirmed: "",
     },
   });
   const onSubmitHandler: SubmitHandler<IChangePassword> = async data => {
@@ -31,6 +31,7 @@ const ChangePasswordForm = () => {
       await changePassword(data);
       toast.success("Пароль успішно змінено");
     } catch (error) {
+      console.log(error);
       toast.error("Сталася помилка, спробуйте пізніше");
     } finally {
       setIsLoading(false);
@@ -42,10 +43,10 @@ const ChangePasswordForm = () => {
       <Title>Змінити пароль</Title>
       <Label>
         Введіть старий пароль
-        <Input type="text" {...register("oldPassword")} />
+        <Input type="text" {...register("currentPassword")} />
       </Label>
-      {errors.oldPassword && (
-        <ErrorMessage>{errors.oldPassword.message}</ErrorMessage>
+      {errors.currentPassword && (
+        <ErrorMessage>{errors.currentPassword.message}</ErrorMessage>
       )}
       <Label>
         Введіть новий пароль
@@ -56,10 +57,10 @@ const ChangePasswordForm = () => {
       )}
       <Label>
         Підтвердіть новий пароль
-        <Input type="text" {...register("confirmation")} />
+        <Input type="text" {...register("newPasswordConfirmed")} />
       </Label>
-      {errors.confirmation && (
-        <ErrorMessage>{errors.confirmation.message}</ErrorMessage>
+      {errors.newPasswordConfirmed && (
+        <ErrorMessage>{errors.newPasswordConfirmed.message}</ErrorMessage>
       )}
       <SubmitButton disabled={Object.values(errors).length > 0}>
         {isLoading ? <ButtonSpiner /> : "Підтвердити"}

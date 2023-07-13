@@ -4,7 +4,7 @@ import { PASSWORD_REGEX } from "@/constants";
 
 export const ChangePasswordScheme = yup
   .object({
-    oldPassword: yup.string().required("Обов'язкове поле"),
+    currentPassword: yup.string().required("Обов'язкове поле"),
     newPassword: yup
       .string()
       .required("Обов'язкове поле")
@@ -14,7 +14,7 @@ export const ChangePasswordScheme = yup
         PASSWORD_REGEX,
         "Пароль має містити мінімум одну велику літеру, одну маленьку літеру, одну цифру та один спеціальний символ",
       ),
-    confirmation: yup
+    newPasswordConfirmed: yup
       .string()
       .required("Обов'язкове поле")
       .oneOf([yup.ref("newPassword")], "Новий пароль не співпадає"),

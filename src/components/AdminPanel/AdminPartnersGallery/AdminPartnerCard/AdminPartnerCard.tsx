@@ -22,6 +22,7 @@ const AdminPartnerCard: FC<IPartner> = ({ thumb, alt, id }) => {
   const imageLoader = ({ src }: any) => {
     return `${process.env.NEXT_PUBLIC_IMAGE_URL}/${thumb}`;
   };
+
   return (
     <ItemPartnerCardStyled>
       <AdminCardImageBoxStyled>

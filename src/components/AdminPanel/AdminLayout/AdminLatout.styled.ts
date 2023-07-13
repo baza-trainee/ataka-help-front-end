@@ -9,13 +9,15 @@ import { Color } from "@/types/styles";
 
 import { AdminButton } from "./AdminButton";
 
+export const MainContainer = styled.main`
+  width: 100%;
+`;
 export const HeaderWrapper = styled.header`
   display: flex;
   align-items: center;
 
-  width: 100vw;
+  width: 100%;
   height: 63px;
-  padding-left: 265px;
 
   color: ${({ theme }) => theme.colors.white[100]};
   background-color: ${({ theme }) => theme.colors.blue[100]};
@@ -26,20 +28,13 @@ export const HeaderWrapper = styled.header`
 `;
 
 export const MainWrapper = styled.div`
-  padding-left: 240px;
+  display: flex;
 `;
 
 export const Aside = styled.aside`
-  position: fixed;
-  top: 0;
-  left: 0;
-
-  height: 100vh;
   width: 240px;
 
-  padding-top: 48px;
-  padding-left: 32px;
-  padding-right: 32px;
+  padding: 48px 32px 100px;
 
   background-color: ${({ theme }) => theme.colors.blue[100]};
 
@@ -112,9 +107,7 @@ export const ExitButton = styled.button`
   border: none;
   background-color: transparent;
   color: ${({ theme }) => theme.colors.white[100]};
-  position: absolute;
-  bottom: 100px;
-  left: 0;
+  margin-top: 320px;
   line-height: 1.7;
   font-size: ${({ theme }) => theme.fontSizes[3]};
 
@@ -130,4 +123,7 @@ export const Icon = styled(RxExit)`
   height: 24px;
   margin-right: 18px;
   color: currentColor;
+`;
+export const Title = styled.p`
+  margin-left: 24px;
 `;

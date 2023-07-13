@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { FC, useEffect } from "react";
 import { IAdminLayout } from "@/types";
-import { MainWrapper } from "./AdminLatout.styled";
+import { MainContainer, MainWrapper } from "./AdminLatout.styled";
 import Header from "./Header";
 import SideBar from "./SideBar";
 import { Section } from "../CommonFormStyles";
@@ -27,12 +27,13 @@ const AdminLayout: FC<IAdminLayout> = ({ children, title }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header />
+
       <MainWrapper>
         <SideBar />
-        <main>
+        <MainContainer>
+          <Header />
           <Section>{children}</Section>
-        </main>
+        </MainContainer>
       </MainWrapper>
     </>
   );
