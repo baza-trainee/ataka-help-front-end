@@ -1,9 +1,9 @@
-import { HeaderWrapper } from "./AdminLatout.styled";
+import { HeaderWrapper, Title } from "./AdminLatout.styled";
 
 const Header = () => {
   return (
     <HeaderWrapper>
-      <p>Вітаємо!</p>
+      <Title>Вітаємо!</Title>
     </HeaderWrapper>
   );
 };

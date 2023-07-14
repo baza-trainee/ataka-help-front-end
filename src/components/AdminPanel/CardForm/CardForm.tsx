@@ -66,8 +66,12 @@ const CardForm: FC = () => {
       await sendCard(formData);
       toast.success("Нова картка успішно додана");
       router.push("/admin/cards");
-    } catch (e) {
-      toast.error("Сталася помилка, спробуйте пізніше");
+    } catch (e: any) {
+      if (e?.response?.data?.code === 400) {
+        toast.error("Заголовок картки має бути унікальним");
+      } else {
+        toast.error("Сталася помилка, спробуйте пізніше");
+      }
     } finally {
       setIsLoading(false);
     }

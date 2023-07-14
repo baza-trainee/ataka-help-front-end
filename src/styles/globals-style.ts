@@ -15,6 +15,7 @@ export const global = css`
     color: #010413;
     line-height: 1.5;
     font-size: 20px;
+    overflow-y: auto;
     overflow-x: hidden;
   }
 
