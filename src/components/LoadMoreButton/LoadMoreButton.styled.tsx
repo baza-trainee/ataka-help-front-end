@@ -23,7 +23,7 @@ export const StyledButton = styled.button`
   margin: 0 auto;
   gap: 19px;
   width: 184px;
-  height: 70px;
+
   font-size: ${({ theme }) => theme.fontSizes[4]};
   font-weight: ${({ theme }) => theme.fontWeights.medium};
   line-height: 1.5;
@@ -34,7 +34,7 @@ export const StyledButton = styled.button`
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
     gap: 25px;
     width: 220px;
-    height: 104px;
+
     font-size: ${({ theme }) => theme.fontSizes[6]};
     margin-top: 48px;
   }
