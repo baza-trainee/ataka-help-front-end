@@ -13,7 +13,7 @@ export const getStaticProps = async () => {
 
 const Page404: NextPage<NotFoundPagePropsType> = ({ contacts, report }) => {
   return (
-    <UserLayout title="page 404" contacts={contacts} report={report}>
+    <UserLayout title="404" contacts={contacts} report={report}>
       <NotFound />
     </UserLayout>
   );

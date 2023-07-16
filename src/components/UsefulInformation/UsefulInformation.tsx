@@ -94,7 +94,7 @@ const UsefulInformation: FC<UsefulInformationProps> = props => {
                   pathName === "/useful-information/3" ? "#5D87F4" : "#010413"
                 }
               >
-                Що таке двохфакторна аутентифікація
+                Що таке двофакторна аутентифікація
               </StyledLink>
             </Item>
             <Item>

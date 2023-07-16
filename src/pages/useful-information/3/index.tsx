@@ -24,7 +24,7 @@ const TwoFactorAuthentication: NextPage<UsefulInformationPagePropsType> = ({
 
   return (
     <UserLayout
-      title="TwoFactorAuthentication"
+      title="Двофакторна аутентифікація"
       contacts={contacts}
       report={report}
     >

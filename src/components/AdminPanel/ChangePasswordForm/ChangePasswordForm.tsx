@@ -30,9 +30,12 @@ const ChangePasswordForm = () => {
       setIsLoading(true);
       await changePassword(data);
       toast.success("Пароль успішно змінено");
-    } catch (error) {
-      console.log(error);
-      toast.error("Сталася помилка, спробуйте пізніше");
+    } catch (error: any) {
+      if (error?.response?.data?.message === "wrong current password") {
+        toast.error("Невірний старий пароль");
+      } else {
+        toast.error("Сталася помилка, спробуйте пізніше");
+      }
     } finally {
       setIsLoading(false);
     }

@@ -23,11 +23,7 @@ const HowToChooseAntivirus: NextPage<UsefulInformationPagePropsType> = ({
   const blockTwo = information[3].blockTwo;
 
   return (
-    <UserLayout
-      title="HowToChooseAntivirus"
-      contacts={contacts}
-      report={report}
-    >
+    <UserLayout title="Як обрати антивірус" contacts={contacts} report={report}>
       <Slider slider={slider?.slider} />
       <UsefulInformation title={title} text1={blockOne} text2={blockTwo} />
     </UserLayout>

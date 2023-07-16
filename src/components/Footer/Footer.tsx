@@ -22,6 +22,7 @@ import {
   ImageContainer,
   ListItem,
 } from "./Footer.styled";
+import PDFReader from "../PDFReader/PDFReader";
 
 const Footer: FC<FooterPropsType> = ({
   contacts: { phone1, phone2, email },
@@ -57,7 +58,7 @@ const Footer: FC<FooterPropsType> = ({
             </ListItem>
             {file && (
               <ListItem>
-                <FileOpenLink
+                <PDFReader
                   text="Звітність"
                   path={reportPath}
                   isFooterButtonStyles={true}
@@ -66,7 +67,7 @@ const Footer: FC<FooterPropsType> = ({
             )}
 
             <ListItem>
-              <FileOpenLink
+              <PDFReader
                 text="Політика конфіденційності"
                 path="/files/politics.pdf"
                 isTextUnderline
@@ -74,7 +75,7 @@ const Footer: FC<FooterPropsType> = ({
               />
             </ListItem>
             <ListItem>
-              <FileOpenLink
+              <PDFReader
                 text="Правила користування сайтом"
                 path="/files/rules.pdf"
                 isTextUnderline

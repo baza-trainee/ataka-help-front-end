@@ -21,7 +21,7 @@ const Home: NextPage<HomePagePropsType> = ({
   slider,
 }) => {
   return (
-    <UserLayout title="Cases" contacts={contacts} report={report}>
+    <UserLayout title="Інциденти" contacts={contacts} report={report}>
       <Slider slider={slider?.slider} />
       <CardsGallery cards={cards?.cards} total={cards?.total} />
 

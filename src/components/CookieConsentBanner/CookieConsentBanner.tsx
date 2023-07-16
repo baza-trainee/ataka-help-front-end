@@ -9,6 +9,7 @@ import {
 } from "./CookieConsentBanner.styled";
 
 import FileOpenLink from "../FileOpenLink/FileOpenLink";
+import PDFReader from "../PDFReader/PDFReader";
 
 const CookieConsentBanner: FC = () => {
   const [showCookieBanner, setShowCookieBanner] = useState(false);
@@ -27,14 +28,16 @@ const CookieConsentBanner: FC = () => {
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Tab' && backdropRef.current) {
+      if (event.key === "Tab" && backdropRef.current) {
         event.preventDefault();
         const focusableElements = backdropRef.current.querySelectorAll(
-          'a[href], button, textarea, input[type="text"], input[type="radio"], input[type="checkbox"], select'
+          'a[href], button, textarea, input[type="text"], input[type="radio"], input[type="checkbox"], select',
         );
         const firstElement = focusableElements[0] as HTMLElement;
-        const lastElement = focusableElements[focusableElements.length - 1] as HTMLElement;
-  
+        const lastElement = focusableElements[
+          focusableElements.length - 1
+        ] as HTMLElement;
+
         if (document.activeElement === lastElement && !event.shiftKey) {
           firstElement.focus();
         } else if (document.activeElement === firstElement && event.shiftKey) {
@@ -42,11 +45,11 @@ const CookieConsentBanner: FC = () => {
         }
       }
     };
-  
-    document.addEventListener('keydown', handleKeyDown);
-  
+
+    document.addEventListener("keydown", handleKeyDown);
+
     return () => {
-      document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener("keydown", handleKeyDown);
     };
   }, []);
 
@@ -61,7 +64,7 @@ const CookieConsentBanner: FC = () => {
                 Цей сайт використовує файли cookies для правильної роботи і
                 покращення сервісу. Якщо ви погоджуєтесь з їхнім використанням,
                 натисніть ОК. Більше інформації в{" "}
-                <FileOpenLink
+                <PDFReader
                   isTextUnderline
                   isCookiesButtonStyles
                   text={"Політика конфіденційності"}

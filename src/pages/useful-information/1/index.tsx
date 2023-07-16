@@ -23,7 +23,7 @@ const HowToChoosePassword: NextPage<UsefulInformationPagePropsType> = ({
   const blockTwo = information[0].blockTwo;
 
   return (
-    <UserLayout title="HowToChoosePassword" contacts={contacts} report={report}>
+    <UserLayout title="Як обрати пароль" contacts={contacts} report={report}>
       <Slider slider={slider?.slider} />
       <UsefulInformation title={title} text1={blockOne} text2={blockTwo} />
     </UserLayout>

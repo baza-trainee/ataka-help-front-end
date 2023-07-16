@@ -13,7 +13,7 @@ const Form: NextPage = () => {
   };
 
   return (
-    <AdminLayout title="Contacts">
+    <AdminLayout title="Контакти">
       <RoutingComponent
         routes={["Категорії", "Контакти", "Редагувати"]}
         isForm
