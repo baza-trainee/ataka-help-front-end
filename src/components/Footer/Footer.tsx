@@ -1,13 +1,12 @@
 import { FC } from "react";
 import Image from "next/image";
 
-import NavLink from "../NavLink/NavLink";
-import FileOpenLink from "../FileOpenLink/FileOpenLink";
 import { FacebookIcon, LinkedinIcon } from "@/assets/icons";
-
 import { FooterPropsType } from "@/types";
 
 import { Container } from "../Common";
+import PDFReader from "../PDFReader";
+import NavLink from "../NavLink";
 import {
   StyledFooter,
   Wrapper,
@@ -22,7 +21,6 @@ import {
   ImageContainer,
   ListItem,
 } from "./Footer.styled";
-import PDFReader from "../PDFReader/PDFReader";
 
 const Footer: FC<FooterPropsType> = ({
   contacts: { phone1, phone2, email },

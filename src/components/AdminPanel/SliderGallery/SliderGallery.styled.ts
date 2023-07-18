@@ -12,11 +12,13 @@ export const List = styled.ul`
 export const Item = styled.li`
   margin-bottom: 32px;
 `;
+
 export const ImageWrapper = styled.div`
   position: relative;
   width: 793px;
   height: 233px;
 `;
+
 export const Title = styled.h2`
   position: absolute;
   z-index: 2;
@@ -33,6 +35,7 @@ export const Container = styled.li`
   height: 233px;
   border: 1px dashed ${({ theme }) => theme.colors.grey[700]};
 `;
+
 export const StyledLink = styled(Link)`
   display: flex;
   flex-direction: column;
@@ -41,6 +44,7 @@ export const StyledLink = styled(Link)`
   width: 100%;
   height: 100%;
 `;
+
 export const Icon = styled(IoIosAddCircle)`
   display: block;
   margin-bottom: 18px;
@@ -48,6 +52,7 @@ export const Icon = styled(IoIosAddCircle)`
   height: 40px;
   color: ${({ theme }) => theme.colors.blue[1200]};
 `;
+
 export const Text = styled.p`
   font-size: ${({ theme }) => theme.fontSizes[2]};
 `;

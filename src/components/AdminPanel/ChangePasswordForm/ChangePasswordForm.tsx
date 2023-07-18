@@ -3,12 +3,12 @@ import { toast } from "react-toastify";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
+import { changePassword } from "@/services";
 import { ChangePasswordScheme } from "@/schemas";
 import { IChangePassword } from "@/types";
 import ButtonSpiner from "@/components/ButtonSpiner";
 import { ErrorMessage, SubmitButton } from "../CommonFormStyles";
 import { Form, Input, Label, Title } from "./ChangePasswordForm.styled";
-import { changePassword } from "@/services";
 
 const ChangePasswordForm = () => {
   const [isLoading, setIsLoading] = useState(false);

@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import { Container, Section } from "../Common";
 
 export const HeaderWrapper = styled.header`
   display: flex;

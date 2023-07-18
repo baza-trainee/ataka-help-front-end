@@ -1,16 +1,17 @@
 import styled from "@emotion/styled";
 import { LuEdit3 } from "react-icons/lu";
-import { ImBin } from "react-icons/im";
 
 export const StyledLabel = styled.label`
   position: relative;
 `;
+
 export const SubTitle = styled.p`
   margin-bottom: 20px;
   margin-top: 42px;
   margin-left: 10px;
   font-weight: ${({ theme }) => theme.fontWeights.semibold};
 `;
+
 export const Input = styled.input`
   width: 100%;
   height: 57px;
@@ -23,10 +24,12 @@ export const Input = styled.input`
     outline: none;
   }
 `;
+
 export const StyledError = styled.p`
   color: ${({ theme }) => theme.colors.red[100]};
   font-size: ${({ theme }) => theme.fontSizes[0]};
 `;
+
 export const StyledEdit = styled(LuEdit3)`
   position: absolute;
   top: 50%;

@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
+
 import { ILinkProps, IStyledLinkProps } from "@/types";
 
 const linkStyles = ({ theme, isFooter }: IStyledLinkProps) => css`

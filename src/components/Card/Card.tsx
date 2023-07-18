@@ -1,9 +1,7 @@
 import { FC, useState } from "react";
-
-import { ICard } from "@/types";
-
 import Image from "next/image";
 
+import { ICard } from "@/types";
 import {
   ItemCardStyled,
   ImageBoxStyled,
@@ -11,8 +9,8 @@ import {
   BoxTextStyled,
   TextCardStyled,
 } from "./Card.styled";
-import Modal from "../Modal/Modal";
-import CardModal from "../CardModal/CardModal";
+import Modal from "../Modal";
+import CardModal from "../CardModal";
 
 const Card: FC<ICard> = ({ thumb, title, alt, description, id }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);

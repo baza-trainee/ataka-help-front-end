@@ -2,6 +2,7 @@ import { FC, useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useRouter } from "next/router";
+import { toast } from "react-toastify";
 
 import { LoginSchema } from "@/schemas";
 import { ILoginForm } from "@/types";
@@ -19,7 +20,6 @@ import {
   MessageWrapper,
   ParentContainer,
 } from "./LoginForm.styled";
-import { toast } from "react-toastify";
 
 const LoginForm: FC = () => {
   const router = useRouter();

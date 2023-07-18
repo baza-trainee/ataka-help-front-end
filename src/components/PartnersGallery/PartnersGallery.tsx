@@ -1,8 +1,7 @@
 import Image from "next/image";
 import React, { FC, useState } from "react";
 
-import LoadMoreButton from "../LoadMoreButton/LoadMoreButton";
-
+import LoadMoreButton from "../LoadMoreButton";
 import { Section, Container, Title } from "../Common";
 import { List, ImageContainer, ListItem } from "./PartnersGallery.styled";
 import { Partners } from "@/types";

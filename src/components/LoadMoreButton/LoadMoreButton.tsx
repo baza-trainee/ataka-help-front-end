@@ -1,9 +1,8 @@
 import Image from "next/image";
 
 import { ImageContainer, StyledButton } from "./LoadMoreButton.styled";
-type ButtonProp = {
-  onClick?: () => void;
-};
+import { ButtonProp } from "@/types";
+
 const LoadMoreButton = ({ onClick }: ButtonProp) => {
   return (
     <StyledButton type="button" onClick={onClick}>

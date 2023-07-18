@@ -1,10 +1,8 @@
 import { FC } from "react";
+
+import { CardModalProps } from "@/types";
 import { ItemTextStyled, ListTextStyled, TextStyled } from "./CardModal.styled";
 import { Container } from "../Common";
-
-interface CardModalProps {
-  description: string[];
-}
 
 const CardModal: FC<CardModalProps> = ({ description }) => {
   return (

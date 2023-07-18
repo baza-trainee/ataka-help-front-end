@@ -1,7 +1,8 @@
 import Head from "next/head";
 import type { NextPage } from "next";
+
 import LoginForm from "@/components/LoginForm";
-import HeaderLogin from "@/components/HeaderLogin/HeaderLogin";
+import HeaderLogin from "@/components/HeaderLogin";
 
 const Login: NextPage = () => {
   return (

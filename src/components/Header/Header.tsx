@@ -1,12 +1,11 @@
 import { FC, useState } from "react";
+import Image from "next/image";
 
 import { HeaderWrapper, LogoNavWrapper, OpenLinkButton } from "./Header.styled";
-import Navigation from "../Navigation/Navigation";
-
-import Logo from "../Logo/Logo";
+import Navigation from "../Navigation";
+import Logo from "../Logo";
 import NavigationMobile from "../Navigation/NavigationMobile";
 import { Container, Section } from "../Common";
-import Image from "next/image";
 
 import burgerIcon from "/public/icons/burger-menu.svg";
 

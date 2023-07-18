@@ -38,6 +38,7 @@ export const FlexContainer = styled.div`
     justify-content: space-between;
   }
 `;
+
 export const ButtonContainer = styled.div`
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
     display: flex;
@@ -47,31 +48,25 @@ export const ButtonContainer = styled.div`
     height: 433px;
     background-color: ${({ theme }) => theme.colors.blue[500]};
   }
+
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[3]}) {
     width: 627px;
     height: 418px;
   }
 `;
 export const ImageContainer = styled.div`
-
   position: relative;
-
-
   margin-bottom: 48px;
   width: 100%;
   height: 160px;
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
-
     height: 184px;
-
   }
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
     margin-bottom: 60px;
-
     height: 356px;
-
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[3]}) {
     height: 400px;

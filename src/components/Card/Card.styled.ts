@@ -45,6 +45,7 @@ export const ImageBoxStyled = styled.div`
   width: 100%;
   height: 141px;
   margin-bottom: 24px;
+
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[0]}) {
     width: 321px;
     margin-bottom: 32px;
@@ -53,11 +54,13 @@ export const ImageBoxStyled = styled.div`
     width: 308px;
     height: 134px;
   }
+
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
     width: 335px;
     height: 126px;
     margin-bottom: 56px;
   }
+
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[3]}) {
     width: 371px;
     height: 141px;
@@ -76,14 +79,17 @@ export const BoxTextStyled = styled.div`
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[0]}) {
     width: 321px;
   }
+
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
     width: 308px;
     height: 285px;
   }
+
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
     width: 327px;
     height: 273px;
   }
+
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[3]}) {
     width: 371px;
     height: 307px;
@@ -129,6 +135,7 @@ export const BtnCardStyled = styled.button`
     margin-top: 40px;
     margin-bottom: 36px;
   }
+
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
     font-size: ${({ theme }) => theme.fontSizes[4]};
     width: 181px;
@@ -140,6 +147,7 @@ export const BtnCardStyled = styled.button`
     width: 173px;
     height: 50px;
   }
+  
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[3]}) {
     font-size: ${({ theme }) => theme.fontSizes[5]};
     width: 195px;

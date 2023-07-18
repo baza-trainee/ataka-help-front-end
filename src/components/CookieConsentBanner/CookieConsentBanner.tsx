@@ -1,4 +1,6 @@
 import React, { FC, useEffect, useState, useRef } from "react";
+
+import PDFReader from "../PDFReader";
 import {
   BackdropCookieBanner,
   Box,
@@ -7,9 +9,6 @@ import {
   TextStyled,
   TitleStyled,
 } from "./CookieConsentBanner.styled";
-
-import FileOpenLink from "../FileOpenLink/FileOpenLink";
-import PDFReader from "../PDFReader/PDFReader";
 
 const CookieConsentBanner: FC = () => {
   const [showCookieBanner, setShowCookieBanner] = useState(false);

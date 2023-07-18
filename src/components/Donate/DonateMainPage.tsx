@@ -1,8 +1,9 @@
 import { FC } from "react";
+import Image from "next/image";
+
 import { Container, Section } from "../Common";
 import PaymentButton from "../PaymentButton";
 import { ImageContainer } from "./Donate.styled";
-import Image from "next/image";
 import { Gradient } from "../Slider/Slider.styled";
 
 const DonateMainPage: FC = () => {

@@ -1,12 +1,12 @@
+import { useState, FC, SetStateAction, useRef, RefObject } from "react";
 import { Document, Page, pdfjs } from "react-pdf";
 
-import Modal from "../Modal/Modal";
-import { OpenLink } from "../FileOpenLink/FileOpenLink.styled";
-import { useState, FC, SetStateAction, useRef, RefObject } from "react";
 import { IFileOpenLink } from "@/types";
+import Modal from "../Modal";
+import { OpenLink } from "../FileOpenLink/FileOpenLink.styled";
+import { Button, ButtonContainer, PDFWrapper } from "./PDFReader.styled";
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 import "react-pdf/dist/esm/Page/TextLayer.css";
-import { Button, ButtonContainer, PDFWrapper } from "./PDFReader.styled";
 pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 const PDFReader: FC<IFileOpenLink> = ({

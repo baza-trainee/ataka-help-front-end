@@ -1,8 +1,8 @@
 import { FC } from "react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import Link from "next/link";
 
+import { UsefulInformationProps } from "@/types";
 import {
   Text,
   ImageContainer,
@@ -14,8 +14,6 @@ import {
   Item,
 } from "./UsefulInformation.styled";
 import { Container, Section } from "../Common";
-import { UsefulInformationProps } from "@/types";
-import { Router } from "next/router";
 
 const UsefulInformation: FC<UsefulInformationProps> = props => {
   const { title, text1, text2 } = props;
