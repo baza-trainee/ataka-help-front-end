@@ -5,6 +5,7 @@ import Modal from "../Modal";
 import PaymentModal from "../PaymentModal";
 
 const PaymentButton: FC = () => {
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const openModal = () => {
     setIsModalOpen(true);
@@ -12,7 +13,7 @@ const PaymentButton: FC = () => {
 
   return (
     <>
-      <Button onClick={openModal} type="button">
+      <Button onClick={openModal} type="button" data-testid="PaymentButton">
         Фондувати
       </Button>
       {isModalOpen && (
@@ -22,6 +23,7 @@ const PaymentButton: FC = () => {
       )}
     </>
   );
+
 };
 
 export default PaymentButton;

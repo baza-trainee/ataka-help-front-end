@@ -20,7 +20,7 @@ const PartnersGallery: FC<Partners> = ({ partners, total }) => {
       {partners?.length > 0 && (
         <Section>
           <Container>
-            <Title textAlignM="center">Наші партнери</Title>
+            <Title textAlignM="center" data-testid="Partners">Наші партнери</Title>
             <List>
               {shownPartners.map(({ id, thumb, alt }) => (
                 <ListItem key={id}>
@@ -31,6 +31,7 @@ const PartnersGallery: FC<Partners> = ({ partners, total }) => {
                       fill
                       style={{ objectFit: "cover" }}
                       sizes="(min-width: 320px) 100px, (min-width: 834px) 170px, (min-width: 1440px) 237px"
+                      data-testid="Image"
                     />
                   </ImageContainer>
                 </ListItem>
@@ -38,7 +39,7 @@ const PartnersGallery: FC<Partners> = ({ partners, total }) => {
             </List>
 
             {total > 10 && total > shownPartners.length && (
-              <LoadMoreButton onClick={onClickHandler} />
+              <LoadMoreButton data-testid="Button" onClick={onClickHandler} />
             )}
           </Container>
         </Section>
