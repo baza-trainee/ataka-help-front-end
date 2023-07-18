@@ -21,7 +21,7 @@ const Cases: NextPage<AboutPagePropsType> = ({
   partners,
 }) => {
   return (
-    <UserLayout title="About" contacts={contacts} report={report}>
+    <UserLayout title="Про проєкт" contacts={contacts} report={report}>
       <Slider slider={slider?.slider} />
       <About />
       <PartnersGallery partners={partners?.partners} total={partners?.total} />

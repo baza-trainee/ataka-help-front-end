@@ -1,9 +1,28 @@
-import { FC } from "react";
+import { FC, useState } from "react";
+
 import { Button } from "./PaymentButton.styled";
+import Modal from "../Modal";
+import PaymentModal from "../PaymentModal";
 
 const PaymentButton: FC = () => {
 
-  return <Button data-testid="PaymentButton">Фондувати</Button>;
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  return (
+    <>
+      <Button onClick={openModal} type="button" data-testid="PaymentButton">
+        Фондувати
+      </Button>
+      {isModalOpen && (
+        <Modal setIsModalOpen={setIsModalOpen}>
+          <PaymentModal />
+        </Modal>
+      )}
+    </>
+  );
 
 };
 

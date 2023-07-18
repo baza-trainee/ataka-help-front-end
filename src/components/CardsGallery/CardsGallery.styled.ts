@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+
 import { Title } from "../Common";
 
 export const ListCardStyled = styled.ul`

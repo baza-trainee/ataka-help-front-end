@@ -6,7 +6,7 @@ import RoutingComponent from "@/components/AdminPanel/RoutingComponent";
 
 const Cards: NextPage = () => {
   return (
-    <AdminLayout title="Partners">
+    <AdminLayout title="Партнери">
       <RoutingComponent routes={["Категорії", "Лого партнерів"]} />
       <AdminPartnersGallery />
     </AdminLayout>

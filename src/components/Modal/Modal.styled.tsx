@@ -1,13 +1,16 @@
 import styled from "@emotion/styled";
+
 import { Container } from "../Common";
 
 export const ModalWrapper = styled.div`
-  display: block;
+  display: flex;
+  flex-direction: column;
   position: fixed;
   left: 0;
   top: 0;
   width: 100vw;
   height: 100vh;
+
   background-color: ${({ theme }) => theme.colors.white[100]};
   z-index: 3;
 `;
@@ -38,13 +41,12 @@ export const ModalHeader = styled.header`
 `;
 
 export const ModalFooter = styled.div`
+  margin-top: auto;
   height: 100px;
 
   width: 100%;
   background: ${({ theme }) => theme.colors.blue[100]};
 
-  @media screen and (min-width: ${({ theme }) => theme.breakpoints[0]}) {
-  }
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
     height: 48px;
   }
@@ -53,10 +55,12 @@ export const ModalFooter = styled.div`
   }
 `;
 
-export const ModalBody = styled(Container)`
-  min-height: auto;
-  height: calc(100% - 80px - 100px);
-  overflow: auto;
+export const ModalBody = styled.div`
+  display: flex;
+  justify-content: center;
+  min-height: calc(100% - 80px - 100px);
+  overflow-y: auto;
+  overflow-x: hidden;
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
     height: calc(100% - 100px - 48px);

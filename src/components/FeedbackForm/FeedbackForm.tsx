@@ -1,4 +1,4 @@
-import { FC, useRef, useEffect, useState, createRef } from "react";
+import { FC, useRef, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import ReCAPTCHA from "react-google-recaptcha";
@@ -65,11 +65,10 @@ const FeedbackForm: FC = () => {
 
     if (token) {
       try {
-        const result = await axiosPublic.post(`/feedback`, formData);
-        console.log(result);
+        await axiosPublic.post(`/feedback`, formData);
+
         toast.success("Дякуємо за Ваш відгук!");
       } catch (error) {
-        console.log(error);
         toast.error("Сталася помилка... Спробуйте пізніше!");
       }
       captchaRef.current?.reset();

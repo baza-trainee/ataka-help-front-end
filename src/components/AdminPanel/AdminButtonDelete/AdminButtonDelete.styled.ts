@@ -11,6 +11,7 @@ export const ButtonDeleteContainerStyled = styled.div`
   background-color: ${({ theme }) => theme.colors.blue[100]};
   z-index: 3;
 `;
+
 export const ButtonDeleteStyled = styled.button`
   padding: 8px 29px;
   background-color: transparent;

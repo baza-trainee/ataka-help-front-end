@@ -9,6 +9,7 @@ export const Wrapper = styled.div`
   width: 100%;
   height: 120px;
 `;
+
 export const List = styled.ul`
   display: flex;
   align-items: center;
@@ -25,6 +26,7 @@ export const Item = styled.li`
     color: ${({ theme }) => theme.colors.blue[300]};
   }
 `;
+
 export const Text = styled.p`
   margin-right: 18px;
   font-size: ${({ theme }) => theme.fontSizes[3]};

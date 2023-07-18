@@ -1,13 +1,12 @@
 import { FC } from "react";
 import Image from "next/image";
 
-import NavLink from "../NavLink/NavLink";
-import FileOpenLink from "../FileOpenLink/FileOpenLink";
 import { FacebookIcon, LinkedinIcon } from "@/assets/icons";
-
 import { FooterPropsType } from "@/types";
 
 import { Container } from "../Common";
+import PDFReader from "../PDFReader";
+import NavLink from "../NavLink";
 import {
   StyledFooter,
   Wrapper,
@@ -57,7 +56,7 @@ const Footer: FC<FooterPropsType> = ({
             </ListItem>
             {file && (
               <ListItem>
-                <FileOpenLink
+                <PDFReader
                   text="Звітність"
                   path={reportPath}
                   isFooterButtonStyles={true}
@@ -65,16 +64,20 @@ const Footer: FC<FooterPropsType> = ({
               </ListItem>
             )}
 
-            <ListItem data-testid="TextBox3">
-              <FileOpenLink
+
+            <ListItem>
+              <PDFReader
+
                 text="Політика конфіденційності"
                 path="/files/politics.pdf"
                 isTextUnderline
                 isFooterButtonStyles={true}
               />
             </ListItem>
-            <ListItem data-testid="TextBox4">
-              <FileOpenLink
+
+            <ListItem>
+              <PDFReader
+
                 text="Правила користування сайтом"
                 path="/files/rules.pdf"
                 isTextUnderline

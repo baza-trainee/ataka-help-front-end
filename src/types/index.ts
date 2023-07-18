@@ -31,6 +31,9 @@ export type {
   IStyledLinkProps,
   UsefulInformationProps,
   RoutingProps,
+  DeleteProps,
+  CardModalProps,
+  ButtonProp,
 } from "./components";
 
 export type {

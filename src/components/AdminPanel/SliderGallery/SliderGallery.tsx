@@ -61,7 +61,7 @@ const SliderGallery = () => {
       <Container>
         <StyledLink href={"/admin/slider/form"}>
           <Icon />
-          <Text>Додати слайд</Text>
+          <Text>Додати слайдер</Text>
         </StyledLink>
       </Container>
     </List>
