@@ -2,7 +2,7 @@ import { FC } from "react";
 import Image from "next/image";
 
 import { Container, Section } from "../Common";
-import NavLink from "../NavLink/NavLink";
+import NavLink from "../NavLink";
 import {
   TitleH1,
   StyledText,

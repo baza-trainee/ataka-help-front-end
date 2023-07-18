@@ -7,6 +7,7 @@ export const ListCardStyled = styled.ul`
   gap: 24px;
   flex-wrap: wrap;
 `;
+
 export const LinkAddCard = styled(Link)`
   display: flex;
   font-size: ${({ theme }) => theme.fontSizes[1]};

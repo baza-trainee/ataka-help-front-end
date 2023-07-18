@@ -1,11 +1,13 @@
-import Head from "next/head";
 import { FC, useEffect } from "react";
+import Head from "next/head";
+import { useRouter } from "next/router";
+
 import { IAdminLayout } from "@/types";
+
 import { MainContainer, MainWrapper } from "./AdminLatout.styled";
 import Header from "./Header";
 import SideBar from "./SideBar";
 import { Section } from "../CommonFormStyles";
-import { useRouter } from "next/router";
 
 const AdminLayout: FC<IAdminLayout> = ({ children, title }) => {
   const router = useRouter();

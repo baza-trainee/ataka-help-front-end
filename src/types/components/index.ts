@@ -10,3 +10,6 @@ export type { IStyledLinkProps } from "./IStyledLinkProps";
 export type { LayoutPropsType } from "./LayoutPropsType";
 export type { UsefulInformationProps } from "./UsefulInformationProps";
 export type { RoutingProps } from "./RoutingProps";
+export type { DeleteProps } from "./DeleteProps";
+export type { CardModalProps } from "./CardModalProps";
+export type { ButtonProp } from "./ButtonProp";

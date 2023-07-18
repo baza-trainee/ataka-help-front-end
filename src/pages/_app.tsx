@@ -1,15 +1,12 @@
 import type { AppProps } from "next/app";
-
+import Script from "next/script";
+import React, { useEffect, useState } from "react";
+import { Global, ThemeProvider } from "@emotion/react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import { Global, ThemeProvider } from "@emotion/react";
 import { global } from "../styles/globals-style";
 import { theme } from "../theme";
-import Script from "next/script";
-import { useEffect, useState } from "react";
-
-import React from "react";
 import ErrorBoundary from "@/components/ErrorBoundary";
 
 export default function App({

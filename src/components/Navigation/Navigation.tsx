@@ -1,13 +1,13 @@
 import { FC, useEffect, useRef, useState } from "react";
-import NavLink from "../NavLink/NavLink";
+import { useRouter } from "next/router";
+
+import NavLink from "../NavLink";
 import {
   List,
   NavWrapper,
   SubMenuTab,
   SubMenuTitleTab,
 } from "./Navigation.styled";
-
-import { useRouter } from "next/router";
 
 const Navigation: FC = () => {
   const router = useRouter();

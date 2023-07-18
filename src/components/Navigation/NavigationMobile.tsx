@@ -1,6 +1,7 @@
 import { FC, useState } from "react";
 import { useRouter } from "next/router";
-import NavLink from "../NavLink/NavLink";
+
+import NavLink from "../NavLink";
 import {
   ExtendedList,
   NavbarExtendedContainer,

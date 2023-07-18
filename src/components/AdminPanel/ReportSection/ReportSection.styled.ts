@@ -8,6 +8,7 @@ export const Report = styled.div`
   display: flex;
   align-items: center;
 `;
+
 export const LinkPDF = styled.a`
   margin-left: 54px;
   color: ${({ theme }) => theme.colors.black[100]};
@@ -16,21 +17,25 @@ export const LinkPDF = styled.a`
   font-weight: ${({ theme }) => theme.fontWeights.medium};
   border: none;
 `;
+
 export const StyledLink = styled(Link)`
   display: block;
   margin-left: auto;
 `;
+
 export const Edit = styled(LuEdit3)`
   display: block;
   width: 24px;
   height: 24px;
   cursor: pointer;
 `;
+
 export const Bin = styled(ImBin)`
   width: 14px;
   height: 14px;
   color: ${({ theme }) => theme.colors.white[100]};
 `;
+
 export const DeleteButton = styled.button`
   display: flex;
   align-items: center;
@@ -42,6 +47,7 @@ export const DeleteButton = styled.button`
   border-radius: 50%;
   border-color: transparent;
 `;
+
 export const AddReport = styled.div`
   position: relative;
   width: 100%;
@@ -49,11 +55,13 @@ export const AddReport = styled.div`
   border: 1px dashed ${({ theme }) => theme.colors.grey[700]};
   cursor: pointer;
 `;
+
 export const StyledIcon = styled(IoIosAddCircle)`
   width: 60px;
   height: 60px;
   color: ${({ theme }) => theme.colors.blue[1200]};
 `;
+
 export const IconWrapper = styled.div`
   position: absolute;
   top: 50%;
@@ -61,6 +69,7 @@ export const IconWrapper = styled.div`
   transform: translate(-50%, -50%);
   text-align: center;
 `;
+
 export const Text = styled.p`
   font-size: ${({ theme }) => theme.fontSizes[2]};
 `;

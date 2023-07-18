@@ -24,14 +24,17 @@ export const Box = styled.div`
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[0]}) {
     width: 361px;
   }
+
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
     width: 704px;
     padding: 32px;
   }
+
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
     width: 1140px;
     padding: 36px 70px;
   }
+
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[3]}) {
     width: 1280px;
     padding: 40px 80px;
@@ -40,15 +43,19 @@ export const Box = styled.div`
 
 export const BoxTextStyled = styled.div`
   width: 220px;
+
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[0]}) {
     width: 282px;
   }
+
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
     width: 550px;
   }
+
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
     width: 861px;
   }
+
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[3]}) {
     width: 1010px;
   }
@@ -61,6 +68,7 @@ export const TitleStyled = styled.h3`
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
     font-size: ${({ theme }) => theme.fontSizes[3]};
   }
+
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
     font-size: ${({ theme }) => theme.fontSizes[4]};
     margin-bottom: 16px;
@@ -73,6 +81,7 @@ export const TextStyled = styled.p`
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
     font-size: ${({ theme }) => theme.fontSizes[2]};
   }
+
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
     font-size: ${({ theme }) => theme.fontSizes[3]};
   }
@@ -90,18 +99,22 @@ export const BtnStyled = styled.button`
   border-radius: ${({ theme }) => theme.radii.sm};
   border-color: transparent;
   transition: background-color 250ms ease-in-out;
+
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[0]}) {
     margin-left: 20px;
   }
+
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
     font-size: ${({ theme }) => theme.fontSizes[5]};
     width: 60px;
     height: 60px;
     margin-left: 30px;
   }
+
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
     margin-left: 79px;
   }
+
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[3]}) {
     margin-left: 50px;
   }

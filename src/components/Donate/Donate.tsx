@@ -1,6 +1,6 @@
 import { FC } from "react";
-import { Container, Section } from "../Common";
 
+import { Container, Section } from "../Common";
 import PaymentButton from "../PaymentButton";
 import {
   ButtonContainer,

@@ -23,7 +23,7 @@ const HowToChangePassword: NextPage<UsefulInformationPagePropsType> = ({
   const blockTwo = information[1].blockTwo;
 
   return (
-    <UserLayout title="HowToChangePassword" contacts={contacts} report={report}>
+    <UserLayout title="Як змінити пароль" contacts={contacts} report={report}>
       <Slider slider={slider?.slider} />
       <UsefulInformation title={title} text1={blockOne} text2={blockTwo} />
     </UserLayout>

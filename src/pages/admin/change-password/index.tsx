@@ -7,7 +7,7 @@ import ChangePasswordForm from "@/components/AdminPanel/ChangePasswordForm";
 const ChangePasswordPage: NextPage = () => {
   return (
     <section style={{ backgroundColor: "#FBFBFC" }}>
-      <AdminLayout title="Change password">
+      <AdminLayout title="Зміна пароля">
         <RoutingComponent routes={["Змінити пароль"]} />
         <ChangePasswordForm />
       </AdminLayout>

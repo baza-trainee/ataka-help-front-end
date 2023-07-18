@@ -1,8 +1,9 @@
-import { FC, MouseEvent, useEffect, useRef, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { createPortal } from "react-dom";
 import { IModal } from "@/types";
 import { Global } from "@emotion/react";
+
 import {
   CloseIconWrapper,
   LogoWrapper,

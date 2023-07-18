@@ -7,9 +7,11 @@ export const Subtitle = styled.p`
   font-size: ${({ theme }) => theme.fontSizes[5]};
   font-weight: ${({ theme }) => theme.fontWeights.semibold};
 `;
+
 export const EmailTitle = styled(Subtitle)`
   margin-top: 42px;
 `;
+
 export const Contact = styled.p`
   padding-top: 12px;
   padding-bottom: 12px;
@@ -17,6 +19,7 @@ export const Contact = styled.p`
   font-weight: ${({ theme }) => theme.fontWeights.medium};
   border-bottom: 1px solid ${({ theme }) => theme.colors.grey[600]};
 `;
+
 export const StyledLink = styled(Link)`
   display: flex;
   justify-content: center;
