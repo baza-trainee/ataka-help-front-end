@@ -26,13 +26,25 @@ export const ImageContainer = styled.div`
     height: 655px;
   }
 `;
-
+export const PaymentSection = styled.section`
+  margin-top: 32px;
+  margin-bottom: 72px;
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
+    margin-top: 48px;
+    margin-bottom: 100px;
+  }
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
+    margin-top: 110px;
+    margin-bottom: 110px;
+  }
+`;
 export const PaymentContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 320px;
-  margin-top: 32px;
+  margin: 0 auto;
+
   padding-right: 10px;
   padding-left: 10px;
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[0]}) {
@@ -42,14 +54,12 @@ export const PaymentContainer = styled.div`
   }
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
     width: 768px;
-    margin-top: 48px;
     padding-right: 82px;
     padding-left: 82px;
   }
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
     width: 1280px;
     height: 560px;
-    margin-top: 110px;
     padding-right: 70px;
     padding-left: 70px;
     flex-direction: row-reverse;
@@ -58,7 +68,6 @@ export const PaymentContainer = styled.div`
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[3]}) {
     width: 1440px;
     height: 655px;
-    margin-top: 106px;
     padding-right: 100px;
     padding-left: 80px;
   }

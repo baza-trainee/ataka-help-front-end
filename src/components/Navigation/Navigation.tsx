@@ -67,7 +67,7 @@ const Navigation: FC = () => {
               </li>
               <li className={isActiveLink("/useful-information/2")}>
                 <NavLink href="/useful-information/2">
-                  Як замінити пароль до акаунту в соціальній мережі
+                  Як змінити пароль до акаунту в Facebook
                 </NavLink>
               </li>
               <li className={isActiveLink("/useful-information/3")}>
@@ -77,7 +77,7 @@ const Navigation: FC = () => {
               </li>
               <li className={isActiveLink("/useful-information/4")}>
                 <NavLink href="/useful-information/4">
-                  Як обрати і встановити антивірус
+                  Як встановити антивірус
                 </NavLink>
               </li>
             </SubMenuTab>
