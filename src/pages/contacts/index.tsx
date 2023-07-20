@@ -14,7 +14,13 @@ export const getStaticProps = async () => {
 
 const Contacts: NextPage<ContactsPagePropsType> = ({ contacts, report }) => {
   return (
-    <UserLayout title="Контакти" contacts={contacts} report={report}>
+    <UserLayout
+      title="Контакти"
+      contacts={contacts}
+      report={report}
+      content="Сторінка контактів та форма зворотного зв'язку: надішліть запитання, пропозиції або відгуки та зв'яжіться з нами зручним способом."
+      keywords="Проєкт Ataka Help, зворотний зв'язок, контактна інформація"
+    >
       <ContactsSection contacts={contacts} />
       <FeedbackClientForm />
     </UserLayout>

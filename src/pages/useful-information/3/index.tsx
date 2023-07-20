@@ -27,6 +27,8 @@ const TwoFactorAuthentication: NextPage<UsefulInformationPagePropsType> = ({
       title="Двофакторна аутентифікація"
       contacts={contacts}
       report={report}
+      content="Двофакторна аутентифікація: подвійний захист даних через пароль і СМС. Забезпечте надійний захист для свого акаунту та банківських даних."
+      keywords="Двофакторна аутентифікація, захист даних, способи аутентифікації"
     >
       <Slider slider={slider?.slider} />
       <UsefulInformation title={title} text1={blockOne} text2={blockTwo} />

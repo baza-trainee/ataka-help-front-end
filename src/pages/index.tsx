@@ -21,7 +21,13 @@ const Home: NextPage<HomePagePropsType> = ({
   slider,
 }) => {
   return (
-    <UserLayout title="Інциденти" contacts={contacts} report={report}>
+    <UserLayout
+      title="Інциденти"
+      contacts={contacts}
+      report={report}
+      content="Отримайте корисні директиви та інструкції для забезпечення онлайн-безпеки. Дізнайтеся, як захистити себе від шахрайства, фішингу та інших онлайн-загроз. Будьте в курсі та приймайте обґрунтовані рішення для захисту."
+      keywords="кібершахрайство, фішинг, захист рахунку, персональна інформація"
+    >
       <Slider slider={slider?.slider} />
       <CardsGallery cards={cards?.cards} total={cards?.total} />
 
