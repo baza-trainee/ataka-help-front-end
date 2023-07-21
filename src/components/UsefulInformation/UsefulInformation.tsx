@@ -42,23 +42,25 @@ const UsefulInformation: FC<UsefulInformationProps> = props => {
                 <Text data-testid="TextBox3">{text1?.[3]}</Text>
               </TextContainer>
             </FlexContainer>
-            <FlexContainer>
-              <ImageContainer>
-                <Image
-                  src={"/images/two-factor-auth2.png"}
-                  alt="UsefulInformation2"
-                  fill
-                  style={{ objectFit: "cover" }}
-                />
-              </ImageContainer>
-              <TextContainer style={{ marginBottom: 0 }}>
-                <Text data-testid="TextBox1">{text2[1]}</Text>
-                <br />
-                <Text data-testid="TextBox2">{text2[2]}</Text>
-                <br />
-                <Text data-testid="TextBox3">{text2?.[3]}</Text>
-              </TextContainer>
-            </FlexContainer>
+            {text2[1] !== "" && (
+              <FlexContainer>
+                <ImageContainer>
+                  <Image
+                    src={"/images/two-factor-auth2.png"}
+                    alt="UsefulInformation2"
+                    fill
+                    style={{ objectFit: "cover" }}
+                  />
+                </ImageContainer>
+                <TextContainer style={{ marginBottom: 0 }}>
+                  <Text data-testid="TextBox1">{text2[1]}</Text>
+                  <br />
+                  <Text data-testid="TextBox2">{text2[2]}</Text>
+                  <br />
+                  <Text data-testid="TextBox3">{text2?.[3]}</Text>
+                </TextContainer>
+              </FlexContainer>
+            )}
           </Wrapper>
         </Container>
       </Section>
