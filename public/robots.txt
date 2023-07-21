@@ -13,4 +13,4 @@ Disallow: /*_middlewareManifest.js$
 Disallow: /*_ssgManifest.js$
 Disallow: /*.js$
 
-Sitemap: https://api.foradmin.fun/sitemap.xml
+Sitemap: https://ataka-help.tech/sitemap.xml

@@ -5,7 +5,7 @@ const Sitemap = () => {
 };
 
 export const getServerSideProps: GetServerSideProps = async ({ res }) => {
-  const BASE_URL = "https://api.foradmin.fun";
+  const BASE_URL = "https://ataka-help.tech";
 
   const staticPaths = [
     `${BASE_URL}/`,
