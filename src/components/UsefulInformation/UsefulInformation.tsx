@@ -31,6 +31,7 @@ const UsefulInformation: FC<UsefulInformationProps> = props => {
                   src={"/images/two-factor-auth1.png"}
                   alt="UsefulInformation1"
                   fill
+                  sizes="(min-width: 320px) 320px, (min-width: 393px) 361px, (min-width: 768px) 704px, (min-width: 1280px) 560px, (min-width: 1440px) 628px"
                   style={{ objectFit: "cover" }}
                 />
               </ImageContainer>
@@ -49,6 +50,7 @@ const UsefulInformation: FC<UsefulInformationProps> = props => {
                     src={"/images/two-factor-auth2.png"}
                     alt="UsefulInformation2"
                     fill
+                    sizes="(min-width: 320px) 320px, (min-width: 393px) 361px, (min-width: 768px) 704px, (min-width: 1280px) 560px, (min-width: 1440px) 628px"
                     style={{ objectFit: "cover" }}
                   />
                 </ImageContainer>
