@@ -8,4 +8,6 @@ export type LayoutPropsType = {
   children: ReactNode;
   contacts: Contacts;
   report: Report;
+  content?: string;
+  keywords?: string;
 };

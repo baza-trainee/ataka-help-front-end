@@ -1,16 +1,13 @@
 import styled from "@emotion/styled";
 
-import { Container } from "../Common";
-
 export const ModalWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
   position: fixed;
+
   left: 0;
   top: 0;
   width: 100vw;
   height: 100vh;
-
+  overflow: auto;
   background-color: ${({ theme }) => theme.colors.white[100]};
   z-index: 3;
 `;
@@ -58,15 +55,15 @@ export const ModalFooter = styled.div`
 export const ModalBody = styled.div`
   display: flex;
   justify-content: center;
+
   min-height: calc(100% - 80px - 100px);
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: auto;
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[1]}) {
-    height: calc(100% - 100px - 48px);
+    min-height: calc(100% - 100px - 48px);
   }
   @media screen and (min-width: ${({ theme }) => theme.breakpoints[2]}) {
-    height: calc(100% - 180px - 90px);
+    min-height: calc(100% - 180px - 90px);
   }
 `;
 

@@ -23,7 +23,13 @@ const HowToChooseAntivirus: NextPage<UsefulInformationPagePropsType> = ({
   const blockTwo = information[3].blockTwo;
 
   return (
-    <UserLayout title="Як обрати антивірус" contacts={contacts} report={report}>
+    <UserLayout
+      title="Як обрати антивірус"
+      contacts={contacts}
+      report={report}
+      content="Як встановити антивірус: оберіть розробника, завантажте програму і забезпечте захист від атак з інтернету. Рекомендації для встановлення антивіруса на різних пристроях."
+      keywords="Встановлення антивіруса, налаштування антивірусу, Microsoft Defender"
+    >
       <Slider slider={slider?.slider} />
       <UsefulInformation title={title} text1={blockOne} text2={blockTwo} />
     </UserLayout>

@@ -1,0 +1,16 @@
+User-agent: Googlebot
+Disallow: /admin/
+
+User-agent: Googlebot
+Disallow: /login/
+
+User-agent: *
+Allow: /
+
+Disallow: /*.json$
+Disallow: /*_buildManifest.js$
+Disallow: /*_middlewareManifest.js$
+Disallow: /*_ssgManifest.js$
+Disallow: /*.js$
+
+Sitemap: https://api.foradmin.fun/sitemap.xml

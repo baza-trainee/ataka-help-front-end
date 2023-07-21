@@ -21,7 +21,13 @@ const Cases: NextPage<AboutPagePropsType> = ({
   partners,
 }) => {
   return (
-    <UserLayout title="Про проєкт" contacts={contacts} report={report}>
+    <UserLayout
+      title="Про проєкт"
+      contacts={contacts}
+      report={report}
+      content="Проєкт Ataka Help: боротьба з шахрайством в мережі та інформування про способи обману. Захистіть свої платіжні дані та уникніть шахрайських атак."
+      keywords="Проєкт Ataka Help, шахрайство в мережі, боротьба з шахрайством, поради щодо захисту"
+    >
       <Slider slider={slider?.slider} />
       <About />
       <PartnersGallery partners={partners?.partners} total={partners?.total} />
