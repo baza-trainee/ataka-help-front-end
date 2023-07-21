@@ -24,11 +24,11 @@ const UserLayout: FC<LayoutPropsType> = ({
         <meta name="keywords" content={keywords} />
         <meta name="robots" content="index,follow" />
         <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="ATAKA HELP"/>
-        <meta property="og:url" content="https://api.foradmin.fun/" />
+        <meta property="og:site_name" content="ATAKA HELP" />
+        <meta property="og:url" content="https://ataka-help.tech/" />
         <meta
           name="google-site-verification"
-          content="KfoNCXZttdK-RF3bODHzc03TXse7F_KR2aJStvy4GYs"
+          content="eIzaFMR-qJZsyqQrZZakgX4uvkioJNascPxu9bFRmVg"
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
