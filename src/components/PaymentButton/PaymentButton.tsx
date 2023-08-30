@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 
 import { Button } from "./PaymentButton.styled";
 import Modal from "../Modal";
@@ -8,12 +8,20 @@ import CryptoJS from "crypto-js";
 
 const PaymentButton: FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [hostname, setHostname] = useState("");
+
+  useEffect(() => {
+    // Only access window.location.hostname in the browser context
+    if (typeof window !== "undefined") {
+      setHostname(window.location.hostname);
+    }
+  }, []);
   const openModal = () => {
     setIsModalOpen(true);
   };
 
   const merchantAccount = "ataka_help_vercel_app";
-  const merchantDomainName = window.location.hostname;
+  const merchantDomainName = hostname;
   const merchantTransactionSecureType = "AUTO";
 
   const orderReference = Date.now().toString();
