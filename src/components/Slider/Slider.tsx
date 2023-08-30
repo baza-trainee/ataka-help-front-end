@@ -57,6 +57,7 @@ const Slider: FC<Sliders> = ({ slider }) => {
             <CarouselBox key={id}>
               <Gradient />
               <Image
+                loading="eager"
                 src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/${thumb}`}
                 alt={alt}
                 fill

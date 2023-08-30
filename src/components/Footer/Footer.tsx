@@ -64,10 +64,8 @@ const Footer: FC<FooterPropsType> = ({
               </ListItem>
             )}
 
-
             <ListItem>
               <PDFReader
-
                 text="Політика конфіденційності"
                 path="/files/politics.pdf"
                 isTextUnderline
@@ -77,7 +75,6 @@ const Footer: FC<FooterPropsType> = ({
 
             <ListItem>
               <PDFReader
-
                 text="Правила користування сайтом"
                 path="/files/rules.pdf"
                 isTextUnderline
@@ -95,10 +92,7 @@ const Footer: FC<FooterPropsType> = ({
                     width={24}
                     height={24}
                   />
-                  <ContactsText href="tel:380932830000">
-                    {phoneOne}
-                    {/* +38 093 802 7214 */}
-                  </ContactsText>
+                  <ContactsText href="#">{phoneOne}</ContactsText>
                 </ContactItem>
               )}
               {phoneTwo && (
@@ -109,10 +103,7 @@ const Footer: FC<FooterPropsType> = ({
                     width={24}
                     height={24}
                   />
-                  <ContactsText href="tel:380932830000">
-                    {phoneTwo}
-                    {/* +38 063 628 6630 */}
-                  </ContactsText>
+                  <ContactsText href="#">{phoneTwo}</ContactsText>
                 </ContactItem>
               )}
               {emailOne && (
@@ -123,22 +114,25 @@ const Footer: FC<FooterPropsType> = ({
                     width={24}
                     height={24}
                   />
-                  <ContactsText href="mailto:example@gmail.com">
-                    {emailOne}
-                    {/* info@ataka-help.tech */}
-                  </ContactsText>
+                  <ContactsText href="#">{emailOne}</ContactsText>
                 </ContactItem>
               )}
             </ContactsList>
 
             <IconList>
               <li>
-                <IconLink href="#" target="_blank">
+                <IconLink
+                  href="https://www.facebook.com/people/Ataka-Help/100095417461425/"
+                  target="_blank"
+                >
                   <FacebookIcon />
                 </IconLink>
               </li>
               <li>
-                <IconLink href="#" target="_blank">
+                <IconLink
+                  href="https://www.linkedin.com/showcase/ataka-help/about/?viewAsMember=true"
+                  target="_blank"
+                >
                   <LinkedinIcon />
                 </IconLink>
               </li>
