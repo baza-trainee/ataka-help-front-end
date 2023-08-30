@@ -20,8 +20,8 @@ const PaymentButton: FC = () => {
   //   setIsModalOpen(true);
   // };
 
-  const merchantAccount = "test_merch_n1";
-  const merchantDomainName = "https://ataka-help.vercel.app";
+  const merchantAccount = "ataka_help_vercel_app";
+  const merchantDomainName = "https://ataka-help.vercel.app/";
   const merchantTransactionSecureType = "AUTO";
 
   const orderReference = Date.now().toString();
@@ -44,10 +44,10 @@ const PaymentButton: FC = () => {
       ...productCount,
       ...productPrice,
     ].join(";");
-    // const encodedString = new TextEncoder().encode(message);
+    const wordArray = CryptoJS.enc.Utf8.parse(message);
     const hash = CryptoJS.HmacMD5(
-      message,
-      "flk3409refn54t54t*FNJRET",
+      wordArray,
+      `${process.env.NEXT_PUBLIC_WAY_FOR_PAY_KEY}`,
     ).toString();
 
     //TODO: return url
