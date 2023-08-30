@@ -8,20 +8,20 @@ import CryptoJS from "crypto-js";
 
 const PaymentButton: FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [hostname, setHostname] = useState("");
+  // const [hostname, setHostname] = useState("");
 
-  useEffect(() => {
-    // Only access window.location.hostname in the browser context
-    if (typeof window !== "undefined") {
-      setHostname(window.location.hostname);
-    }
-  }, []);
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
+  // useEffect(() => {
+
+  //   if (typeof window !== "undefined") {
+  //     setHostname(window.location.hostname);
+  //   }
+  // }, []);
+  // const openModal = () => {
+  //   setIsModalOpen(true);
+  // };
 
   const merchantAccount = "ataka_help_vercel_app";
-  const merchantDomainName = hostname;
+  const merchantDomainName = "ataka-help.vercel.app";
   const merchantTransactionSecureType = "AUTO";
 
   const orderReference = Date.now().toString();
@@ -48,13 +48,12 @@ const PaymentButton: FC = () => {
       message,
       `${process.env.NEXT_PUBLIC_WAY_FOR_PAY_KEY}`,
     ).toString();
-
+    //TODO: return url
     const paymentData: any = {
       merchantAccount,
       merchantDomainName,
       merchantTransactionSecureType,
       merchantSignature: hash,
-      // returnUrl: "",
       orderReference,
       orderDate,
       amount,
