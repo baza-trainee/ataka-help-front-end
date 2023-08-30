@@ -21,9 +21,8 @@ const PaymentButton: FC = () => {
   // };
 
   const merchantAccount = "ataka_help_vercel_app";
-  const merchantDomainName = "https://ataka-help.vercel.app/";
+  const merchantDomainName = "ataka-help.vercel.app";
   const merchantTransactionSecureType = "AUTO";
-
   const orderReference = Date.now().toString();
   const orderDate = Date.now();
   const amount = 10;
@@ -64,6 +63,7 @@ const PaymentButton: FC = () => {
       productPrice,
       merchantSignature: hash,
     };
+
     try {
       const response = await axios.post(
         "https://secure.wayforpay.com/pay",
