@@ -38,7 +38,7 @@ const PaymentButton: FC = () => {
     ].join(";");
     const hash = CryptoJS.HmacMD5(
       message,
-      `${process.env.NEXT_WAY_FOR_PAY_KEY}`,
+      `${process.env.NEXT_PUBLIC_WAY_FOR_PAY_KEY}`,
     ).toString();
 
     const paymentData: any = {
