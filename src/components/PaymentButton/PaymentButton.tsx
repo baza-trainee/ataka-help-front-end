@@ -20,7 +20,7 @@ const PaymentButton: FC = () => {
   //   setIsModalOpen(true);
   // };
 
-  const merchantAccount = "ataka_help_vercel_app";
+  const merchantAccount = "test_merch_n1";
   const merchantDomainName = "https://ataka-help.vercel.app";
   const merchantTransactionSecureType = "AUTO";
 
@@ -44,10 +44,12 @@ const PaymentButton: FC = () => {
       ...productCount,
       ...productPrice,
     ].join(";");
+    // const encodedString = new TextEncoder().encode(message);
     const hash = CryptoJS.HmacMD5(
       message,
-      `${process.env.NEXT_PUBLIC_WAY_FOR_PAY_KEY}`,
+      "flk3409refn54t54t*FNJRET",
     ).toString();
+
     //TODO: return url
     const paymentData: any = {
       merchantAccount,
