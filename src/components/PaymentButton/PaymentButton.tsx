@@ -51,9 +51,10 @@ const PaymentButton: FC = () => {
 
     //TODO: return url
     const paymentData: any = {
+      transactionType: "CREATE_INVOICE",
       merchantAccount,
       merchantDomainName,
-      merchantTransactionSecureType,
+      apiVersion: 1,
       orderReference,
       orderDate,
       amount,
@@ -66,7 +67,7 @@ const PaymentButton: FC = () => {
 
     try {
       const response = await axios.post(
-        "https://secure.wayforpay.com/pay",
+        "https://api.wayforpay.com/api",
         paymentData,
       );
       console.log(response);
