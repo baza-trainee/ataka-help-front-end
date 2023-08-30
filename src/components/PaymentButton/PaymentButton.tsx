@@ -21,7 +21,7 @@ const PaymentButton: FC = () => {
   // };
 
   const merchantAccount = "ataka_help_vercel_app";
-  const merchantDomainName = "ataka-help.vercel.app";
+  const merchantDomainName = "https://ataka-help.vercel.app";
   const merchantTransactionSecureType = "AUTO";
 
   const orderReference = Date.now().toString();
@@ -53,7 +53,6 @@ const PaymentButton: FC = () => {
       merchantAccount,
       merchantDomainName,
       merchantTransactionSecureType,
-      merchantSignature: hash,
       orderReference,
       orderDate,
       amount,
@@ -61,6 +60,7 @@ const PaymentButton: FC = () => {
       productName,
       productCount,
       productPrice,
+      merchantSignature: hash,
     };
     try {
       const response = await axios.post(
