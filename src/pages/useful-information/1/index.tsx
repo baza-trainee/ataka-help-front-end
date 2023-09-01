@@ -31,7 +31,13 @@ const HowToChoosePassword: NextPage<UsefulInformationPagePropsType> = ({
       keywords="обрати пароль, формат паролю, складність паролю"
     >
       <Slider slider={slider?.slider} />
-      <UsefulInformation title={title} text1={blockOne} text2={blockTwo} />
+      <UsefulInformation
+        title={title}
+        text1={blockOne}
+        text2={blockTwo}
+        src_1={"/images/woman-working-computer-network-graphic-overlay.jpg"}
+        src_2={"null"}
+      />
     </UserLayout>
   );
 };

@@ -31,7 +31,13 @@ const TwoFactorAuthentication: NextPage<UsefulInformationPagePropsType> = ({
       keywords="Двофакторна аутентифікація, захист даних, способи аутентифікації"
     >
       <Slider slider={slider?.slider} />
-      <UsefulInformation title={title} text1={blockOne} text2={blockTwo} />
+      <UsefulInformation
+        title={title}
+        text1={blockOne}
+        text2={blockTwo}
+        src_1={"/images/two-factor-auth1.png"}
+        src_2={"/images/two-factor-auth2.png"}
+      />
     </UserLayout>
   );
 };

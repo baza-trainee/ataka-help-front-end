@@ -12,11 +12,12 @@ import {
   StyledTitle,
   StyledLink,
   Item,
+  ImageGradient,
 } from "./UsefulInformation.styled";
 import { Container, Section } from "../Common";
 
 const UsefulInformation: FC<UsefulInformationProps> = props => {
-  const { title, text1, text2 } = props;
+  const { title, text1, text2, src_1, src_2 } = props;
   const pathName = usePathname();
 
   return (
@@ -27,8 +28,9 @@ const UsefulInformation: FC<UsefulInformationProps> = props => {
           <Wrapper>
             <FlexContainer>
               <ImageContainer>
+                <ImageGradient />
                 <Image
-                  src={"/images/two-factor-auth1.png"}
+                  src={src_1}
                   alt="UsefulInformation1"
                   fill
                   sizes="(min-width: 320px) 320px, (min-width: 393px) 361px, (min-width: 768px) 704px, (min-width: 1280px) 560px, (min-width: 1440px) 628px"
@@ -46,8 +48,9 @@ const UsefulInformation: FC<UsefulInformationProps> = props => {
             {text2[1] !== "" && (
               <FlexContainer>
                 <ImageContainer>
+                  <ImageGradient />
                   <Image
-                    src={"/images/two-factor-auth2.png"}
+                    src={src_2}
                     alt="UsefulInformation2"
                     fill
                     sizes="(min-width: 320px) 320px, (min-width: 393px) 361px, (min-width: 768px) 704px, (min-width: 1280px) 560px, (min-width: 1440px) 628px"
