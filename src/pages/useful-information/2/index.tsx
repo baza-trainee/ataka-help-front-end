@@ -31,7 +31,13 @@ const HowToChangePassword: NextPage<UsefulInformationPagePropsType> = ({
       keywords="Зміна паролю, налаштування безпеки, підозра на злам"
     >
       <Slider slider={slider?.slider} />
-      <UsefulInformation title={title} text1={blockOne} text2={blockTwo} />
+      <UsefulInformation
+        title={title}
+        text1={blockOne}
+        text2={blockTwo}
+        src_1={"/images/5913859_3074190.jpg"}
+        src_2={"/images/businessman-logging-his-tablet.jpg"}
+      />
     </UserLayout>
   );
 };

@@ -105,3 +105,14 @@ export const Item = styled.li`
     margin-bottom: 14px;
   }
 `;
+export const ImageGradient = styled.div`
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+    0deg,
+    rgba(52, 108, 207, 0.2),
+    rgba(52, 108, 207, 0.2)
+  );
+`;

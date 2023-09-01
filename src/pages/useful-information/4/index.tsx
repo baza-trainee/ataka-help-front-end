@@ -31,7 +31,13 @@ const HowToChooseAntivirus: NextPage<UsefulInformationPagePropsType> = ({
       keywords="Встановлення антивіруса, налаштування антивірусу, Microsoft Defender"
     >
       <Slider slider={slider?.slider} />
-      <UsefulInformation title={title} text1={blockOne} text2={blockTwo} />
+      <UsefulInformation
+        title={title}
+        text1={blockOne}
+        text2={blockTwo}
+        src_1={"/images/3d-internet-secuirty-badge-min.jpg"}
+        src_2={"/images/close-up-smartphone-with-mock-up-min.jpg"}
+      />
     </UserLayout>
   );
 };

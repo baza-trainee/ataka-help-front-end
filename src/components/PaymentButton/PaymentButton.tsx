@@ -32,6 +32,7 @@ const PaymentButton: FC = () => {
   const productPrice = [10];
 
   const onClickHandler = async () => {
+    event?.preventDefault();
     const message = [
       merchantAccount,
       merchantDomainName,
@@ -77,18 +78,14 @@ const PaymentButton: FC = () => {
   };
   return (
     <>
-      <Button
-        onClick={onClickHandler}
-        type="button"
-        data-testid="PaymentButton"
-      >
-        Фондувати
-      </Button>
-      {isModalOpen && (
+      <form onSubmit={onClickHandler}>
+        <Button data-testid="PaymentButton">Фондувати</Button>
+      </form>
+      {/* {isModalOpen && (
         <Modal setIsModalOpen={setIsModalOpen}>
           <PaymentModal />
         </Modal>
-      )}
+      )} */}
     </>
   );
 };
