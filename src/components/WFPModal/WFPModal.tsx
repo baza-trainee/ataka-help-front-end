@@ -82,6 +82,11 @@ const WFPModal = () => {
             value="ataka-help.vercel.app"
             readOnly
           />
+          <HiddenInput
+            name="returnUrl"
+            value="https://ataka-help.vercel.app/return"
+            readOnly
+          />
           <HiddenInput name="merchantSignature" value={hash} readOnly />
           <HiddenInput
             name="orderReference"
