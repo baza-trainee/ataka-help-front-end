@@ -11,107 +11,38 @@ import {
   ImageContainer,
   Button,
 } from "./WFPModal.styled";
-import { useForm } from "react-hook-form";
-import axios from "axios";
 
 const WFPModal = () => {
-  // const [price, setPrice] = useState("");
-  // console.log(price);
-  // const changeValue = (value: string) => {
-  //   setPrice(value);
-  // };
-  const {
-    register,
-    handleSubmit,
-    control,
-    setValue,
-    formState: { errors },
-  } = useForm({
-    mode: "all",
-    defaultValues: {
-      merchantAccount: process.env.NEXT_PUBLIC_MERCHANT_ACCOUNT,
-      merchantAuthType: "SimpleSignature",
-      merchantDomainName: "ataka-help.vercel.app",
-      returnUrl: "https://ataka-help.vercel.app/return",
-      orderReference: Date.now().toString(),
-      orderDate: Date.now().toString(),
-      amount: "",
-      currency: "UAH",
-      "productName[]": ["Ataka Help Support"],
-      "productCount[]": ["1"],
-      "productPrice[]": [""],
-      merchantSignature: "",
-    },
-  });
-
-  const onSubmitHandler = async (data: any) => {
-    const signatureData = CryptoJS.enc.Utf8.parse(
-      [
-        data["merchantAccount"],
-        data["merchantDomainName"],
-        data["orderReference"],
-        data["orderDate"],
-        data["amount"],
-        data["currency"],
-        ...data["productName[]"],
-        ...data["productCount[]"],
-        ...data["productPrice[]"],
-      ].join(";"),
-    );
-    const merchantSignature = CryptoJS.HmacMD5(
-      signatureData,
-      `${process.env.NEXT_PUBLIC_WAY_FOR_PAY_KEY}`,
-    ).toString();
-    const paymentData = {
-      merchantAccount: data["merchantAccount"],
-      merchantDomainName: data["merchantDomainName"],
-      merchantAuthType: data["merchantAuthType"],
-      orderReference: data["orderReference"],
-      orderDate: data["orderDate"],
-      amount: data["amount"],
-      currency: data["currency"],
-      "productName[]": data["productName[]"],
-      "productCount[]": data["productCount[]"],
-      "productPrice[]": [data["amount"]],
-      returnUrl: data["returnUrl"],
-      merchantSignature,
-    };
-    console.log(paymentData);
-    try {
-      const response = await axios.post(
-        "https://secure.wayforpay.com/pay",
-        paymentData,
-      );
-      console.log(response);
-    } catch (error) {
-      console.log(error);
-    }
+  const [price, setPrice] = useState("");
+  const setValue = (value: string) => {
+    setPrice(value);
   };
-  // const merchantAccount = process.env.NEXT_PUBLIC_MERCHANT_ACCOUNT;
-  // const merchantDomainName = "ataka-help.vercel.app";
-  // const orderReference = Date.now().toString();
-  // const orderDate = Date.now().toString();
-  // const amount = price;
-  // const currency = "UAH";
-  // const productName = ["Ataka Help Support"];
-  // const productCount = ["1"];
-  // const productPrice = [price];
-  // const message = [
-  //   merchantAccount,
-  //   merchantDomainName,
-  //   orderReference,
-  //   orderDate,
-  //   amount,
-  //   currency,
-  //   ...productName,
-  //   ...productCount,
-  //   ...productPrice,
-  // ].join(";");
-  // const wordArray = CryptoJS.enc.Utf8.parse(message);
-  // const hash = CryptoJS.HmacMD5(
-  //   wordArray,
-  //   `${process.env.NEXT_PUBLIC_WAY_FOR_PAY_KEY}`,
-  // ).toString();
+
+  const merchantAccount = process.env.NEXT_PUBLIC_MERCHANT_ACCOUNT;
+  const merchantDomainName = "ataka-help.vercel.app";
+  const orderReference = Date.now().toString();
+  const orderDate = Date.now().toString();
+  const amount = price;
+  const currency = "UAH";
+  const productName = ["Ataka Help Support"];
+  const productCount = ["1"];
+  const productPrice = [price];
+  const message = [
+    merchantAccount,
+    merchantDomainName,
+    orderReference,
+    orderDate,
+    amount,
+    currency,
+    ...productName,
+    ...productCount,
+    ...productPrice,
+  ].join(";");
+  const wordArray = CryptoJS.enc.Utf8.parse(message);
+  const hash = CryptoJS.HmacMD5(
+    wordArray,
+    `${process.env.NEXT_PUBLIC_WAY_FOR_PAY_KEY}`,
+  ).toString();
 
   return (
     <FlexContainer>
@@ -126,93 +57,56 @@ const WFPModal = () => {
       </ImageContainer>
       <Wrapper>
         <Container>
-          <Value onClick={() => setValue("amount", "50")}>50 UAH</Value>
-          <Value onClick={() => setValue("amount", "100")}>100 UAH</Value>
-          <Value onClick={() => setValue("amount", "200")}>200 UAH</Value>
+          <Value onClick={() => setValue("50")}>50 UAH</Value>
+          <Value onClick={() => setValue("100")}>100 UAH</Value>
+          <Value onClick={() => setValue("200")}>200 UAH</Value>
         </Container>
         <form
-          onSubmit={handleSubmit(onSubmitHandler)}
-          // method="post"
-          // action="https://secure.wayforpay.com/pay"
-          // accept-сharset="utf-8"
+          method="post"
+          action="https://secure.wayforpay.com/pay"
+          accept-сharset="utf-8"
         >
           <HiddenInput
-            {...register("merchantAccount")}
-            // name="merchantAccount"
-            // value={`${process.env.NEXT_PUBLIC_MERCHANT_ACCOUNT}`}
-            // readOnly
+            name="merchantAccount"
+            value={`${process.env.NEXT_PUBLIC_MERCHANT_ACCOUNT}`}
+            readOnly
           />
           <HiddenInput
-            {...register("merchantAuthType")}
-            // name="merchantAuthType"
-            // value="SimpleSignature"
-            // readOnly
+            name="merchantAuthType"
+            value="SimpleSignature"
+            readOnly
           />
           <HiddenInput
-            {...register("merchantDomainName")}
-            // name="merchantDomainName"
-            // value="ataka-help.vercel.app"
-            // readOnly
+            name="merchantDomainName"
+            value="ataka-help.vercel.app"
+            readOnly
           />
           <HiddenInput
-            {...register("returnUrl")}
-            // name="returnUrl"
-            // value="https://ataka-help.vercel.app/return"
-            // readOnly
+            name="returnUrl"
+            value="https://ataka-help.vercel.app/return"
+            readOnly
           />
-          <HiddenInput
-            // name="merchantSignature"
-            // value={hash}
-            // readOnly
-            {...register("merchantSignature")}
-          />
-          <HiddenInput
-            // name="orderReference"
-            // value={orderReference}
-            // readOnly
-            {...register("orderReference")}
-          />
-          <HiddenInput
-            // name="orderDate"
-            // value={orderDate}
-            // readOnly
-            {...register("orderDate")}
-          />
+          <HiddenInput name="merchantSignature" value={hash} readOnly />
+          <HiddenInput name="orderReference" value={orderReference} readOnly />
+          <HiddenInput name="orderDate" value={orderDate} readOnly />
           <Input
-            {...register("amount")}
-            // name="amount"
-            // value={price}
-            // onChange={e => changeValue(e.target.value)}
+            name="amount"
+            value={price}
+            onChange={e => setValue(e.target.value)}
             placeholder="Інша сума"
             type="number"
             min={1}
             max={10000}
             required
           />
+          <HiddenInput name="currency" value="UAH" readOnly />
           <HiddenInput
-            // name="currency"
-            // value="UAH"
-            // readOnly
-            {...register("currency")}
+            name="productName[]"
+            value="Ataka Help Support"
+            readOnly
           />
-          <HiddenInput
-            {...register("productName[]")}
-            // name="productName[]"
-            // value="Ataka Help Support"
-            // readOnly
-          />
-          <HiddenInput
-            // name="productPrice[]"
-            // value={price}
-            // readOnly
-            {...register("productPrice[]")}
-          />
-          <HiddenInput
-            // name="productCount[]"
-            // value="1"
-            // readOnly
-            {...register("productCount[]")}
-          />
+          <HiddenInput name="productPrice[]" value={price} readOnly />
+          <HiddenInput name="productCount[]" value="1" readOnly />
           <Button type="submit">Фондувати</Button>
         </form>
       </Wrapper>
