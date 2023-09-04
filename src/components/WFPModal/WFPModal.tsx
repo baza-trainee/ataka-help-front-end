@@ -1,4 +1,3 @@
-import axios from "axios";
 import CryptoJS from "crypto-js";
 import Image from "next/image";
 import { useState } from "react";
