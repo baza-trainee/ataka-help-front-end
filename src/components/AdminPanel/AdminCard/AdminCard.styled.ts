@@ -12,7 +12,7 @@ export const ItemCardStyled = styled.li`
   background-color: ${({ theme }) => theme.colors.blue[400]};
 
   box-shadow: 0px 33px 13px rgba(0, 0, 0, 0.01),
-    0px 19px 11px rgba(0, 0, 0, 0.05), 0px 8px 8px rgba(0, 0, 0, 0.09),
+    0px 19px 11px rgba(0, 0, 0, 0.06), 0px 8px 8px rgba(0, 0, 0, 0.09),
     0px 2px 5px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
 `;
 
